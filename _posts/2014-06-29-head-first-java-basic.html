@@ -1,0 +1,82 @@
+---
+author: jeromechan
+comments: true
+date: 2014-06-29 00:55:29+00:00
+layout: post
+slug: head-first-java-basic
+permalink: /2014/06/29/:title/
+title: 入门JAVA，你需要知道的一些简单的不能再简单了的知识点
+wordpress_id: 14
+categories:
+- 技术编程
+tags:
+- Java
+---
+
+<ol>
+	<li>编程离不开参考物，Java的强大正在于它的海纳百川</li>
+	<li>Java的参考文档形式：
+（a）原生HTML形式
+（b）排版CHM形式
+（c）其它…</li>
+	<li>从Java doc里看ooad世界
+（a）包-接口-类-异常-错误的阐述，应有尽有
+（b）类的方法和属性的说明和使用说明，让你一如既往都感觉是在书写hello world</li>
+	<li>package的分类
+（a）java.*：基础语言包
+（b）javax.*：jdk扩展包
+（c）org.*：第三方功能包
+（d）com.sun.*：sun公司提供的功能包，因其不具备兼容性，变更大，并不在std-api-doc内公开<!--more--></li>
+	<li>java.lang包
+（a）默认自动引入
+（b）包含了Java语言所需要的基本功能类和接口的信息，是进行Java编程的基础
+（c）Object类
+&lt;1&gt; Object类是Java语言的灵魂，所有的Java类（除了Object类）都是Object类的儿子，它的所有方法将出现在所有类的内部，这就是Java继承树的唯一根，这就是独具Java语言特色的单根继承体系
+&lt;2&gt; equals方法
+判断两个对象内容是否相同。Object.equals()实现如下：
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0024.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image002[4]" alt="clip_image002[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0024_thumb.jpg" width="225" height="78" border="0" /></a>
+&lt;3&gt; finalize方法
+概念与构造函数相反，如同C++中的析构函数一般，该方法会被JVM自动调用执行垃圾回收。
+&lt;4&gt; hashcode方法
+获取一个散列码数值，使用这个散列码可以快速判断对象是否<b>不相同</b>。
+两个内容相同的对象，hashcode返回值必须相同，而对于两个不相同的对象，返回的hashcode也有可能相同。
+&lt;5&gt; toString方法
+显示对象内容时会被系统自动调用的方法
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0044.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image004[4]" alt="clip_image004[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0044_thumb.jpg" width="244" height="67" border="0" /></a>
+（d）Math类
+&lt;1&gt; 放置常用的数学常数和方法
+&lt;2&gt; 类的常数和方法皆是静态类型的
+（e） String和StringBuffer
+都是代表任意多个字符串组成的序列，两者实现的区别，一般把String看成固定的字符串，而StringBuffer看成可变的字符串。并不是说前者不能变更，而是因为前者变更如同品牌笔记本维修主板一般，直接取新替换，浪费机器资源；而后者则是维修自身。
+String类的声明
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0054.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image005[4]" alt="clip_image005[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0054_thumb.png" width="244" height="136" border="0" /></a>
+其实String类还有好多方法，例如charAt()，compareTo()，compareToIgnoreCase()，concat()，equals()，length()等等
+StringBuffer类的声明
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0064.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image006[4]" alt="clip_image006[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0064_thumb.png" width="244" height="25" border="0" /></a>
+String与StringBuffer间的转换关系
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0084.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image008[4]" alt="clip_image008[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0084_thumb.jpg" width="244" height="89" border="0" /></a>
+诸如此类的方法多如绵绵春雨，还是等待大家慢慢深入研究吧:D</li>
+	<li>java.util包
+（a）时间日期类
+Date类（deprecated）
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0094.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image009[4]" alt="clip_image009[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0094_thumb.png" width="244" height="108" border="0" /></a>
+绝对时间与相对时间的互转
+绝对时间-&gt;相对时间：getTime()
+相对时间-&gt;绝对时间：
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0104.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image010[4]" alt="clip_image010[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0104_thumb.png" width="229" height="53" border="0" /></a>
+Calendar类（recommend）
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0124.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image012[4]" alt="clip_image012[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0124_thumb.jpg" width="244" height="89" border="0" /></a>
+要提一下的是，它家的add(Calendar.YEAR, 1)方法可以实现计算某字段之后添加或减少一定的数值</li>
+	<li>集成框架（CF）
+List系列类：按索引值操作数据，允许存放重复元素
+Set系列类：按索引值操作数据，不允许存放重复数据
+Map系列类：按照名称操作数据，名称不允许重复，值可以重复，一个名称对应唯一的值
+简而言之，CF类的复杂性在于它们使用了数据结构类型进行存储和实现，具备了该种数据结构的特点。
+示例1：LIST
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0134.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image013[4]" alt="clip_image013[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0134_thumb.png" width="244" height="80" border="0" /></a>
+示例2：SET
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0144.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image014[4]" alt="clip_image014[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0144_thumb.png" width="244" height="125" border="0" /></a>
+示例3：MAP
+<a href="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0154.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="clip_image015[4]" alt="clip_image015[4]" src="http://aboutcoder.com/wp-content/uploads/2013/08/clip_image0154_thumb.png" width="244" height="115" border="0" /></a>其实大家也都会发现，以上谈到的都只是些边边角角的JAVA最基本的知识。
+所谓学海无涯苦作舟，大家就乘着风，扬起帆，继续前进吧。</li>
+</ol>
