@@ -8,8 +8,16 @@ author_introduction: Hello! I am a mixed web developer and blogger from China. C
 email: admin@aboutcoder.com
 permalink: /weblog/:categories/:title/
 markdown: kramdown
-highlighter: pygments
-encoding: utf-8
+kramdown:
+  input: GFM
+  use_coderay: true
+  coderay:
+    coderay_line_numbers: nil
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+encoding: "utf-8"
+markdown_ext: "markdown,md"
 JB :
   categories_path: categories.html
 safe: false
