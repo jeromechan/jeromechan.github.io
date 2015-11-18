@@ -1,6 +1,6 @@
 baseurl:
-url: "http://blog.aboutcoder.com"
-production_url: "http://blog.aboutcoder.com"
+url: "http://aboutcoder.com"
+production_url: "http://aboutcoder.com"
 name: About Coder
 description: About Coder | Light, Bright, Sky – Talk About Development
 author: Jerome Chan
