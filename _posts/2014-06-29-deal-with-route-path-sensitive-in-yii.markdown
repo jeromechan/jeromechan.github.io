@@ -1,7 +1,7 @@
 ---
 author: jeromechan
 comments: true
-date: 2014-06-29 00:50:28+00:00
+date: 2013-07-29 00:50:28+00:00
 layout: post
 slug: deal-with-route-path-sensitive-in-yii
 title: 关于Yii路由大小写敏感的解决方案

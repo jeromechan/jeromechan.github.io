@@ -1,7 +1,7 @@
 ---
 author: jeromechan
 comments: true
-date: 2014-06-29 00:51:36+00:00
+date: 2013-06-29 00:51:36+00:00
 layout: post
 slug: how-to-translate-var-name-between-camel-and-underline
 title: 代码规范之驼峰vs下划线风格转换方案
