@@ -6,7 +6,7 @@ description: About Coder | Light, Bright, Sky – Talk About Development
 author: Jerome Chan
 author_introduction: Hello! I am a mixed web developer and blogger from China. Currently I work for Tuniu.COM. I love to write about daily issues and web development trends. Welcome to white down your feelings about articles I wrote, and every visitor can find out more about me through Twitter, Facebook, Sina Weibo, GitHub and LinkedIn.
 email: admin@aboutcoder.com
-permalink: /weblog/:title/
+permalink: /weblog/:categories/:title/
 markdown: kramdown
 highlighter: pygments
 encoding: utf-8
