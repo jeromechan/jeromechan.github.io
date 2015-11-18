@@ -20,4 +20,4 @@ encoding: "utf-8"
 markdown_ext: "markdown,md"
 JB :
   categories_path: categories.html
-safe: false
+safe: true
