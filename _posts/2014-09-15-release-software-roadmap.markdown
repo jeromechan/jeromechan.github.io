@@ -20,7 +20,7 @@ tags:
 
 
 
-[![软件版本轨迹图](http://aboutcoder.com/wp-content/uploads/2014/09/软件版本轨迹图1-1024x328.png)](http://aboutcoder.com/wp-content/uploads/2014/09/软件版本轨迹图1.png)
+[![软件版本轨迹图](http://blog.aboutcoder.com/wp-content/uploads/2014/09/软件版本轨迹图1-1024x328.png)](http://blog.aboutcoder.com/wp-content/uploads/2014/09/软件版本轨迹图1.png)
 
 
 

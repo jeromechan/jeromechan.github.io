@@ -20,4 +20,4 @@ tags:
 （4）PHPUnit入门
 （5）说说Selenium
 （6）Yii && UnitTest<!-- more -->
-[gview file="http://aboutcoder.com/wp-content/uploads/2013/08/15-learn-PHPUnit.ppt"]
+[gview file="http://blog.aboutcoder.com/wp-content/uploads/2013/08/15-learn-PHPUnit.ppt"]

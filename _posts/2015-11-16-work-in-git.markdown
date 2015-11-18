@@ -21,13 +21,13 @@ tags:
 #### 一、关于Git与Subversion的区别
 
 
-[![DraggedImage](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage1-1024x1013.png)](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage1.png)
+[![DraggedImage](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage1-1024x1013.png)](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage1.png)
 
 
 #### 二、目前我们用Subversion是怎么执行软件过程的
 
 
-[![DraggedImage-1](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-1-1024x437.png)](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-1.png)
+[![DraggedImage-1](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-1-1024x437.png)](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-1.png)
 
 
 #### 三、优势与缺点
@@ -146,7 +146,7 @@ tags:
 <blockquote>认识Git的几个关键目录</blockquote>
 
 
-[![DraggedImage-2](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-2.png)](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-2.png)
+[![DraggedImage-2](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-2.png)](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-2.png)
 
 
 
@@ -168,7 +168,7 @@ tags:
 <blockquote>常用的Git操作</blockquote>
 
 
-[![134623_LGJb_1469576](http://aboutcoder.com/wp-content/uploads/2015/11/134623_LGJb_1469576.png)](http://aboutcoder.com/wp-content/uploads/2015/11/134623_LGJb_1469576.png)
+[![134623_LGJb_1469576](http://blog.aboutcoder.com/wp-content/uploads/2015/11/134623_LGJb_1469576.png)](http://blog.aboutcoder.com/wp-content/uploads/2015/11/134623_LGJb_1469576.png)
 
 
 
@@ -253,7 +253,7 @@ tags:
 <blockquote>一图胜过千言万语</blockquote>
 
 
-[![DraggedImage-3](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-3.png)](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-3.png)
+[![DraggedImage-3](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-3.png)](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-3.png)
 
 
 <blockquote>关键几个分支的概念全解</blockquote>
@@ -310,7 +310,7 @@ tags:
 #### 八、GitHub Flow
 
 
-[![DraggedImage-4](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-4.png)](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-4.png)
+[![DraggedImage-4](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-4.png)](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-4.png)
 
 
 #### 九、Mike Flow (Base on 《Git in Practice》)
@@ -321,19 +321,19 @@ tags:
 <blockquote>Single Pattern</blockquote>
 
 
-[![DraggedImage-5](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-5.png)](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-5.png)
+[![DraggedImage-5](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-5.png)](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-5.png)
 
 
 <blockquote>Multiple Pattern</blockquote>
 
 
-[![DraggedImage-6](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-6.png)](http://aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-6.png)
+[![DraggedImage-6](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-6.png)](http://blog.aboutcoder.com/wp-content/uploads/2015/11/DraggedImage-6.png)
 
 
 #### 十、Jerome Flow (I call it this name^_^)
 
 
-[![jerome-git-flow](http://aboutcoder.com/wp-content/uploads/2015/11/jerome-git-flow1.jpg)](http://aboutcoder.com/wp-content/uploads/2015/11/jerome-git-flow1.jpg)
+[![jerome-git-flow](http://blog.aboutcoder.com/wp-content/uploads/2015/11/jerome-git-flow1.jpg)](http://blog.aboutcoder.com/wp-content/uploads/2015/11/jerome-git-flow1.jpg)
 
 
 #### _参考资料_

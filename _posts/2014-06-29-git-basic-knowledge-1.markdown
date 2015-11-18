@@ -46,18 +46,18 @@ _备注：本文内容来源于作者分享的PPT之“Finding Mr.Git”_
 
 
 二、 侬晓得使用Git经常说的一句话是什么吗？
-[![image](http://aboutcoder.com/wp-content/uploads/2013/08/image_thumb46.png)](http://aboutcoder.com/wp-content/uploads/2013/08/image46.png)
+[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb46.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image46.png)
 
 
 三、 那些年，版本控制的那些事儿
 
 其实，可以简单归结成以下几幅图
-[![image](http://aboutcoder.com/wp-content/uploads/2013/08/image_thumb47.png)](http://aboutcoder.com/wp-content/uploads/2013/08/image47.png)
+[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb47.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image47.png)
 
 
 <!-- more -->四、 Git是领军人物
 实现外观上，Git是这样子做到与众不同的
-[![image](http://aboutcoder.com/wp-content/uploads/2013/08/image_thumb48.png)](http://aboutcoder.com/wp-content/uploads/2013/08/image48.png)
+[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb48.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image48.png)
 
 
 五、什么是Git 
@@ -78,7 +78,7 @@ _备注：本文内容来源于作者分享的PPT之“Finding Mr.Git”_
 
 	
   4. Git的三个工作区域，如下图：
-[![image](http://aboutcoder.com/wp-content/uploads/2013/08/image_thumb49.png)](http://aboutcoder.com/wp-content/uploads/2013/08/image49.png)
+[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb49.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image49.png)
 
 
 六、 Git文件级别的基本操作

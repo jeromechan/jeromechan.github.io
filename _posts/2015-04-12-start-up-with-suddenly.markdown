@@ -26,4 +26,4 @@ tags:
 
 
 
-[![Screen Shot 2015-04-12 at 12.36.56 PM](http://aboutcoder.com/wp-content/uploads/2015/04/Screen-Shot-2015-04-12-at-12.36.56-PM.png)](http://aboutcoder.com/wp-content/uploads/2015/04/Screen-Shot-2015-04-12-at-12.36.56-PM.png)
+[![Screen Shot 2015-04-12 at 12.36.56 PM](http://blog.aboutcoder.com/wp-content/uploads/2015/04/Screen-Shot-2015-04-12-at-12.36.56-PM.png)](http://blog.aboutcoder.com/wp-content/uploads/2015/04/Screen-Shot-2015-04-12-at-12.36.56-PM.png)
