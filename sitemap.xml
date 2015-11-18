@@ -2,13 +2,13 @@
 layout: null
 sitemap:
   exclude: 'yes'
-<!--
-可以设置在指定的页面中
-sitemap:
-      priority: 0.6
-      exclude: 'yes'
-      changefreq: 'monthly'-->
 ---
+        <!--
+        可以设置在指定的页面中
+        sitemap:
+              priority: 0.6
+              exclude: 'yes'
+              changefreq: 'monthly'-->
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
