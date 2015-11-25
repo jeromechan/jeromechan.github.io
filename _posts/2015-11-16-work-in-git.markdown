@@ -8,7 +8,7 @@ title: Git软件开发过程
 wordpress_id: 302
 permalink: /2015/11/16/work-in-git/
 categories:
-- Project Management
+- Management
 tags:
 - Git
 - git flow

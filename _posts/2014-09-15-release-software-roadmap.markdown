@@ -9,7 +9,7 @@ wordpress_id: 151
 permalink: /2014/09/15/release-software-roadmap/
 categories:
 - Programming
-- Project Management
+- Management
 tags:
 - 版本发布
 - 软件版本
