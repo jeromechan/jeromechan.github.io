@@ -22,7 +22,7 @@ tags:
 
 它，可能让你半夜不睡，反复研究网上的弹唱视频。
 
-[![](http://img.xiami.com/images/collect_pic/10-24/1382592783_g8gT.jpg)](http://img.xiami.com/images/collect_pic/10-24/1382592783_g8gT.jpg)
+[![](/images/2014-06-29-love-with-guitar/1382592783_g8gT.jpg)](/images/2014-06-29-love-with-guitar/1382592783_g8gT.jpg)
 
 然后，随着时间流逝，人事变迁，
 
@@ -30,13 +30,13 @@ tags:
 
 而你，也不会注意到。
 
-[![](http://img.xiami.com/images/collect_pic/10-24/1382592809_EWKb.jpg)](http://img.xiami.com/images/collect_pic/10-24/1382592809_EWKb.jpg)
+[![](/images/2014-06-29-love-with-guitar/1382592809_EWKb.jpg)](/images/2014-06-29-love-with-guitar/1382592809_EWKb.jpg)
 
 要到很久以后，又听见吉他的旋律时，才会想起曾经的疯狂。
 
 希望，还能够把它找出来，重温珍贵的回忆。
 
-[![](http://img.xiami.com/images/collect_pic/10-24/1382592827_URH4.jpg)](http://img.xiami.com/images/collect_pic/10-24/1382592827_URH4.jpg)
+[![](/images/2014-06-29-love-with-guitar/1382592827_URH4.jpg)](/images/2014-06-29-love-with-guitar/1382592827_URH4.jpg)
 
 -------------------------------------------------------------
 

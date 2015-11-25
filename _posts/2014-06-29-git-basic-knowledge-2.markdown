@@ -35,7 +35,7 @@ $ git branch -[option]
 
 分支的合并如下图流程示例 
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb.png)](/images/2014-06-29-git-basic-knowledge-2/image.png)
 
 <!-- more -->3. 分支的衍合（详见PPT-11）
 
@@ -50,13 +50,13 @@ $ git branch -[option]
 
 分支的衍合如下图流程示例
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb1.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image1.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb1.png)](/images/2014-06-29-git-basic-knowledge-2/image1.png)
 
 八、想做就做，听你的
 
 下面是一个有趣的例子，你也来实战一下吧
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb2.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image2.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb2.png)](/images/2014-06-29-git-basic-knowledge-2/image2.png)
 
 注意点：Merge和Rebase的区别：
 
@@ -81,7 +81,7 @@ Do not rebase commits that you have pushed to a public repository.
 
 如下图示例
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb3.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image3.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb3.png)](/images/2014-06-29-git-basic-knowledge-2/image3.png)
 
 After you do that, your commit history will contain both the C4 and C4' commits, which have
 
@@ -117,27 +117,27 @@ PS: Git项目的合并方式采用的是模式（4）
 
 （1）直接合并进入本地的master主干分支进行验证；
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb4.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image4.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb4.png)](/images/2014-06-29-git-basic-knowledge-2/image4.png)
 
 （2）为特性分支提供一个用于合并用途的develop-branch；
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb5.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image5.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb5.png)](/images/2014-06-29-git-basic-knowledge-2/image5.png)
 
 （3）复杂项目的并行贡献
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb6.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image6.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb6.png)](/images/2014-06-29-git-basic-knowledge-2/image6.png)
 
 （4）大项目的特性并入长期分支
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb7.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image7.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb7.png)](/images/2014-06-29-git-basic-knowledge-2/image7.png)
 
 （5）衍合流程引入代码
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb8.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image8.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb8.png)](/images/2014-06-29-git-basic-knowledge-2/image8.png)
 
 （6）挑拣（cherry-pick）流程引入补丁代码
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb9.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image9.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb9.png)](/images/2014-06-29-git-basic-knowledge-2/image9.png)
 
 This pulls the same change introduced in e43a6, but you get a new commit SHA-1 value, because the date applied is different. Now your history looks like Figure 5-27.
 
@@ -145,7 +145,7 @@ This pulls the same change introduced in e43a6, but you get a new commit SHA-1 v
 
 当前世界首屈一指，最大没有之一的Git项目代码托管网站
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb10.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image10.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb10.png)](/images/2014-06-29-git-basic-knowledge-2/image10.png)
 
 十四、参考链接
 
@@ -163,4 +163,4 @@ This pulls the same change introduced in e43a6, but you get a new commit SHA-1 v
 
 十五、结束语
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image_thumb11.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/09/image11.png)
+[![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb11.png)](/images/2014-06-29-git-basic-knowledge-2/image11.png)

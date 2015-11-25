@@ -17,14 +17,14 @@ tags:
 - 陆家嘴
 ---
 
-[![上海 · 华东师大 · 中北校区](http://blog.aboutcoder.com/wp-content/uploads/2014/10/psb-3.jpeg)](http://blog.aboutcoder.com/wp-content/uploads/2014/10/psb-3.jpeg)
+[![上海 · 华东师大 · 中北校区](/images/2014-10-07-ecnu-campus/psb-3.jpeg)](/images/2014-10-07-ecnu-campus/psb-3.jpeg)
 
 （上海 · 华东师大 · 中北校区 · 双子楼）
 
-[![上海 · 华东师大 · 中北校区](http://blog.aboutcoder.com/wp-content/uploads/2014/10/psb-5.jpeg)](http://blog.aboutcoder.com/wp-content/uploads/2014/10/psb-4.jpeg)
+[![上海 · 华东师大 · 中北校区](/images/2014-10-07-ecnu-campus/psb-5.jpeg)](/images/2014-10-07-ecnu-campus/psb-4.jpeg)
 
 （上海 · 华东师大 · 中北校区 · 体育场）
 
-[![上海 · 陆家嘴](http://blog.aboutcoder.com/wp-content/uploads/2014/10/psb-4.jpeg)](http://blog.aboutcoder.com/wp-content/uploads/2014/10/psb-4.jpeg)
+[![上海 · 陆家嘴](/images/2014-10-07-ecnu-campus/psb-4.jpeg)](/images/2014-10-07-ecnu-campus/psb-4.jpeg)
 
 （上海 · 陆家嘴 · 夜景）

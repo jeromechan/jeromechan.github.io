@@ -17,7 +17,7 @@ tags:
 
 1. Can you Spot the Differences?
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb28.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image28.png)
+[![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb28.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image28.png)
 
 2. A tale of two apps below
 
@@ -56,7 +56,7 @@ tags:
 
 <!-- more -->3. The User can’t tell
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb29.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image29.png)
+[![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb29.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image29.png)
 
 4. Clean code == happy coding jobs
 
@@ -70,24 +70,24 @@ tags:
   * If horrible code sucks the life out of you, what would you do? 
 
 	
-  * [![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb30.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image30.png)
+  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb30.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image30.png)
 
 
 5. Remember it!
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb31.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image31.png)
+[![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb31.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image31.png)
 
 6. Two reasons for you
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb32.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image32.png)
+[![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb32.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image32.png)
 
 7. Foreword
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb33.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image33.png)
+[![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb33.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image33.png)
 
 8. There will be code
 
-[![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb34.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image34.png)
+[![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb34.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image34.png)
 
 “Nonsense! We will never be rid of code, because code represents the details of the requirements.”
 
@@ -99,7 +99,7 @@ tags:
   * Kent Beck’s book Implementation Patterns. He says, “…this book is based on a rather fragile premise: that good code matters….” 
 
 	
-  * [![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb35.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image35.png)1.“It was the bad code that brought the company down.”
+  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb35.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image35.png)1.“It was the bad code that brought the company down.”
 
 2.“Of course you have been impeded by bad code. So then---why did you write it?”
 
@@ -123,7 +123,7 @@ tags:
   * There is no way at all in the end 
 
 	
-  * [![image](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image_thumb36.png)](http://blog.aboutcoder.com/wp-content/uploads/2013/08/image36.png)
+  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb36.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image36.png)
 
 
  
