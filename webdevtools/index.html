@@ -85,33 +85,33 @@
             </div>
         </div>
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-sql" style="display:none;">
-            <h2 class="page-header">SQL Generator</h2>
+        <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-sql" style="display:none;">-->
+            <!--<h2 class="page-header">SQL Generator</h2>-->
 
-            <div class="row placeholders">
-                <div class="col-xs-5">
-                    <span>Excel Text：[
-                    <a href="upload/DB-TPL_EN.xlsx" target="_blank"><span
-                            class="glyphicon glyphicon-link"></span>Excel Template</a>
-                    ]</span>
-                    <textarea class="form-control textarea-readonly" rows="19" id="txt-excelSource"></textarea>
-                </div>
-                <div class="col-xs-2 col-center-block">
-                    <p>
-                        <button type="button" class="btn btn-primary" id="btn-generate"
-                                onclick="javascript:generate();">Generate<span
-                                class="glyphicon glyphicon-chevron-right"></span></button>
-                    </p>
-                    <p>
+            <!--<div class="row placeholders">-->
+                <!--<div class="col-xs-5">-->
+                    <!--<span>Excel Text：[-->
+                    <!--<a href="upload/DB-TPL_EN.xlsx" target="_blank"><span-->
+                            <!--class="glyphicon glyphicon-link"></span>Excel Template</a>-->
+                    <!--]</span>-->
+                    <!--<textarea class="form-control textarea-readonly" rows="19" id="txt-excelSource"></textarea>-->
+                <!--</div>-->
+                <!--<div class="col-xs-2 col-center-block">-->
+                    <!--<p>-->
+                        <!--<button type="button" class="btn btn-primary" id="btn-generate"-->
+                                <!--onclick="javascript:generate();">Generate<span-->
+                                <!--class="glyphicon glyphicon-chevron-right"></span></button>-->
+                    <!--</p>-->
+                    <!--<p>-->
 
-                    </p>
-                </div>
-                <div class="col-xs-5">
-                    <span>Create Table SQL：</span>
-                    <textarea class="form-control textarea-readonly" rows="19" id="txt-sqlResult"></textarea>
-                </div>
-            </div>
-        </div>
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="col-xs-5">-->
+                    <!--<span>Create Table SQL：</span>-->
+                    <!--<textarea class="form-control textarea-readonly" rows="19" id="txt-sqlResult"></textarea>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-xml" style="display:none;">
             <h2 class="page-header">XML Formatter</h2>
 
@@ -143,37 +143,37 @@
                 </div>
             </div>
         </div>
-        <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-sql-formatter" style="display:none;">-->
-            <!--<h2 class="page-header">SQL Formatter</h2>-->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-sql-formatter" style="display:none;">
+            <h2 class="page-header">SQL Formatter</h2>
 
-            <!--<div class="row placeholders">-->
-                <!--<div class="col-xs-5">-->
-                    <!--<span>Pretty SQL：</span>-->
-                    <!--<textarea class="form-control textarea-readonly" rows="19" id="txt-sql-pretty"></textarea>-->
-                <!--</div>-->
-                <!--<div class="col-xs-2 col-center-block">-->
-                    <!--<p>-->
-                        <!--<input type="checkbox" id="ck-sql-formatter-preserve-comments" checked="checked"/>-->
-                        <!--<span style="color: gray;">Preserve Comments</span>-->
-                    <!--</p>-->
-                    <!--<p>-->
-                        <!--<button type="button" class="btn btn-primary" id="btn-sql-minify"-->
-                                <!--onclick="javascript:sql_minify();">Minify<span-->
-                                <!--class="glyphicon glyphicon-chevron-right"></span></button>-->
-                    <!--</p>-->
-                    <!--<p>-->
-                        <!--<button type="button" class="btn btn-primary" id="btn-sql-pretty"-->
-                                <!--onclick="javascript:sql_pretty();"><span-->
-                                <!--class="glyphicon glyphicon-chevron-left"></span>Pretty-->
-                        <!--</button>-->
-                    <!--</p>-->
-                <!--</div>-->
-                <!--<div class="col-xs-5">-->
-                    <!--<span>Minify SQL：</span>-->
-                    <!--<textarea class="form-control textarea-readonly" rows="19" id="txt-sql-minify"></textarea>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+            <div class="row placeholders">
+                <div class="col-xs-5">
+                    <span>Pretty SQL：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-sql-pretty"></textarea>
+                </div>
+                <div class="col-xs-2 col-center-block">
+                    <p>
+                        <input type="checkbox" id="ck-sql-formatter-preserve-comments" checked="checked"/>
+                        <span style="color: gray;">Preserve Comments</span>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-sql-minify"
+                                onclick="javascript:sql_minify();">Minify<span
+                                class="glyphicon glyphicon-chevron-right"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-sql-pretty"
+                                onclick="javascript:sql_pretty();"><span
+                                class="glyphicon glyphicon-chevron-left"></span>Pretty
+                        </button>
+                    </p>
+                </div>
+                <div class="col-xs-5">
+                    <span>Minify SQL：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-sql-minify"></textarea>
+                </div>
+            </div>
+        </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-css-formatter" style="display:none;">
             <h2 class="page-header">CSS Formatter</h2>
 
