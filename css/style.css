@@ -114,7 +114,7 @@ a:hover {
 }
 
 .archive-page li {
-    list-style: none;
+    /*list-style: none;*/
 }
 
 .archive-page h2 {
@@ -471,4 +471,47 @@ div.authenticjobs p.job-listings + p {
 }
 .seperate_margin_3{
     margin-left:60px;
+}
+
+.pagination {
+    overflow: hidden;
+    margin-top: 30px;
+    padding: 30px 0;
+    border-top: 1px solid #dfdfdf;
+    /*border-bottom: 1px solid #dfdfdf;*/
+}
+
+.smallbutton {
+    display: inline-block;
+    padding: 7px 22px;
+    font: 600 13px 'Open Sans', Serif;
+    border-radius: 4px;
+}
+
+.smallbutton.lightgray {
+    border: 2px solid #c3c2c9;
+    background: #fff;
+    color: #686868;
+}
+
+.smallbutton.lightgray:hover {
+    border: 2px solid #0066d9;
+    background: #0066d9;
+    color: #fff;
+}
+
+.smallbutton i {
+    margin-right: 15px;
+}
+
+.pagination .right i {
+    margin: 0 0 0 15px;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
 }
