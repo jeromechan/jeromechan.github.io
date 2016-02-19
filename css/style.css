@@ -495,8 +495,8 @@ div.authenticjobs p.job-listings + p {
 }
 
 .smallbutton.lightgray:hover {
-    border: 2px solid #0066d9;
-    background: #0066d9;
+    border: 2px solid #6f6f6f;
+    background: #6f6f6f;
     color: #fff;
 }
 
