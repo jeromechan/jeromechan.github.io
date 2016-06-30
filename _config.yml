@@ -21,3 +21,5 @@ markdown_ext: "markdown,md"
 JB :
   categories_path: categories.html
 safe: true
+paginate: 30
+paginate_path: "page:num"

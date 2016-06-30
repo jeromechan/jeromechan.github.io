@@ -15,7 +15,7 @@ tags:
 - markdown基础知识
 ---
 
-[![markdown-logo](http://blog.aboutcoder.com/wp-content/uploads/2014/08/markdown-logo.png)](http://blog.aboutcoder.com/wp-content/uploads/2014/08/markdown-logo.png)
+[![markdown-logo](/images/2014-08-30-markdown-tutorial/markdown-logo.png)](/images/2014-08-30-markdown-tutorial/markdown-logo.png)
 
 
 

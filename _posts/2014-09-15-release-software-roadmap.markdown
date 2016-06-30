@@ -9,7 +9,7 @@ wordpress_id: 151
 permalink: /2014/09/15/release-software-roadmap/
 categories:
 - Programming
-- Project Management
+- Management
 tags:
 - 版本发布
 - 软件版本
@@ -20,7 +20,7 @@ tags:
 
 
 
-[![软件版本轨迹图](http://blog.aboutcoder.com/wp-content/uploads/2014/09/软件版本轨迹图1-1024x328.png)](http://blog.aboutcoder.com/wp-content/uploads/2014/09/软件版本轨迹图1.png)
+[![软件版本轨迹图](/images/2014-09-15-release-software-roadmap/软件版本轨迹图1-1024x328.png)](/images/2014-09-15-release-software-roadmap/软件版本轨迹图1.png)
 
 
 
