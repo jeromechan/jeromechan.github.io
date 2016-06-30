@@ -1,7 +1,7 @@
 ---
 author: jeromechan
 comments: true
-date: 2016-07-01 00:00:00+00:00
+date: 2016-06-30 00:00:00+00:00
 layout: post
 slug: how-to-make-a-project-plan
 title: 学习笔记：项目管理之规划项目
