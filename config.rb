@@ -146,6 +146,7 @@ configure :build do
   activate :cache_buster
   activate :asset_host, :host => ''
   set :google_analytics_account, ''
+  set :cnzz_analytics_account, '1252898702'
 
   # Automatic image dimensions on image_tag helper
   activate :automatic_image_sizes
