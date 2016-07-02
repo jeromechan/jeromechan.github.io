@@ -1,16 +1,10 @@
-# [nandomoreira.me](http://nandomoreira.me/) #
+# [aboutcoder.com](http://aboutcoder.com/) #
 
-> :gem: My personal website and blog >> http://nandomoreira.me/
-
----
-
-> :warning: Esse repositório é atualizado constantemente!
-
-> :warning: This repository is constantly updated!
+> :gem: My personal website and blog >> http://aboutcoder.com/
 
 ---
 
-![nandomoreira.me!](/nandomoreira.me.png)
+![aboutcoder.com!](/aboutcoder.com.png)
 
 ---
 
