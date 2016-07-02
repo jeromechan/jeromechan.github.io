@@ -1,0 +1,1 @@
+function get_copyright_date(){var t=new Date,e=t.getFullYear(),a="\xa9 AboutCoder 2013-"+e;$("#a-copyright-text").html(a)}

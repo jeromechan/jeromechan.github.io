@@ -1,0 +1,1727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2016-07-02T17:00:00+08:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>说说使用middleman的那些事情</title>
+    <link rel="alternate" href="http://blog.url.com/2016/07/02/talk-about-middleman/"/>
+    <id>http://blog.url.com/2016/07/02/talk-about-middleman/</id>
+    <published>2016-07-02T17:00:00+08:00</published>
+    <updated>2016-07-03T03:25:24+08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h3&gt;说说使用middleman的那些事情&lt;/h3&gt;
+
+&lt;p&gt;&lt;img alt="Draggedimage" width="1044" height="450" src="/images/2016-07-02-talk-about-middleman/DraggedImage-cf272ae8.png" /&gt;&lt;/p&gt;
+
+&lt;h4&gt;一、什么是静态网站&lt;/h4&gt;
+
+&lt;p&gt;随着互联网发展的脚步，现在的个人博客网站已经不再局限于国内几大门户网站所提供的博客撰写服务。
+记得上大学那会儿，为了阅读一些名人诸如国民岳父韩寒、李承鹏、徐静蕾等博主的文章和思想，每天必定会上博客上转上两遍，翻阅近十篇进行阅读。那个时候的博客页面加载速度，在寝室512k的带宽状况下，简直令人没有了脾气。&lt;/p&gt;
+
+&lt;p&gt;那个时候并没有太多纯静态网站的做法，有的是一些根据脚本生成指定的某些html页面，用于解决一些高流量访问的问题，例如门户站点的首页，其中只需要保持少量的动态加载元素，对付高流量高并发并不是困难的。&lt;/p&gt;
+
+&lt;p&gt;而个人博客、企业宣传页面不同于上文的需求场景，其更新频率定期，没有过多的注册用户信息的管理，不涉及复杂的交互实现，只需要满足查看和评论的功能即可。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;评论功能自然是需要实现r+w操作的，但是现在已经存在了很多第三方协助托管评论信息的平台，例如国内的多说，国外的disqus。只需要开发者简单地嵌入少量html+js代码即可完成评论功能的实现。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;故而，纯静态网站应运而生，各类纯静态网站生成工具也出现了较大的发展前景。下面说道的middleman就是一个静态网站的generator工具。&lt;/p&gt;
+
+&lt;h4&gt;二、放弃jekyll转投middleman&lt;/h4&gt;
+
+&lt;p&gt;&lt;img alt="Draggedimage-1" width="494" height="208" src="/images/2016-07-02-talk-about-middleman/DraggedImage-1-701ed4ad.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;这部分并不是说jekyll技术已经落后，而是从自身角度来看为什么自己会转投middleman。
+自己是从2014年开始使用jekyll的，源于阅读了较多的大神yuguo对于前端栈的技术篇章，也就两年的光景，但是自己经历了从2.X版本变迁到3.X版本的过程。
+对于为什么自己放弃jekyll转投middleman，下面分2点作出阐述。&lt;/p&gt;
+
+&lt;p&gt;第一点，我们先来说说2.X到3.X版本的更迭细节。
+&lt;img alt="Draggedimage-2" width="1466" height="798" src="/images/2016-07-02-talk-about-middleman/DraggedImage-2-8a534a98.png" /&gt;
+以上变迁的情况说明，大家都知道，jekyll 2.X里包含了ruby和python两门技术，而以上的更迭看来，一方面减少了非必需包的依赖，留出了定制空间，移除了python的依赖。或许jekyll作者更喜欢ruby only吧。&lt;/p&gt;
+
+&lt;p&gt;这些变更并不是向前兼容的，如果你的jekyll是2.X版本，请留意升级后带来的源代码修改的成本。虽然它不是向前兼容，但是升级过程并不会引入更多的包依赖，而恰恰是因为这点，_config.yml需要作出的变更会较多，例如coderay的highlighter引擎建议要更换为rouge；需要分页插件，则需要增加gems:[jekyll-paginate]作出依赖声明，等等。&lt;/p&gt;
+
+&lt;p&gt;而这里包含了一点自己无法接受的变更，看官方声明：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;!! Don&amp;rsquo;t set a permalink&lt;/strong&gt;&lt;br&gt;
+Setting a permalink in the front matter of your blog page will cause pagination to break. Just omit the permalink.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以上意思是说，如果你使用了pagination，那么permalink的使用会阻断pagination的执行。也就是说，如果你有一个分页列表的页面，因为你在该页面中使用了permalink改写路径，那么页面中的paginator.posts将会失效，页面内容也将加载失败。&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;&amp;lt;!-- This loops through the paginated posts，if you had used permalink settings, the paginator parsing job will fail. --&amp;gt;
+{% for post in paginator.posts %}
+  &amp;lt;h1&amp;gt;&amp;lt;a href="{{ post.url }}"&amp;gt;{{ post.title }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;
+  &amp;lt;p class="author"&amp;gt;
+    &amp;lt;span class="date"&amp;gt;{{ post.date }}&amp;lt;/span&amp;gt;
+  &amp;lt;/p&amp;gt;
+  &amp;lt;div class="content"&amp;gt;
+    {{ post.content }}
+  &amp;lt;/div&amp;gt;
+{% endfor %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第二点，就要说到liquid的语法。
+我们来假设这么个场景，在一个列表加载的页面中，我们需要在循环内判断到达指定加载条目预设上限之时，循环执行break跳出。
+这个场景使用liquid引擎是这么写的：&lt;/p&gt;
+&lt;pre class="highlight json"&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;assign&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;post&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;site.posts&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;assign&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;plus:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;break&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;endif&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;endfor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也可以这么写：&lt;/p&gt;
+&lt;pre class="highlight json"&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;assign&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;这句话可有可无，因为increment会将var初始化为&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;post&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;site.posts&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;increment&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="err"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;这句话会自动执行一个print语句，将var打印出来&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;break&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;endif&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;endfor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;前者的写法让人觉得做一个简单的运算都需要去背记liquid的各种filters，让人觉得麻烦不已。
+后者的写法会凭空多出一个默认的print效果，这个也是UI界面编写之时无法接受的。&lt;/p&gt;
+
+&lt;h4&gt;三、为什么不选用WordPress等LAMP架构的博客框架&lt;/h4&gt;
+
+&lt;p&gt;&lt;img alt="Draggedimage-3" width="890" height="218" src="/images/2016-07-02-talk-about-middleman/DraggedImage-3-2e91c8e7.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;作为一名php开发者，wordpress是必须鼓捣的框架之一，但是为什么最终放弃了选用wp作为个人博客首选呢？
+原因其实不复杂，主要有以下五个方面：&lt;br&gt;
+1. 涉及数据库技术，数据的灾备流程过于复杂，维护时间成本高；&lt;br&gt;
+2. wp框架体量重，适合开发较大型的cms内容管理站点，对于个人博客有点大材小用，如同杀鸡用了牛刀；&lt;br&gt;
+3. 扩展插件多是其亮点，同时也是拖慢wp站点的一大坑点，php的通用单线程处理机制决定了其瓶颈，就算升级了鸟哥的php7估计也根治不了多扩展插件wp站点的加载时长的问题；&lt;br&gt;
+4. 需要关注的安全问题较多，可定制化有限，如果不合适的定制会引发无法升级的问题；&lt;br&gt;
+5. 需要一台VPS或者Web Host主机，也就是将多出一份硬件方面的开销，如果要求访问稳定、连接速度可接受的主机，购买价格也会逐级上升。   &lt;/p&gt;
+
+&lt;h4&gt;四、简明middleman实践之路&lt;/h4&gt;
+
+&lt;h5&gt;4.1 由于middleman是ruby语言的作品，先了解以下关于ruby语言的关键概念。&lt;/h5&gt;
+
+&lt;p&gt;&lt;img alt="Draggedimage-4" width="666" height="156" src="/images/2016-07-02-talk-about-middleman/DraggedImage-4-eb29f565.png" /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ruby：顾名思义，指的就是ruby语言。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rvm：全名ruby version manager，注意它和jvm不是一个含义哦。rvm是管理ruby本身，也包含了ruby插件的管理。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rails：指的是ruby著名开发框架，认识ruby的人都认识它。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rubygems：ruby程序包管理器，可以将ruby程序打包成gem，作为一个独立安装单元安装到计算机中。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;gem：指的是封装起来的ruby应用程序，或者代码库。终端中使用的gem命令，是指使用rubygems安装程序应用。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;gemfile：配置文件，用于定义指定应用所依赖的包，然后可以提供给bundle命令执行，类似于shell命令中的.sh脚本。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rake：该程序包是ruby所需要安装的包中最为关键的一个。rake是一个ruby的构建工具，类似于Make、ant、maven、gradle不等。rakefile便是其执行的构建任务配置文件，其中涉及特定的DSL撰写方式，类似于groovy在gradle中的应用一样。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rakefile：rake构建任务中所涉及的任务配置文件。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;bundle：等同于批量执行gem命令，配置好gemfile之后，使用bundle install可以实现包，及其依赖包的自动下载与安装。&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5&gt;4.2 middleman的安装疑问&lt;/h5&gt;
+
+&lt;p&gt;middleman依赖于rubygems、bundle、gemfile、rake等工具或框架。在安装一系列ruby依赖库的过程中，会遇到connection fail，error loading，can’t be found等问题，这些问题的原因是因为&lt;a href="https://www.rubygems.org"&gt;rubygems.org&lt;/a&gt;在国内访问不稳定的缘故。  &lt;/p&gt;
+
+&lt;p&gt;正所谓兵来将挡，水来土掩，方法总是比困难要多得多。&lt;br&gt;
+国内的大淘宝，还有ruby-china官方，都给大家做了一个同步频率为15mins的ruby gems的镜像，我们可以将自己本地的ruby gems、bundle源配置切换到国内。&lt;br&gt;
+参见这里：&lt;br&gt;
+- ruby-china官方源：&lt;a href="http://ruby-china.org"&gt;http://ruby-china.org&lt;/a&gt;&lt;br&gt;
+- 大淘宝的镜像源：&lt;a href="http://ruby.taobao.org"&gt;http://ruby.taobao.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在安装各项依赖之时，建议先配置好gemfile，然后使用命令bundle install自动实现下载和安装，而不是使用middleman server逐项发现缺失库，因为从操作效率上是得不偿失的。&lt;/p&gt;
+
+&lt;h5&gt;4.3 slim VS liquid&lt;/h5&gt;
+
+&lt;p&gt;&lt;img alt="14674858884718" width="325" height="342" src="/images/2016-07-02-talk-about-middleman/14674858884718-5f9b669f.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;关于liquid的一些用法和自己不感冒之处，前面已经提及了部分，这里不再大施笔墨赘述。
+这里说说slim的情况。&lt;/p&gt;
+
+&lt;p&gt;liquid是jekyll默认配置的官方模板引擎，而slim也是middleman首推的前端引擎。
+liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得优雅了许多。&lt;/p&gt;
+
+&lt;p&gt;slim所倡导的是，一切页面元素、样式、js均可结构化。使用slim可以大大简化前端页面渲染的逻辑实现结构，没有了liquid般的html+js+liquid+css混合搭配在.html文件里使用的尴尬，映入眼帘的均是层次分明，结构清晰的模板语法。&lt;/p&gt;
+
+&lt;p&gt;下面作一下两者的对比，孰好各位看官心中自有结论。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;html+js+css+liquid混合应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;&amp;lt;!-- html+js+css+liquid混合应用 --&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta name="theme-color" content="{{ page.color }}"&amp;gt;
+    &amp;lt;link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend:site.baseurl }}"&amp;gt;
+    &amp;lt;link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend:site.baseurl | prepend:     site.url }}"&amp;gt;
+    &amp;lt;link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" /&amp;gt;
+&amp;lt;/head&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;slim的前端结构&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;&amp;lt;!-- html+js+css+slim混合应用 --&amp;gt;
+doctype html
+html lang="ja"
+  head
+    meta charset="utf-8"
+    title The Elevatorpitch
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    css:
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+  body
+    div class="container-narrow"
+      div class="masthead visible-desktop"
+script src="/js/theelevatorpitch.js"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;更多slim应用可以关注我的gist：&lt;a href="https://gist.github.com/jeromechan/0432a89f3e9810e9ba26052606e56f38"&gt;Use slim engine for building html tags&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;五、Try the way you like&lt;/h4&gt;
+
+&lt;p&gt;前端技术的不断发展，纯静态网站的性能问题也逐步被放大，在我们使用静态网站生成工具的同时，性能问题也一定需要着重考虑。
+例如，gzip压缩、js+css压缩、单次加载批量样式文件和js文件、html页面布局层次简化、js依赖关系处理、css继承关系的整理、前端cache/data等缓冲区域技术的应用、异步ajax请求时长的监控、sass/less的样式结构简化和预处理，等等方面。&lt;/p&gt;
+
+&lt;p&gt;只要始终坚持用户至上，读者至上的原则，一定能够找到最适合自己预想的方案。&lt;/p&gt;
+
+&lt;p&gt;前面所涉及的参考资料有如下，感兴趣可以自己翻翻看看：&lt;br&gt;
+- &lt;a href="https://shopify.github.io/liquid/"&gt;Liquid官方文档&lt;/a&gt;&lt;br&gt;
+- &lt;a href="http://jekyllrb.com/docs/pagination/"&gt;Jekyll关于pagination说明&lt;/a&gt;&lt;br&gt;
+- &lt;a href="https://middlemanapp.com/basics/install/"&gt;Middleman官方文档&lt;/a&gt;&lt;br&gt;
+- &lt;a href="https://www.reddit.com/r/Jekyll/comments/3uhk2j/cant_get_pagination_working_with_jekyll_301/"&gt;Jekyll中paginate与permalink的冲突&lt;/a&gt;&lt;br&gt;
+- &lt;a href="http://blog.virtuacreative.com.br/upgrade-jekyll-2-to-3-gh-pages.html"&gt;Upgrading Jekyll 2 to 3 on GitHub Pages&lt;/a&gt;&lt;br&gt;
+- &lt;a href="https://gist.github.com/jeromechan/0432a89f3e9810e9ba26052606e56f38"&gt;How to use slim engine for building html tags？&lt;/a&gt;   &lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>学习笔记：项目管理之规划项目</title>
+    <link rel="alternate" href="http://blog.url.com/2016/06/30/how-to-make-a-project-plan/"/>
+    <id>http://blog.url.com/2016/06/30/how-to-make-a-project-plan/</id>
+    <published>2016-06-30T08:00:00+08:00</published>
+    <updated>2016-07-02T13:44:08+08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h3&gt;一、回顾基础知识&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;项目经理：把控“完成”的含义，并带领团队完成项目的人；&lt;/li&gt;
+&lt;li&gt;项目的关键驱动因素、约束和浮动因素；&lt;/li&gt;
+&lt;li&gt;传统铁三角：成本 + 时间 + 质量/范围；&lt;/li&gt;
+&lt;li&gt;通过沟通发掘决定项目的关键驱动因素；&lt;/li&gt;
+&lt;li&gt;少用“为什么”，避免“怎么做”，项目如何才算成功；&lt;/li&gt;
+&lt;li&gt;探讨制定项目章程，有助于凝聚团队；&lt;/li&gt;
+&lt;li&gt;从“摩尔鸿沟”表象，看项目、团队发展历程。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;二、引导语&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;“项目规划是在不断进行的，这只是开始。”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;三、纲要&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如何踏上项目征程&lt;/li&gt;
+&lt;li&gt;讲解开发项目规划模版条目&lt;/li&gt;
+&lt;li&gt;项目如何才适合发布上线&lt;/li&gt;
+&lt;li&gt;发布条件的管理&lt;/li&gt;
+&lt;li&gt;最后的几句总结&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;四、辨析两句短语&lt;/h3&gt;
+
+&lt;p&gt;&lt;img alt="14673084562094" width="520" height="116" src="/images/2016-06-30-how-to-make-a-project-plan/14673084562094-46f84796.jpg" /&gt;&lt;/p&gt;
+
+&lt;h3&gt;五、使项目踏上征程&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;规划不必完美无缺，实际上这也是做不到的；&lt;/li&gt;
+&lt;li&gt;采用时间盒子的方式启动项目的规划；&lt;/li&gt;
+&lt;li&gt;要根据经验而不是预言来规划项目。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;“规划毫无用处，但是制定规划必不可少。”
+——艾森 · 豪威尔
+&lt;img alt="14673086699212" width="296" height="241" src="/images/2016-06-30-how-to-make-a-project-plan/14673086699212-c3003423.jpg" /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;六、开发项目规划模版&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;下面介绍一些常用的模版条目 …&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;产品意图&lt;/li&gt;
+&lt;li&gt;发布历史记录&lt;/li&gt;
+&lt;li&gt;发布条件&lt;/li&gt;
+&lt;li&gt;项目目标、时间盒子目标&lt;/li&gt;
+&lt;li&gt;团队职责、项目运作的组织&lt;/li&gt;
+&lt;li&gt;项目日程总览&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;- 样式1
+
+![](/images/2016-06-30-how-to-make-a-project-plan/14673089688628.jpg)
+
+- 样式2
+
+![](/images/2016-06-30-how-to-make-a-project-plan/14673090092803.jpg)
+
+- 样式3
+
+![](/images/2016-06-30-how-to-make-a-project-plan/14673090209493.jpg)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;人员配备&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;建议日程&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;样式1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img alt="14673090942241" width="335" height="153" src="/images/2016-06-30-how-to-make-a-project-plan/14673090942241-9ce8a1bf.jpg" /&gt;
+- 样式2&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="14673091056258" width="319" height="135" src="/images/2016-06-30-how-to-make-a-project-plan/14673091056258-e09f5023.jpg" /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;温馨提示：小心过早细化日程
+&lt;img alt="14673091416870" width="324" height="258" src="/images/2016-06-30-how-to-make-a-project-plan/14673091416870-51d4fba0.jpg" /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;9.制定项目风险列表 
+&lt;img alt="14673092036240" width="358" height="191" src="/images/2016-06-30-how-to-make-a-project-plan/14673092036240-3ea63458.jpg" /&gt;&lt;/p&gt;
+
+&lt;h3&gt;七、制定发布条件&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;发布条件可以告诉我们项目“完成”的含义。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;八、拟定步骤&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;确定当前发布的最重要的因素（包含关键驱动因素）&lt;/li&gt;
+&lt;li&gt;草拟发布条件&lt;/li&gt;
+&lt;li&gt;修订发布条件，使其符合SMART原则&lt;/li&gt;
+&lt;li&gt;达成多方共识&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;九、SMART原则&lt;/h3&gt;
+
+&lt;p&gt;&lt;img alt="14673093012558" width="484" height="176" src="/images/2016-06-30-how-to-make-a-project-plan/14673093012558-ec7999f0.jpg" /&gt;&lt;/p&gt;
+
+&lt;h3&gt;十、使用发布条件&lt;/h3&gt;
+
+&lt;p&gt;&lt;img alt="14673093575826" width="198" height="152" src="/images/2016-06-30-how-to-make-a-project-plan/14673093575826-48973fb4.jpg" /&gt;&lt;/p&gt;
+
+&lt;h3&gt;十一、关键知识点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;项目规划实在不断进行的，这只是开始；&lt;/li&gt;
+&lt;li&gt;为项目团队、出资人和项目经理自己制定发布条件，以明确定义“完成”的含义；&lt;/li&gt;
+&lt;li&gt;项目规划不必完美无瑕，但是它必须存在。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;十二、结束语&lt;/h3&gt;
+
+&lt;p&gt;&lt;img alt="14673094267010" width="526" height="407" src="/images/2016-06-30-how-to-make-a-project-plan/14673094267010-17f9896d.jpg" /&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Git软件开发过程</title>
+    <link rel="alternate" href="http://blog.url.com/2015/11/16/work-in-git/"/>
+    <id>http://blog.url.com/2015/11/16/work-in-git/</id>
+    <published>2015-11-16T17:51:05+08:00</published>
+    <updated>2016-07-02T13:44:08+08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h4&gt;一、关于Git与Subversion的区别&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage1.png"&gt;&lt;img alt="Draggedimage1-1024x1013" width="1024" height="1013" src="/images/2015-11-16-work-in-git/DraggedImage1-1024x1013-d44ce92f.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;二、目前我们用Subversion是怎么执行软件过程的&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-1.png"&gt;&lt;img alt="Draggedimage-1-1024x437" width="1024" height="437" src="/images/2015-11-16-work-in-git/DraggedImage-1-1024x437-54dc8e74.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;三、优势与缺点&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;架构&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：分布式，所有的teammates本地可以clone一份独立完整的仓库，而不仅仅是某一个版本的镜像拷贝；开发者可以在本地clone仓库中完成所有vcs的操作，只有当需要协同工作提交代码到远程仓库的时候，才需要联上网络。
+
+
+* Subversion：中央集中式，所有的teammates都面向同样一个远程仓库工作；checkout出来的本地工作区代码只是远程仓库某一版本的一份镜像拷贝。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;仓库结构与URL&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：对于Git而言，仓库会独立于开发者的本地磁盘中，在仓库的根目录中只包含了一个”.git”文件夹，所有的branches、trunk(PS：git中名称为master)、tags均是通过命令操作而生成的，并非通过URL路径。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在Git中，URL类似于ssh://&lt;a href="mailto:git@example.com"&gt;git@example.com&lt;/a&gt;/path/to/git-repo.git，仅仅是指向了仓库的一个标识。&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Subversion：分支的url类似于svn+ssh://svn@example.com/svn/trunk，每一个分支独占一个唯一URL，每一个URL都会直接定位到每一个分支在远程仓库中的路径位置。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;对于Subversion，会有一个trunk分支作为开发主线分支，会有很多branches分支作为并行分支，tags则是mark上某一特定的发布版本。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;分支管理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：Git分支相对于其他的vcs是非常不一样的设计理念，一个Git分支仅仅指的是指向某一确定版本的简单指针，因此，Git的分支是无拷贝、无新建目录、几乎无开销的。
+
+
+* Subversion：正如我们所知道的，SVN中的分支仅仅是项目的一份拷贝，是一个具有特殊含义的普通文件夹；多分支则是多文件夹的形式。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;提交操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：若你使用的是Git，你的提交操作不受网络的影响，你的提交仅仅影响了本地仓库，仅当你需要于远端仓库同步内容之时，才需要使用到网络；
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;另外的，在你本地仓库还存在一个so-called Staging Area，并非你的所有文件需要在一次提交中全部commit，你可以选择指定的变更放入staging area中，从而在本次提交中仅仅包含你所选定的变更条目；
+关于Git的版本号，大家都知道，Git是分布式的vcs，要想和svn、cvs一般生成revision#5，revision#6类似的递增数值作为唯一版本号是不可取的，但是我们也同样需要一个唯一的标识来辨别每一次提交，而Git的做法是使用了”commit hashes”。&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Subversion：当你使用的是SVN，假设你要提交代码，以下是你的提交过程：
+
+
+  * 首先设备必须是联网的，可以与远端中央仓库建立连接；
+
+
+  * 将提交的内容立即传输到远端中央仓库；
+
+
+  * 远端中央仓库生成递增的版本号，并赋予本地分支。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;协同工作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：若你使用的是Git，你需要决定何时将你的本地仓库的内容同步上传到远端仓库分享出来，而Git不会为你作任何的自动上传的操作；
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样子的分享过程相对于其他的中央仓库式的vcs系统来说是更加安全的，所发生的冲突也只会发生于你的本地（仓库）而非远端服务器的仓库，这将更能帮助你规避打乱teammates工作内容冲突的风险。&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Subversion：当你将本地分支内容作commit操作之时，你的内容便会分享到远端中央仓库中，其他teammates也都能同步到你所提交的内容。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h4&gt;四、集成工具简介&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;SourceTree：开源的Git源代码管理工具&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;TortoiseGit：开源的Git源代码管理工具&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;EGit：Eclipse插件，最新Mars版本已经自带&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Gitflow Nightly：Eclipse插件，支持Git-Flow&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;五、常用Git基础知识&lt;/h4&gt;
+
+&lt;blockquote&gt;认识Git的几个关键目录&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-2-dc673158.png"&gt;&lt;img alt="Draggedimage-2" width="500" height="222" src="/images/2015-11-16-work-in-git/DraggedImage-2-dc673158.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Working directory：工作区&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Index directory：暂存区&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Local repository：本地仓库&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Remote repository：远端仓库&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;常用的Git操作&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/134623_LGJb_1469576-da57d6c4.png"&gt;&lt;img alt="134623_lgjb_1469576" width="481" height="455" src="/images/2015-11-16-work-in-git/134623_LGJb_1469576-da57d6c4.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;clone：克隆项目到本地工作区，类似svn checkout&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;checkout：创建/切换本地仓库的指定分支到工作区中&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;commit：将本地工作区代码提交到本地仓库&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;push：将本地仓库代码同步到远端仓库&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;pull / fetch：将远端仓库的代码同步到本地仓库/工作区&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* pull：fetch + merge，该操作会影响工作区
+
+
+* fetch：从远端仓库获取并更新到本地仓库中，不影响工作区
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;merge / rebase：从指定分支(&lt;em&gt;PS:分支名称常跟在命令之后&lt;/em&gt;)中获取更新并合并到当前分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* merge：
+
+
+* rebase：
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;stash：备份/唤出当前的现场状态（包含工作区和暂存区）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* git stash [save -a “msg”] 备份当前的现场状态
+
+
+* git stash list 显示已保存的现场状态列表
+
+
+* git stash pop/apply [--index][&amp;lt;stash&amp;gt;] 恢复工作状态，若不含带参数，则从状态栈中获取最新的。pop在获取完成后，从栈中移除该状态，apply则不会从栈中移除
+
+
+* git stash clear 清空状态栈中的所有内容
+
+
+* git drop 删除状态栈中的指定状态
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;六、可供参考的高阶应用方案&lt;/h4&gt;
+
+&lt;blockquote&gt;什么是Git-SVN的扩展开发模式，即本地开发应用Git的强大分支特性，当最终push操作的时候，目标仓库设定为SVN远端仓库。
+这里点到为止，只提及一下，以便有既想使用Git又纠结无法脱离Subversion的开发者去使用，这确实是一种很赞的“曲线救国”方案。
+
+什么是Git Stash的开发模式，即一个工程师可以并行开发多项内容，要求用到切换分支的操作，而在没有提交到本地仓库之前，可以使用git stash命令将当前分支的工作区和暂存区的状态镜像下来。当回过头来需要继续开发的时候，使用git stash pop将指定的状态唤出后，可以继续未完成的内容。&lt;/blockquote&gt;
+
+&lt;h4&gt;七、Git-Flow介绍&lt;/h4&gt;
+
+&lt;blockquote&gt;一图胜过千言万语&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-3-5c5fccfc.png"&gt;&lt;img alt="Draggedimage-3" width="1060" height="1368" src="/images/2015-11-16-work-in-git/DraggedImage-3-5c5fccfc.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;关键几个分支的概念全解&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;主分支&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;branch：保存当前开发成果的分支&lt;/li&gt;
+&lt;li&gt;master：保存当前可供生产部署的代码，在每次发布之时推荐为每次新增发布的代码都打上一个TAG，供后续代码维护使用&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;辅助分支&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Feature：开发完整功能、新特性，从develop分支发起的分支&lt;/li&gt;
+&lt;li&gt;Release：用于发布新的产品版本而设计的，支持从develop分支派生&lt;/li&gt;
+&lt;li&gt;Hotfix：属于计划外创建的可供生产部署的代码分支，普遍场景是软件遇到了异常情况或发生了严重必须要立即修复的缺陷之时。支持从master分支（或者其中的某一个TAG版本）中派生出来&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;分支命名惯例&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Feature分支：feature-*&lt;/li&gt;
+&lt;li&gt;Release分支：release-*&lt;/li&gt;
+&lt;li&gt;Hotfix分支：hotfix-*&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;八、GitHub Flow&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-4-d270a8bc.png"&gt;&lt;img alt="Draggedimage-4" width="626" height="674" src="/images/2015-11-16-work-in-git/DraggedImage-4-d270a8bc.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;九、Mike Flow (Base on 《Git in Practice》)&lt;/h4&gt;
+
+&lt;blockquote&gt;Single Pattern&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-5-2fbb2834.png"&gt;&lt;img alt="Draggedimage-5" width="700" height="666" src="/images/2015-11-16-work-in-git/DraggedImage-5-2fbb2834.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;Multiple Pattern&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-6-c185f536.png"&gt;&lt;img alt="Draggedimage-6" width="690" height="824" src="/images/2015-11-16-work-in-git/DraggedImage-6-c185f536.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;十、Jerome Flow (I call it this name^_^)&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/jerome-git-flow1-313bde43.jpg"&gt;&lt;img alt="Jerome-git-flow1" width="1038" height="1600" src="/images/2015-11-16-work-in-git/jerome-git-flow1-313bde43.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;&lt;em&gt;参考资料&lt;/em&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;A successful Git branching model - Vincent Driessen&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.ituring.com.cn/article/56870"&gt;基于git的源代码管理模型-Git-Flow&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn/"&gt;5 Fundamental differences between GIT &amp;amp; SVN&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://stackoverflow.com/questions/16666089/whats-the-difference-between-git-merge-and-git-rebase"&gt;What&amp;rsquo;s the difference between &amp;lsquo;git merge&amp;rsquo; and &amp;#39;git rebase&amp;rsquo;?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://blog.jobbole.com/84664/"&gt;Git的merge和rebase &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://blog.csdn.net/rryqsh/article/details/8230560"&gt;Git中分支merge和rebase的适用场景及区别&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.infoq.com/cn/git-adventures"&gt;InfoQ - Git历险记&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.oschina.net/translate/10-tips-git-next-level?cmp"&gt;10 Tips to Push Your Git Skills to the Next Level&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://book.douban.com/subject/26107548/"&gt;《Git in Practice》-Manning Press - Mike McQuaid&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.infoq.com/articles/interview-Mike-McQuaid-git-practice"&gt;Interview with Mike McQuaid about Git in Practice&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.oschina.net/translate/git-conventions?cmp"&gt;GIT Conventions&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.oschina.net/question/565065_68194"&gt;git使用简介&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging"&gt;Git-Branching-Basic-Branching-and-Merging&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.git-scm.com/book/en/v2/Git-Branching-Rebasing"&gt;Git-Branching-Rebasing&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.git-tower.com/learn/git/ebook/mac/appendix/from-subversion-to-git"&gt;Switching from Subversion to Git&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>研发人看互联网营销</title>
+    <link rel="alternate" href="http://blog.url.com/2015/06/17/internet-marketing-views-of-developers/"/>
+    <id>http://blog.url.com/2015/06/17/internet-marketing-views-of-developers/</id>
+    <published>2015-06-18T00:24:40+08:00</published>
+    <updated>2016-07-02T13:44:08+08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;很荣幸地，昨天参加了公司市场VP（以下简称FW）面向全公司作的关于互联网营销的公开演讲。这些年来，公司的市场营销方面从一个局外人的角度上看来确实发生了非常大的变化、进步和飞跃，加以是FW在公司层面公开分享的为数不多的干货讲座之一，满怀期待，同时感触良多，希望写下来以作为后面需要时作参考。&lt;/p&gt;
+
+&lt;p&gt;文章内容准备分为两部分进行记录，第一部分阐述一下的讲座的具体内容，从中挑选出一些自己觉得非常干货的关键点详细撰写一下。第二部分将从讲座中的关键点出发，映射到研发的日常工作上来，分析如何将其中的策略应用到研发工作上来，帮助提高程序员以致于团队层面上的工作效率（注：后续将补发第二部分的博文作扩展分析，请期待~）。&lt;/p&gt;
+
+&lt;h4&gt;一、学习能力&lt;/h4&gt;
+
+&lt;p&gt;作为从原研发负责人的角色变为市场部门负责人的角色，FW是非常成功的一个案例，当中FW提到了自己再三强调的一点——学习能力。一个人拥有强有力的学习能力，他将成为或者正走在成为胜利者的路上。有的人虽然在十几年的象牙塔学习生活中并不是最优秀的，但是有一点如果做到了，那么你就是值得被社会所肯定的，那就是“笨鸟先飞”“勤能补拙”“早起的鸟儿有虫吃”。&lt;/p&gt;
+
+&lt;h4&gt;二、拥抱变化&lt;/h4&gt;
+
+&lt;p&gt;可能是因为这四个字作为公司里经常秉承的工作态度吧，季节在变化，时代在变化，客户群在变化，消费态度在变化，总而言之，人们是贪婪的，心中的需求将会永无止境地在发生着变化。虽然中学时候老师们都教育我们要学会对生活满足，但是对于有更为远大理想的人们，这句话可以也应该被改变。&lt;/p&gt;
+
+&lt;p&gt;年轻人，抱怨多了总是不好的，假设生活给了你不能承受之轻，不要悲伤，不要心急，要坦然地去面对和处理好，这也将毫无疑问地将帮助你更快地踏上成功之路。看到这里，是不是觉得很鸡汤，不过虽然鸡汤，但是道理却还是道理。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h4&gt;三、抓住大面，傍大款&lt;/h4&gt;
+
+&lt;p&gt;看着这字眼挺晕的对吧，其实当时作者我也晕。不过听完之后就豁然开朗了。&lt;/p&gt;
+
+&lt;p&gt;什么是抓住大面？大面，指的是关键点，主要方面，或者说是痛点。任何一件事情，总有这么一个或者几个举足轻重的关键点，就像武侠小说中提及的命门、致命穴道。只要将这一点抓住了，就等于抓住了所有。其中当然，包含了一定方面的避轻就重的处事思路。&lt;/p&gt;
+
+&lt;p&gt;那么什么是傍大款？傍大款 == 抱大腿？是的。不过关键在于，你要找到合适的大腿。与携程的合作是傍大款，与京东的合作是傍大款，请林志颖Kimi代言是傍大款，冠名江苏卫视非诚勿扰节目是傍大款&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;还有许许多多的类似案例，至于如果你需要确切的文字上的含义来解释傍大腿是什么，那么建议你去百度吧，这篇文章不会去解释这一点。&lt;/p&gt;
+
+&lt;h4&gt;四、单点营销推广，打穿打透，增加压强&lt;/h4&gt;
+
+&lt;p&gt;无论是在何种渠道上投放广告或者作品牌宣传，都要打透吃透。什么是打透吃透？无论在推广时间上、广告类型上、还是用户群的覆盖面上，都要做到预期的层面，抓住关键点，甚至更好的是将这一关键点做到极致。&lt;/p&gt;
+
+&lt;h4&gt;五、线上线下整合&lt;/h4&gt;
+
+&lt;p&gt;对于当下互联网环境因素决定，在互联网企业中，不能仅仅满足于在互联网的传播上做到脍炙人口，这一点是不够的，还需要在线下的日常生活中继续延伸，使得家喻户晓，人人皆知。只有线上线下整体综合起来，才能更好更为全面地覆盖客户群体，缺了任一方面都是不完整的推广方案。&lt;/p&gt;
+
+&lt;h4&gt;六、价格战&lt;/h4&gt;
+
+&lt;p&gt;这里要说的不是推荐大家一味地在和竞争对手拼低廉价格竞品，而是说，我们不仅要关注产品的性价比高，便宜，更要让客户知道我们是真的便宜，并不是噱头。&lt;/p&gt;
+
+&lt;h4&gt;七、找合适的渠道或者实物作为宣传载体，把推广的理念/概念投射出去&lt;/h4&gt;
+
+&lt;p&gt;江苏卫视非诚勿扰节目是渠道，林志颖Kimi代言是载体，一个覆盖了客厅互联网用户群体，一个覆盖了亲子旅游的概念，两者都是精挑细选出来最为合适，性价比最好的推广载体/渠道。寻找这一类载体之前，要从各个方面收集关联信息作对比，或者请专业调研机构帮助统计与分析，不建议决策者个人的喜好来决定推广选型。&lt;/p&gt;
+
+&lt;p&gt;为什么是林志颖Kimi？其中缘由可以概括为俩字：“够火”。&lt;/p&gt;
+
+&lt;p&gt;为什么是江苏卫视非诚勿扰？其中缘由可以概括为仨字：“够普及”。&lt;/p&gt;
+
+&lt;p&gt;另外一点需要提示的是，选定的载体或者渠道，一定要与本身产品、企业文化、宣传理念相符合，这一点是决然不能摒弃的。&lt;/p&gt;
+
+&lt;h4&gt;八、口号一定要喊，喊多了自然就是真的&lt;/h4&gt;
+
+&lt;p&gt;这一点觉得没必要详细阐述，懂行的人，一看就懂了。可能办法瞅着比较土，但是应用起来还是实在的。什么“引导者”“领航品牌”神马的等等，都是需要喊的，当然，这仍然是要具备基本的统计数据支撑，不能瞎喊，要找准了痛点喊。&lt;/p&gt;
+
+&lt;h4&gt;九、简单粗暴可能是某些情况下最为合适的&lt;/h4&gt;
+
+&lt;p&gt;推广方式不一定要多么地复杂，要求每次都具备多么地技术含量。这里并不是推崇没有技术含量的手段，这里想要说明的是，除了技术含量外，我们更要着眼于要点，击中营销推广的“要害”，简单粗暴，不择手段，达到目的的办法，就是当下最好、最有效的方法。如果一味地追求高技术含量，但是却低产能的办法，那么这些办法舍弃也罢。&lt;/p&gt;
+
+&lt;h4&gt;十、产品即营销，产品的质量仍然是最重要的，没有之一&lt;/h4&gt;
+
+&lt;p&gt;无论是何种办法，无论得到什么样子的推广效果，要想脍炙人口，人人信赖，忠诚于你的产品，产品的高质量保证是务必不可松懈的。只有好的产品才值得被推广，只有高质量的产品才能更好地被推广，被消费者所接受。&lt;/p&gt;
+
+&lt;h4&gt;十一、口碑品牌在OTA行业尤其重要&lt;/h4&gt;
+
+&lt;p&gt;旅游产品不同于一般的实体产品，不像iPhone，不像小米手机，不像乐视电视。旅游产品是虚拟存在的，在出游之前客人都将看不见摸不着，只收到一条出游通知的短信，只能客人自己YY想象。如果产品服务口碑不好，很难让消费者掏腰包下单消费；如果企业口碑不好，很难得到消费者的光临和信赖。旅游产品是体验式产品，口口相传的口碑式传播是非常重要的。&lt;/p&gt;
+
+&lt;h4&gt;十二、营销社会化&lt;/h4&gt;
+
+&lt;p&gt;无论是正面积极的营销手段，还是有意无意中收获的在可控范围内的消极影响，从营销推广上看来，都是具有一定积极意义的。营销的PR老大就好比战场上渴望着打仗的将军，如果没有战役，那么这位将军将是孤独的和寂寞的。其中提及的2015年发生的17家供应商联名抵制的案例便是这一内容的参考案例。&lt;/p&gt;
+
+&lt;h4&gt;十三、擦亮品牌，全员营销&lt;/h4&gt;
+
+&lt;p&gt;一个人的力量是有限的，但是假设是几个人、一群人、一大伙人、甚至于所有人都在为公司的产品品牌作有意无意地、潜移默化地在亲朋好友间宣传，那么力量可以相信是不可估量的。&lt;/p&gt;
+
+&lt;h4&gt;十四、追求不会停止&lt;/h4&gt;
+
+&lt;p&gt;途牛会继续在品牌塑造的道路上继续迈步前进，在2015年的夏秋交际，依然会有重磅举措，鉴于机密考虑，各位请继续关注我们，你会发现我们会让你们继续惊讶惊叫着。&lt;/p&gt;
+
+&lt;p&gt;最后，6.16是FW的生日，这里也同时给他送上一份衷心的祝福，Happy birthday to FW ALM！&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>走进社会生活，在实践中成长</title>
+    <link rel="alternate" href="http://blog.url.com/2015/06/16/practice-in-senior-school-period/"/>
+    <id>http://blog.url.com/2015/06/16/practice-in-senior-school-period/</id>
+    <published>2015-06-16T20:11:24+08:00</published>
+    <updated>2016-07-02T13:44:08+08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;blockquote&gt;接下去的文字是自己高中时期跟随社会实践导师们和一个team的同学们一起完成的旱情调查报告原文。由于时间已经过去多年了，在互联网上已经几乎找不到了。这里发出来分享给大家，顺带也怀念/纪念一下已经逝去的中学年华。&lt;/blockquote&gt;
+
+&lt;h4&gt;――“儋州市旱情调查”研究性学习活动工作小结&lt;/h4&gt;
+
+&lt;p&gt;海南省儋州市那大中学“儋州市旱情调查”小组&lt;/p&gt;
+
+&lt;p&gt;指导教师： 曾良 郑培生 陈美娟&lt;/p&gt;
+
+&lt;p&gt;2004年以来，海南省遭受到50年来少有的干旱，儋州市作为海南省人口最多的市县和全国农业百强县，农业生产和人民生活均不同程度地受到旱情的影响。为了解儋州市旱情，分析干旱产生的原因及影响，为学校、社会抗旱避灾提出相关建议，培养创新精神和实践能力，提高学生综合素质，2005年3月4日至30日，活动小组72名同学在3名指导教师指导下走进社会生活，到儋州市全部17个乡镇、44个村庄和海南省松涛水利工程管理局、儋州市水务局、儋州市农业局、儋州市气象局等部门进行调查，在实践中积累了大量的材料，撰写了13篇《小组调查报告》和50多篇《个人感想》，分别向学校、政府相关部门提出5点建议和6点建议，向社会发出1000份《节约用水，共抗旱灾》倡议书。这次活动的部分成果在校内外展出后，在社会上引起极大的反响，《海南日报》和儋州市电视台先后对此次活动进行报道。&amp;lt;!&amp;ndash; more &amp;ndash;&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;一、活动的选题目的和活动特点&lt;/p&gt;
+
+&lt;p&gt;1、这次活动具有较强的针对性。2004年以来，海南省遭受到50年来最严重的旱灾。作为海南省人口最多，面积最大的市（县）和全国农业百强市（县），儋州市的旱情牵动着全市人民的心。海南西部和北部工农业、居民生活用水的源头，也是海南最大的水库――松涛水库就坐落在儋州市和白沙县、琼中县交界处，海南松涛水利工程管理局就设在儋州市政府所在地――那大镇，松涛水库管理区设在儋州市南丰镇。&lt;/p&gt;
+
+&lt;p&gt;2、这次活动具有较强的科学性。在这次活动的过程中，学生在教师的指导下注意学习和运用科学研究的方法进行调查，大多数学生已经初步掌握问卷调查法、访谈调查法等研究方法，并在活动中运用上网查询、查阅文献、访谈当地的专家学者、实地考察等方式进行调查，对资料的整理、分析，形成调查报告等也基本符合科学研究的要求。各活动小组共撰写了13份小组调查报告。活动小组运用相关学科知识，从客观、人为两大角度，从地球环境、气候、社会经济发展、生活习惯等方面科学地分析干旱产生的原因。&lt;/p&gt;
+
+&lt;p&gt;3、这次活动参加学生多，调查面广。活动小组是在同学们自愿报名的基础上成立的，有72名学生参加。到儋州市全部17个乡镇、44个村庄和海南省松涛水利工程管理局、儋州市水务局、儋州市农业局、儋州市气象局等部门进行调查，调查面涉及儋州市农业、生活用水情况、松涛水库的蓄水情况、人们对干旱的认识、干旱产生的原因、政府社会抗旱救灾的措施等。&lt;/p&gt;
+
+&lt;p&gt;4、这次活动凸显教育性。在这次活动中，学生们对儋州市乃至海南的旱情表现出前所未有的关注，并反思生活上用水习惯，这一点他们所撰写的《小组调查报告》和《个人感想》中体现得尤为突出，他们还行动起来，共同向全校师生发生倡议，并走上街头向市民发放1000份《节约用水，抗击旱灾》倡议书，并积极在市政府所在地――那大镇上进行多种形式的宣传。在活动过程中，学生的团体精神和合作意识得到锻炼和培养。&lt;/p&gt;
+
+&lt;p&gt;5、这次活动社会影响大。活动小组的活动在全校的广大师生中引起了强烈的震撼，许多学生通过学校校园网等途径对节约用水、保护水资源进行呼吁。活动小组所到之处，得到各乡镇领导、村民的大力支持和帮助，在社会上引起广泛的关注。活动小组的部分成果在校内外的展出及向全体同学向全市人民发出的倡议书在市民中极大的反响，《海南日报》、儋州电视台等媒体先后对这次活动进行报道。&lt;/p&gt;
+
+&lt;p&gt;二、活动的内容&lt;/p&gt;
+
+&lt;p&gt;1、科学调查&lt;/p&gt;
+
+&lt;p&gt;①调查儋州各乡镇旱情，特别是各乡镇农业受旱情况和居民用水情况&lt;/p&gt;
+
+&lt;p&gt;②调查这次旱情发生的原因&lt;/p&gt;
+
+&lt;p&gt;③调查儋州市农业生产、农民的生活受到旱情的影响情况&lt;/p&gt;
+
+&lt;p&gt;④调查儋州市90万市民的生活受干旱的影响情况&lt;/p&gt;
+
+&lt;p&gt;⑤调查当前儋州市抗旱形势&lt;/p&gt;
+
+&lt;p&gt;2、自我反思&lt;/p&gt;
+
+&lt;p&gt;①撰写活动感受&lt;/p&gt;
+
+&lt;p&gt;②小组讨论、交流活动的感受&lt;/p&gt;
+
+&lt;p&gt;③各小组撰写调查报告&lt;/p&gt;
+
+&lt;p&gt;3、宣传教育&lt;/p&gt;
+
+&lt;p&gt;①展示调查成果，进一步扩大活动的影响&lt;/p&gt;
+
+&lt;p&gt;②向社会发出倡议书，向学校、政府提出建议&lt;/p&gt;
+
+&lt;p&gt;三、活动的实施过程&lt;/p&gt;
+
+&lt;p&gt;（一）活动的准备阶段（3月4日-3月18日）&lt;/p&gt;
+
+&lt;p&gt;1、活动方案的制定。新学期开学后第一个周（3月4日），在广泛征求师生意见的基础上，儋州市那大中学“儋州市旱情调查”研究性学习活动小组成立，并制定活动方案。（《“儋州市旱情调查”研究性学习活动实施方案》见附件1）&lt;/p&gt;
+
+&lt;p&gt;2、确定小组成员、分组。在学生自愿报名的基础上，共确定了72名学生成为小组的成员，并划分为18个小组（按乡镇和部门划分，17个乡镇分成17个小组，松涛水利工程管理局和市政府相关部门为部门组），明确实地调查的主要任务是调查各乡镇的旱情，从各部门了解、调查旱情及相关原因、相关抗旱措施。&lt;/p&gt;
+
+&lt;p&gt;3、加强辅导，做好活动的各项准备工作和安全教育工作。&lt;/p&gt;
+
+&lt;p&gt;3月12日 召开活动小组全体成员会议，进行动员，并分别举行三场辅导讲座&lt;/p&gt;
+
+&lt;p&gt;曾良老师为全体成员作“如何开展调查研究”的辅导报告&lt;/p&gt;
+
+&lt;p&gt;郑培生老师为全体成员作“提高调查研究的科学性”辅导报告&lt;/p&gt;
+
+&lt;p&gt;陈美娟老师为全体成员作“从地理环境分析、研究旱情”的辅导报告&lt;/p&gt;
+
+&lt;p&gt;3月19日 召开全体活动小组成员第二次会议，做好调查所需材料的准备工作和安全教育工作&lt;/p&gt;
+
+&lt;p&gt;（二）活动的实施阶段（2005年3月20日―3月21日）&lt;/p&gt;
+
+&lt;p&gt;2005年3月20日 活动小组全体成员集中的方式到松涛水库管理区和新州镇、木棠镇等两个乡镇实地考察松涛水库目前的基本情况以及两个镇的旱情及当地的抗旱情况。全部72名学生中除一名因病中途退出外，其他71名学生全部参加。&lt;/p&gt;
+
+&lt;p&gt;2005年3月21日 71名学生以分组活动的方式分散到全市17个乡镇及儋州市农业局、水务局、气象局及海南松涛水利工程管理局进行调查。&lt;/p&gt;
+
+&lt;p&gt;（三）整理材料阶段（2005年3月22日-3月26日）&lt;/p&gt;
+
+&lt;p&gt;2005年3月22日 各小组分组整理材料，上网或到图书馆查阅相关资料&lt;/p&gt;
+
+&lt;p&gt;2005年3月23日-3月25日 各小组撰写小组调查报告，小组成员撰写活动个人感想&lt;/p&gt;
+
+&lt;p&gt;2005年3月26日 各小组把这次活动的各种材料（包括活动记录、所拍摄的相片、撰写活动的感受和各小组的调查报告等资料）上交指导教师&lt;/p&gt;
+
+&lt;p&gt;（四）活动的总结及成果展出阶段（2005年3月27-3月30日）&lt;/p&gt;
+
+&lt;p&gt;2005年3月27日 召开活动小组全体成员会议，各小组、各成员交流活动的心得体会，总结这次活动&lt;/p&gt;
+
+&lt;p&gt;2005年3月28日 活动小组把这次活动的部分成果在校内外进行展出，并向全校发出“节约用水，共抗旱灾”的倡议，并向学校提出“共抗旱灾，从我做起”的五点建议；活动小组向市政府及相关部门提出“全市动员，形成节约用水、共同抗击旱灾的共识”等六点建议。&lt;/p&gt;
+
+&lt;p&gt;3、2005年3月29日―3月30日 活动小组向全市市民发出“节约用水，共抗旱灾”的倡议书，并走上街头发放1000份倡议书。&lt;/p&gt;
+
+&lt;p&gt;四、活动的成果&lt;/p&gt;
+
+&lt;p&gt;（一）较为全面地了解儋州市旱情、水情及抗旱形势&lt;/p&gt;
+
+&lt;p&gt;1、儋州市目前农业生产受到旱情的严重影响。从调查到的材料和数字看，除了两个镇没有调查到相关数字外，其他15个镇都存在不同程度的旱情,受旱面积超过50%的镇有4个，受旱面积超过20%的镇有10个。全市受旱农田面积目前已达64.25万亩，如果干旱持续下去，受旱面积将会继续扩大。（具体见表一）&lt;/p&gt;
+
+&lt;p&gt;2、我市目前的生活用水基本还能保持正常，但部分农村的生活用水面临严峻的形势。目前，全市因旱有10个镇40个自然村5万人出现饮水困难，占全市人口的5.56%，比重虽小，但绝对数并不小。而且，如果干旱再持续两个月以上，松涛水库将无水可放，全市居民的生活用水将面临严重威胁。（具体见材料一）&lt;/p&gt;
+
+&lt;p&gt;3、广大农村，特别是受灾农村目前生活秩序基本正常，但部分受灾严重农村的农民生活受到干旱较大的影响。&lt;/p&gt;
+
+&lt;p&gt;4、大多数村民已感受到旱灾对他们生活的影响，但在市政府所在地――那大镇，居民认为旱灾对他们生活有影响的仅为41.6%，远低于农村的77%，这说明市政府和松涛管理局以人民生活为重的决策已经发挥作用。（具体见附件二《问卷调查统计结果》）&lt;/p&gt;
+
+&lt;p&gt;5、大多数村民及市民已经认识到节水的重要性，但落实到行动上明确不够，如被调查市民中有93.19%的人认为应该节约用水，但只有52.69%的人认为身边的人在节约用水。（具体见附件二《问卷调查统计结果》）&lt;/p&gt;
+
+&lt;p&gt;6、儋州市各相关政府部门、各乡镇，非常重视领导农民抗击旱灾，引导广大干部群众采取封江堵溪、机械抽水、打田头井、挖深水井等方式解决水源，引导农民改种抗旱作物等，但由于资金、设备等方面的原因，没法解决所有受旱土地的用水问题，相当部分的受旱土地没法耕种。&lt;/p&gt;
+
+&lt;p&gt;7、受旱灾的影响，儋州市农业生产和农民的生活将会面临近50年来从未有过的严峻局面，预计今年我市农业生产和农民的收入将会受到严重的影响。&lt;/p&gt;
+
+&lt;p&gt;8、儋州市政府所在地――那大镇的广大市民关注旱情，也有较强的社会责任感，如有81.17%的市民了解儋州的旱情，73.73%的市民会为受旱群众伸出援助之手。（具体见附件二《问卷调查统计结果》）&lt;/p&gt;
+
+&lt;p&gt;表一：各乡镇农业生产的情况&lt;/p&gt;
+
+&lt;p&gt;注：表中数字为各小组调查的结果&lt;/p&gt;
+
+&lt;p&gt;表二：松涛水库情况&lt;/p&gt;
+
+&lt;p&gt;表三：松涛水库近4年水位&lt;/p&gt;
+
+&lt;p&gt;材料一：儋州市当前水情旱情及抗旱动态（资料来源：《儋州三防》[第三期]2005年3月11日）&lt;/p&gt;
+
+&lt;p&gt;1、儋州旱情：&lt;/p&gt;
+
+&lt;p&gt;全市受旱面积：目前受旱面积64.25万亩。&lt;/p&gt;
+
+&lt;p&gt;农作物受旱面积：其中甘蔗22万亩；水稻：0.45万亩；瓜菜：2.5万亩；花生：4.5万亩；番薯：3.5万亩；水果：5万亩；橡胶：26万亩；其他：0.3 万亩；水田无水插秧面积6万亩。&lt;/p&gt;
+
+&lt;p&gt;饮水情况：全市因旱有10个镇40个自然村5万人和1.0万头大牲畜出现饮水困难。&lt;/p&gt;
+
+&lt;p&gt;2、儋州水情：&lt;/p&gt;
+
+&lt;p&gt;至2005年3月11日止，全市水库（不含松涛）总蓄水量为7539万立方米，有效供水量6333万立方米，比2004年同期减少了1652万立方米。&lt;/p&gt;
+
+&lt;p&gt;松涛水库今年早造最多再给我市供水8980万立方米，比2004年同期减少5850万立方米。&lt;/p&gt;
+
+&lt;p&gt;目前全市有效供水量为15312万立方米，比去年同期减少7502万立方米。&lt;/p&gt;
+
+&lt;p&gt;3、儋州抗旱动态：&lt;/p&gt;
+
+&lt;p&gt;2004年入秋以来，市农机中心共组织各类抗旱机具1.5万台套，投入抗旱人力11.8万人次，投入作业消耗柴油近200吨，浇灌面积达50多万亩次。2005年3月1日至3月11日，全市投入抗旱人数3.5万人，抗旱泵站4处，抽水机2000台，运水车辆30辆次，抗旱用电1.2万度，抗旱用油17吨，浇灌面积5万亩，临时解决1.632万人和0.52万头牲畜的饮水困难,全市共投入抗旱资金79万元.&lt;/p&gt;
+
+&lt;p&gt;（二）旱情原因分析&lt;/p&gt;
+
+&lt;p&gt;1、客观原因&lt;/p&gt;
+
+&lt;p&gt;（1）全省降水偏少是导致这次旱灾发生的直接原因&lt;/p&gt;
+
+&lt;p&gt;海南岛属热带海洋性季风气候，旱季、雨季分明。每年冬春时节即当年11月至次年4月，为干旱期，降水少。而每年的夏秋时节即5月至10月，则是琼岛的多雨时节，降水多，降雨量约占全年总量的80%，这是琼岛气候的一大特点。但就去年而言，在传统的干旱期过后，进入雨季的琼岛降水仍然偏少，并出现了阶段性夏旱和持续性秋旱。2004年以来，儋州市各地高温少雨，1―10月份，全市平均降雨量仅为1077.7毫米，比正常年份平均少418.4毫米， 2004年11月―2005年4月，降雨偏少130－190毫米。2004年是1957年以来年降雨量最少的一年。它直接导致水库蓄水量不会有较大补充，这是导致这次旱灾发生的直接原因。&lt;/p&gt;
+
+&lt;p&gt;（2）厄尔尼诺现象&lt;/p&gt;
+
+&lt;p&gt;根据以往50年的数据统计，出现厄尔尼诺年时，气温一般偏高，冬天比较暖和。据介绍，2004年也是我国自1961年以来第4个气温偏高年。海南省大部分地区偏高0.7摄氏度，部分地区偏高1摄氏以上。儋州市2004年11月―2005年4月，天气偏暖，气温偏高。气温偏高加快水分蒸发，对加剧琼岛旱情尤如“火上浇油”，这是导致这次旱灾发生、持续的又一原因。&lt;/p&gt;
+
+&lt;p&gt;（3）55年一遇“空台年”&lt;/p&gt;
+
+&lt;p&gt;2004年海南岛无热带气旋登陆或影响，海南省遭遇55年来的第一个“空台年”。据了解，西北太平洋和南海地区平均每年大约有二十七八个台风生成，平均每年有6.9个台风在我国登陆。去年，热带风暴、台风生成总数和沿海登陆个数均较常年偏多。但在南海仅有3个风暴生成，且热带对流活动的区域相对偏北和偏东, 使大部分生成的台风和热带风暴相对偏北和偏东，2004年台风登陆地点集中于广东珠江口以东到浙江杭州湾一带，而没有进入海南岛。由于没有热带气旋影响，海南岛大范围的强降水过程明显偏少，绝大部分地区年总降水量不同程度偏少，各地降雨量的时空分布不均匀更为明显，这是导致干旱发生的又一原因。&lt;/p&gt;
+
+&lt;p&gt;2、人为的原因&lt;/p&gt;
+
+&lt;p&gt;（1）天然林破坏&lt;/p&gt;
+
+&lt;p&gt;天然林有落叶等长期堆积形成的凋落层，它们覆盖在地表，在降水时可以减缓水流，加大地表水渗透量。同时，天然林里每株植物体内都能蓄积大量水分，在干旱时释放出来，缓减旱情。但近十年，海南一些地区，天然林破坏严重，导致森林对水源的涵养功能降低，从而使得河流、水库、地下水等水位下降，加重了旱情。&lt;/p&gt;
+
+&lt;p&gt;（2）恶性开发&lt;/p&gt;
+
+&lt;p&gt;海南是农业大省，冬季瓜菜、果树种植等具有得天独厚的自然条件，水库库区由于水源充足，不少果农、开发商都盯上了海南的水库，他们毁掉库区周边的天然林种植芒果、龙眼、香蕉等经济作物，活动小组在松涛水库周边考察时发现大量存在此类现象。&lt;/p&gt;
+
+&lt;p&gt;（3）水利基础设施先天不足&lt;/p&gt;
+
+&lt;p&gt;儋州市由于松涛水库的灌溉，大部分灌区的农业用水基本得到保证。但儋州市的地形较高，不易储水，而且灌区渠道老化失修，渠道过水能力低，灌溉效益逐年下降。三都、峨蔓、松林等乡镇大量耕地因缺水而丢荒。一些中小水库由于资金的原因年久失修，蓄水能力下降，导致在干旱到来时没能发挥其作用。&lt;/p&gt;
+
+&lt;p&gt;（4）不合理的用水习惯&lt;/p&gt;
+
+&lt;p&gt;在儋州的许多农村，还存在“漫灌”的习惯，就算在干旱严重的今天，在水库库区上游，农田灌溉现象还存在。在生活用水方面，由于大多数的市民缺乏节约用水的意识，浪费水、污染水的现象十分严重，这些因素都人为地加剧了旱情。&lt;/p&gt;
+
+&lt;p&gt;（三）活动小组为学校、市政府相关部门抗旱避灾分别提出5条建议和6条建议，向全社会发出1000份《节约用水，共抗旱灾》的倡议书。&lt;/p&gt;
+
+&lt;p&gt;1、给学校的建议&lt;/p&gt;
+
+&lt;p&gt;（1）学校要利用各种手段加强对学生的宣传，提高学生的节水意识。&lt;/p&gt;
+
+&lt;p&gt;（2）同学们应立即行为起来，从我做起，从现在做起，节约身边的每一滴水。&lt;/p&gt;
+
+&lt;p&gt;（3）学生干部、共青团员和广大青少年学生应发挥自身的优势，向自己的亲戚好友、向社会宣传节水意识。&lt;/p&gt;
+
+&lt;p&gt;（4）把旱情当成重要的课程资源来利用，组织学生深入进行研究。&lt;/p&gt;
+
+&lt;p&gt;（5）组织各种形式的报告会、研讨会，请相关专家、学者到会为广大师生科学的分析旱情，提高学生的科学意识和环境保护意识。&lt;/p&gt;
+
+&lt;p&gt;2、给市政府的建议&lt;/p&gt;
+
+&lt;p&gt;（1）全市动员，形成节约用水、共同抗击旱灾的共识。&lt;/p&gt;
+
+&lt;p&gt;第一、儋州市的主要媒体要向全社会通报当前旱情，每周向全市市民公布本市的旱情、水情及抗旱动态。&lt;/p&gt;
+
+&lt;p&gt;第二、政府机关及各部门要动员起来，把抗旱救灾当成是一项关系到人民群众切身利益的大事来抓。&lt;/p&gt;
+
+&lt;p&gt;（2）做好干旱持续下去的防范准备工作。&lt;/p&gt;
+
+&lt;p&gt;当前，政府相关部门应未雨绸缪，建立防旱预案，做好旱灾持续下去的各种准备工作，形成抗旱救灾的常规机制。&lt;/p&gt;
+
+&lt;p&gt;（3）要从“地上、地下、天上”做好利用水资源的各项工作。&lt;/p&gt;
+
+&lt;p&gt;政府相关部门要引导广大干部群众采取的封江堵溪、机械抽水、打田头井、挖深水井等途径解决受灾地区农业生产和居民用水问题，并在人力、财力、物力等方面予以支持，要积极采取人工增雨作业等方式缓解旱情，从“地上、地下、天上”多方利用有限的水资源。&lt;/p&gt;
+
+&lt;p&gt;（4）各相关部门要协调处理好各镇、各村之间的用水矛盾，防患于未然。&lt;/p&gt;
+
+&lt;p&gt;相关部门要制定并科学实施水资源利用工作方案，防止抢水、争水及各种因水资源而引发的各种矛盾的产生，有关部门要协调处理好各镇、各村之间的用水矛盾，防患于未然。&lt;/p&gt;
+
+&lt;p&gt;（5）社会、政府要帮助受灾地区农民恢复生产，抗灾自救。&lt;/p&gt;
+
+&lt;p&gt;第一、政府在财政上要努力为受灾严重的灾区提供更多的抗灾资金和设备。&lt;/p&gt;
+
+&lt;p&gt;第二、社会各界要发起一场为灾区人民捐款的筹款活动，多方筹集抗灾资金。&lt;/p&gt;
+
+&lt;p&gt;第三、政府、社会要帮助灾区人民解决生产和生活问题，一方面要千方百计地帮助受灾群众恢复生产，解决他们的基本生活问题；另一方面，要通过劳务输出等方式解决受旱农民工的生活来源问题。&lt;/p&gt;
+
+&lt;p&gt;（6）要从长远上保护好我们的水资源，做好松涛水库等水利设施周边环境的整治工作和长远规划。&lt;/p&gt;
+
+&lt;p&gt;3、给社会的倡议&lt;/p&gt;
+
+&lt;p&gt;活动小组的所有成员向社会各界群众发出“立即行动起来，从我做起，从现在做起，众志成城，万众一心，夺取抗旱斗争的伟大胜利”的倡议：（倡议书见附件五）&lt;/p&gt;
+
+&lt;p&gt;（1）增强节水意识，请勿浪费每一滴水。&lt;/p&gt;
+
+&lt;p&gt;（2）积极行动起来，改变不良的用水习惯。&lt;/p&gt;
+
+&lt;p&gt;（3）当好节水宣传员，做好节水宣传工作。&lt;/p&gt;
+
+&lt;p&gt;（4）伸出你的手，为灾区人民献上一份爱心。&lt;/p&gt;
+
+&lt;p&gt;五、体会和感受&lt;/p&gt;
+
+&lt;p&gt;参加活动的学生，除一名因病中途退出外，其余71名学生按计划完成全部活动。18个调查小组共撰写了13份《小组调查报告》，71名学生共撰写了50多份《个人感想》。从学生撰写的调查报告和活动感受中，可以深切的感受到学生所受到的教育，思想所发生的变化，关注社会、关注人的思维品质得到培养，环境保护意识得到提高，科学研究的精神得到培养。&lt;/p&gt;
+
+&lt;p&gt;（一）部分《调查报告》节选&lt;/p&gt;
+
+&lt;p&gt;兰洋镇农业受旱情况如下：全镇共有水田7800亩，其中因旱无法耕种的农田有5000亩。旱情最严重的有羊龙村、新辛村、头地村、新福村、上村二队五个自然村。&lt;/p&gt;
+
+&lt;p&gt;抽样调查兰洋镇南罗村委会：&lt;/p&gt;
+
+&lt;p&gt;（1）南罗村委会五个自然村中，有860亩地因旱无法耕种。&lt;/p&gt;
+
+&lt;p&gt;（2）仅有360亩田地可插秧（已插秧）；无法插秧的田地改种玉米、番薯等耐旱作物。&lt;/p&gt;
+
+&lt;p&gt;（3）五个自然村中大部分水井已干枯无水；农业用水和生活用水主要来源于山沟水。&lt;/p&gt;
+
+&lt;p&gt;（4）五个自然村中羊龙村的旱情最严重，村民们几乎无水可用，只能从几公里外的山泉挑水解决生活用水问题。&lt;/p&gt;
+
+&lt;p&gt;―― 兰洋镇调查小组&lt;/p&gt;
+
+&lt;p&gt;此次旱情对南丰镇各村造成的影响有：&lt;/p&gt;
+
+&lt;p&gt;⑴可以正常耕作的土地面积大大减少，为今年的收成带来了困难。&lt;/p&gt;
+
+&lt;p&gt;⑵基本口粮已难以维持农民的需求；农民的饮水困难问题越来越严重，难度越来越大。&lt;/p&gt;
+
+&lt;p&gt;⑶今年各村农业生产面临严峻的局面，村民的生活面临严峻的局面。&lt;/p&gt;
+
+&lt;p&gt;――南丰镇调查小组&lt;/p&gt;
+
+&lt;p&gt;镇政府全力组织抗旱，措施得力，如向农民提供一些免费的耐旱种子；合理的分配现有水资源；组织劳动力输出等。&lt;/p&gt;
+
+&lt;p&gt;――雅星镇调查小组&lt;/p&gt;
+
+&lt;p&gt;几条建议：&lt;/p&gt;
+
+&lt;p&gt;（1）镇政府人员应定时向各村进行调查，了解各村的受灾情况，并指导村民抗灾自救。&lt;/p&gt;
+
+&lt;p&gt;（2）各村委会要积极号召村民抗旱，并做好组织工作。&lt;/p&gt;
+
+&lt;p&gt;（3）村民要理智，要有共抗旱灾的决心，积极投入到生产自救中去。&lt;/p&gt;
+
+&lt;p&gt;――海头镇调查小组&lt;/p&gt;
+
+&lt;p&gt;（二）部分《个人感想》节选――&lt;/p&gt;
+
+&lt;p&gt;面对这种干旱情况我不禁自问：我能做些什么？我们能为他们提供些什么？&lt;/p&gt;
+
+&lt;p&gt;――林颖全&lt;/p&gt;
+
+&lt;p&gt;关不紧的水龙头意味着什么？节约用水，一个很老的话题，同时也是很严重的问题。一滴水的价值我们知道多少？&lt;/p&gt;
+
+&lt;p&gt;――刘钟锴&lt;/p&gt;
+
+&lt;p&gt;目睹旱情，我为以前浪费水资源、不爱护环境的行为感到非常惭愧。我对不起那些受灾的父老乡亲！对不起大自然！&lt;/p&gt;
+
+&lt;p&gt;――李汉东&lt;/p&gt;
+
+&lt;p&gt;我再也不是过去那种“纸上谈兵”了！我领悟到了实践对人生的重要性。人实践了，感悟才最深。&lt;/p&gt;
+
+&lt;p&gt;――何烈方&lt;/p&gt;
+
+&lt;p&gt;这次调查不仅让我增长了见识，还使我懂得了生活的艰辛，生命的宝贵！&lt;/p&gt;
+
+&lt;p&gt;――陈金龙&lt;/p&gt;
+
+&lt;p&gt;农民热情、淳朴、善良、待人真诚，让我在调查活动中仍能感受到亲人般的关怀。&lt;/p&gt;
+
+&lt;p&gt;――王永慧&lt;/p&gt;
+
+&lt;p&gt;我为我现在所做的事情感到自豪，因为我开始替自己赎罪。我要用我的双手，负起保护水资源的责任！&lt;/p&gt;
+
+&lt;p&gt;――黄颖&lt;/p&gt;
+
+&lt;p&gt;从小害怕雷鸣闪电的我，现在却总是时时在向老天祈祷，求求老天现在就下雨！给干渴的大地和人们喝个痛快吧！&lt;/p&gt;
+
+&lt;p&gt;――吴特丽&lt;/p&gt;
+
+&lt;p&gt;附件1：《儋州市旱情调查研究性学习活动实施方案》&lt;/p&gt;
+
+&lt;p&gt;附件2：《调 查 问 卷（一）》&lt;/p&gt;
+
+&lt;p&gt;附件3：《调 查 问 卷（二）》&lt;/p&gt;
+
+&lt;p&gt;附件4：《问卷调查统计结果》&lt;/p&gt;
+
+&lt;p&gt;附件5：《倡议书》&lt;/p&gt;
+
+&lt;p&gt;附件6：《部分小组撰写的调查报告》&lt;/p&gt;
+
+&lt;p&gt;二00五年三月三十一日&lt;/p&gt;
+
+&lt;p&gt;附件1：&lt;/p&gt;
+
+&lt;h3&gt;“儋州市旱情调查”研究性学习活动方案&lt;/h3&gt;
+
+&lt;p&gt;一、课题背景&lt;/p&gt;
+
+&lt;p&gt;2004年以来，海南省遭受到50年来最严重的旱灾。作为海南省人口最多，面积最大的市（县）和全国农业百强市（县），儋州市的旱情牵动着全市人民的心。海南西部和北部工农业、居民生活用水的源头，也是海南最大的水库――松涛水库就坐落在儋州市和白沙县、琼中县交界处，海南松涛水利工程管理局就设在儋州市政府所在地――那大镇，松涛水库管理区设在儋州市南丰镇。&lt;/p&gt;
+
+&lt;p&gt;旱情的背后是各种深刻的科学道理，现实的背后是理性，是什么原因造成这次儋州市乃至整个海南大旱，我们希望通过调查能弄清背后的原因。同时，通过这项活动让我们深入社会，在活动中提高我们的综合素质。&lt;/p&gt;
+
+&lt;p&gt;二、活动的目的&lt;/p&gt;
+
+&lt;p&gt;了解儋州市的旱情，分析干旱产生的原因及影响，为学校、社会抗旱避灾提出相关建议。推动研究性学习活动的蓬勃发展，培养青少年的创新精神和实践能力，提高青少年的综合素质，鼓励优秀人才的涌现。&lt;/p&gt;
+
+&lt;p&gt;三、活动的时间、地点和人员安排及准备的资料&lt;/p&gt;
+
+&lt;p&gt;1、活动时间：3月4日――3月30日&lt;/p&gt;
+
+&lt;p&gt;2、活动地点：儋州市各乡镇、市政府相关部门和松涛水利工程管理局及松涛水库库区&lt;/p&gt;
+
+&lt;p&gt;3、活动人员安排&lt;/p&gt;
+
+&lt;p&gt;（1）儋州市那大中学旱情调查研究性学习活动小组指导教师分工&lt;/p&gt;
+
+&lt;p&gt;曾良（学校教研室主任，中学政治一级教师）：统筹指导本次活动，并负责指导学生撰写调查报告、活动感受&lt;/p&gt;
+
+&lt;p&gt;郑培生（中学物理一级教师，有多年指导青少年科技创新大赛经验）：负责指导科学研究方法的指导&lt;/p&gt;
+
+&lt;p&gt;陈美娟（中学地理一级教师）：负责指导学生分析干旱产生的原因及提出科学性的设想、建议&lt;/p&gt;
+
+&lt;p&gt;（2）活动参与学生：原则上划分为18个活动小组，按17个乡镇和各相关部门（包括海南松涛水利工程管理局和儋州市各相关政府部门）划分，每组学生4人，在学生自愿报名的基础上产生。&lt;/p&gt;
+
+&lt;p&gt;（3）活动开展所需材料&lt;/p&gt;
+
+&lt;p&gt;1、调查材料：普通相机、数码相机、录音机、调查问卷、摄像机、学校证明&lt;/p&gt;
+
+&lt;p&gt;2、新闻媒体：在调查过程中，希望借助儋州电视台和儋州通讯等新闻媒体进行宣传，扩大调查影响&lt;/p&gt;
+
+&lt;p&gt;四、活动的主要内容和具体实施步骤&lt;/p&gt;
+
+&lt;p&gt;（一）活动的主要内容&lt;/p&gt;
+
+&lt;p&gt;1、科学调查&lt;/p&gt;
+
+&lt;p&gt;①调查儋州各乡镇旱情，特别是农业受旱情况和居民用水情况是这次调查的重点。&lt;/p&gt;
+
+&lt;p&gt;②调查这次旱情发生的原因&lt;/p&gt;
+
+&lt;p&gt;③调查儋州市农业生产、农民的生活受到旱情的影响情况&lt;/p&gt;
+
+&lt;p&gt;④调查儋州市90万市民的生活受干旱的影响情况&lt;/p&gt;
+
+&lt;p&gt;⑤调查当前儋州市抗旱形势&lt;/p&gt;
+
+&lt;p&gt;2、自我反思&lt;/p&gt;
+
+&lt;p&gt;①撰写活动感受&lt;/p&gt;
+
+&lt;p&gt;②小组讨论与交流活动的感受&lt;/p&gt;
+
+&lt;p&gt;③各小组撰写调查报告&lt;/p&gt;
+
+&lt;p&gt;3、宣传教育&lt;/p&gt;
+
+&lt;p&gt;①展示调查成果，进一步扩大活动的影响&lt;/p&gt;
+
+&lt;p&gt;②向社会发出倡议书、&lt;/p&gt;
+
+&lt;p&gt;（二）活动的具体实施步骤&lt;/p&gt;
+
+&lt;p&gt;1、3月4日 制定的活动方案。&lt;/p&gt;
+
+&lt;p&gt;2、3月4日―11日 进行动员，了解学生的情况，征求师生的意见；确定参加“儋州市旱情调查”研究性学习活动小组成员，并进行分组。&lt;/p&gt;
+
+&lt;p&gt;3、3月12日-18日 召开动员大会，分别举行社会调查、科学性实践活动、科学（理性）地看待干旱等三场辅导讲座，做好调查所需材料的准备工作和安全教育工作。如：调查所需的问卷、相机等；召开临行前学生动员大会，落实各项准备工作。&lt;/p&gt;
+
+&lt;p&gt;6、3月20日 集中活动阶段&lt;/p&gt;
+
+&lt;p&gt;指导教师带领学生深入到松涛水库库区、新州镇和木棠镇调查，请当地的相关领导介绍当时的旱情及当地面对旱情所采取的措施。&lt;/p&gt;
+
+&lt;p&gt;7、3月21日 分组活动阶段&lt;/p&gt;
+
+&lt;p&gt;学生以小组为单位深入到儋州市各乡镇、农村及松涛水利工程管理局、市政府相关部门，请当地（相关部门）的相关领导介绍当时的旱情及当地对旱情所采取的措施。&lt;/p&gt;
+
+&lt;p&gt;8、3月22日―26日整理统计调查数据，组织材料，教师指导学生撰写调查报告和活动个人感想。&lt;/p&gt;
+
+&lt;p&gt;9、3月27日-3月29日 展示调查成果，进一步扩大活动的影响&lt;/p&gt;
+
+&lt;p&gt;10、3月30日 向社会提出倡议、向学校、政府提出建议&lt;/p&gt;
+
+&lt;p&gt;“儋州市旱情调查”&lt;/p&gt;
+
+&lt;p&gt;研究性学习活动小组&lt;/p&gt;
+
+&lt;p&gt;二00五年三月四日&lt;/p&gt;
+
+&lt;p&gt;附件2：&lt;/p&gt;
+
+&lt;h3&gt;调 查 问 卷（一）&lt;/h3&gt;
+
+&lt;p&gt;您好，谢谢你在百忙中能接受我们的调查，感谢你对我们工作的支持。&lt;/p&gt;
+
+&lt;p&gt;下面有9道问题，请你据实回答。&lt;/p&gt;
+
+&lt;p&gt;1、你认为旱情对你的生活和生产有影响吗？&lt;/p&gt;
+
+&lt;p&gt;A、影响很大 B、没有 C、有一点 D、说不清&lt;/p&gt;
+
+&lt;p&gt;2、在日常生活中，你感到用水有困难吗？&lt;/p&gt;
+
+&lt;p&gt;A、困难 B、不困难 C、 说不清&lt;/p&gt;
+
+&lt;p&gt;3、你认为应该节约生活用水吗？&lt;/p&gt;
+
+&lt;p&gt;A、应该 B、 不应该&lt;/p&gt;
+
+&lt;p&gt;4、你身边的人是否节约用水？&lt;/p&gt;
+
+&lt;p&gt;A、是 B、否 C、说不清&lt;/p&gt;
+
+&lt;p&gt;5、你认为本地农业生产受旱情的影响吗？&lt;/p&gt;
+
+&lt;p&gt;A、有影响 B、没有影响 C、说不清&lt;/p&gt;
+
+&lt;p&gt;6、你的日常生活受这次旱情的影响吗？&lt;/p&gt;
+
+&lt;p&gt;A、有影响 B、没有影响 C、说不清&lt;/p&gt;
+
+&lt;p&gt;7、面对旱情，你是否改种其他耐旱作物？&lt;/p&gt;
+
+&lt;p&gt;A、是 B、否&lt;/p&gt;
+
+&lt;p&gt;8、政府有否帮助你们克服旱灾保持生产？&lt;/p&gt;
+
+&lt;p&gt;A、有 B、没有&lt;/p&gt;
+
+&lt;p&gt;9、你是否采取措施来解决干旱带来的问题？&lt;/p&gt;
+
+&lt;p&gt;A、有 B、没有&lt;/p&gt;
+
+&lt;p&gt;再次感谢您对我们工作的支持。&lt;/p&gt;
+
+&lt;p&gt;附件3：&lt;/p&gt;
+
+&lt;h3&gt;调 查 问 卷（二）&lt;/h3&gt;
+
+&lt;p&gt;您好，谢谢你在百忙中能接受我们的调查，感谢您对我们工作的支持。&lt;/p&gt;
+
+&lt;p&gt;下面有7道问题，请您据实回答。&lt;/p&gt;
+
+&lt;p&gt;1、你了解儋州市目前的旱情吗？&lt;/p&gt;
+
+&lt;p&gt;A、很了解 B、知道一些 C、不清楚&lt;/p&gt;
+
+&lt;p&gt;2、你的日常生活受这次旱情的影响吗？&lt;/p&gt;
+
+&lt;p&gt;A、有影响 B、没有影响 C、说不清&lt;/p&gt;
+
+&lt;p&gt;3、在日常生活中，你感到用水有困难吗？&lt;/p&gt;
+
+&lt;p&gt;A、很困难 B、有一点困难 C、 说不清&lt;/p&gt;
+
+&lt;p&gt;4、你认为应该节约生活用水吗？&lt;/p&gt;
+
+&lt;p&gt;A、应该 B、 不应该&lt;/p&gt;
+
+&lt;p&gt;5、你身边的人是否节约用水？&lt;/p&gt;
+
+&lt;p&gt;A、是 B、否 C、不清楚&lt;/p&gt;
+
+&lt;p&gt;6、你认为本地农业生产受到旱情的影响吗？&lt;/p&gt;
+
+&lt;p&gt;A、有影响 B、没有影响 C、说不清&lt;/p&gt;
+
+&lt;p&gt;7、你会为受旱群众伸出援助之手吗？&lt;/p&gt;
+
+&lt;p&gt;A、会 B、不会 C、说不清&lt;/p&gt;
+
+&lt;p&gt;再次感谢您对我们工作的支持！&lt;/p&gt;
+
+&lt;p&gt;附件4：&lt;/p&gt;
+
+&lt;h3&gt;问卷调查统计结果&lt;/h3&gt;
+
+&lt;p&gt;一、调查小组共向所到乡镇居民（村民）发放调查问卷（一）共1700份，回收1460份，结果统计如下：&lt;/p&gt;
+
+&lt;p&gt;1、 你认为旱情对你的生活和生产有影响吗？&lt;/p&gt;
+
+&lt;p&gt;93%认为有影响；2%认为没有影响；5%说不清&lt;/p&gt;
+
+&lt;p&gt;2、 日常生活中，你感到用水有困难吗？&lt;/p&gt;
+
+&lt;p&gt;11%认为不困难；22%认为有一点困难；65%认为很困难&lt;/p&gt;
+
+&lt;p&gt;3、 你认为应该节约生活用水吗？&lt;/p&gt;
+
+&lt;p&gt;90%认为应该；6%认为不应该&lt;/p&gt;
+
+&lt;p&gt;4、 你身边的人是否节约用水？&lt;/p&gt;
+
+&lt;p&gt;70%认为身边的人在节约用水；有10%认为身边的人没有节约用水；16%说不清&lt;/p&gt;
+
+&lt;p&gt;5、 你认为本地农业生产受旱情的影响吗？&lt;/p&gt;
+
+&lt;p&gt;88%认为有影响；2%认为没有影响；5%说不清&lt;/p&gt;
+
+&lt;p&gt;6、 你的日常生活受这次旱情的影响吗？&lt;/p&gt;
+
+&lt;p&gt;77%认为有影响；7%认为没有影响；11%说不清&lt;/p&gt;
+
+&lt;p&gt;7、 面对旱情，你是否改种耐旱作物？&lt;/p&gt;
+
+&lt;p&gt;48%改种；47%没有改种&lt;/p&gt;
+
+&lt;p&gt;8、政府有否帮助你们克服旱灾保持生产？&lt;/p&gt;
+
+&lt;p&gt;25%认为政府帮助他们；62%认为政府没有帮助他们&lt;/p&gt;
+
+&lt;p&gt;9、你是否采取措施来解决干旱带来的问题？&lt;/p&gt;
+
+&lt;p&gt;38%已采取措施；56%没有采取措施&lt;/p&gt;
+
+&lt;p&gt;二、调查小组共向所到市政府所在地那大镇市民发放调查问卷（二）共800份，回收632份，结果如下：&lt;/p&gt;
+
+&lt;p&gt;1、 你了解儋州市目前的旱情吗？&lt;/p&gt;
+
+&lt;p&gt;23.42%很了解；57.75%知道一些；17.25%不清楚&lt;/p&gt;
+
+&lt;p&gt;2、 你的日常生活受这次旱情的影响吗？&lt;/p&gt;
+
+&lt;p&gt;41.6%有影响；39.56%；没有影响；15.19%说不清&lt;/p&gt;
+
+&lt;p&gt;3、 在日常生活中，你感到用水有困难吗？&lt;/p&gt;
+
+&lt;p&gt;23.58%有困难；60.44%一般；15.03% 说不清&lt;/p&gt;
+
+&lt;p&gt;4、 你认为应该节约生活用水吗？&lt;/p&gt;
+
+&lt;p&gt;93.19%应该；3.6%不应该&lt;/p&gt;
+
+&lt;p&gt;5、 你身边的人是否节约用水？&lt;/p&gt;
+
+&lt;p&gt;52.69%是；19.30否；20.09%不清楚&lt;/p&gt;
+
+&lt;p&gt;6、 你认为本地农业生产受到旱情的影响吗？&lt;/p&gt;
+
+&lt;p&gt;73.89%有影响；5.5%没有影响；18.67%说不清&lt;/p&gt;
+
+&lt;p&gt;7、 你会为受旱群众伸出援助之手吗？&lt;/p&gt;
+
+&lt;p&gt;73.73%会；4.74%不会；13.29%说不清&lt;/p&gt;
+
+&lt;p&gt;附件5：&lt;/p&gt;
+
+&lt;h3&gt;倡 议 书&lt;/h3&gt;
+
+&lt;p&gt;尊敬的儋州市民：&lt;/p&gt;
+
+&lt;p&gt;你知道海南的旱情吗？你了解儋州的旱情吗？明天我们会无水可用吗？&lt;/p&gt;
+
+&lt;p&gt;目前，松涛水库只有3.3亿立方米的水能放出，水库水位每天在下降7―9厘米，如果旱情再持续两个月，松涛水库就到了死水位，到那时，松涛水库就再也放不出水！如果两个月后雨季还没出现，我们的生活将会怎样？&lt;/p&gt;
+
+&lt;p&gt;目前，我市受旱面积为64.25万亩，全市因干旱有10个镇40个自然村和1.0万头大牲畜出现饮水困难，如果旱情再持续下去，广大农民群众将会面临何种状况呢？&lt;/p&gt;
+
+&lt;p&gt;目前，我市广大干部群众正采取有效措施，奋起抗旱。但是，在我们身边，还存在种种随意浪费水的现象，宝贵的水资源被人为地污染的事仍不时发生，不少人对于缺水的危险熟视无睹。&lt;/p&gt;
+
+&lt;p&gt;为了我们的生活，为了广大的农民群众，为了夺取这场抗旱斗争的胜利。我们向全市所有市民提出如下倡议：&lt;/p&gt;
+
+&lt;p&gt;1、增强节水意识，请勿浪费每一滴水。&lt;/p&gt;
+
+&lt;p&gt;2、积极行动起来，改变不良的用水习惯。&lt;/p&gt;
+
+&lt;p&gt;3、当好节水宣传员，做好节水宣传工作。&lt;/p&gt;
+
+&lt;p&gt;4、伸出你的手，为灾区人民献上一份爱心。&lt;/p&gt;
+
+&lt;p&gt;请让我们立即行动起来，从我做起，从现在做起，众志成城，万众一心，夺取抗旱斗争的伟大胜利。&lt;/p&gt;
+
+&lt;p&gt;儋州市那大中学&lt;/p&gt;
+
+&lt;p&gt;“儋州市旱情调查”研究性学习活动小组&lt;/p&gt;
+
+&lt;p&gt;二0 0五年三月二十九日&lt;/p&gt;
+
+&lt;p&gt;附件6：《部分小组撰写的调查报告》&lt;/p&gt;
+
+&lt;p&gt;儋州市南丰镇旱情调查报告&lt;/p&gt;
+
+&lt;h3&gt;儋州市那大中学儋州市旱情调查课题组：吴特丽、吴锦正、吴秋燕&lt;/h3&gt;
+
+&lt;p&gt;指导教师：曾良 郑培生 陈美娟&lt;/p&gt;
+
+&lt;p&gt;一、课题背景&lt;/p&gt;
+
+&lt;p&gt;2004年以来，海南省遭受到50年来最严重的旱灾。作为海南省人口最多，面积最大的市（县）和全国农业百强市（县），儋州市的旱情牵动着全市人民的心。海南西部和北部工农业、居民生活用水的源头，也是海南最大的水库――松涛水库就坐落在儋州市和白沙县、琼中县交界处，海南松涛水利工程管理局就设在儋州市政府所在地――那大镇，松涛水库管理区设在儋州市南丰镇。&lt;/p&gt;
+
+&lt;p&gt;旱情的背后是各种深刻的科学道理，现实的背后是理性，是什么原因造成这次儋州市乃至整个海南大旱，我们希望通过调查能弄清背后的原因。同时，通过这项活动让我们深入社会，在活动中提高我们的综合素质。&lt;/p&gt;
+
+&lt;p&gt;二、研究目的&lt;/p&gt;
+
+&lt;p&gt;1、了解儋州市旱情发生的原因，为抗灾救灾提供建议。&lt;/p&gt;
+
+&lt;p&gt;2、提高综合活动能力&lt;/p&gt;
+
+&lt;p&gt;3、培养科学精神和创新能力&lt;/p&gt;
+
+&lt;p&gt;三、研究过程&lt;/p&gt;
+
+&lt;p&gt;1、准备阶段：准备调查问卷、查阅资料、做好外出活动的各种集备。&lt;/p&gt;
+
+&lt;p&gt;2、活动阶段： 深入到儋州市各乡镇、农村及松涛水利工程管理局、市政府相关部门，请当地（相关部门）的相关领导介绍当时的旱情及当地对旱情所采取的措施。&lt;/p&gt;
+
+&lt;p&gt;3、整理资料阶段：整理统计调查数据，组织材料，教师指导学生撰写调查报告。&lt;/p&gt;
+
+&lt;p&gt;4、展示阶段：展示活动的结果，向社会提出倡议、向学校、政府提出建议。&lt;/p&gt;
+
+&lt;p&gt;四、研究方法&lt;/p&gt;
+
+&lt;p&gt;1、网上搜集资料&lt;/p&gt;
+
+&lt;p&gt;根据所选课题，我们有目的地在网上搜索资料，寻找与研究有关的信息，并把网上和网情有关的资料进行整理。&lt;/p&gt;
+
+&lt;p&gt;2、实地调查研究&lt;/p&gt;
+
+&lt;p&gt;我们深入到松涛水库、新州镇、木棠镇等地的水库、农村、田地进行实地考察，掌握第一手资料，并拍摄了近50张的像片和资料。&lt;/p&gt;
+
+&lt;p&gt;3、查阅图书资料&lt;/p&gt;
+
+&lt;p&gt;我们在市图书馆和学校图书馆查阅有关儋州市气象资料，了解相关地理、社会科学等的资料，进一步丰富我们的主题内容。&lt;/p&gt;
+
+&lt;p&gt;4、问卷调查&lt;/p&gt;
+
+&lt;p&gt;我们小组到南丰镇向居民和村民发放调查问卷150份，收回142份，并进行统计。&lt;/p&gt;
+
+&lt;p&gt;5、访谈调查法&lt;/p&gt;
+
+&lt;p&gt;在活动的过程中，我们到松涛库区和南丰镇采访相关领导及相关技术人员，了解松涛水库及南丰镇的受旱情况及相关原因。&lt;/p&gt;
+
+&lt;p&gt;五、调查结果&lt;/p&gt;
+
+&lt;p&gt;1、南丰镇耕地受旱情况&lt;/p&gt;
+
+&lt;p&gt;因无水播种的面积有8667亩。其中水道为4785亩，瓜菜为815亩，花生为352亩，甘蔗为2100亩，橡胶为385亩。&lt;/p&gt;
+
+&lt;p&gt;重旱的土地面积为6982亩。其中瓜菜为330亩，花生为22亩，甘蔗为3120亩，水果为3120亩，番薯为75亩，橡胶为315亩。因旱情严重无法播种。&lt;/p&gt;
+
+&lt;p&gt;旱情较轻的土地面积为5449亩。其中瓜菜450亩，花生为46亩，甘蔗为115亩，水果为4071亩，番薯为352亩，橡胶为415亩。&lt;/p&gt;
+
+&lt;p&gt;2、旱情因干旱人畜饮水困难的村委会有：⑴尖岭；⑵头佑；⑶陶江；⑷六门；⑸武教；⑹油麻；⑺南丰；⑻居委；⑼苗族；⑽油文；⑾新村；⑿农场。其中：&lt;/p&gt;
+
+&lt;p&gt;⑴尖岭有3个自然村，210户人口，共1300人，45头性畜因干旱饮水困难；&lt;/p&gt;
+
+&lt;p&gt;⑵陶口有14个自然村，183户人口，共1100人，65头性畜因干旱饮水困难；&lt;/p&gt;
+
+&lt;p&gt;⑶武教有11个自然村，78户人口，共467人，56头性畜因干旱饮水困难；&lt;/p&gt;
+
+&lt;p&gt;⑷油麻有7个自然村，52户人口，共316人，63头性畜因干旱饮水困难；&lt;/p&gt;
+
+&lt;p&gt;⑸居委有5个自然村，350户人口，共2101人，15头性畜因干旱饮水困难；&lt;/p&gt;
+
+&lt;p&gt;⑹苗族有7个自然村，71户人口，共427人，47头性畜因干旱饮水困难；&lt;/p&gt;
+
+&lt;p&gt;⑺油文有4个自然村，16户人口，65人，35头性畜因干旱饮水困难；&lt;/p&gt;
+
+&lt;p&gt;⑻新村有4个自然村，29户人口，123人，31头性畜因干旱饮水困难。&lt;/p&gt;
+
+&lt;p&gt;3、南丰镇地区内水库，山塘降至死水位的主要有：⑴尖岭山塘；⑵南荣山塘；⑶白马山塘；⑷武教山塘；⑸马荷山塘；⑹后岭山塘。&lt;/p&gt;
+
+&lt;p&gt;4、旱情对各个村造成的影响有：⑴可以耕作的土地面积大大减少，为今年的收成带来了困难，⑵基本口粮已难以维持农民的需求；农民的饮水问题越来越严重，难度越来越大；⑶使农民的农作物的损失增大。&lt;/p&gt;
+
+&lt;p&gt;5、地方政府，村委会及农民自己一起采取的抗旱措施有；⑴投入抗旱人数为4872人；⑵机动抗旱设备161台抽水机；⑶车辆运水15辆；镇府拨款1。6万元；⑷群众自筹3万元；⑸抗旱用油3。7吨；⑹抗旱灌溉面积1576亩；⑺临时解决饮水困难2000人，性畜的饮水困难有162头；⑻抗旱井5口。&lt;/p&gt;
+
+&lt;p&gt;6、南丰镇居民解决用水问题的主要途径有：⑴打井，修水利；⑵到水库去拉水；⑶到镇里买水（其中有5元一小车，15元一大车）。例如：我们到过的红苓村，打水的人们排着长队从早上一直打到晚上，甚至用15元买一车水（拖拉机）。&lt;/p&gt;
+
+&lt;p&gt;六、南丰镇周边的各村发生旱灾的原因探讨&lt;/p&gt;
+
+&lt;p&gt;1、客观原因&lt;/p&gt;
+
+&lt;p&gt;（1）全省降水偏少是导致这次旱灾发生的直接原因&lt;/p&gt;
+
+&lt;p&gt;海南岛属热带海洋性季风气候，旱季、雨季分明。每年冬春时节即当年11月至次年4月，为干旱期，降水少。而每年的夏秋时节即5月至10月，则是琼岛的多雨时节，降水多，降雨量约占全年总量的80%，这是琼岛气候的一大特点。但就去年而言，在传统的干旱期过后，进入雨季的琼岛降水仍然偏少，并出现了阶段性夏旱和持续性秋旱。2004年以来，儋州市各地高温少雨，1―10月份，全市平均降雨量仅为1077.7毫米，比正常年份平均少418.4毫米， 2004年11月―2005年4月，降雨偏少130－190毫米。2004年是1957年以来年降雨量最少的一年。&lt;/p&gt;
+
+&lt;p&gt;（2）厄尔尼诺现象&lt;/p&gt;
+
+&lt;p&gt;根据以往50年的数据统计，出现厄尔尼诺年时，气温一般偏高，冬天比较暖和。据介绍，2004年也是我国自1961年以来第4个气温偏高年。海南省大部分地区偏高0.7摄氏度，部分地区偏高1摄氏以上。儋州市2004年11月―2005年4月，天气偏暖，气温偏高。气温偏高加快水分蒸发，对加剧琼岛旱情尤如“火上浇油”，这是导致这次旱灾发生、持续的又一原因。&lt;/p&gt;
+
+&lt;p&gt;（3）55年一遇“空台年”&lt;/p&gt;
+
+&lt;p&gt;2004年海南岛无热带气旋登陆或影响，海南省遭遇55年来的第一个“空台年”。 2004年台风登陆地点集中于广东珠江口以东到浙江杭州湾一带，而没有进入海南岛。由于没有热带气旋影响，海南岛大范围的强降水过程明显偏少，绝大部分地区年总降水量不同程度偏少，各地降雨量的时空分布不均匀更为明显，这是导致干旱发生的又一原因。&lt;/p&gt;
+
+&lt;p&gt;（1）恶性开发&lt;/p&gt;
+
+&lt;p&gt;海南是农业大省，冬季瓜菜、果树种植等具有得天独厚的自然条件，南丰镇内的松涛水库库区由于水源充足，不少果农、开发商都盯上了海南的水库，他们毁掉库区周边的天然林种植芒果、龙眼、香蕉等经济作物，活动小组在松涛水库周边考察时发现大量存在此类现象。&lt;/p&gt;
+
+&lt;p&gt;（2）不合理的用水习惯&lt;/p&gt;
+
+&lt;p&gt;在儋州的许多农村，还存在“漫灌”的习惯，就算在干旱严重的今天，在水库库区上游，农田灌溉现象还存在。在生活用水方面，由于大多数的市民缺乏节约用水的意识，浪费水、污染水的现象十分严重，这些因素都人为地加剧了旱情。&lt;/p&gt;
+
+&lt;p&gt;（3）政府对于干旱不够重视，抗旱资金不足，许多措施没有真正实施，水利局供水不足。&lt;/p&gt;
+
+&lt;p&gt;七、几条建议：&lt;/p&gt;
+
+&lt;p&gt;1、学校要利用各种手段加强对学生的宣传，提高学生的节水意识。同学们应立即行为起来，从我做起，从现在做起，节约身边的每一滴水。&lt;/p&gt;
+
+&lt;p&gt;2、政府相关部门应未雨绸缪，建立防旱预案，做好旱灾持续下去的各种准备工作，形成抗旱救灾的常规机制。&lt;/p&gt;
+
+&lt;p&gt;3、社会、政府要帮助受灾地区农民恢复生产，抗灾自救。&lt;/p&gt;
+
+&lt;p&gt;第一、政府在财政上要努力为受灾严重的灾区提供更多的抗灾资金和设备。&lt;/p&gt;
+
+&lt;p&gt;第二、社会各界要发起一场为灾区人民捐款的筹款活动，多方筹集抗灾资金。&lt;/p&gt;
+
+&lt;p&gt;第三、政府、社会要帮助灾区人民解决生产和生活问题，一方面要千方百计地帮助受灾群众恢复生产，解决他们的基本生活问题；另一方面，要通过劳务输出等方式解决受旱农民工的生活来源问题。&lt;/p&gt;
+
+&lt;p&gt;4、要从长远上保护好我们的水资源，做好松涛水库等水利设施周边环境的整治工作和长远规划。&lt;/p&gt;
+
+&lt;p&gt;“旱情调查小组”学生分组名单&lt;/p&gt;
+
+&lt;p&gt;那大组：吕珊燕 黄 颖 余雅静 陈 樱 潘 辉 陈金龙&lt;/p&gt;
+
+&lt;p&gt;排浦组：刘 清 符启俊 黄万妍 王永慧&lt;/p&gt;
+
+&lt;p&gt;长坡组：陈美嵩 李金利 李 玮 汪秀秀 韦海娟&lt;/p&gt;
+
+&lt;p&gt;中和组：林颖全 何烈方 鲍系承 万明策 李振扬&lt;/p&gt;
+
+&lt;p&gt;木棠组：李汉东 刘钟锴 曾世盛 李巨辉&lt;/p&gt;
+
+&lt;p&gt;马井组：曾凡鳞 江 玲 羊艳梅 韩壮恒&lt;/p&gt;
+
+&lt;p&gt;东成组：吴红丽 郑文浩 符光凯 曾允茹&lt;/p&gt;
+
+&lt;p&gt;光村组：陈红山 刘井女 陈卓东 张再经 陈桂玫 徐伟姣&lt;/p&gt;
+
+&lt;p&gt;南丰组：吴特丽 吴秋燕（4） 吴锦正&lt;/p&gt;
+
+&lt;p&gt;新州组：林宇兴 肖定和 王广川 吴雄伟&lt;/p&gt;
+
+&lt;p&gt;大成组：吴万妃 黎贵福（5） 张丽君&lt;/p&gt;
+
+&lt;p&gt;峨蔓组：杜雪兰（16） 王小支（15） 符春红（15） 陈初玲（8）&lt;/p&gt;
+
+&lt;p&gt;三都组：张鹏海 羊家聪 张政达 刘明芬 陈玉女&lt;/p&gt;
+
+&lt;p&gt;海头组：吴广兵 符凤兰 梁彩梅 吕瑞婷&lt;/p&gt;
+
+&lt;p&gt;王五组：吴永宁 麦亮文 吴剑锋&lt;/p&gt;
+
+&lt;p&gt;雅星组：符雅丽（6） 吴子良（6） 郭俊鼎（6） 张丽婷（6）&lt;/p&gt;
+
+&lt;p&gt;兰洋组：林 莹（8） 谢春榴（8） 张明嘉 刘壁如&lt;/p&gt;
+
+&lt;p&gt;注：共分17个小组，总计72人。括号内为除1、2班外的学生的班别，姓名下划线者为各组组长。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>PHP正则表达式</title>
+    <link rel="alternate" href="http://blog.url.com/2015/06/11/php-regular-expression/"/>
+    <id>http://blog.url.com/2015/06/11/php-regular-expression/</id>
+    <published>2015-06-11T17:32:00+08:00</published>
+    <updated>2016-07-02T13:44:08+08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;strong&gt;一、介绍&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;正则表达式，大家在开发中应该是经常用到，现在很多开发语言都有正则表达式的应用，比如javascript，java，.net,php等等，我今天就把我对正则表达式的理解跟大家唠唠，不当之处，请多多指教！&lt;/p&gt;
+
+&lt;p&gt;需要知道的术语——下面的术语你知道多少?&lt;/p&gt;
+
+&lt;p&gt;Δ  定界符
+Δ  字符域
+Δ  修饰符
+Δ  限定符
+Δ  脱字符
+Δ  通配符(正向预查，反向预查)
+Δ  反向引用
+Δ  惰性匹配
+Δ  注释
+Δ  零字符宽&lt;/p&gt;
+
+&lt;p&gt;定位
+我们什么时候使用正则表达式呢？不是所有的字符操作都用正则就好了，php在某些方面用正则反而影响效率。当我们遇到复杂文本数据的解析时候，用正则是比较好的选择。
+优点
+正则表达式在处理复杂字符操作的时候，可以提高工作效率，也在一定程度节省你的代码量。
+缺点
+我们在使用正则表达式的时候，复杂的正则表达式会加大代码的复杂度，让人很难理解。所以我们有的时候需要在正则表达式内部添加注释。&amp;lt;!&amp;ndash; more &amp;ndash;&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;二、通用模式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;¤ 定界符，通常使用 &amp;ldquo;/&amp;quot;做为定界符开始和结束,也可以使用&amp;rdquo;#&amp;ldquo;。
+什么时候使用&amp;rdquo;#&amp;ldquo;呢?一般是在你的字符串中有很多&amp;rdquo;/&amp;ldquo;字符的时候，因为正则的时候这种字符需要转义，比如uri。
+使用&amp;rdquo;/&amp;ldquo;定界符的代码如下.&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+).html$/i&amp;rsquo;;
+$str = &amp;lsquo;http://www.youku.com/show_page/id_ABCDEFG.html&amp;rsquo;;
+$matches = array();
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+echo &amp;rdquo;\n&amp;quot;;&lt;/blockquote&gt;
+
+&lt;p&gt;preg_match中的$matches[0]将包含与整个模式匹配的字符串。
+使用&amp;quot;#&amp;ldquo;定界符的代码如下.这个时候对&amp;rdquo;/&amp;ldquo;就不转义!&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;#^http://([\w.]+)/([\w]+)/([\w]+).html$#i&amp;rsquo;;
+$str = 'http://www.youku.com/show_page/id_ABCDEFG.html&amp;rsquo;;
+$matches = array();
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+echo &amp;rdquo;\n&amp;quot;;&lt;/blockquote&gt;
+
+&lt;p&gt;¤ 修饰符:用于改变正则表达式的行为。
+我们看到的(&amp;rsquo;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+).html/&lt;strong&gt;i&lt;/strong&gt;&amp;rsquo;)中的最后一个&amp;quot;i&amp;quot;就是修饰符,表示忽略大小写，还有一个我们经常用到的是&amp;quot;x&amp;quot;表示忽略空格。
+贡献代码:&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/HELLO/&amp;rsquo;;
+$str = 'hello word&amp;rsquo;;
+$matches = array();
+if(preg_match($regex, $str, $matches)){
+echo 'No i:Valid Successful!&amp;rsquo;,&amp;ldquo;\n&amp;rdquo;;
+}
+if(preg_match($regex.'i&amp;rsquo;, $str, $matches)){
+echo 'YES i:Valid Successful!&amp;rsquo;,&amp;ldquo;\n&amp;rdquo;;
+}&lt;/blockquote&gt;
+
+&lt;p&gt;¤ 字符域:[\w]用方括号扩起来的部分就是字符域。
+¤ 限定符:如[\w]{3,5}或者[\w]*或者[\w]+这些[\w]后面的符号都表示限定符。现介绍具体意义。
+{3,5}表示3到5个字符。{3,}超过3个字符，{,5}最多5个，{3}三个字符。
+* 表示0到多个
++ 表示1到多个
+¤ 脱字符号（^:）
+（1）放在字符域(如:[^\w])中表示否定(不包括的意思)——“反向选择”
+（2）放在表达式之前，表示以当前这个字符开始。(/^n/i,表示以n开头)
+注意，我们经常管&amp;quot;\&amp;ldquo;叫&amp;quot;跳脱字符&amp;quot;。用于转义一些特殊符号，如&amp;rdquo;.&amp;ldquo;,&amp;rdquo;/&amp;ldquo;&lt;/p&gt;
+
+&lt;p&gt;*&lt;em&gt;三、通配符(lookarounds)
+*&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;断言某些字符串中某些字符的存在与否！
+格式:
+正向预查:(?=) 相对应的 (?!)表示否定意思
+反向预查:(?&amp;lt;=) 相对应的 (?前后紧跟字符&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/(?&lt;=c)d(?=e)/';  /* d 前面紧跟c, d 后面紧跟e*/
+$str = 'abcdefgk';
+$matches = array();
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+echo "\n";&lt;/blockquote&gt;
+
+&lt;p&gt;否定意义:&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/(?
+$str = 'abcdefgk&amp;rsquo;;
+$matches = array();
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+echo &amp;rdquo;\n&amp;quot;;&lt;/blockquote&gt;
+
+&lt;p&gt;字符宽度:零
+验证零字符代码&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/HE(?=L)LO/i&amp;rsquo;;
+$str = 'HELLO&amp;rsquo;;
+$matches = array();
+
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+echo &amp;ldquo;\n&amp;rdquo;;
+打印不出结果！
+
+$regex = &amp;rsquo;/HE(?=L)LLO/i&amp;rsquo;;
+$str = 'HELLO&amp;rsquo;;
+$matches = array();
+
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+echo &amp;ldquo;\n&amp;rdquo;;
+能打印出结果!&lt;/blockquote&gt;
+
+&lt;p&gt;说明:(?=L)意思是HE后面紧跟一个L字符。但是(?=L)本身不占字符，要与(L)区分，（L）本身占一个字符。&lt;/p&gt;
+
+&lt;p&gt;*&lt;em&gt;四、捕获数据
+*&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;没有指明类型而进行的分组,将会被获取,供以后使用。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;指明类型指的是通配符。所以只有圆括号起始位置没有问号的才能被捕捉。&lt;/p&gt;
+
+&lt;p&gt;在同一个表达式内的引用叫做反向引用。&lt;/p&gt;
+
+&lt;p&gt;调用格式: \编号(如\1)。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/^(Chuanshanjia)[\w\s!]+\1$/&amp;rsquo;;
+$str = 'Chuanshanjia thank Chuanshanjia&amp;rsquo;;
+$matches = array();
+
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+echo &amp;ldquo;\n&amp;rdquo;;&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;避免捕获数据
+格式:(?:pattern)
+优点:将使有效反向引用数量保持在最小，代码更加、清楚。&lt;/p&gt;
+
+&lt;p&gt;命名捕获组
+格式:(?P&amp;lt;组名&amp;gt;) 调用方式 (?P=组名)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;arrray(3) {
+
+[0] =&gt;
+string(28) “chuanshanjia Is chuanshanjia”
+[“author”] =&gt;
+string(12) “chuanshanjia”
+[1] =&gt;
+string(12) “chuanshanjia&amp;quot;
+}&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;五、惰性匹配&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;(记住：会进行两部操作,请看下面的原理部分)
+格式:限定符?
+原理:&amp;ldquo;?&amp;quot;：如果前面有限定符，会使用最小的数据。如“*”会取0个，而“+”会取1个，如过是{3,5}会取3个。
+先看下面的两个代码:
+代码1&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/heL*/i&amp;rsquo;;
+$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+
+echo &amp;rdquo;\n&amp;quot;;
+结果1:
+array(1) {
+[0] =&gt;
+string(8) &amp;ldquo;heLLLLLLLLLLLLLLLL&amp;rdquo;
+}&lt;/blockquote&gt;
+
+&lt;p&gt;代码2&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/heL*?/i&amp;rsquo;;
+$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
+
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+echo &amp;ldquo;\n&amp;rdquo;;
+结果2:
+array(1) {
+[0] =&gt;
+string(2) &amp;ldquo;he&amp;rdquo;
+}&lt;/blockquote&gt;
+
+&lt;p&gt;代码3,使用“+”&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/heL+?/i&amp;rsquo;;
+
+$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+echo &amp;ldquo;\n&amp;rdquo;;
+
+结果3
+array(1) {
+
+[0] =
+string(3) &amp;ldquo;heL&amp;rdquo;
+}&lt;/blockquote&gt;
+
+&lt;p&gt;代码4,使用{3,5}&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/heL{3,10}?/i&amp;rsquo;;
+$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
+
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+
+echo &amp;ldquo;\n&amp;rdquo;;
+结果4
+array(1) {
+[0] =&gt;
+string(5) &amp;ldquo;heLLL&amp;rdquo;
+}&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;六、正则表达式的注释&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;格式:(?# 注释内容)
+用途:主要用于复杂的注释&lt;/p&gt;
+
+&lt;p&gt;贡献代码:是一个用于连接MYSQL数据库的正则表达式&lt;/p&gt;
+
+&lt;blockquote&gt;$regex = &amp;rsquo;/
+^host=(?&lt;!\.)([\d.]+)(?!\.) (?#主机地址)
+\|
+([\w!@#$%^&amp;*()_+\-]+) (?#用户名)
+\|
+([\w!@#$%^&amp;*()_+\-]+) (?#密码)
+(?!\|)$/ix';
+
+$str = 'host=192.168.10.221|root|123456';
+$matches = array();
+
+if(preg_match($regex, $str, $matches)){
+var_dump($matches);
+}
+
+echo "\n";&lt;/blockquote&gt;
+
+&lt;p&gt;*&lt;em&gt;七、特殊字符
+*&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;特殊字符      解释
+*                   0到多次
++                  1到多次还可以写成{1,}
+?                  0或1次
+.                   匹配除换行符外的所有单个的字符
+\w                [a-zA-Z0-9_]
+\s                 空白字符(空格，换行符，回车符）[\t\n\r]
+\d                 [0-9]&lt;/p&gt;
+
+&lt;blockquote&gt;本篇文章为转载文章，因为觉得写得的确是好，二次分享给大家，版权归原作者“川山甲”所有。
+原文链接：http://www.cnblogs.com/baochuan/archive/2012/03/12/2391135.html&lt;/blockquote&gt;
+</content>
+  </entry>
+</feed>
