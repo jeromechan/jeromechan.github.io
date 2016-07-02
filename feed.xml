@@ -14,13 +14,11 @@
     <link rel="alternate" href="http://blog.url.com/2016/07/02/talk-about-middleman/"/>
     <id>http://blog.url.com/2016/07/02/talk-about-middleman/</id>
     <published>2016-07-02T17:00:00+08:00</published>
-    <updated>2016-07-03T03:25:24+08:00</updated>
+    <updated>2016-07-03T03:35:52+08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;h3&gt;说说使用middleman的那些事情&lt;/h3&gt;
-
-&lt;p&gt;&lt;img alt="Draggedimage" width="1044" height="450" src="/images/2016-07-02-talk-about-middleman/DraggedImage-cf272ae8.png" /&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img alt="Draggedimage" width="1044" height="450" src="/images/2016-07-02-talk-about-middleman/DraggedImage-cf272ae8.png" /&gt;&lt;/p&gt;
 
 &lt;h4&gt;一、什么是静态网站&lt;/h4&gt;
 
