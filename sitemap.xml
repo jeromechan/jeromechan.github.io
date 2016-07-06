@@ -337,6 +337,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://aboutcoder.com/2016/07/06/what-is-architecture/</loc>
+    <lastmod>2016-07-07T01:39:12+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://aboutcoder.com/br/about/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
@@ -433,7 +439,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://aboutcoder.com/tags/面向对象设计/</loc>
+    <loc>http://aboutcoder.com/tags/git/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -691,6 +697,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://aboutcoder.com/2016/07/06/</loc>
+    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://aboutcoder.com/2016/07/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
@@ -698,6 +710,12 @@
   </url>
   <url>
     <loc>http://aboutcoder.com/2016/</loc>
+    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://aboutcoder.com/tags/architecture/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -1051,6 +1069,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://aboutcoder.com/webdevtools/</loc>
+    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://aboutcoder.com/tags/sitemap-protocol/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
@@ -1058,12 +1082,6 @@
   </url>
   <url>
     <loc>http://aboutcoder.com/tags/系统运维/</loc>
-    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://aboutcoder.com/webdevtools/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -1087,18 +1105,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://aboutcoder.com/tags/git/</loc>
-    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://aboutcoder.com/tags/php/</loc>
-    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://aboutcoder.com/webdevtools/README/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
@@ -1106,6 +1112,18 @@
   </url>
   <url>
     <loc>http://aboutcoder.com/webdevtools/views/feedback/</loc>
+    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://aboutcoder.com/tags/面向对象设计/</loc>
+    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://aboutcoder.com/tags/php/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>

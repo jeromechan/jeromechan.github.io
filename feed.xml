@@ -5,10 +5,71 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2016-07-02T17:00:00+08:00</updated>
+  <updated>2016-07-06T17:00:00+08:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>什么是架构</title>
+    <link rel="alternate" href="http://blog.url.com/2016/07/06/what-is-architecture/"/>
+    <id>http://blog.url.com/2016/07/06/what-is-architecture/</id>
+    <published>2016-07-06T17:00:00+08:00</published>
+    <updated>2016-07-07T01:39:12+08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;img alt="" src="/assets/images/images/2016-07-06-what-is-architecture/14678247250239.jpg" /&gt;&lt;/p&gt;
+
+&lt;p&gt;先来看看老外们对于架构是如何诠释的。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;What is Architecture?&lt;/strong&gt;
+Architecture is the &lt;strong&gt;art&lt;/strong&gt;,science, and profession of planning, &lt;strong&gt;designing&lt;/strong&gt;, and supervising the construction of new &lt;strong&gt;buildings, landscapes, communities&lt;/strong&gt;, and &lt;strong&gt;furnishings&lt;/strong&gt; in their totality, examining their environment in accordance with the &lt;strong&gt;principles&lt;/strong&gt; of utility, strength, and &lt;strong&gt;aesthetics&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以上这段话虽然更适合解释建筑架构的含义，但是我们通过对比计算机工程类的架构的理念和要求，以上所提到的要点皆包含在内，不外乎生态不同罢了，其两者核心理念是相同的。&lt;/p&gt;
+
+&lt;p&gt;最近日子在工作中遇到的关于“架构”的探讨上，今天来谈谈自己理解的所谓架构，想以此篇文字来端正一下自己。&lt;/p&gt;
+
+&lt;p&gt;架构这词也是神圣不可侵犯的，如果你把一些b格很low的设计细节的东西当作是架构，那么毫无疑问，你正在掩耳盗铃。 
+设计和架构有着鸿沟一般的区别。而跨越这条鸿沟,需要不断学习,不停积攒天赋,同时伴随着需 要量的积累。 设计,首先它是一个架构范畴中的一个很小的子集。处于一个很单元的层次,但它也同时是不可逾 越不可或缺的阶段。 &lt;/p&gt;
+
+&lt;p&gt;而设计绝不等于架构。&lt;/p&gt;
+
+&lt;p&gt;架构，不仅考量技术实现，还需要诸如：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;客户关键业务点的理解&lt;/li&gt;
+&lt;li&gt;如何将概念具体化&lt;/li&gt;
+&lt;li&gt;项目目标和周期的估算&lt;/li&gt;
+&lt;li&gt;如何多元化团队沟通协作&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;层次高的还有：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;关乎项目战略目标的敲定&lt;/li&gt;
+&lt;li&gt;如何在企业执行中追求更高roi&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;而技术实现方面也不仅仅是说项目如何搭建如何设计db，如何实现分包分模块，还不可或缺的需要包括：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如何将项目平台化&lt;/li&gt;
+&lt;li&gt;如何作冗余和可用架构而同时避免缠绕和蔓延&lt;/li&gt;
+&lt;li&gt;如何用专业手段作架构沟通和透视&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对于稳定系统的方面,如何去执行可持续治理也是所谓架构的关键点。 &lt;/p&gt;
+
+&lt;p&gt;所以，只是挂在嘴边念叨“架构架构”而从不事先勘探落地,这种“理论架构”毫无用处，能体现项目 生产力、技术价值、团队骄傲的，才是我们所需要的真正架构。 &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;真正懂架构的人，并不会把架构挂在嘴边&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;真正牛逼的架构师，从来都是拿实力和实例说话&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+  </entry>
   <entry>
     <title>说说使用middleman的那些事情</title>
     <link rel="alternate" href="http://blog.url.com/2016/07/02/talk-about-middleman/"/>
@@ -1437,289 +1498,6 @@ script src="/js/theelevatorpitch.js"
 &lt;p&gt;兰洋组：林 莹（8） 谢春榴（8） 张明嘉 刘壁如&lt;/p&gt;
 
 &lt;p&gt;注：共分17个小组，总计72人。括号内为除1、2班外的学生的班别，姓名下划线者为各组组长。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>PHP正则表达式</title>
-    <link rel="alternate" href="http://blog.url.com/2015/06/11/php-regular-expression/"/>
-    <id>http://blog.url.com/2015/06/11/php-regular-expression/</id>
-    <published>2015-06-11T17:32:00+08:00</published>
-    <updated>2016-07-02T13:44:08+08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;&lt;strong&gt;一、介绍&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;正则表达式，大家在开发中应该是经常用到，现在很多开发语言都有正则表达式的应用，比如javascript，java，.net,php等等，我今天就把我对正则表达式的理解跟大家唠唠，不当之处，请多多指教！&lt;/p&gt;
-
-&lt;p&gt;需要知道的术语——下面的术语你知道多少?&lt;/p&gt;
-
-&lt;p&gt;Δ  定界符
-Δ  字符域
-Δ  修饰符
-Δ  限定符
-Δ  脱字符
-Δ  通配符(正向预查，反向预查)
-Δ  反向引用
-Δ  惰性匹配
-Δ  注释
-Δ  零字符宽&lt;/p&gt;
-
-&lt;p&gt;定位
-我们什么时候使用正则表达式呢？不是所有的字符操作都用正则就好了，php在某些方面用正则反而影响效率。当我们遇到复杂文本数据的解析时候，用正则是比较好的选择。
-优点
-正则表达式在处理复杂字符操作的时候，可以提高工作效率，也在一定程度节省你的代码量。
-缺点
-我们在使用正则表达式的时候，复杂的正则表达式会加大代码的复杂度，让人很难理解。所以我们有的时候需要在正则表达式内部添加注释。&amp;lt;!&amp;ndash; more &amp;ndash;&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;二、通用模式&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;¤ 定界符，通常使用 &amp;ldquo;/&amp;quot;做为定界符开始和结束,也可以使用&amp;rdquo;#&amp;ldquo;。
-什么时候使用&amp;rdquo;#&amp;ldquo;呢?一般是在你的字符串中有很多&amp;rdquo;/&amp;ldquo;字符的时候，因为正则的时候这种字符需要转义，比如uri。
-使用&amp;rdquo;/&amp;ldquo;定界符的代码如下.&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+).html$/i&amp;rsquo;;
-$str = &amp;lsquo;http://www.youku.com/show_page/id_ABCDEFG.html&amp;rsquo;;
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &amp;rdquo;\n&amp;quot;;&lt;/blockquote&gt;
-
-&lt;p&gt;preg_match中的$matches[0]将包含与整个模式匹配的字符串。
-使用&amp;quot;#&amp;ldquo;定界符的代码如下.这个时候对&amp;rdquo;/&amp;ldquo;就不转义!&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;#^http://([\w.]+)/([\w]+)/([\w]+).html$#i&amp;rsquo;;
-$str = 'http://www.youku.com/show_page/id_ABCDEFG.html&amp;rsquo;;
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &amp;rdquo;\n&amp;quot;;&lt;/blockquote&gt;
-
-&lt;p&gt;¤ 修饰符:用于改变正则表达式的行为。
-我们看到的(&amp;rsquo;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+).html/&lt;strong&gt;i&lt;/strong&gt;&amp;rsquo;)中的最后一个&amp;quot;i&amp;quot;就是修饰符,表示忽略大小写，还有一个我们经常用到的是&amp;quot;x&amp;quot;表示忽略空格。
-贡献代码:&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/HELLO/&amp;rsquo;;
-$str = 'hello word&amp;rsquo;;
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-echo 'No i:Valid Successful!&amp;rsquo;,&amp;ldquo;\n&amp;rdquo;;
-}
-if(preg_match($regex.'i&amp;rsquo;, $str, $matches)){
-echo 'YES i:Valid Successful!&amp;rsquo;,&amp;ldquo;\n&amp;rdquo;;
-}&lt;/blockquote&gt;
-
-&lt;p&gt;¤ 字符域:[\w]用方括号扩起来的部分就是字符域。
-¤ 限定符:如[\w]{3,5}或者[\w]*或者[\w]+这些[\w]后面的符号都表示限定符。现介绍具体意义。
-{3,5}表示3到5个字符。{3,}超过3个字符，{,5}最多5个，{3}三个字符。
-* 表示0到多个
-+ 表示1到多个
-¤ 脱字符号（^:）
-（1）放在字符域(如:[^\w])中表示否定(不包括的意思)——“反向选择”
-（2）放在表达式之前，表示以当前这个字符开始。(/^n/i,表示以n开头)
-注意，我们经常管&amp;quot;\&amp;ldquo;叫&amp;quot;跳脱字符&amp;quot;。用于转义一些特殊符号，如&amp;rdquo;.&amp;ldquo;,&amp;rdquo;/&amp;ldquo;&lt;/p&gt;
-
-&lt;p&gt;*&lt;em&gt;三、通配符(lookarounds)
-*&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;断言某些字符串中某些字符的存在与否！
-格式:
-正向预查:(?=) 相对应的 (?!)表示否定意思
-反向预查:(?&amp;lt;=) 相对应的 (?前后紧跟字符&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/(?&lt;=c)d(?=e)/';  /* d 前面紧跟c, d 后面紧跟e*/
-$str = 'abcdefgk';
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo "\n";&lt;/blockquote&gt;
-
-&lt;p&gt;否定意义:&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/(?
-$str = 'abcdefgk&amp;rsquo;;
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &amp;rdquo;\n&amp;quot;;&lt;/blockquote&gt;
-
-&lt;p&gt;字符宽度:零
-验证零字符代码&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/HE(?=L)LO/i&amp;rsquo;;
-$str = 'HELLO&amp;rsquo;;
-$matches = array();
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &amp;ldquo;\n&amp;rdquo;;
-打印不出结果！
-
-$regex = &amp;rsquo;/HE(?=L)LLO/i&amp;rsquo;;
-$str = 'HELLO&amp;rsquo;;
-$matches = array();
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &amp;ldquo;\n&amp;rdquo;;
-能打印出结果!&lt;/blockquote&gt;
-
-&lt;p&gt;说明:(?=L)意思是HE后面紧跟一个L字符。但是(?=L)本身不占字符，要与(L)区分，（L）本身占一个字符。&lt;/p&gt;
-
-&lt;p&gt;*&lt;em&gt;四、捕获数据
-*&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;没有指明类型而进行的分组,将会被获取,供以后使用。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;指明类型指的是通配符。所以只有圆括号起始位置没有问号的才能被捕捉。&lt;/p&gt;
-
-&lt;p&gt;在同一个表达式内的引用叫做反向引用。&lt;/p&gt;
-
-&lt;p&gt;调用格式: \编号(如\1)。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/^(Chuanshanjia)[\w\s!]+\1$/&amp;rsquo;;
-$str = 'Chuanshanjia thank Chuanshanjia&amp;rsquo;;
-$matches = array();
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &amp;ldquo;\n&amp;rdquo;;&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;避免捕获数据
-格式:(?:pattern)
-优点:将使有效反向引用数量保持在最小，代码更加、清楚。&lt;/p&gt;
-
-&lt;p&gt;命名捕获组
-格式:(?P&amp;lt;组名&amp;gt;) 调用方式 (?P=组名)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;arrray(3) {
-
-[0] =&gt;
-string(28) “chuanshanjia Is chuanshanjia”
-[“author”] =&gt;
-string(12) “chuanshanjia”
-[1] =&gt;
-string(12) “chuanshanjia&amp;quot;
-}&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;五、惰性匹配&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;(记住：会进行两部操作,请看下面的原理部分)
-格式:限定符?
-原理:&amp;ldquo;?&amp;quot;：如果前面有限定符，会使用最小的数据。如“*”会取0个，而“+”会取1个，如过是{3,5}会取3个。
-先看下面的两个代码:
-代码1&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/heL*/i&amp;rsquo;;
-$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-
-echo &amp;rdquo;\n&amp;quot;;
-结果1:
-array(1) {
-[0] =&gt;
-string(8) &amp;ldquo;heLLLLLLLLLLLLLLLL&amp;rdquo;
-}&lt;/blockquote&gt;
-
-&lt;p&gt;代码2&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/heL*?/i&amp;rsquo;;
-$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &amp;ldquo;\n&amp;rdquo;;
-结果2:
-array(1) {
-[0] =&gt;
-string(2) &amp;ldquo;he&amp;rdquo;
-}&lt;/blockquote&gt;
-
-&lt;p&gt;代码3,使用“+”&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/heL+?/i&amp;rsquo;;
-
-$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &amp;ldquo;\n&amp;rdquo;;
-
-结果3
-array(1) {
-
-[0] =
-string(3) &amp;ldquo;heL&amp;rdquo;
-}&lt;/blockquote&gt;
-
-&lt;p&gt;代码4,使用{3,5}&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/heL{3,10}?/i&amp;rsquo;;
-$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-
-echo &amp;ldquo;\n&amp;rdquo;;
-结果4
-array(1) {
-[0] =&gt;
-string(5) &amp;ldquo;heLLL&amp;rdquo;
-}&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;六、正则表达式的注释&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;格式:(?# 注释内容)
-用途:主要用于复杂的注释&lt;/p&gt;
-
-&lt;p&gt;贡献代码:是一个用于连接MYSQL数据库的正则表达式&lt;/p&gt;
-
-&lt;blockquote&gt;$regex = &amp;rsquo;/
-^host=(?&lt;!\.)([\d.]+)(?!\.) (?#主机地址)
-\|
-([\w!@#$%^&amp;*()_+\-]+) (?#用户名)
-\|
-([\w!@#$%^&amp;*()_+\-]+) (?#密码)
-(?!\|)$/ix';
-
-$str = 'host=192.168.10.221|root|123456';
-$matches = array();
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-
-echo "\n";&lt;/blockquote&gt;
-
-&lt;p&gt;*&lt;em&gt;七、特殊字符
-*&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;特殊字符      解释
-*                   0到多次
-+                  1到多次还可以写成{1,}
-?                  0或1次
-.                   匹配除换行符外的所有单个的字符
-\w                [a-zA-Z0-9_]
-\s                 空白字符(空格，换行符，回车符）[\t\n\r]
-\d                 [0-9]&lt;/p&gt;
-
-&lt;blockquote&gt;本篇文章为转载文章，因为觉得写得的确是好，二次分享给大家，版权归原作者“川山甲”所有。
-原文链接：http://www.cnblogs.com/baochuan/archive/2012/03/12/2391135.html&lt;/blockquote&gt;
 </content>
   </entry>
 </feed>
