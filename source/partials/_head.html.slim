@@ -16,20 +16,22 @@ title= page_title
   meta content="#f7f7f7" name="msapplication-TileColor"
   meta content="#f7f7f7" name="theme-color"
 
-  javascript:
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '#{google_analytics_account}']);
-    _gaq.push(['_trackPageview']);
+  - if google_analytics_account != ''
+    javascript:
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '#{google_analytics_account}']);
+      _gaq.push(['_trackPageview']);
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
   // cnzz statistic processing
-  div style="display:none"
-    script src="http://s23.cnzz.com/z_stat.php?id=#{cnzz_analytics_account}&web_id=#{cnzz_analytics_account}"
+  - if cnzz_analytics_account != ''
+    div style="display:none"
+      script src="http://s23.cnzz.com/z_stat.php?id=#{cnzz_analytics_account}&web_id=#{cnzz_analytics_account}"
 
   meta content=page_title property="og:title"
   meta content=site_author property="article:author"
