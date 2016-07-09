@@ -14,13 +14,13 @@
   </url>
   <url>
     <loc>http://aboutcoder.com/</loc>
-    <lastmod>2016-07-09T14:30:59+08:00</lastmod>
+    <lastmod>2016-07-10T02:03:58+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://aboutcoder.com/br/</loc>
-    <lastmod>2016-07-09T14:30:59+08:00</lastmod>
+    <lastmod>2016-07-10T02:03:58+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,6 +38,12 @@
   </url>
   <url>
     <loc>http://aboutcoder.com/about/</loc>
+    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://aboutcoder.com/br/about/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -343,12 +349,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://aboutcoder.com/br/about/</loc>
-    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://aboutcoder.com/about-bak/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
@@ -421,13 +421,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://aboutcoder.com/webdevtools/extensions/jsoneditor/test_build_min/</loc>
+    <loc>http://aboutcoder.com/blog/page/4/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://aboutcoder.com/blog/page/4/</loc>
+    <loc>http://aboutcoder.com/webdevtools/extensions/jsoneditor/test_build_min/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -439,19 +439,19 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://aboutcoder.com/tags/git/</loc>
+    <loc>http://aboutcoder.com/blog/page/2/</loc>
+    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://aboutcoder.com/tags/php/</loc>
     <lastmod>2016-07-09T13:51:29+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://aboutcoder.com/webdevtools/extensions/jsonviewer/</loc>
-    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://aboutcoder.com/blog/page/2/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -1069,14 +1069,14 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://aboutcoder.com/webdevtools/</loc>
-    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
+    <loc>http://aboutcoder.com/tags/sitemap-protocol/</loc>
+    <lastmod>2016-07-09T13:51:29+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://aboutcoder.com/tags/sitemap-protocol/</loc>
-    <lastmod>2016-07-09T13:51:29+08:00</lastmod>
+    <loc>http://aboutcoder.com/webdevtools/</loc>
+    <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1105,6 +1105,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://aboutcoder.com/tags/git/</loc>
+    <lastmod>2016-07-09T13:51:29+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://aboutcoder.com/webdevtools/README/</loc>
     <lastmod>2016-07-02T13:44:08+08:00</lastmod>
     <changefreq>always</changefreq>
@@ -1118,12 +1124,6 @@
   </url>
   <url>
     <loc>http://aboutcoder.com/tags/面向对象设计/</loc>
-    <lastmod>2016-07-09T13:51:29+08:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://aboutcoder.com/tags/php/</loc>
     <lastmod>2016-07-09T13:51:29+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
