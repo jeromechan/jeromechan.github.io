@@ -33,6 +33,15 @@
 
     p
       margin: 0 0 get-spacing(base) 0
+  &-tags
+    margin-bottom: get-spacing(mini)
+  &-tags a
+    font-size: get-font-size(16px)
+    color: rgba(get-color(secondary, light), .7)
+    text-decoration: none
+  &-tags a:hover,
+  &-tags a:focus
+    color: rgba(get-color(primary, dark), 1)
 
 .single
   .article
@@ -68,3 +77,4 @@
       a:hover,
       a:focus
         color: get-color(primary, dark)
+        text-decoration: none

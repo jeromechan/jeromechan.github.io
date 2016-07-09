@@ -16,13 +16,13 @@ nav#nav.nav role="nav"
       = t(:navigation)
     ul.navbar
       li
-        = link_to t(:about_me), local_path(t("paths.about")), title: t(:about_me)
+        = link_to '<i class="fa fa-user"></i> ' + t(:about_me), local_path(t("paths.about")), title: t(:about_me)
       li
-        = link_to t(:blog), "/blog"
+        = link_to '<i class="fa fa-list"></i> ' + t(:blog), "/blog"
       li
-        = link_to t(:bibliography), "/bibliography"
+        = link_to '<i class="fa fa-book"></i> ' + t(:bibliography), "/bibliography"
       li
-        = link_to t(:webdevtools), "/webdevtools", :target => :blank
+        = link_to '<i class="fa fa-wrench"></i> ' + t(:webdevtools), "/webdevtools", :target => :blank
       // li
       //   = link_to 'https://github.nandomoreira.me/', :target => :blank, title: 'Open Source' do
       //     i.icon.icon-github

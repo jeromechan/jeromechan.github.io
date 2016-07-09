@@ -6,9 +6,9 @@
 Time.zone = "UTC"
 
 set :site_url, 'http://aboutcoder.com'
-set :site_title, 'Jerome Chan | Full-stack developer'
+set :site_title, 'Jerome Chan | Web developer'
 set :site_author, 'Jerome Chan'
-set :site_description, 'Full-stack developer'
+set :site_description, 'Web developer'
 set :site_keywords, 'html, css, css3, html5, javascript, js, front-end, developer, middleman, jekyll, wordpress, php, ruby'
 set :twitter, '@jeromechan369'
 set :site_author_image, 'avatar.png'
@@ -53,10 +53,11 @@ end
 page "/feed.xml", layout: false
 page "/sitemap.xml", layout: false
 page "/blog.html", layout: "blog"
+page "/tag.html", layout: "tag"
 page "/posts/*.html", layout: "posts"
 
 # Title
-activate :title, site: 'Jerome Chan | Full-stack developer', separator: ' — '
+activate :title, site: 'Jerome Chan | Web developer', separator: ' — '
 
 # Metatags
 activate :meta_tags

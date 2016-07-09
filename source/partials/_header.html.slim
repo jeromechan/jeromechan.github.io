@@ -10,4 +10,5 @@ header.header
         = partial "partials/social"
 
     = link_to local_path('') do
-      img.header__avatar height="250px" src="#{image_path('avatar.png')}" srcset=("#{image_path('avatar@2x.png')} 2x") width="250px" /
+      img.header__avatar height="250px" src="#{image_path('avatar.png')}" srcset=("#{image_path('avatar.png')} 1x") width="250px" /
+      /img.header__avatar height="250px" src="#{image_path('avatar.png')}" srcset=("#{image_path('avatar@2x.png')} 2x") width="250px" /
