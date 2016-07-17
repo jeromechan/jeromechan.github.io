@@ -58,12 +58,14 @@ html.no-js
             span.article-meta
               | Posted on the #{current_page.date.strftime('%B')} #{current_page.date.strftime('%d')}, #{current_page.date.strftime('%Y')}
             h1.article-title itemprop="headline" = current_page.data.title
-          .article-tags
-            i.fa.fa-tags
-              = '&nbsp;'
-              - current_article.tags.each do |tag|
-                = link_to tag, tag_path(tag), :target => :blank
-                = ',&nbsp;'
+          - if !current_article.tags.empty?
+            .article-tags
+              i.fa.fa-tags
+                = '&nbsp;'
+                - current_article.tags.each_with_index do |tag, i|
+                  - if i > 0
+                    = ',&nbsp;'
+                  = link_to tag, tag_path(tag), :target => :blank
           .article-content itemprop="articleBody"
             = yield
 

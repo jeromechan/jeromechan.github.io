@@ -11,6 +11,7 @@ article.article
   p.article-tags
     i.fa.fa-tags
       = '&nbsp;'
-      - article.tags.each do |tag|
+      - article.tags.each_with_index do |tag, i|
+        - if i > 0
+          = ',&nbsp;'
         = link_to tag, tag_path(tag), :target => :blank
-        = ',&nbsp;'
