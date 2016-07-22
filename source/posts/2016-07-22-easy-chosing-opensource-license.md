@@ -1,6 +1,6 @@
 ---
 title: "如何快速选择开源软件协议"
-date: 2016-07-03 09:00:00
+date: 2016-07-22 10:00:00
 description: "如何快速选择开源软件协议,How to easy chose and opensource license for your project"
 keywords: "opensource,license,MIT,Apache,GPL,GPL2,GPL3"
 categories:
