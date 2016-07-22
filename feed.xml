@@ -5,16 +5,104 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2016-07-22T08:00:00+08:00</updated>
+  <updated>2016-07-22T18:00:00+08:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
+    <title>如何快速选择开源软件协议</title>
+    <link rel="alternate" href="http://blog.url.com/2016/07/22/easy-chosing-opensource-license/"/>
+    <id>http://blog.url.com/2016/07/22/easy-chosing-opensource-license/</id>
+    <published>2016-07-22T18:00:00+08:00</published>
+    <updated>2016-07-22T22:18:51+08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;img alt="" src="/images/14691964599348.jpg" /&gt;&lt;/p&gt;
+
+&lt;h3&gt;一、背景介绍&lt;/h3&gt;
+
+&lt;p&gt;目前开源协议有很多，同一款协议也衍生出了许多变种。开源世界中，我们可以使用合适的开源协议，保证自己作品的版权。&lt;br&gt;
+我们这里不做过多的介绍，只介绍一些自己常用的三个选择及其理由，以供参考。&lt;/p&gt;
+
+&lt;h3&gt;二、详细描述&lt;/h3&gt;
+
+&lt;h4&gt;2.1 “我需要一个简单宽松的协议”&lt;/h4&gt;
+
+&lt;p&gt;MIT License是一个简短、宽松、自由的协议。该协议允许人们使用你的代码，但必须要保留你的版权信息。与此同时，并不会给你带来任何责任和风险。&lt;code&gt;jQuery&lt;/code&gt;,&lt;code&gt;.NET Core&lt;/code&gt;和&lt;code&gt;Rails&lt;/code&gt;使用的均是MIT License。&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The MIT License (MIT)
+Copyright (c) &amp;lt;year&amp;gt; &amp;lt;copyright holders&amp;gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;2.2 “我更加关心自己的专利”&lt;/h4&gt;
+
+&lt;p&gt;Apache License 2.0是一项和MIT License相似的协议，但自己希望自己的专利能在开源免费使用的同时，保留自己在开源产品中的专利权益。同样，该协议要求使用者必须保留你的版权信息。&lt;br&gt;
+&lt;code&gt;Android&lt;/code&gt;, &lt;code&gt;Apache&lt;/code&gt;和&lt;code&gt;Swift&lt;/code&gt;使用的均是Apache License 2.0协议。&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;Apache License Version 2.0
+Copyright [yyyy] [name of copyright owner]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;2.3 “我关心代码的分享以及促进”&lt;/h4&gt;
+
+&lt;p&gt;如果你希望别人在分享的自己的作品之后，也必须遵循相同的协议，也必须是开源和免费。那么GPLv3是你更好的选择。该协议当中也明确地包含了贡献人的专利权益方面的款项。原作品的版权条款也必须延续保留。GPL协议存在非常强的“传染性”
+&lt;code&gt;Bash&lt;/code&gt;, &lt;code&gt;GIMP&lt;/code&gt;和&lt;code&gt;Privacy Badger&lt;/code&gt;使用的均是GPLv3协议。&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;GNU GENERAL PUBLIC LICENSE Version 3
+Copyright (C) {year}  {name of author}
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果你的产品是基于终端的，你还可以加上如下一段，使得使用者知晓如何可以联系到你。&lt;/p&gt;
+&lt;pre class="highlight json"&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;project&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="err"&gt;Copyright&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;(C)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;year&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;fullname&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="err"&gt;This&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;program&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;comes&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;ABSOLUTELY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;NO&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;WARRANTY;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;details&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;type&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;`show&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;w'.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="err"&gt;This&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;free&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;software,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;you&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;are&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;welcome&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;redistribute&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;it&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="err"&gt;under&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;certain&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;conditions;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;type&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;`show&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;c'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;details.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;三、参考资料&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Opensource License：&lt;a href="http://choosealicense.com/licenses/"&gt;http://choosealicense.com/licenses/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;各种开源协议介绍：&lt;a href="http://www.open-open.com/solution/view/1319816219625"&gt;http://www.open-open.com/solution/view/1319816219625&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;开源那么重要，开源协议你认识吗？&lt;a href="http://yeyuan.baijia.baidu.com/article/43303"&gt;http://yeyuan.baijia.baidu.com/article/43303&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
     <title>解决fastjson反序列化日期0000-00-00失败的方案</title>
     <link rel="alternate" href="http://blog.url.com/2016/07/22/resolve-the-fastjson-problems-about-date/"/>
     <id>http://blog.url.com/2016/07/22/resolve-the-fastjson-problems-about-date/</id>
-    <published>2016-07-22T08:00:00+08:00</published>
-    <updated>2016-07-22T15:06:55+08:00</updated>
+    <published>2016-07-22T17:00:00+08:00</published>
+    <updated>2016-07-22T22:11:47+08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -203,7 +291,7 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
     <link rel="alternate" href="http://blog.url.com/2016/07/06/what-is-architecture/"/>
     <id>http://blog.url.com/2016/07/06/what-is-architecture/</id>
     <published>2016-07-06T17:00:00+08:00</published>
-    <updated>2016-07-07T01:44:41+08:00</updated>
+    <updated>2016-07-22T22:11:47+08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -264,7 +352,7 @@ Architecture is the &lt;strong&gt;art&lt;/strong&gt;,science, and profession of 
     <link rel="alternate" href="http://blog.url.com/2016/07/02/talk-about-middleman/"/>
     <id>http://blog.url.com/2016/07/02/talk-about-middleman/</id>
     <published>2016-07-02T17:00:00+08:00</published>
-    <updated>2016-07-03T03:35:52+08:00</updated>
+    <updated>2016-07-22T22:11:47+08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -456,7 +544,7 @@ script src="/js/theelevatorpitch.js"
     <link rel="alternate" href="http://blog.url.com/2016/06/30/how-to-make-a-project-plan/"/>
     <id>http://blog.url.com/2016/06/30/how-to-make-a-project-plan/</id>
     <published>2016-06-30T08:00:00+08:00</published>
-    <updated>2016-07-02T13:44:08+08:00</updated>
+    <updated>2016-07-22T22:11:47+08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -594,7 +682,7 @@ script src="/js/theelevatorpitch.js"
     <link rel="alternate" href="http://blog.url.com/2015/11/16/work-in-git/"/>
     <id>http://blog.url.com/2015/11/16/work-in-git/</id>
     <published>2015-11-16T17:51:05+08:00</published>
-    <updated>2016-07-02T13:44:08+08:00</updated>
+    <updated>2016-07-22T22:11:47+08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -811,94 +899,6 @@ script src="/js/theelevatorpitch.js"
 &lt;li&gt;&lt;p&gt;&lt;a href="http://www.git-scm.com/book/en/v2/Git-Branching-Rebasing"&gt;Git-Branching-Rebasing&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href="http://www.git-tower.com/learn/git/ebook/mac/appendix/from-subversion-to-git"&gt;Switching from Subversion to Git&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>研发人看互联网营销</title>
-    <link rel="alternate" href="http://blog.url.com/2015/06/17/internet-marketing-views-of-developers/"/>
-    <id>http://blog.url.com/2015/06/17/internet-marketing-views-of-developers/</id>
-    <published>2015-06-18T00:24:40+08:00</published>
-    <updated>2016-07-02T13:44:08+08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;很荣幸地，昨天参加了公司市场VP（以下简称FW）面向全公司作的关于互联网营销的公开演讲。这些年来，公司的市场营销方面从一个局外人的角度上看来确实发生了非常大的变化、进步和飞跃，加以是FW在公司层面公开分享的为数不多的干货讲座之一，满怀期待，同时感触良多，希望写下来以作为后面需要时作参考。&lt;/p&gt;
-
-&lt;p&gt;文章内容准备分为两部分进行记录，第一部分阐述一下的讲座的具体内容，从中挑选出一些自己觉得非常干货的关键点详细撰写一下。第二部分将从讲座中的关键点出发，映射到研发的日常工作上来，分析如何将其中的策略应用到研发工作上来，帮助提高程序员以致于团队层面上的工作效率（注：后续将补发第二部分的博文作扩展分析，请期待~）。&lt;/p&gt;
-
-&lt;h4&gt;一、学习能力&lt;/h4&gt;
-
-&lt;p&gt;作为从原研发负责人的角色变为市场部门负责人的角色，FW是非常成功的一个案例，当中FW提到了自己再三强调的一点——学习能力。一个人拥有强有力的学习能力，他将成为或者正走在成为胜利者的路上。有的人虽然在十几年的象牙塔学习生活中并不是最优秀的，但是有一点如果做到了，那么你就是值得被社会所肯定的，那就是“笨鸟先飞”“勤能补拙”“早起的鸟儿有虫吃”。&lt;/p&gt;
-
-&lt;h4&gt;二、拥抱变化&lt;/h4&gt;
-
-&lt;p&gt;可能是因为这四个字作为公司里经常秉承的工作态度吧，季节在变化，时代在变化，客户群在变化，消费态度在变化，总而言之，人们是贪婪的，心中的需求将会永无止境地在发生着变化。虽然中学时候老师们都教育我们要学会对生活满足，但是对于有更为远大理想的人们，这句话可以也应该被改变。&lt;/p&gt;
-
-&lt;p&gt;年轻人，抱怨多了总是不好的，假设生活给了你不能承受之轻，不要悲伤，不要心急，要坦然地去面对和处理好，这也将毫无疑问地将帮助你更快地踏上成功之路。看到这里，是不是觉得很鸡汤，不过虽然鸡汤，但是道理却还是道理。&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;h4&gt;三、抓住大面，傍大款&lt;/h4&gt;
-
-&lt;p&gt;看着这字眼挺晕的对吧，其实当时作者我也晕。不过听完之后就豁然开朗了。&lt;/p&gt;
-
-&lt;p&gt;什么是抓住大面？大面，指的是关键点，主要方面，或者说是痛点。任何一件事情，总有这么一个或者几个举足轻重的关键点，就像武侠小说中提及的命门、致命穴道。只要将这一点抓住了，就等于抓住了所有。其中当然，包含了一定方面的避轻就重的处事思路。&lt;/p&gt;
-
-&lt;p&gt;那么什么是傍大款？傍大款 == 抱大腿？是的。不过关键在于，你要找到合适的大腿。与携程的合作是傍大款，与京东的合作是傍大款，请林志颖Kimi代言是傍大款，冠名江苏卫视非诚勿扰节目是傍大款&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;还有许许多多的类似案例，至于如果你需要确切的文字上的含义来解释傍大腿是什么，那么建议你去百度吧，这篇文章不会去解释这一点。&lt;/p&gt;
-
-&lt;h4&gt;四、单点营销推广，打穿打透，增加压强&lt;/h4&gt;
-
-&lt;p&gt;无论是在何种渠道上投放广告或者作品牌宣传，都要打透吃透。什么是打透吃透？无论在推广时间上、广告类型上、还是用户群的覆盖面上，都要做到预期的层面，抓住关键点，甚至更好的是将这一关键点做到极致。&lt;/p&gt;
-
-&lt;h4&gt;五、线上线下整合&lt;/h4&gt;
-
-&lt;p&gt;对于当下互联网环境因素决定，在互联网企业中，不能仅仅满足于在互联网的传播上做到脍炙人口，这一点是不够的，还需要在线下的日常生活中继续延伸，使得家喻户晓，人人皆知。只有线上线下整体综合起来，才能更好更为全面地覆盖客户群体，缺了任一方面都是不完整的推广方案。&lt;/p&gt;
-
-&lt;h4&gt;六、价格战&lt;/h4&gt;
-
-&lt;p&gt;这里要说的不是推荐大家一味地在和竞争对手拼低廉价格竞品，而是说，我们不仅要关注产品的性价比高，便宜，更要让客户知道我们是真的便宜，并不是噱头。&lt;/p&gt;
-
-&lt;h4&gt;七、找合适的渠道或者实物作为宣传载体，把推广的理念/概念投射出去&lt;/h4&gt;
-
-&lt;p&gt;江苏卫视非诚勿扰节目是渠道，林志颖Kimi代言是载体，一个覆盖了客厅互联网用户群体，一个覆盖了亲子旅游的概念，两者都是精挑细选出来最为合适，性价比最好的推广载体/渠道。寻找这一类载体之前，要从各个方面收集关联信息作对比，或者请专业调研机构帮助统计与分析，不建议决策者个人的喜好来决定推广选型。&lt;/p&gt;
-
-&lt;p&gt;为什么是林志颖Kimi？其中缘由可以概括为俩字：“够火”。&lt;/p&gt;
-
-&lt;p&gt;为什么是江苏卫视非诚勿扰？其中缘由可以概括为仨字：“够普及”。&lt;/p&gt;
-
-&lt;p&gt;另外一点需要提示的是，选定的载体或者渠道，一定要与本身产品、企业文化、宣传理念相符合，这一点是决然不能摒弃的。&lt;/p&gt;
-
-&lt;h4&gt;八、口号一定要喊，喊多了自然就是真的&lt;/h4&gt;
-
-&lt;p&gt;这一点觉得没必要详细阐述，懂行的人，一看就懂了。可能办法瞅着比较土，但是应用起来还是实在的。什么“引导者”“领航品牌”神马的等等，都是需要喊的，当然，这仍然是要具备基本的统计数据支撑，不能瞎喊，要找准了痛点喊。&lt;/p&gt;
-
-&lt;h4&gt;九、简单粗暴可能是某些情况下最为合适的&lt;/h4&gt;
-
-&lt;p&gt;推广方式不一定要多么地复杂，要求每次都具备多么地技术含量。这里并不是推崇没有技术含量的手段，这里想要说明的是，除了技术含量外，我们更要着眼于要点，击中营销推广的“要害”，简单粗暴，不择手段，达到目的的办法，就是当下最好、最有效的方法。如果一味地追求高技术含量，但是却低产能的办法，那么这些办法舍弃也罢。&lt;/p&gt;
-
-&lt;h4&gt;十、产品即营销，产品的质量仍然是最重要的，没有之一&lt;/h4&gt;
-
-&lt;p&gt;无论是何种办法，无论得到什么样子的推广效果，要想脍炙人口，人人信赖，忠诚于你的产品，产品的高质量保证是务必不可松懈的。只有好的产品才值得被推广，只有高质量的产品才能更好地被推广，被消费者所接受。&lt;/p&gt;
-
-&lt;h4&gt;十一、口碑品牌在OTA行业尤其重要&lt;/h4&gt;
-
-&lt;p&gt;旅游产品不同于一般的实体产品，不像iPhone，不像小米手机，不像乐视电视。旅游产品是虚拟存在的，在出游之前客人都将看不见摸不着，只收到一条出游通知的短信，只能客人自己YY想象。如果产品服务口碑不好，很难让消费者掏腰包下单消费；如果企业口碑不好，很难得到消费者的光临和信赖。旅游产品是体验式产品，口口相传的口碑式传播是非常重要的。&lt;/p&gt;
-
-&lt;h4&gt;十二、营销社会化&lt;/h4&gt;
-
-&lt;p&gt;无论是正面积极的营销手段，还是有意无意中收获的在可控范围内的消极影响，从营销推广上看来，都是具有一定积极意义的。营销的PR老大就好比战场上渴望着打仗的将军，如果没有战役，那么这位将军将是孤独的和寂寞的。其中提及的2015年发生的17家供应商联名抵制的案例便是这一内容的参考案例。&lt;/p&gt;
-
-&lt;h4&gt;十三、擦亮品牌，全员营销&lt;/h4&gt;
-
-&lt;p&gt;一个人的力量是有限的，但是假设是几个人、一群人、一大伙人、甚至于所有人都在为公司的产品品牌作有意无意地、潜移默化地在亲朋好友间宣传，那么力量可以相信是不可估量的。&lt;/p&gt;
-
-&lt;h4&gt;十四、追求不会停止&lt;/h4&gt;
-
-&lt;p&gt;途牛会继续在品牌塑造的道路上继续迈步前进，在2015年的夏秋交际，依然会有重磅举措，鉴于机密考虑，各位请继续关注我们，你会发现我们会让你们继续惊讶惊叫着。&lt;/p&gt;
-
-&lt;p&gt;最后，6.16是FW的生日，这里也同时给他送上一份衷心的祝福，Happy birthday to FW ALM！&lt;/p&gt;
 </content>
   </entry>
 </feed>
