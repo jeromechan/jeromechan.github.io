@@ -87,4 +87,5 @@ under certain conditions; type `show c' for details.
 ### 三、参考资料
 - Opensource License：[http://choosealicense.com/licenses/](http://choosealicense.com/licenses/)
 - 各种开源协议介绍：[http://www.open-open.com/solution/view/1319816219625](http://www.open-open.com/solution/view/1319816219625)
+- 开源那么重要，开源协议你认识吗？[http://yeyuan.baijia.baidu.com/article/43303](http://yeyuan.baijia.baidu.com/article/43303)
 
