@@ -1,21 +1,508 @@
-<!DOCTYPE html><html class=no-js><head><meta charset=utf-8 /><meta content=yes name=apple-mobile-web-app-capable /><meta content="IE=edge,chrome=1" http-equiv=X-UA-Compatible /><meta content="width=device-width, initial-scale=1, user-scalable=no" name=viewport /><title>Openfire Plugin开发指南（一） — Jerome Chan | Full-stack developer</title><link href="/assets/stylesheets/main-97a8d2d0.css" rel=stylesheet /><link rel=alternate type="application/atom+xml" title="Atom Feed" href="/feed.xml"/><link href="/assets/images/favicon/apple-icon-72x72-6b070105.png" rel=apple-touch-icon sizes=72x72 /><link href="/assets/images/favicon/favicon-32x32-eb4149d8.png" rel=icon sizes=32x32 type="image/png"/><link href="/assets/images/favicon/manifest.json" rel=manifest /><meta content="#f7f7f7" name=msapplication-TileColor /><meta content="#f7f7f7" name=theme-color /><script>var _gaq = _gaq || [];
-_gaq.push(['_setAccount', '']);
-_gaq.push(['_trackPageview']);
+<!DOCTYPE html>
+<html lang="en-us">
 
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-// cnzz statistic processing
-var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cspan id='cnzz_stat_icon_1252898702'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252898702%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><meta content="Openfire Plugin开发指南（一） — Jerome Chan | Full-stack developer" property="og:title"/><meta content="Jerome Chan" property="article:author"/><meta content="Jerome Chan" property="article:publisher"/><meta content="Jerome Chan | Full-stack developer" property="og:site_name"/><meta content=summary name="twitter:card"/><meta content="@jeromechan369" name="twitter:site"/><meta content="Openfire Plugin开发指南（一） — Jerome Chan | Full-stack developer" name="twitter:title"/><meta content="Full-stack developer" name=description /><meta content="html, css, css3, html5, javascript, js, front-end, developer, middleman, jekyll, wordpress, php, ruby" name=keywords /><meta href="http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01/" rel=canonical /><meta content="Full-stack developer" property="og:description"/><meta content=website property="og:type"/><meta content="http://aboutcoder.com/assets/images/social-1a50db15.png" property="og:image"/><meta content="http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01/" property="og:url"/><meta content="Jerome Chan" property="og:site_name"/><meta content="Full-stack developer" property="twitter:description"/><meta content="http://aboutcoder.com/assets/images/social-1a50db15.png" property="twitter:image"/><meta content="Full-stack developer" property="og:description"/><meta content=article property="og:type"/><meta content="http://aboutcoder.com/assets/images/social-1a50db15.png" property="og:image"/><meta content="http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01/" property="og:url"/><meta content="Full-stack developer" property="twitter:description"/><meta content="http://aboutcoder.com/assets/images/social-1a50db15.png" property="twitter:image"/></head><body class="x2015 x2015-05 x2015_05_17 x2015_05_17_openfire-plugin-developer-guide-01 x2015_05_17_openfire-plugin-developer-guide-01_index single"><a class=toggle-nav role=button data-toggle=nav href="#"><svg height=34 viewbox="0 0 512 512" width=34 xmlns="http://www.w3.org/2000/svg"><path class=menu-path d="M80 96a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H80zm0 128a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H80zm0 128a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H80z" fill="#fff"></path></svg></a><nav class=nav id=nav role=nav><a class=nav-close role=button data-toggle=nav href="#"><svg height=30 viewbox="0 0 304 305" width=30 xmlns="http://www.w3.org/2000/svg"><title>close</title><path d="M106.745 152.68L4.922 50.855c-6.25-6.25-6.25-16.38 0-22.628L27.55 5.6c6.248-6.247 16.378-6.247 22.627 0L152 107.425 253.823 5.6c6.25-6.247 16.38-6.247 22.628 0L299.08 28.23c6.25 6.25 6.25 16.38 0 22.628L197.255 152.68 299.078 254.5c6.25 6.25 6.25 16.38 0 22.628l-22.627 22.627c-6.248 6.25-16.378 6.25-22.627 0L152 197.934 50.177 299.757c-6.25 6.25-16.38 6.25-22.628 0L4.92 277.13c-6.25-6.248-6.25-16.38 0-22.628L106.745 152.68z" fill="#fff" fill-rule=evenodd></path></svg></a><div class=nav-inner><h2>Navigation</h2><ul class=navbar><li><a title="About me" href="/about">About me</a></li><li><a href="/blog">My blog</a></li><li><a href="/bibliography">Bibliography</a></li><li><a target=blank href="/webdevtools">Web Dev Tools</a></li></ul></div></nav><main class=site-main role=main><header class=header><div class=hero-particles-js id=particles-js></div><div class=header__inn><div class=js-text-parallax><h1 class=header__logo><span><a href="/">Jerome Chan</a><small>Full-Stack Developer</small></span></h1><nav class=header__social-nav><ul class=social><li><a target=blank href="https://twitter.com/jeromechan369"><svg height=36 viewbox="0 0 512 512" width=36 xmlns="http://www.w3.org/2000/svg"><path d="M492.255 109.456c-17.384 7.71-36.07 12.92-55.676 15.264 20.01-11.997 35.383-30.994 42.622-53.632-18.733 11.11-39.478 19.177-61.56 23.524C399.96 75.77 374.764 64 346.88 64c-53.535 0-96.942 43.402-96.942 96.938 0 7.598.857 14.997 2.51 22.092-80.566-4.042-152-42.637-199.81-101.287-8.345 14.317-13.126 30.97-13.126 48.737 0 33.633 17.114 63.305 43.127 80.688-15.89-.503-30.84-4.864-43.907-12.124-.01.404-.01.808-.01 1.22 0 46.967 33.417 86.146 77.763 95.054-8.134 2.215-16.698 3.4-25.54 3.4-6.246 0-12.318-.608-18.24-1.74 12.338 38.513 48.138 66.542 90.56 67.32C130.087 390.303 88.288 405.8 42.87 405.8c-7.825 0-15.542-.46-23.125-1.356C62.645 431.95 113.602 448 168.345 448c178.31 0 275.82-147.716 275.82-275.82 0-4.204-.096-8.383-.283-12.54 18.943-13.67 35.377-30.743 48.373-50.184" fill="#fff"></path></svg></a></li><li><a target=blank href="https://github.com/jeromechan"><svg height=36 viewbox="0 0 512 512" width=36 xmlns="http://www.w3.org/2000/svg"><path d="M512 250v-2c-42.158-8.427-85.827-9.087-112-8 4.3-15.487 6-32.128 6-52 0-28.5-10.611-52.65-28-70 3.038-9.805 7.15-30.123-4-58 0 0-19.504-7.772-64 22-17.43-4.355-35.422-6-54-6-20.44 0-42.736 2.717-62 8-45.917-31.315-66-24-66-24-13.23 33.077-4.485 55.918-2 62-15.55 16.78-26 39.74-26 66 0 19.824 2.486 36.543 8 52-26.396-.96-67.346-.127-108 8v2c40.9-8.177 83.765-8.993 110-8 1.215 3.2 2.482 7 4 10-25.944.836-71.545 4.027-114 16l2 2c42.79-12.06 86.308-15.214 112-16 15.5 28.886 45.63 46.14 100 52-7.717 5.184-14.81 15.09-18 30-10.516 5.028-44.028 16.342-64-18 0 0-10.6-20.4-32-22 0 0-21.326.75-2 14 0 0 14.416 5.41 24 30 .298 0 11.67 43.456 72 30v42c-.298 0 .052 14.894-14 20 0 0-8.945 6.812 0 10 .032 0 38 3.917 38-28v-48c.34 0-1.206-17.488 8-24v76c-.37 0-.42 18.977-10 26 0 0-6.05 11.188 8 8 0 0 26.722-4.72 28-36v-78h8v78c1.276 31.28 28 36 28 36 14.047 3.188 8-8 8-8-9.96-7.023-10-26-10-26v-76c9.54 7.163 8 24 8 24v48c.044 31.918 38 28 38 28 8.937-3.188 0-10 0-10-14.36-5.106-14-20-14-20v-62c.31-24.147-10.054-37.25-20-44 57.983-5.748 85.18-22.92 98-52 25.398.698 70.28 3.67 114 16l2-2c-43.47-12.257-90.345-15.253-116-16 1.215-2.938 3.058-6.857 4-10 41.325.51 78.074 1.154 112 8z" fill="#fff"></path></svg></a></li><li><a target=blank href="/feed.xml"><svg height=36 viewbox="0 0 512 512" width=36 xmlns="http://www.w3.org/2000/svg"><path d="M64 64v72c172.313 0 312 139.687 312 312h72C448 235.923 276.077 64 64 64zm0 144v72c92.784 0 168 75.216 168 168h72c0-132.548-107.452-240-240-240zm48 144c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z" fill="#fff"></path></svg></a></li></ul></nav></div><a href="/"><img class=header__avatar height=250px src="/assets/images/avatar-8dced784.png" srcset="/assets/images/avatar@2x-3263fbcf.png 2x" width=250px /></a></div></header><article class=article itemscope="" itemtype="http://schema.org/NewsArticle" role=article><div class=container-inn><header class=article-header><meta content=2015-05-17 itemprop=datePublished /><span class=article-meta>Posted on the 17 of May 2015</span><h1 class=article-title itemprop=headline>Openfire Plugin开发指南（一）</h1></header><div class=article-content itemprop=articleBody><p><strong>一、简介</strong></p> <p>Openfire plugin使得Openfire自身的功能得到了很好的扩展和增强。这篇文档旨在引导开发者如何进行Openfire plugin的开发。</p> <p><strong>二、plugin的结构</strong></p> <p>plugin的源码放置在Openfire源码根目录的plugins目录下。当plugin以jar包或者war包的形式部署了之后，它将会自动解压成原始的文件夹层级结构，类似的plugin目录结构如下：</p> <p>Plugin Structure myplugin/ |- plugin.xml &lt;- Plugin定义文件 |- readme.html &lt;- 可选，插件说明文件，直接呈现给最终的用户阅读 |- changelog.html &lt;- 可选，插件变更日志文件，直接呈现给最终的用户阅读 |- logo<em>small.gif &lt;- 可选，插件的小号Logo图片(16x16)，只支持.gif和.png格式 |- logo</em>large.gif &lt;- 可选，插件的大号Logo图片(32x32)，只支持.gif和.png格式 |- classes/ &lt;- 插件所需要的资源文件 (类似地，例如插件的属性配置文件) |- database/ &lt;- 可选，插件的数据库模型文件，可内置包含数据库版本升级的模型文件 |- i18n/ &lt;- 可选，插件的i18n多语言支持文件 |- lib/ &lt;- 插件所依赖的库（即JAR包） |- web &lt;- 可选，插件的控制台页面相关文件 |- WEB-INF/ |- web.xml &lt;- 生成的web.xml，包含了等待编译的jsp配置 |- web-custom.xml &lt;- 可选，用户自定义的web.xml，包含用户的servlets配置 |- images/ &lt;- 可选，插件的控制台页面所需要的图片资源文件，只支持.gif与.png格式</p> <p>plugin中的web目录提供的是插件在管理员控制台中的管理功能，下面会撰写更为详细的相关内容。 其中，plugin.xml定义了plugin主要的类，下面是一个例子：&lt;!&ndash; more &ndash;&gt;</p> <p>&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?&gt; <plugin> &lt;!&ndash; Main plugin class &ndash;&gt; <class>org.example.ExamplePlugin</class></p> <p><name>Example Plugin</name> <description>This is an example plugin.</description> <author>Jive Software</author></p> <p><version>1.0</version> <date>07/01/2006</date> <url><a href="http://www.igniterealtime">http://www.igniterealtime</a>. org/projects/openfire/plugins.jsp</url> <minServerVersion>3.0.0</minServerVersion> <licenseType>gpl</licenseType></p> <p><adminconsole> &lt;!&ndash; More on this below &ndash;&gt; </adminconsole> </plugin></p> <p>以下的这一些元数据字段可以在plugin.xml被设置：</p> <ul> <li><p>name：plugin的名称</p></li> <li><p>description：plugin的描述</p></li> <li><p>author：plugin的作者</p></li> <li><p>version：plugin的版本号</p></li> <li><p>date：发布plugin的日期，格式必须是MM/dd/yyyy，类似地“07/01/2006”</p></li> <li><p>url：关于plugin更详尽信息的超链接</p></li> <li><p>minServerVersion：plugin所支持的Openfire最低版本号，假如版本号高于当前运行的Openfire版本，plugin将不会被启动</p></li> <li><p>databaseKey：假如plugin需要自己的数据库表，那么databaseKey节点必须要设置一个schema name（通常地，schema name设置成与plugin名称相同）。对于每一类Openfire所支持的数据库，数据库的schema文件都必须放置在plugin下的database目录下。例如：plugin名称为“foo”，那么该plugin的schema文件命名应该类似与“foo<em>mysql.sql”，“foo</em>oracle.sql”等。我们推荐把数据库表的命名都增加Openfire的前缀“of”，避免与同一数据库中的其他应用的数据库表结构的命名相冲突。在schema脚本文件中，应该在ofVersion表中增加一条记录，使得Openfire可以跟踪plugin的版本信息，类似地：INSERT INTO ofVersion (name, version) VALUES (&lsquo;foo&rsquo;, 0);</p></li> <li><p>databaseVersion：数据库schema版本号（PS：当一个数据库被定义之时就具有的）。新的plugin在定义其数据库之时，数据库版本号将从0开始计数。假使在后面版本的plugin需要升级其数据库结构，那么升级的schema脚本文件需要放置到目录database/upgrade的每一个升级版本的文件夹下，目录结构类似地：database/upgrade/1和database/upgrade/2可以包含文件“foo<em>mysql.sql”与“foo</em>oracle.sql”，文件内包含了每一个版本的数据库结构的相关变更项目。在每一项数据库发生升级之时，都需要把ofVersion中的plugin版本记录更新，类似地：UPDATE ofVersion set version=1 where name=&#39;foo&rsquo;;</p></li> <li><p>parentPlugin：plugin的父插件的名称（）。当plugin拥有一个父插件（parent plugin），那么当前plugin将使用它父插件的类加载器，而不是自己新增一个类加载器。这一机制使得插件之间工作起来变得更加紧密。一个作为子节点的插件，如果没有其父插件的存在，它将无法独立工作。</p></li> <li><p>licenseType：定义着当前插件的官方所遵循的协议。有效的数值类似地：（1）“commercial”：插件的发布与传衍遵循着商业的协议</p></li> </ul> <p>（2）“gpl”：the GNU Public License（GPL）</p> <p>（3）“apache”：the Apache License</p> <p>（4）“internal”：限制在内部使用，并且不准备二次发布传衍</p> <p>（5）“other”：plugin所遵循的协议不在所列的协议范围之内，那么便可以使用other项，在其中需要撰写清楚相关协议的细节假设plugin没有指定任何协议，那么插件默认指定为other项。</p> <p>在plugin中还有一些额外的文件，给用户提供了更多的信息（这些文件都放置在了plugin的根目录下）：</p> <ul> <li><p>readme.html：可选，插件的说明文件，呈现给最终用户阅读</p></li> <li><p>changelog.html：可选，插件的变更文件，呈现给最终用户阅读</p></li> <li><p>logo_small.png：可选，插件的logo小图片，仅限于.png和.gif格式</p></li> <li><p>logo_large.png：可选，插件的logo大图片，仅限于.png和.gif格式</p></li> <li><p>plugin的类文件必须实现Openfire API中所定义的Plugin接口，自然地，类文件有默认的一个无参数的构造器。plugin的类文件实现了Plugin接口中的initializing和destroying接口。</p></li> </ul> <p>// plugin的实现例子 package org.example; import org.jivesoftware.openfire.container.Plugin; import org.jivesoftware.openfire.container.PluginManager; import java.io.File; /** * A sample plugin for Openfire. */ public class ExamplePlugin implements Plugin { public void initializePlugin(PluginManager manager, File pluginDirectory) { // Your code goes here }</p> <p>public void destroyPlugin() { // Your code goes here } }</p> <p><strong>常用的plugin最佳实践</strong></p> <p>在选择一个插件的包名之时，我们推荐可以选择一些具备唯一性的标识，类似地，可以选用你的自定义字符串或者是组织名称来尽可能地避免包或者类命名的冲突。例如，假设每个人使用的包名都是org.example.PluginName，就算是PluginName是不相同的，但是你依然会遇到这里或那里的类名冲突，这不是玩笑，在集群部署环境之下，该问题尤其突出。</p> </div></div></article><aside class=comments id=comments><div class=container-inn><div id=disqus_thread></div></div></aside><script>var disqus_shortname = "aboutcoder";
-var disqus_identifier = "/2015/05/17/openfire-plugin-developer-guide-01/";
-var disqus_title = "Openfire Plugin开发指南（一）";
-var disqus_url = "http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01/";
-(function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();</script><noscript>Please enable JavaScript to view the<a href="https://disqus.com/?ref_noscript" rel=nofollow> comments powered by Disqus.</a></noscript><div class=search><div class=search__form><input class=search__input placeholder="example: lorem ipsem"/></div><ul class=search__results></ul></div><footer class=footer><nav class=social-nav><ul class=social><li><a target=blank href="https://twitter.com/jeromechan369"><svg height=36 viewbox="0 0 512 512" width=36 xmlns="http://www.w3.org/2000/svg"><path d="M492.255 109.456c-17.384 7.71-36.07 12.92-55.676 15.264 20.01-11.997 35.383-30.994 42.622-53.632-18.733 11.11-39.478 19.177-61.56 23.524C399.96 75.77 374.764 64 346.88 64c-53.535 0-96.942 43.402-96.942 96.938 0 7.598.857 14.997 2.51 22.092-80.566-4.042-152-42.637-199.81-101.287-8.345 14.317-13.126 30.97-13.126 48.737 0 33.633 17.114 63.305 43.127 80.688-15.89-.503-30.84-4.864-43.907-12.124-.01.404-.01.808-.01 1.22 0 46.967 33.417 86.146 77.763 95.054-8.134 2.215-16.698 3.4-25.54 3.4-6.246 0-12.318-.608-18.24-1.74 12.338 38.513 48.138 66.542 90.56 67.32C130.087 390.303 88.288 405.8 42.87 405.8c-7.825 0-15.542-.46-23.125-1.356C62.645 431.95 113.602 448 168.345 448c178.31 0 275.82-147.716 275.82-275.82 0-4.204-.096-8.383-.283-12.54 18.943-13.67 35.377-30.743 48.373-50.184" fill="#fff"></path></svg></a></li><li><a target=blank href="https://github.com/jeromechan"><svg height=36 viewbox="0 0 512 512" width=36 xmlns="http://www.w3.org/2000/svg"><path d="M512 250v-2c-42.158-8.427-85.827-9.087-112-8 4.3-15.487 6-32.128 6-52 0-28.5-10.611-52.65-28-70 3.038-9.805 7.15-30.123-4-58 0 0-19.504-7.772-64 22-17.43-4.355-35.422-6-54-6-20.44 0-42.736 2.717-62 8-45.917-31.315-66-24-66-24-13.23 33.077-4.485 55.918-2 62-15.55 16.78-26 39.74-26 66 0 19.824 2.486 36.543 8 52-26.396-.96-67.346-.127-108 8v2c40.9-8.177 83.765-8.993 110-8 1.215 3.2 2.482 7 4 10-25.944.836-71.545 4.027-114 16l2 2c42.79-12.06 86.308-15.214 112-16 15.5 28.886 45.63 46.14 100 52-7.717 5.184-14.81 15.09-18 30-10.516 5.028-44.028 16.342-64-18 0 0-10.6-20.4-32-22 0 0-21.326.75-2 14 0 0 14.416 5.41 24 30 .298 0 11.67 43.456 72 30v42c-.298 0 .052 14.894-14 20 0 0-8.945 6.812 0 10 .032 0 38 3.917 38-28v-48c.34 0-1.206-17.488 8-24v76c-.37 0-.42 18.977-10 26 0 0-6.05 11.188 8 8 0 0 26.722-4.72 28-36v-78h8v78c1.276 31.28 28 36 28 36 14.047 3.188 8-8 8-8-9.96-7.023-10-26-10-26v-76c9.54 7.163 8 24 8 24v48c.044 31.918 38 28 38 28 8.937-3.188 0-10 0-10-14.36-5.106-14-20-14-20v-62c.31-24.147-10.054-37.25-20-44 57.983-5.748 85.18-22.92 98-52 25.398.698 70.28 3.67 114 16l2-2c-43.47-12.257-90.345-15.253-116-16 1.215-2.938 3.058-6.857 4-10 41.325.51 78.074 1.154 112 8z" fill="#fff"></path></svg></a></li><li><a target=blank href="/feed.xml"><svg height=36 viewbox="0 0 512 512" width=36 xmlns="http://www.w3.org/2000/svg"><path d="M64 64v72c172.313 0 312 139.687 312 312h72C448 235.923 276.077 64 64 64zm0 144v72c92.784 0 168 75.216 168 168h72c0-132.548-107.452-240-240-240zm48 144c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z" fill="#fff"></path></svg></a></li></ul></nav><small>Made with ❤ by <a href="http://aboutcoder.com">Jerome Chan</a> using <a target=blank href="http://middlemanapp.com">middlemanapp.com</a></small></footer><script async="" data-cfasync=false id=dsq-count-scr src="//aboutcoder.disqus.com/count.js"></script><script src="/assets/javascripts/main-b05f083a.js"></script></main></body></html>
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Openfire Plugin开发指南（一） &middot; Jerome Chan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+                                 <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08 layout-reverse">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Jerome Chan
+        </a>
+      </h1>
+      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href="https://github.com/jeromechan" target="_blank">GitHub</a>.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+<!-- 
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about">About Me</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/bibliography/">读过的书目</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/category">Category</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags">Tags</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+
+      <a class="sidebar-nav-item" href="/about">About Me</a>
+      <a class="sidebar-nav-item" href="/bibliography">Bibliography</a>
+      <a class="sidebar-nav-item" href="/tags">Tags</a>
+      <a class="sidebar-nav-item" href="/category">Category</a>
+      <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+      <!-- <a class="sidebar-nav-item" href="https://github.com/jeromechan">GitHub</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
+    </nav>
+
+    <p><small>Copyright &copy; 2013-2016</small></p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Openfire Plugin开发指南（一）</h1>
+  <span class="post-date">17 May 2015</span>
+  <p><strong>一、简介</strong></p>
+
+<p>Openfire plugin使得Openfire自身的功能得到了很好的扩展和增强。这篇文档旨在引导开发者如何进行Openfire plugin的开发。</p>
+
+<p><strong>二、plugin的结构</strong></p>
+
+<p>plugin的源码放置在Openfire源码根目录的plugins目录下。当plugin以jar包或者war包的形式部署了之后，它将会自动解压成原始的文件夹层级结构，类似的plugin目录结构如下：</p>
+
+<p>Plugin Structure
+myplugin/
+|- plugin.xml &lt;- Plugin定义文件
+|- readme.html &lt;- 可选，插件说明文件，直接呈现给最终的用户阅读
+|- changelog.html &lt;- 可选，插件变更日志文件，直接呈现给最终的用户阅读
+|- logo<em>small.gif &lt;- 可选，插件的小号Logo图片(16x16)，只支持.gif和.png格式
+|- logo</em>large.gif &lt;- 可选，插件的大号Logo图片(32x32)，只支持.gif和.png格式
+|- classes/ &lt;- 插件所需要的资源文件 (类似地，例如插件的属性配置文件)
+|- database/ &lt;- 可选，插件的数据库模型文件，可内置包含数据库版本升级的模型文件
+|- i18n/ &lt;- 可选，插件的i18n多语言支持文件
+|- lib/ &lt;- 插件所依赖的库（即JAR包）
+|- web &lt;- 可选，插件的控制台页面相关文件
+|- WEB-INF/
+|- web.xml &lt;- 生成的web.xml，包含了等待编译的jsp配置
+|- web-custom.xml &lt;- 可选，用户自定义的web.xml，包含用户的servlets配置
+|- images/ &lt;- 可选，插件的控制台页面所需要的图片资源文件，只支持.gif与.png格式</p>
+
+<p>plugin中的web目录提供的是插件在管理员控制台中的管理功能，下面会撰写更为详细的相关内容。 其中，plugin.xml定义了plugin主要的类，下面是一个例子：&lt;!-- more --&gt;</p>
+
+<!-- Sample plugin.xml -->
+
+<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<plugin>
+&lt;!-- Main plugin class --&gt;
+<class>org.example.ExamplePlugin</class></p>
+
+<!-- Plugin meta-data -->
+
+<p><name>Example Plugin</name>
+<description>This is an example plugin.</description>
+<author>Jive Software</author></p>
+
+<p><version>1.0</version>
+<date>07/01/2006</date>
+<url>http://www.igniterealtime. org/projects/openfire/plugins.jsp</url>
+<minServerVersion>3.0.0</minServerVersion>
+<licenseType>gpl</licenseType></p>
+
+<!-- Admin console entries -->
+
+<p><adminconsole>
+&lt;!-- More on this below --&gt;
+</adminconsole>
+</plugin></p>
+
+<p>以下的这一些元数据字段可以在plugin.xml被设置：</p>
+
+<ul>
+<li><p>name：plugin的名称</p></li>
+<li><p>description：plugin的描述</p></li>
+<li><p>author：plugin的作者</p></li>
+<li><p>version：plugin的版本号</p></li>
+<li><p>date：发布plugin的日期，格式必须是MM/dd/yyyy，类似地“07/01/2006”</p></li>
+<li><p>url：关于plugin更详尽信息的超链接</p></li>
+<li><p>minServerVersion：plugin所支持的Openfire最低版本号，假如版本号高于当前运行的Openfire版本，plugin将不会被启动</p></li>
+<li><p>databaseKey：假如plugin需要自己的数据库表，那么databaseKey节点必须要设置一个schema name（通常地，schema name设置成与plugin名称相同）。对于每一类Openfire所支持的数据库，数据库的schema文件都必须放置在plugin下的database目录下。例如：plugin名称为“foo”，那么该plugin的schema文件命名应该类似与“foo<em>mysql.sql”，“foo</em>oracle.sql”等。我们推荐把数据库表的命名都增加Openfire的前缀“of”，避免与同一数据库中的其他应用的数据库表结构的命名相冲突。在schema脚本文件中，应该在ofVersion表中增加一条记录，使得Openfire可以跟踪plugin的版本信息，类似地：INSERT INTO ofVersion (name, version) VALUES (&#39;foo&#39;, 0);</p></li>
+<li><p>databaseVersion：数据库schema版本号（PS：当一个数据库被定义之时就具有的）。新的plugin在定义其数据库之时，数据库版本号将从0开始计数。假使在后面版本的plugin需要升级其数据库结构，那么升级的schema脚本文件需要放置到目录database/upgrade的每一个升级版本的文件夹下，目录结构类似地：database/upgrade/1和database/upgrade/2可以包含文件“foo<em>mysql.sql”与“foo</em>oracle.sql”，文件内包含了每一个版本的数据库结构的相关变更项目。在每一项数据库发生升级之时，都需要把ofVersion中的plugin版本记录更新，类似地：UPDATE ofVersion set version=1 where name=&#39;foo&#39;;</p></li>
+<li><p>parentPlugin：plugin的父插件的名称（）。当plugin拥有一个父插件（parent plugin），那么当前plugin将使用它父插件的类加载器，而不是自己新增一个类加载器。这一机制使得插件之间工作起来变得更加紧密。一个作为子节点的插件，如果没有其父插件的存在，它将无法独立工作。</p></li>
+<li><p>licenseType：定义着当前插件的官方所遵循的协议。有效的数值类似地：（1）“commercial”：插件的发布与传衍遵循着商业的协议</p></li>
+</ul>
+
+<p>（2）“gpl”：the GNU Public License（GPL）</p>
+
+<p>（3）“apache”：the Apache License</p>
+
+<p>（4）“internal”：限制在内部使用，并且不准备二次发布传衍</p>
+
+<p>（5）“other”：plugin所遵循的协议不在所列的协议范围之内，那么便可以使用other项，在其中需要撰写清楚相关协议的细节假设plugin没有指定任何协议，那么插件默认指定为other项。</p>
+
+<p>在plugin中还有一些额外的文件，给用户提供了更多的信息（这些文件都放置在了plugin的根目录下）：</p>
+
+<ul>
+<li><p>readme.html：可选，插件的说明文件，呈现给最终用户阅读</p></li>
+<li><p>changelog.html：可选，插件的变更文件，呈现给最终用户阅读</p></li>
+<li><p>logo_small.png：可选，插件的logo小图片，仅限于.png和.gif格式</p></li>
+<li><p>logo_large.png：可选，插件的logo大图片，仅限于.png和.gif格式</p></li>
+<li><p>plugin的类文件必须实现Openfire API中所定义的Plugin接口，自然地，类文件有默认的一个无参数的构造器。plugin的类文件实现了Plugin接口中的initializing和destroying接口。</p></li>
+</ul>
+
+<p>// plugin的实现例子
+package org.example;
+import org.jivesoftware.openfire.container.Plugin;
+import org.jivesoftware.openfire.container.PluginManager;
+import java.io.File;
+/**
+* A sample plugin for Openfire.
+*/
+public class ExamplePlugin implements Plugin {
+public void initializePlugin(PluginManager manager, File pluginDirectory) {
+// Your code goes here
+}</p>
+
+<p>public void destroyPlugin() {
+// Your code goes here
+}
+}</p>
+
+<p><strong>常用的plugin最佳实践</strong></p>
+
+<p>在选择一个插件的包名之时，我们推荐可以选择一些具备唯一性的标识，类似地，可以选用你的自定义字符串或者是组织名称来尽可能地避免包或者类命名的冲突。例如，假设每个人使用的包名都是org.example.PluginName，就算是PluginName是不相同的，但是你依然会遇到这里或那里的类名冲突，这不是玩笑，在集群部署环境之下，该问题尤其突出。</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+          <a href="/2016/07/22/easy-chosing-opensource-license/">
+            如何快速选择开源软件协议
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/22/resolve-the-fastjson-problems-about-date/">
+            解决fastjson反序列化日期0000-00-00失败的方案
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/06/what-is-architecture/">
+            什么是架构
+            <small>06 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/02/talk-about-middleman/">
+            说说使用middleman的那些事情
+            <small>02 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/01/how-to-make-a-project-plan/">
+            学习笔记：项目管理之规划项目
+            <small>30 Jun 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2015/11/16/work-in-git/">
+            Git软件开发过程
+            <small>16 Nov 2015</small>
+          </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aboutcoder.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+  </body>
+
+  <div style="display:none;">
+	<script src="http://s23.cnzz.com/z_stat.php?id=1252898702&web_id=1252898702" language="JavaScript"></script>
+</div>
+  
+</html>

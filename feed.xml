@@ -1,24 +1,639 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog Name</title>
-  <subtitle>Blog subtitle</subtitle>
-  <id>http://blog.url.com/</id>
-  <link href="http://blog.url.com/"/>
-  <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2016-06-30T08:00:00+08:00</updated>
-  <author>
-    <name>Blog Author</name>
-  </author>
-  <entry>
-    <title>学习笔记：项目管理之规划项目</title>
-    <link rel="alternate" href="http://blog.url.com/2016/06/30/how-to-make-a-project-plan/"/>
-    <id>http://blog.url.com/2016/06/30/how-to-make-a-project-plan/</id>
-    <published>2016-06-30T08:00:00+08:00</published>
-    <updated>2016-07-02T12:11:45+08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;h3&gt;一、回顾基础知识&lt;/h3&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Jerome Chan</title>
+		<link>http://aboutcoder.com</link>
+		<atom:link href="http://aboutcoder.com/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>如何快速选择开源软件协议</title>
+				<description>&lt;p&gt;&lt;img src=&quot;/images/2016-07-22-easy-chosing-opensource-license/14691964599348.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;一、背景介绍&lt;/h3&gt;
+
+&lt;p&gt;目前开源协议有很多，同一款协议也衍生出了许多变种。开源世界中，我们可以使用合适的开源协议，保证自己作品的版权。&lt;br&gt;
+我们这里不做过多的介绍，只介绍一些自己常用的三个选择及其理由，以供参考。&lt;/p&gt;
+
+&lt;h3&gt;二、详细描述&lt;/h3&gt;
+
+&lt;h4&gt;2.1 “我需要一个简单宽松的协议”&lt;/h4&gt;
+
+&lt;p&gt;MIT License是一个简短、宽松、自由的协议。该协议允许人们使用你的代码，但必须要保留你的版权信息。与此同时，并不会给你带来任何责任和风险。&lt;code&gt;jQuery&lt;/code&gt;,&lt;code&gt;.NET Core&lt;/code&gt;和&lt;code&gt;Rails&lt;/code&gt;使用的均是MIT License。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;The MIT License (MIT)
+Copyright (c) &amp;lt;year&amp;gt; &amp;lt;copyright holders&amp;gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;quot;Software&amp;quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &amp;quot;AS IS&amp;quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;2.2 “我更加关心自己的专利”&lt;/h4&gt;
+
+&lt;p&gt;Apache License 2.0是一项和MIT License相似的协议，但自己希望自己的专利能在开源免费使用的同时，保留自己在开源产品中的专利权益。同样，该协议要求使用者必须保留你的版权信息。&lt;br&gt;
+&lt;code&gt;Android&lt;/code&gt;, &lt;code&gt;Apache&lt;/code&gt;和&lt;code&gt;Swift&lt;/code&gt;使用的均是Apache License 2.0协议。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Apache License Version 2.0
+Copyright [yyyy] [name of copyright owner]
+
+Licensed under the Apache License, Version 2.0 (the &amp;quot;License&amp;quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;2.3 “我关心代码的分享以及促进”&lt;/h4&gt;
+
+&lt;p&gt;如果你希望别人在分享的自己的作品之后，也必须遵循相同的协议，也必须是开源和免费。那么GPLv3是你更好的选择。该协议当中也明确地包含了贡献人的专利权益方面的款项。原作品的版权条款也必须延续保留。GPL协议存在非常强的“传染性”
+&lt;code&gt;Bash&lt;/code&gt;, &lt;code&gt;GIMP&lt;/code&gt;和&lt;code&gt;Privacy Badger&lt;/code&gt;使用的均是GPLv3协议。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;GNU GENERAL PUBLIC LICENSE Version 3
+Copyright (C) {year}  {name of author}
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如果你的产品是基于终端的，你还可以加上如下一段，使得使用者知晓如何可以联系到你。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{project}  Copyright (C) {year}  {fullname}
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show w&amp;#39;.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type `show c&amp;#39; for details.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;三、参考资料&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Opensource License：&lt;a href=&quot;http://choosealicense.com/licenses/&quot;&gt;http://choosealicense.com/licenses/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;各种开源协议介绍：&lt;a href=&quot;http://www.open-open.com/solution/view/1319816219625&quot;&gt;http://www.open-open.com/solution/view/1319816219625&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;开源那么重要，开源协议你认识吗？&lt;a href=&quot;http://yeyuan.baijia.baidu.com/article/43303&quot;&gt;http://yeyuan.baijia.baidu.com/article/43303&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Fri, 22 Jul 2016 18:00:00 +0800</pubDate>
+				<link>http://aboutcoder.com/2016/07/22/easy-chosing-opensource-license/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2016/07/22/easy-chosing-opensource-license/</guid>
+			</item>
+		
+			<item>
+				<title>解决fastjson反序列化日期0000-00-00失败的方案</title>
+				<description>&lt;h4&gt;一、案例场景复原&lt;/h4&gt;
+
+&lt;p&gt;示例场景里涉及两个class：&lt;code&gt;TestDemo.java&lt;/code&gt;, &lt;code&gt;DateBeanDemo.java&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// DateBeanDemo.java&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DateBeanDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     * dateStr field with Date.class&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     * Get dateStr &amp;lt;br&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     *&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     * @return Returns the dateStr. &amp;lt;br&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getDateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     * Set dateStr &amp;lt;br&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     *&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     * @param dateStr The dateStr to set. &amp;lt;br&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setDateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;dateStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 示例执行例子&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jsonStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;{\&amp;quot;dateStr\&amp;quot;:\&amp;quot;0000-00-00\&amp;quot;}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jsonStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;执行以上的main方法之后，并没有获取预期的结果，而是在fastjson的序列化解析中便发生了异常，如下&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Exception in thread &amp;quot;main&amp;quot; com.alibaba.fastjson.JSONException: For input string: &amp;quot;0000-00-00&amp;quot;
+    at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:555)
+    at com.alibaba.fastjson.JSON.parseObject(JSON.java:251)
+    at com.alibaba.fastjson.JSON.parseObject(JSON.java:227)
+    at com.alibaba.fastjson.JSON.parseObject(JSON.java:186)
+    at excel.TestDemo.main(TestDemo.java:23)
+Caused by: java.lang.NumberFormatException: For input string: &amp;quot;0000-00-00&amp;quot;
+    at java.lang.NumberFormatException.forInputString(NumberFormatException.java:48)
+    at java.lang.Long.parseLong(Long.java:419)
+    at java.lang.Long.parseLong(Long.java:468)
+    at com.alibaba.fastjson.parser.deserializer.DateDeserializer.cast(DateDeserializer.java:56)
+    at com.alibaba.fastjson.parser.deserializer.AbstractDateDeserializer.deserialze(AbstractDateDeserializer.java:98)
+    at Fastjson_ASM_DateBeanDemo_1.deserialze(Unknown Source)
+    at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:551)
+    ... 4 more
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;通过百度查阅了部分网上撰写的方案，可以使用fastjson中的注解&lt;code&gt;@JSONField(format=&amp;quot;&amp;quot;)&lt;/code&gt;来重新定义&lt;code&gt;DateBeanDemo.dateStr&lt;/code&gt;，如下：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@JSONField&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;yyyy-MM-dd&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parseFeatures&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;={&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Feature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;AllowISO8601DateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然而，并没有解决这个exception的问题。同时还怀疑了注解是否在反序列化之时没有被使用到，经过查阅源码，fastjson已将其反序列化的开关定义了&lt;code&gt;true&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RetentionPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;METHOD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;FIELD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;PARAMETER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONField&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ordinal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deserialize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 默认定义了true，反序列化之时也使用该注解&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;SerializerFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;serialzeFeatures&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{};&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Feature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parseFeatures&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{};&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;二、原因剖析&lt;/h4&gt;
+
+&lt;p&gt;经查找fastjson中相关代码发现，当代码执行到&lt;code&gt;com.alibaba.fastjson.parser.deserializer.DateDeserializer.class&lt;/code&gt;的执行方法&lt;code&gt;cast()&lt;/code&gt;中之时，所使用的JSONParser中所含带的dateFormat依旧是默认的&lt;code&gt;yyyy-MM-dd HH:mm:ss&lt;/code&gt;，而并非注解@JSONField中所定义的&lt;code&gt;yyyy-MM-dd&lt;/code&gt;。
+所以发生了转换字段失败。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2016-07-22-resolve-the-fastjson-problems-about-date/14691655278897.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;再深究一层，为什么不是@JSONField中所定义的&lt;code&gt;yyyy-MM-dd&lt;/code&gt;作为JSONParser中的dateFormat呢？其实仔细阅读一遍&lt;code&gt;cast()&lt;/code&gt;代码逻辑就会发现，并不是fastjson丢弃了JSONField的扫描，而是在方法中有这么一段：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 检查格式是否符合ISO8601的DateFormat规范&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dateLexer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;scanISO8601DateIfMatch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;label122&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;当执行到以上代码段之时，由于字符串&lt;code&gt;0000-00-00&lt;/code&gt;并不是ISO8601的DateFormat规范之内，故而代码便会&lt;code&gt;break label122&lt;/code&gt;执行跳出逻辑。紧接着执行的就是&lt;code&gt;DateFormat dateFormat1 = parser.getDateFormat();&lt;/code&gt;，此时，parser依然是global定义的parser，DateFormat并没有使用&lt;code&gt;@JSONField&lt;/code&gt;中所定义的。&lt;/p&gt;
+
+&lt;h4&gt;三、解决方案：新增date反序列化解析器&lt;/h4&gt;
+
+&lt;p&gt;解决方案并非只有一种，在众多解决方案中自己选择了&amp;quot;新增date反序列化解析器&amp;quot;的办法。除此之外还有诸如设置&lt;code&gt;JSON.DEFFAULT_DATE_FORMAT&lt;/code&gt;属性的办法，也同样可以解决这一问题。下面作两种办法的对比和阐述。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;方案1：设置属性&lt;code&gt;JSON.DEFFAULT_DATE_FORMAT&lt;/code&gt; &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这一方案只涉及修改&lt;code&gt;main()&lt;/code&gt;方法代码即可实现，&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 示例执行例子&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jsonStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;{\&amp;quot;dateStr\&amp;quot;:\&amp;quot;0000-00-00\&amp;quot;}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DEFFAULT_DATE_FORMAT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;yyyy-MM-dd&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jsonStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;但是翻阅fastjson中对于&lt;code&gt;JSON.DEFFAULT_DATE_FORMAT&lt;/code&gt;可知，该属性属于静态属性，一旦设置影响全局。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;// com.alibaba.fastjson.JSON.class
+public abstract class JSON implements JSONStreamAware, JSONAware {
+    public static String DEFFAULT_DATE_FORMAT;
+    // ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;方案2：新增date反序列化解析器&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;主要思路是以fastjson原生的&lt;code&gt;DateDeserializer.class&lt;/code&gt;为基础，定制化一个可以解析&lt;code&gt;0000-00-00&lt;/code&gt;的日期反序列化解析器。&lt;br&gt;
+该方式是fastjson函数&lt;code&gt;JSON.parseObject()&lt;/code&gt;的一个应用场景，通过定制化&lt;code&gt;ParserConfig&lt;/code&gt;参数，达到局部改变JSON解析逻辑的目的。&lt;br&gt;
+如下：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jeromechan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fixbug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fastjson&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.alibaba.fastjson.parser.DefaultJSONParser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.alibaba.fastjson.parser.deserializer.DateDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.lang.reflect.Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * Copyright © 2016 Jerome Chan. All rights reserved.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * An extended DateDeseializer for parsing &amp;#39;0000-00-00&amp;#39;.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * @author chenjinlong&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * @CreateDate 7/20/16 5:55 PM&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;JCDateDeserializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateDeserializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JCDateDeserializer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;JCDateDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;JCDateDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DefaultJSONParser&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clazz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fieldName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strVal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strVal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strVal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0000-00-00&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;yyyy-MM-dd&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clazz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fieldName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 示例执行例子&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jsonStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;{\&amp;quot;dateStr\&amp;quot;:\&amp;quot;0000-00-00\&amp;quot;}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;        
+        &lt;span class=&quot;n&quot;&gt;ParserConfig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jcParserConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ParserConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;jcParserConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;putDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JCDateDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jsonStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jcParserConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DEFAULT_PARSER_FEATURE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;假设觉得这种解析办法可以作为整个项目内的全局特性，感兴趣的话可以将定制好的&lt;code&gt;JCDateDeserializer&lt;/code&gt;利用spring框架注入到项目容器中。这同样是对于方案2很不错的延伸。&lt;/p&gt;
+
+&lt;h4&gt;四、参考资料&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;fastjson在github上的issues：&lt;a href=&quot;https://github.com/alibaba/fastjson/issues/414&quot;&gt;https://github.com/alibaba/fastjson/issues/414&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Fri, 22 Jul 2016 17:00:00 +0800</pubDate>
+				<link>http://aboutcoder.com/2016/07/22/resolve-the-fastjson-problems-about-date/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2016/07/22/resolve-the-fastjson-problems-about-date/</guid>
+			</item>
+		
+			<item>
+				<title>什么是架构</title>
+				<description>&lt;p&gt;&lt;img src=&quot;/images/2016-07-06-what-is-architecture/14678247250239.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;先来看看老外们对于架构是如何诠释的。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;What is Architecture?&lt;/strong&gt;&lt;br&gt;
+Architecture is the &lt;strong&gt;art&lt;/strong&gt;,science, and profession of planning, &lt;strong&gt;designing&lt;/strong&gt;, and supervising the construction of new &lt;strong&gt;buildings, landscapes, communities&lt;/strong&gt;, and &lt;strong&gt;furnishings&lt;/strong&gt; in their totality, examining their environment in accordance with the &lt;strong&gt;principles&lt;/strong&gt; of utility, strength, and &lt;strong&gt;aesthetics&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以上这段话虽然更适合解释建筑架构的含义，但是我们通过对比计算机工程类的架构的理念和要求，以上所提到的要点皆包含在内，不外乎生态不同罢了，其两者核心理念是相同的。&lt;/p&gt;
+
+&lt;p&gt;最近日子在工作中遇到的关于“架构”的探讨上，今天来谈谈自己理解的所谓架构，想以此篇文字来端正一下自己。&lt;/p&gt;
+
+&lt;p&gt;架构这词也是神圣不可侵犯的，如果你把一些b格很low的设计细节的东西当作是架构，那么毫无疑问，你正在掩耳盗铃。 
+设计和架构有着鸿沟一般的区别。而跨越这条鸿沟,需要不断学习,不停积攒天赋,同时伴随着需 要量的积累。 设计,首先它是一个架构范畴中的一个很小的子集。处于一个很单元的层次,但它也同时是不可逾 越不可或缺的阶段。 &lt;/p&gt;
+
+&lt;p&gt;而设计绝不等于架构。&lt;/p&gt;
+
+&lt;p&gt;架构，不仅考量技术实现，还需要诸如：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;客户关键业务点的理解&lt;/li&gt;
+&lt;li&gt;如何将概念具体化&lt;/li&gt;
+&lt;li&gt;项目目标和周期的估算&lt;/li&gt;
+&lt;li&gt;如何多元化团队沟通协作&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;层次高的还有：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;关乎项目战略目标的敲定&lt;/li&gt;
+&lt;li&gt;如何在企业执行中追求更高roi&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;而技术实现方面也不仅仅是说项目如何搭建如何设计db，如何实现分包分模块，还不可或缺的需要包括：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如何将项目平台化&lt;/li&gt;
+&lt;li&gt;如何作冗余和可用架构而同时避免缠绕和蔓延&lt;/li&gt;
+&lt;li&gt;如何用专业手段作架构沟通和透视&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对于稳定系统的方面,如何去执行可持续治理也是所谓架构的关键点。 &lt;/p&gt;
+
+&lt;p&gt;所以，只是挂在嘴边念叨“架构架构”而从不事先勘探落地,这种“理论架构”毫无用处，能体现项目 生产力、技术价值、团队骄傲的，才是我们所需要的真正架构。 &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;真正懂架构的人，并不会把架构挂在嘴边&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;真正牛逼的架构师，从来都是拿实力和实例说话&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+				<pubDate>Wed, 06 Jul 2016 17:00:00 +0800</pubDate>
+				<link>http://aboutcoder.com/2016/07/06/what-is-architecture/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2016/07/06/what-is-architecture/</guid>
+			</item>
+		
+			<item>
+				<title>说说使用middleman的那些事情</title>
+				<description>&lt;p&gt;&lt;img src=&quot;/images/2016-07-02-talk-about-middleman/DraggedImage.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;h4&gt;一、什么是静态网站&lt;/h4&gt;
+
+&lt;p&gt;随着互联网发展的脚步，现在的个人博客网站已经不再局限于国内几大门户网站所提供的博客撰写服务。
+记得上大学那会儿，为了阅读一些名人诸如国民岳父韩寒、李承鹏、徐静蕾等博主的文章和思想，每天必定会上博客上转上两遍，翻阅近十篇进行阅读。那个时候的博客页面加载速度，在寝室512k的带宽状况下，简直令人没有了脾气。&lt;/p&gt;
+
+&lt;p&gt;那个时候并没有太多纯静态网站的做法，有的是一些根据脚本生成指定的某些html页面，用于解决一些高流量访问的问题，例如门户站点的首页，其中只需要保持少量的动态加载元素，对付高流量高并发并不是困难的。&lt;/p&gt;
+
+&lt;p&gt;而个人博客、企业宣传页面不同于上文的需求场景，其更新频率定期，没有过多的注册用户信息的管理，不涉及复杂的交互实现，只需要满足查看和评论的功能即可。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;评论功能自然是需要实现r+w操作的，但是现在已经存在了很多第三方协助托管评论信息的平台，例如国内的多说，国外的disqus。只需要开发者简单地嵌入少量html+js代码即可完成评论功能的实现。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;故而，纯静态网站应运而生，各类纯静态网站生成工具也出现了较大的发展前景。下面说道的middleman就是一个静态网站的generator工具。&lt;/p&gt;
+
+&lt;h4&gt;二、放弃jekyll转投middleman&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2016-07-02-talk-about-middleman/DraggedImage-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;这部分并不是说jekyll技术已经落后，而是从自身角度来看为什么自己会转投middleman。
+自己是从2014年开始使用jekyll的，源于阅读了较多的大神yuguo对于前端栈的技术篇章，也就两年的光景，但是自己经历了从2.X版本变迁到3.X版本的过程。
+对于为什么自己放弃jekyll转投middleman，下面分2点作出阐述。&lt;/p&gt;
+
+&lt;p&gt;第一点，我们先来说说2.X到3.X版本的更迭细节。
+&lt;img src=&quot;/images/2016-07-02-talk-about-middleman/DraggedImage-2.png&quot; alt=&quot;&quot;&gt;
+以上变迁的情况说明，大家都知道，jekyll 2.X里包含了ruby和python两门技术，而以上的更迭看来，一方面减少了非必需包的依赖，留出了定制空间，移除了python的依赖。或许jekyll作者更喜欢ruby only吧。&lt;/p&gt;
+
+&lt;p&gt;这些变更并不是向前兼容的，如果你的jekyll是2.X版本，请留意升级后带来的源代码修改的成本。虽然它不是向前兼容，但是升级过程并不会引入更多的包依赖，而恰恰是因为这点，_config.yml需要作出的变更会较多，例如coderay的highlighter引擎建议要更换为rouge；需要分页插件，则需要增加gems:[jekyll-paginate]作出依赖声明，等等。&lt;/p&gt;
+
+&lt;p&gt;而这里包含了一点自己无法接受的变更，看官方声明：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;!! Don&amp;#39;t set a permalink&lt;/strong&gt;&lt;br&gt;
+Setting a permalink in the front matter of your blog page will cause pagination to break. Just omit the permalink.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以上意思是说，如果你使用了pagination，那么permalink的使用会阻断pagination的执行。也就是说，如果你有一个分页列表的页面，因为你在该页面中使用了permalink改写路径，那么页面中的paginator.posts将会失效，页面内容也将加载失败。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;!-- This loops through the paginated posts，if you had used permalink settings, the paginator parsing job will fail. --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;第二点，就要说到liquid的语法。
+我们来假设这么个场景，在一个列表加载的页面中，我们需要在循环内判断到达指定加载条目预设上限之时，循环执行break跳出。
+这个场景使用liquid引擎是这么写的：&lt;/p&gt;
+
+&lt;p&gt;也可以这么写：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; // 这句话可有可无，因为increment会将var初始化为0
+
+    0  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    1  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    2  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    3  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    4  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    5  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    6  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    7  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    8  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    9  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    10  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    11  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    12  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    13  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    14  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    15  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    16  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    17  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    18  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    19  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    20  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    21  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    22  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    23  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    24  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    25  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    26  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    27  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    28  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    29  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    30  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    31  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    32  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    33  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    34  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    35  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    36  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    37  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    38  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    39  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    40  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    41  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    42  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    43  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    44  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    45  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    46  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    47  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    48  // 这句话会自动执行一个print语句，将var打印出来
+
+
+    49  // 这句话会自动执行一个print语句，将var打印出来
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;前者的写法让人觉得做一个简单的运算都需要去背记liquid的各种filters，让人觉得麻烦不已。
+后者的写法会凭空多出一个默认的print效果，这个也是UI界面编写之时无法接受的。&lt;/p&gt;
+
+&lt;h4&gt;三、为什么不选用WordPress等LAMP架构的博客框架&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2016-07-02-talk-about-middleman/DraggedImage-3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;作为一名php开发者，wordpress是必须鼓捣的框架之一，但是为什么最终放弃了选用wp作为个人博客首选呢？
+原因其实不复杂，主要有以下五个方面：&lt;br&gt;
+1. 涉及数据库技术，数据的灾备流程过于复杂，维护时间成本高；&lt;br&gt;
+2. wp框架体量重，适合开发较大型的cms内容管理站点，对于个人博客有点大材小用，如同杀鸡用了牛刀；&lt;br&gt;
+3. 扩展插件多是其亮点，同时也是拖慢wp站点的一大坑点，php的通用单线程处理机制决定了其瓶颈，就算升级了鸟哥的php7估计也根治不了多扩展插件wp站点的加载时长的问题；&lt;br&gt;
+4. 需要关注的安全问题较多，可定制化有限，如果不合适的定制会引发无法升级的问题；&lt;br&gt;
+5. 需要一台VPS或者Web Host主机，也就是将多出一份硬件方面的开销，如果要求访问稳定、连接速度可接受的主机，购买价格也会逐级上升。   &lt;/p&gt;
+
+&lt;h4&gt;四、简明middleman实践之路&lt;/h4&gt;
+
+&lt;h5&gt;4.1 由于middleman是ruby语言的作品，先了解以下关于ruby语言的关键概念。&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2016-07-02-talk-about-middleman/DraggedImage-4.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ruby：顾名思义，指的就是ruby语言。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rvm：全名ruby version manager，注意它和jvm不是一个含义哦。rvm是管理ruby本身，也包含了ruby插件的管理。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rails：指的是ruby著名开发框架，认识ruby的人都认识它。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rubygems：ruby程序包管理器，可以将ruby程序打包成gem，作为一个独立安装单元安装到计算机中。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;gem：指的是封装起来的ruby应用程序，或者代码库。终端中使用的gem命令，是指使用rubygems安装程序应用。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;gemfile：配置文件，用于定义指定应用所依赖的包，然后可以提供给bundle命令执行，类似于shell命令中的.sh脚本。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rake：该程序包是ruby所需要安装的包中最为关键的一个。rake是一个ruby的构建工具，类似于Make、ant、maven、gradle不等。rakefile便是其执行的构建任务配置文件，其中涉及特定的DSL撰写方式，类似于groovy在gradle中的应用一样。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;rakefile：rake构建任务中所涉及的任务配置文件。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;bundle：等同于批量执行gem命令，配置好gemfile之后，使用bundle install可以实现包，及其依赖包的自动下载与安装。&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5&gt;4.2 middleman的安装疑问&lt;/h5&gt;
+
+&lt;p&gt;middleman依赖于rubygems、bundle、gemfile、rake等工具或框架。在安装一系列ruby依赖库的过程中，会遇到connection fail，error loading，can’t be found等问题，这些问题的原因是因为&lt;a href=&quot;https://www.rubygems.org&quot;&gt;rubygems.org&lt;/a&gt;在国内访问不稳定的缘故。  &lt;/p&gt;
+
+&lt;p&gt;正所谓兵来将挡，水来土掩，方法总是比困难要多得多。&lt;br&gt;
+国内的大淘宝，还有ruby-china官方，都给大家做了一个同步频率为15mins的ruby gems的镜像，我们可以将自己本地的ruby gems、bundle源配置切换到国内。&lt;br&gt;
+参见这里：&lt;br&gt;
+- ruby-china官方源：http://ruby-china.org&lt;br&gt;
+- 大淘宝的镜像源：http://ruby.taobao.org&lt;/p&gt;
+
+&lt;p&gt;在安装各项依赖之时，建议先配置好gemfile，然后使用命令bundle install自动实现下载和安装，而不是使用middleman server逐项发现缺失库，因为从操作效率上是得不偿失的。&lt;/p&gt;
+
+&lt;h5&gt;4.3 slim VS liquid&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2016-07-02-talk-about-middleman/14674858884718.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;关于liquid的一些用法和自己不感冒之处，前面已经提及了部分，这里不再大施笔墨赘述。
+这里说说slim的情况。&lt;/p&gt;
+
+&lt;p&gt;liquid是jekyll默认配置的官方模板引擎，而slim也是middleman首推的前端引擎。
+liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得优雅了许多。&lt;/p&gt;
+
+&lt;p&gt;slim所倡导的是，一切页面元素、样式、js均可结构化。使用slim可以大大简化前端页面渲染的逻辑实现结构，没有了liquid般的html+js+liquid+css混合搭配在.html文件里使用的尴尬，映入眼帘的均是层次分明，结构清晰的模板语法。&lt;/p&gt;
+
+&lt;p&gt;下面作一下两者的对比，孰好各位看官心中自有结论。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;html+js+css+liquid混合应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;!-- html+js+css+liquid混合应用 --&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta name=&amp;quot;theme-color&amp;quot; content=&amp;quot;&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;//assets/css/main.css&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;canonical&amp;quot; href=&amp;quot;http://aboutcoder.com//2016/07/02/talk-about-middleman/&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;alternate&amp;quot; type=&amp;quot;application/rss+xml&amp;quot; title=&amp;quot;Jerome Chan&amp;quot; href=&amp;quot;http://aboutcoder.com//feed.xml&amp;quot; /&amp;gt;
+&amp;lt;/head&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;slim的前端结构&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;!-- html+js+css+slim混合应用 --&amp;gt;
+doctype html
+html lang=&amp;quot;ja&amp;quot;
+  head
+    meta charset=&amp;quot;utf-8&amp;quot;
+    title The Elevatorpitch
+    meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot;
+    css:
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+  body
+    div class=&amp;quot;container-narrow&amp;quot;
+      div class=&amp;quot;masthead visible-desktop&amp;quot;
+script src=&amp;quot;/js/theelevatorpitch.js&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;更多slim应用可以关注我的gist：&lt;a href=&quot;https://gist.github.com/jeromechan/0432a89f3e9810e9ba26052606e56f38&quot;&gt;Use slim engine for building html tags&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;五、Try the way you like&lt;/h4&gt;
+
+&lt;p&gt;前端技术的不断发展，纯静态网站的性能问题也逐步被放大，在我们使用静态网站生成工具的同时，性能问题也一定需要着重考虑。
+例如，gzip压缩、js+css压缩、单次加载批量样式文件和js文件、html页面布局层次简化、js依赖关系处理、css继承关系的整理、前端cache/data等缓冲区域技术的应用、异步ajax请求时长的监控、sass/less的样式结构简化和预处理，等等方面。&lt;/p&gt;
+
+&lt;p&gt;只要始终坚持用户至上，读者至上的原则，一定能够找到最适合自己预想的方案。&lt;/p&gt;
+
+&lt;p&gt;前面所涉及的参考资料有如下，感兴趣可以自己翻翻看看：&lt;br&gt;
+- &lt;a href=&quot;https://shopify.github.io/liquid/&quot;&gt;Liquid官方文档&lt;/a&gt;&lt;br&gt;
+- &lt;a href=&quot;http://jekyllrb.com/docs/pagination/&quot;&gt;Jekyll关于pagination说明&lt;/a&gt;&lt;br&gt;
+- &lt;a href=&quot;https://middlemanapp.com/basics/install/&quot;&gt;Middleman官方文档&lt;/a&gt;&lt;br&gt;
+- &lt;a href=&quot;https://www.reddit.com/r/Jekyll/comments/3uhk2j/cant_get_pagination_working_with_jekyll_301/&quot;&gt;Jekyll中paginate与permalink的冲突&lt;/a&gt;&lt;br&gt;
+- &lt;a href=&quot;http://blog.virtuacreative.com.br/upgrade-jekyll-2-to-3-gh-pages.html&quot;&gt;Upgrading Jekyll 2 to 3 on GitHub Pages&lt;/a&gt;&lt;br&gt;
+- &lt;a href=&quot;https://gist.github.com/jeromechan/0432a89f3e9810e9ba26052606e56f38&quot;&gt;How to use slim engine for building html tags？&lt;/a&gt;   &lt;/p&gt;
+</description>
+				<pubDate>Sat, 02 Jul 2016 17:00:00 +0800</pubDate>
+				<link>http://aboutcoder.com/2016/07/02/talk-about-middleman/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2016/07/02/talk-about-middleman/</guid>
+			</item>
+		
+			<item>
+				<title>学习笔记：项目管理之规划项目</title>
+				<description>&lt;h3&gt;一、回顾基础知识&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;项目经理：把控“完成”的含义，并带领团队完成项目的人；&lt;/li&gt;
@@ -48,7 +663,7 @@
 
 &lt;h3&gt;四、辨析两句短语&lt;/h3&gt;
 
-&lt;p&gt;&lt;img alt="14673084562094" width="520" height="116" src="/images/2016-06-30-how-to-make-a-project-plan/14673084562094-46f84796.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2016-06-30-how-to-make-a-project-plan/14673084562094.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;h3&gt;五、使项目踏上征程&lt;/h3&gt;
 
@@ -61,7 +676,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;“规划毫无用处，但是制定规划必不可少。”
 ——艾森 · 豪威尔
-&lt;img alt="14673086699212" width="296" height="241" src="/images/2016-06-30-how-to-make-a-project-plan/14673086699212-c3003423.jpg" /&gt;&lt;/p&gt;
+&lt;img src=&quot;/images/2016-06-30-how-to-make-a-project-plan/14673086699212.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3&gt;六、开发项目规划模版&lt;/h3&gt;
@@ -76,7 +691,7 @@
 &lt;li&gt;团队职责、项目运作的组织&lt;/li&gt;
 &lt;li&gt;项目日程总览&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;- 样式1
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;- 样式1
 
 ![](/images/2016-06-30-how-to-make-a-project-plan/14673089688628.jpg)
 
@@ -87,8 +702,7 @@
 - 样式3
 
 ![](/images/2016-06-30-how-to-make-a-project-plan/14673090209493.jpg)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;人员配备&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;建议日程&lt;/p&gt;
@@ -97,19 +711,19 @@
 &lt;li&gt;样式1&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img alt="14673090942241" width="335" height="153" src="/images/2016-06-30-how-to-make-a-project-plan/14673090942241-9ce8a1bf.jpg" /&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2016-06-30-how-to-make-a-project-plan/14673090942241.jpg&quot; alt=&quot;&quot;&gt;
 - 样式2&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt="14673091056258" width="319" height="135" src="/images/2016-06-30-how-to-make-a-project-plan/14673091056258-e09f5023.jpg" /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2016-06-30-how-to-make-a-project-plan/14673091056258.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;温馨提示：小心过早细化日程
-&lt;img alt="14673091416870" width="324" height="258" src="/images/2016-06-30-how-to-make-a-project-plan/14673091416870-51d4fba0.jpg" /&gt;&lt;/p&gt;
+&lt;img src=&quot;/images/2016-06-30-how-to-make-a-project-plan/14673091416870.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;9.制定项目风险列表 
-&lt;img alt="14673092036240" width="358" height="191" src="/images/2016-06-30-how-to-make-a-project-plan/14673092036240-3ea63458.jpg" /&gt;&lt;/p&gt;
+&lt;img src=&quot;/images/2016-06-30-how-to-make-a-project-plan/14673092036240.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;h3&gt;七、制定发布条件&lt;/h3&gt;
 
@@ -128,11 +742,11 @@
 
 &lt;h3&gt;九、SMART原则&lt;/h3&gt;
 
-&lt;p&gt;&lt;img alt="14673093012558" width="484" height="176" src="/images/2016-06-30-how-to-make-a-project-plan/14673093012558-ec7999f0.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2016-06-30-how-to-make-a-project-plan/14673093012558.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;h3&gt;十、使用发布条件&lt;/h3&gt;
 
-&lt;p&gt;&lt;img alt="14673093575826" width="198" height="152" src="/images/2016-06-30-how-to-make-a-project-plan/14673093575826-48973fb4.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2016-06-30-how-to-make-a-project-plan/14673093575826.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;h3&gt;十一、关键知识点&lt;/h3&gt;
 
@@ -144,67 +758,59 @@
 
 &lt;h3&gt;十二、结束语&lt;/h3&gt;
 
-&lt;p&gt;&lt;img alt="14673094267010" width="526" height="407" src="/images/2016-06-30-how-to-make-a-project-plan/14673094267010-17f9896d.jpg" /&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Git软件开发过程</title>
-    <link rel="alternate" href="http://blog.url.com/2015/11/16/work-in-git/"/>
-    <id>http://blog.url.com/2015/11/16/work-in-git/</id>
-    <published>2015-11-16T17:51:05+08:00</published>
-    <updated>2016-07-02T12:11:45+08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;h4&gt;一、关于Git与Subversion的区别&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2016-06-30-how-to-make-a-project-plan/14673094267010.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</description>
+				<pubDate>Thu, 30 Jun 2016 08:00:00 +0800</pubDate>
+				<link>http://aboutcoder.com/2016/07/01/how-to-make-a-project-plan/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2016/07/01/how-to-make-a-project-plan/</guid>
+			</item>
+		
+			<item>
+				<title>Git软件开发过程</title>
+				<description>&lt;h4&gt;一、关于Git与Subversion的区别&lt;/h4&gt;
 
-&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage1.png"&gt;&lt;img alt="Draggedimage1-1024x1013" width="1024" height="1013" src="/images/2015-11-16-work-in-git/DraggedImage1-1024x1013-d44ce92f.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/DraggedImage1.png&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/DraggedImage1-1024x1013.png&quot; alt=&quot;DraggedImage&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4&gt;二、目前我们用Subversion是怎么执行软件过程的&lt;/h4&gt;
 
-&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-1.png"&gt;&lt;img alt="Draggedimage-1-1024x437" width="1024" height="437" src="/images/2015-11-16-work-in-git/DraggedImage-1-1024x437-54dc8e74.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/DraggedImage-1.png&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/DraggedImage-1-1024x437.png&quot; alt=&quot;DraggedImage-1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4&gt;三、优势与缺点&lt;/h4&gt;
 
 &lt;ol&gt;
 &lt;li&gt;架构&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：分布式，所有的teammates本地可以clone一份独立完整的仓库，而不仅仅是某一个版本的镜像拷贝；开发者可以在本地clone仓库中完成所有vcs的操作，只有当需要协同工作提交代码到远程仓库的时候，才需要联上网络。
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* Git：分布式，所有的teammates本地可以clone一份独立完整的仓库，而不仅仅是某一个版本的镜像拷贝；开发者可以在本地clone仓库中完成所有vcs的操作，只有当需要协同工作提交代码到远程仓库的时候，才需要联上网络。
 
 
 * Subversion：中央集中式，所有的teammates都面向同样一个远程仓库工作；checkout出来的本地工作区代码只是远程仓库某一版本的一份镜像拷贝。
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;仓库结构与URL&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：对于Git而言，仓库会独立于开发者的本地磁盘中，在仓库的根目录中只包含了一个”.git”文件夹，所有的branches、trunk(PS：git中名称为master)、tags均是通过命令操作而生成的，并非通过URL路径。
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在Git中，URL类似于ssh://&lt;a href="mailto:git@example.com"&gt;git@example.com&lt;/a&gt;/path/to/git-repo.git，仅仅是指向了仓库的一个标识。&lt;/p&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Subversion：分支的url类似于svn+ssh://svn@example.com/svn/trunk，每一个分支独占一个唯一URL，每一个URL都会直接定位到每一个分支在远程仓库中的路径位置。
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* Git：对于Git而言，仓库会独立于开发者的本地磁盘中，在仓库的根目录中只包含了一个”.git”文件夹，所有的branches、trunk(PS：git中名称为master)、tags均是通过命令操作而生成的，并非通过URL路径。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在Git中，URL类似于ssh://git@example.com/path/to/git-repo.git，仅仅是指向了仓库的一个标识。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* Subversion：分支的url类似于svn+ssh://svn@example.com/svn/trunk，每一个分支独占一个唯一URL，每一个URL都会直接定位到每一个分支在远程仓库中的路径位置。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;对于Subversion，会有一个trunk分支作为开发主线分支，会有很多branches分支作为并行分支，tags则是mark上某一特定的发布版本。&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;分支管理&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：Git分支相对于其他的vcs是非常不一样的设计理念，一个Git分支仅仅指的是指向某一确定版本的简单指针，因此，Git的分支是无拷贝、无新建目录、几乎无开销的。
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* Git：Git分支相对于其他的vcs是非常不一样的设计理念，一个Git分支仅仅指的是指向某一确定版本的简单指针，因此，Git的分支是无拷贝、无新建目录、几乎无开销的。
 
 
 * Subversion：正如我们所知道的，SVN中的分支仅仅是项目的一份拷贝，是一个具有特殊含义的普通文件夹；多分支则是多文件夹的形式。
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;提交操作&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：若你使用的是Git，你的提交操作不受网络的影响，你的提交仅仅影响了本地仓库，仅当你需要于远端仓库同步内容之时，才需要使用到网络；
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* Git：若你使用的是Git，你的提交操作不受网络的影响，你的提交仅仅影响了本地仓库，仅当你需要于远端仓库同步内容之时，才需要使用到网络；
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;另外的，在你本地仓库还存在一个so-called Staging Area，并非你的所有文件需要在一次提交中全部commit，你可以选择指定的变更放入staging area中，从而在本次提交中仅仅包含你所选定的变更条目；
 关于Git的版本号，大家都知道，Git是分布式的vcs，要想和svn、cvs一般生成revision#5，revision#6类似的递增数值作为唯一版本号是不可取的，但是我们也同样需要一个唯一的标识来辨别每一次提交，而Git的做法是使用了”commit hashes”。&lt;/p&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Subversion：当你使用的是SVN，假设你要提交代码，以下是你的提交过程：
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* Subversion：当你使用的是SVN，假设你要提交代码，以下是你的提交过程：
 
 
   * 首先设备必须是联网的，可以与远端中央仓库建立连接；
@@ -214,18 +820,15 @@
 
 
   * 远端中央仓库生成递增的版本号，并赋予本地分支。
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;协同工作&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Git：若你使用的是Git，你需要决定何时将你的本地仓库的内容同步上传到远端仓库分享出来，而Git不会为你作任何的自动上传的操作；
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* Git：若你使用的是Git，你需要决定何时将你的本地仓库的内容同步上传到远端仓库分享出来，而Git不会为你作任何的自动上传的操作；
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这样子的分享过程相对于其他的中央仓库式的vcs系统来说是更加安全的，所发生的冲突也只会发生于你的本地（仓库）而非远端服务器的仓库，这将更能帮助你规避打乱teammates工作内容冲突的风险。&lt;/p&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* Subversion：当你将本地分支内容作commit操作之时，你的内容便会分享到远端中央仓库中，其他teammates也都能同步到你所提交的内容。
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* Subversion：当你将本地分支内容作commit操作之时，你的内容便会分享到远端中央仓库中，其他teammates也都能同步到你所提交的内容。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;!-- more --&gt;
 
 &lt;h4&gt;四、集成工具简介&lt;/h4&gt;
@@ -241,7 +844,7 @@
 
 &lt;blockquote&gt;认识Git的几个关键目录&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-2-dc673158.png"&gt;&lt;img alt="Draggedimage-2" width="500" height="222" src="/images/2015-11-16-work-in-git/DraggedImage-2-dc673158.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/DraggedImage-2.png&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/DraggedImage-2.png&quot; alt=&quot;DraggedImage-2&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Working directory：工作区&lt;/p&gt;&lt;/li&gt;
@@ -252,7 +855,7 @@
 
 &lt;blockquote&gt;常用的Git操作&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/134623_LGJb_1469576-da57d6c4.png"&gt;&lt;img alt="134623_lgjb_1469576" width="481" height="455" src="/images/2015-11-16-work-in-git/134623_LGJb_1469576-da57d6c4.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/134623_LGJb_1469576.png&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/134623_LGJb_1469576.png&quot; alt=&quot;134623_LGJb_1469576&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;clone：克隆项目到本地工作区，类似svn checkout&lt;/p&gt;&lt;/li&gt;
@@ -261,25 +864,23 @@
 &lt;li&gt;&lt;p&gt;push：将本地仓库代码同步到远端仓库&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;pull / fetch：将远端仓库的代码同步到本地仓库/工作区&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* pull：fetch + merge，该操作会影响工作区
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* pull：fetch + merge，该操作会影响工作区
 
 
 * fetch：从远端仓库获取并更新到本地仓库中，不影响工作区
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;merge / rebase：从指定分支(&lt;em&gt;PS:分支名称常跟在命令之后&lt;/em&gt;)中获取更新并合并到当前分支&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* merge：
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* merge：
 
 
 * rebase：
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;stash：备份/唤出当前的现场状态（包含工作区和暂存区）&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;* git stash [save -a “msg”] 备份当前的现场状态
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* git stash [save -a “msg”] 备份当前的现场状态
 
 
 * git stash list 显示已保存的现场状态列表
@@ -292,8 +893,7 @@
 
 
 * git drop 删除状态栈中的指定状态
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4&gt;六、可供参考的高阶应用方案&lt;/h4&gt;
 
 &lt;blockquote&gt;什么是Git-SVN的扩展开发模式，即本地开发应用Git的强大分支特性，当最终push操作的时候，目标仓库设定为SVN远端仓库。
@@ -305,7 +905,7 @@
 
 &lt;blockquote&gt;一图胜过千言万语&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-3-5c5fccfc.png"&gt;&lt;img alt="Draggedimage-3" width="1060" height="1368" src="/images/2015-11-16-work-in-git/DraggedImage-3-5c5fccfc.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/DraggedImage-3.png&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/DraggedImage-3.png&quot; alt=&quot;DraggedImage-3&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;关键几个分支的概念全解&lt;/blockquote&gt;
 
@@ -334,53 +934,50 @@
 
 &lt;h4&gt;八、GitHub Flow&lt;/h4&gt;
 
-&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-4-d270a8bc.png"&gt;&lt;img alt="Draggedimage-4" width="626" height="674" src="/images/2015-11-16-work-in-git/DraggedImage-4-d270a8bc.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/DraggedImage-4.png&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/DraggedImage-4.png&quot; alt=&quot;DraggedImage-4&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4&gt;九、Mike Flow (Base on 《Git in Practice》)&lt;/h4&gt;
 
 &lt;blockquote&gt;Single Pattern&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-5-2fbb2834.png"&gt;&lt;img alt="Draggedimage-5" width="700" height="666" src="/images/2015-11-16-work-in-git/DraggedImage-5-2fbb2834.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/DraggedImage-5.png&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/DraggedImage-5.png&quot; alt=&quot;DraggedImage-5&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;Multiple Pattern&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/DraggedImage-6-c185f536.png"&gt;&lt;img alt="Draggedimage-6" width="690" height="824" src="/images/2015-11-16-work-in-git/DraggedImage-6-c185f536.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/DraggedImage-6.png&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/DraggedImage-6.png&quot; alt=&quot;DraggedImage-6&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4&gt;十、Jerome Flow (I call it this name^_^)&lt;/h4&gt;
 
-&lt;p&gt;&lt;a href="/images/2015-11-16-work-in-git/jerome-git-flow1-313bde43.jpg"&gt;&lt;img alt="Jerome-git-flow1" width="1038" height="1600" src="/images/2015-11-16-work-in-git/jerome-git-flow1-313bde43.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/jerome-git-flow1.jpg&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/jerome-git-flow1.jpg&quot; alt=&quot;jerome-git-flow&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4&gt;&lt;em&gt;参考资料&lt;/em&gt;&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;A successful Git branching model - Vincent Driessen&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://www.ituring.com.cn/article/56870"&gt;基于git的源代码管理模型-Git-Flow&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn/"&gt;5 Fundamental differences between GIT &amp;amp; SVN&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://stackoverflow.com/questions/16666089/whats-the-difference-between-git-merge-and-git-rebase"&gt;What&amp;rsquo;s the difference between &amp;lsquo;git merge&amp;rsquo; and &amp;#39;git rebase&amp;rsquo;?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://blog.jobbole.com/84664/"&gt;Git的merge和rebase &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://blog.csdn.net/rryqsh/article/details/8230560"&gt;Git中分支merge和rebase的适用场景及区别&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://www.infoq.com/cn/git-adventures"&gt;InfoQ - Git历险记&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://www.oschina.net/translate/10-tips-git-next-level?cmp"&gt;10 Tips to Push Your Git Skills to the Next Level&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://book.douban.com/subject/26107548/"&gt;《Git in Practice》-Manning Press - Mike McQuaid&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://www.infoq.com/articles/interview-Mike-McQuaid-git-practice"&gt;Interview with Mike McQuaid about Git in Practice&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://www.oschina.net/translate/git-conventions?cmp"&gt;GIT Conventions&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://www.oschina.net/question/565065_68194"&gt;git使用简介&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging"&gt;Git-Branching-Basic-Branching-and-Merging&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://www.git-scm.com/book/en/v2/Git-Branching-Rebasing"&gt;Git-Branching-Rebasing&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="http://www.git-tower.com/learn/git/ebook/mac/appendix/from-subversion-to-git"&gt;Switching from Subversion to Git&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://nvie.com/posts/a-successful-git-branching-model/&quot;&gt;A successful Git branching model - Vincent Driessen&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/56870&quot;&gt;基于git的源代码管理模型-Git-Flow&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn/&quot;&gt;5 Fundamental differences between GIT &amp;amp; SVN&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/16666089/whats-the-difference-between-git-merge-and-git-rebase&quot;&gt;What&amp;#39;s the difference between &amp;#39;git merge&amp;#39; and &amp;#39;git rebase&amp;#39;?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.jobbole.com/84664/&quot;&gt;Git的merge和rebase &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/rryqsh/article/details/8230560&quot;&gt;Git中分支merge和rebase的适用场景及区别&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.infoq.com/cn/git-adventures&quot;&gt;InfoQ - Git历险记&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.oschina.net/translate/10-tips-git-next-level?cmp&quot;&gt;10 Tips to Push Your Git Skills to the Next Level&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://book.douban.com/subject/26107548/&quot;&gt;《Git in Practice》-Manning Press - Mike McQuaid&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.infoq.com/articles/interview-Mike-McQuaid-git-practice&quot;&gt;Interview with Mike McQuaid about Git in Practice&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.oschina.net/translate/git-conventions?cmp&quot;&gt;GIT Conventions&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.oschina.net/question/565065_68194&quot;&gt;git使用简介&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging&quot;&gt;Git-Branching-Basic-Branching-and-Merging&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.git-scm.com/book/en/v2/Git-Branching-Rebasing&quot;&gt;Git-Branching-Rebasing&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.git-tower.com/learn/git/ebook/mac/appendix/from-subversion-to-git&quot;&gt;Switching from Subversion to Git&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>研发人看互联网营销</title>
-    <link rel="alternate" href="http://blog.url.com/2015/06/17/internet-marketing-views-of-developers/"/>
-    <id>http://blog.url.com/2015/06/17/internet-marketing-views-of-developers/</id>
-    <published>2015-06-18T00:24:40+08:00</published>
-    <updated>2016-07-02T12:11:45+08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;很荣幸地，昨天参加了公司市场VP（以下简称FW）面向全公司作的关于互联网营销的公开演讲。这些年来，公司的市场营销方面从一个局外人的角度上看来确实发生了非常大的变化、进步和飞跃，加以是FW在公司层面公开分享的为数不多的干货讲座之一，满怀期待，同时感触良多，希望写下来以作为后面需要时作参考。&lt;/p&gt;
+</description>
+				<pubDate>Mon, 16 Nov 2015 17:51:05 +0800</pubDate>
+				<link>http://aboutcoder.com/2015/11/16/work-in-git/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2015/11/16/work-in-git/</guid>
+			</item>
+		
+			<item>
+				<title>研发人看互联网营销</title>
+				<description>&lt;p&gt;很荣幸地，昨天参加了公司市场VP（以下简称FW）面向全公司作的关于互联网营销的公开演讲。这些年来，公司的市场营销方面从一个局外人的角度上看来确实发生了非常大的变化、进步和飞跃，加以是FW在公司层面公开分享的为数不多的干货讲座之一，满怀期待，同时感触良多，希望写下来以作为后面需要时作参考。&lt;/p&gt;
 
 &lt;p&gt;文章内容准备分为两部分进行记录，第一部分阐述一下的讲座的具体内容，从中挑选出一些自己觉得非常干货的关键点详细撰写一下。第二部分将从讲座中的关键点出发，映射到研发的日常工作上来，分析如何将其中的策略应用到研发工作上来，帮助提高程序员以致于团队层面上的工作效率（注：后续将补发第二部分的博文作扩展分析，请期待~）。&lt;/p&gt;
 
@@ -402,7 +999,7 @@
 
 &lt;p&gt;什么是抓住大面？大面，指的是关键点，主要方面，或者说是痛点。任何一件事情，总有这么一个或者几个举足轻重的关键点，就像武侠小说中提及的命门、致命穴道。只要将这一点抓住了，就等于抓住了所有。其中当然，包含了一定方面的避轻就重的处事思路。&lt;/p&gt;
 
-&lt;p&gt;那么什么是傍大款？傍大款 == 抱大腿？是的。不过关键在于，你要找到合适的大腿。与携程的合作是傍大款，与京东的合作是傍大款，请林志颖Kimi代言是傍大款，冠名江苏卫视非诚勿扰节目是傍大款&amp;hellip;&lt;/p&gt;
+&lt;p&gt;那么什么是傍大款？傍大款 == 抱大腿？是的。不过关键在于，你要找到合适的大腿。与携程的合作是傍大款，与京东的合作是傍大款，请林志颖Kimi代言是傍大款，冠名江苏卫视非诚勿扰节目是傍大款...&lt;/p&gt;
 
 &lt;p&gt;还有许许多多的类似案例，至于如果你需要确切的文字上的含义来解释傍大腿是什么，那么建议你去百度吧，这篇文章不会去解释这一点。&lt;/p&gt;
 
@@ -457,18 +1054,15 @@
 &lt;p&gt;途牛会继续在品牌塑造的道路上继续迈步前进，在2015年的夏秋交际，依然会有重磅举措，鉴于机密考虑，各位请继续关注我们，你会发现我们会让你们继续惊讶惊叫着。&lt;/p&gt;
 
 &lt;p&gt;最后，6.16是FW的生日，这里也同时给他送上一份衷心的祝福，Happy birthday to FW ALM！&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>走进社会生活，在实践中成长</title>
-    <link rel="alternate" href="http://blog.url.com/2015/06/16/practice-in-senior-school-period/"/>
-    <id>http://blog.url.com/2015/06/16/practice-in-senior-school-period/</id>
-    <published>2015-06-16T20:11:24+08:00</published>
-    <updated>2016-07-02T12:11:45+08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;blockquote&gt;接下去的文字是自己高中时期跟随社会实践导师们和一个team的同学们一起完成的旱情调查报告原文。由于时间已经过去多年了，在互联网上已经几乎找不到了。这里发出来分享给大家，顺带也怀念/纪念一下已经逝去的中学年华。&lt;/blockquote&gt;
+</description>
+				<pubDate>Thu, 18 Jun 2015 00:24:40 +0800</pubDate>
+				<link>http://aboutcoder.com/2015/06/18/internet-marketing-views-of-developers/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2015/06/18/internet-marketing-views-of-developers/</guid>
+			</item>
+		
+			<item>
+				<title>走进社会生活，在实践中成长</title>
+				<description>&lt;blockquote&gt;接下去的文字是自己高中时期跟随社会实践导师们和一个team的同学们一起完成的旱情调查报告原文。由于时间已经过去多年了，在互联网上已经几乎找不到了。这里发出来分享给大家，顺带也怀念/纪念一下已经逝去的中学年华。&lt;/blockquote&gt;
 
 &lt;h4&gt;――“儋州市旱情调查”研究性学习活动工作小结&lt;/h4&gt;
 
@@ -476,7 +1070,7 @@
 
 &lt;p&gt;指导教师： 曾良 郑培生 陈美娟&lt;/p&gt;
 
-&lt;p&gt;2004年以来，海南省遭受到50年来少有的干旱，儋州市作为海南省人口最多的市县和全国农业百强县，农业生产和人民生活均不同程度地受到旱情的影响。为了解儋州市旱情，分析干旱产生的原因及影响，为学校、社会抗旱避灾提出相关建议，培养创新精神和实践能力，提高学生综合素质，2005年3月4日至30日，活动小组72名同学在3名指导教师指导下走进社会生活，到儋州市全部17个乡镇、44个村庄和海南省松涛水利工程管理局、儋州市水务局、儋州市农业局、儋州市气象局等部门进行调查，在实践中积累了大量的材料，撰写了13篇《小组调查报告》和50多篇《个人感想》，分别向学校、政府相关部门提出5点建议和6点建议，向社会发出1000份《节约用水，共抗旱灾》倡议书。这次活动的部分成果在校内外展出后，在社会上引起极大的反响，《海南日报》和儋州市电视台先后对此次活动进行报道。&amp;lt;!&amp;ndash; more &amp;ndash;&amp;gt;&lt;/p&gt;
+&lt;p&gt;2004年以来，海南省遭受到50年来少有的干旱，儋州市作为海南省人口最多的市县和全国农业百强县，农业生产和人民生活均不同程度地受到旱情的影响。为了解儋州市旱情，分析干旱产生的原因及影响，为学校、社会抗旱避灾提出相关建议，培养创新精神和实践能力，提高学生综合素质，2005年3月4日至30日，活动小组72名同学在3名指导教师指导下走进社会生活，到儋州市全部17个乡镇、44个村庄和海南省松涛水利工程管理局、儋州市水务局、儋州市农业局、儋州市气象局等部门进行调查，在实践中积累了大量的材料，撰写了13篇《小组调查报告》和50多篇《个人感想》，分别向学校、政府相关部门提出5点建议和6点建议，向社会发出1000份《节约用水，共抗旱灾》倡议书。这次活动的部分成果在校内外展出后，在社会上引起极大的反响，《海南日报》和儋州市电视台先后对此次活动进行报道。&amp;lt;!-- more --&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;一、活动的选题目的和活动特点&lt;/p&gt;
 
@@ -1245,18 +1839,15 @@
 &lt;p&gt;兰洋组：林 莹（8） 谢春榴（8） 张明嘉 刘壁如&lt;/p&gt;
 
 &lt;p&gt;注：共分17个小组，总计72人。括号内为除1、2班外的学生的班别，姓名下划线者为各组组长。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>PHP正则表达式</title>
-    <link rel="alternate" href="http://blog.url.com/2015/06/11/php-regular-expression/"/>
-    <id>http://blog.url.com/2015/06/11/php-regular-expression/</id>
-    <published>2015-06-11T17:32:00+08:00</published>
-    <updated>2016-07-02T12:11:45+08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;&lt;strong&gt;一、介绍&lt;/strong&gt;&lt;/p&gt;
+</description>
+				<pubDate>Tue, 16 Jun 2015 20:11:24 +0800</pubDate>
+				<link>http://aboutcoder.com/2015/06/16/practice-in-senior-school-period/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2015/06/16/practice-in-senior-school-period/</guid>
+			</item>
+		
+			<item>
+				<title>PHP正则表达式</title>
+				<description>&lt;p&gt;&lt;strong&gt;一、介绍&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;正则表达式，大家在开发中应该是经常用到，现在很多开发语言都有正则表达式的应用，比如javascript，java，.net,php等等，我今天就把我对正则表达式的理解跟大家唠唠，不当之处，请多多指教！&lt;/p&gt;
 
@@ -1278,45 +1869,45 @@
 优点
 正则表达式在处理复杂字符操作的时候，可以提高工作效率，也在一定程度节省你的代码量。
 缺点
-我们在使用正则表达式的时候，复杂的正则表达式会加大代码的复杂度，让人很难理解。所以我们有的时候需要在正则表达式内部添加注释。&amp;lt;!&amp;ndash; more &amp;ndash;&amp;gt;&lt;/p&gt;
+我们在使用正则表达式的时候，复杂的正则表达式会加大代码的复杂度，让人很难理解。所以我们有的时候需要在正则表达式内部添加注释。&amp;lt;!-- more --&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;二、通用模式&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;¤ 定界符，通常使用 &amp;ldquo;/&amp;quot;做为定界符开始和结束,也可以使用&amp;rdquo;#&amp;ldquo;。
-什么时候使用&amp;rdquo;#&amp;ldquo;呢?一般是在你的字符串中有很多&amp;rdquo;/&amp;ldquo;字符的时候，因为正则的时候这种字符需要转义，比如uri。
-使用&amp;rdquo;/&amp;ldquo;定界符的代码如下.&lt;/p&gt;
+&lt;p&gt;¤ 定界符，通常使用 &amp;quot;/&amp;quot;做为定界符开始和结束,也可以使用&amp;quot;#&amp;quot;。
+什么时候使用&amp;quot;#&amp;quot;呢?一般是在你的字符串中有很多&amp;quot;/&amp;quot;字符的时候，因为正则的时候这种字符需要转义，比如uri。
+使用&amp;quot;/&amp;quot;定界符的代码如下.&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+).html$/i&amp;rsquo;;
-$str = &amp;lsquo;http://www.youku.com/show_page/id_ABCDEFG.html&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+)\.html$/i&#39;;
+$str = &#39;http://www.youku.com/show_page/id_ABCDEFG.html&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &amp;rdquo;\n&amp;quot;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;&lt;/blockquote&gt;
 
 &lt;p&gt;preg_match中的$matches[0]将包含与整个模式匹配的字符串。
-使用&amp;quot;#&amp;ldquo;定界符的代码如下.这个时候对&amp;rdquo;/&amp;ldquo;就不转义!&lt;/p&gt;
+使用&amp;quot;#&amp;quot;定界符的代码如下.这个时候对&amp;quot;/&amp;quot;就不转义!&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;#^http://([\w.]+)/([\w]+)/([\w]+).html$#i&amp;rsquo;;
-$str = 'http://www.youku.com/show_page/id_ABCDEFG.html&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;#^http://([\w.]+)/([\w]+)/([\w]+)\.html$#i&#39;;
+$str = &#39;http://www.youku.com/show_page/id_ABCDEFG.html&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &amp;rdquo;\n&amp;quot;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;&lt;/blockquote&gt;
 
 &lt;p&gt;¤ 修饰符:用于改变正则表达式的行为。
-我们看到的(&amp;rsquo;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+).html/&lt;strong&gt;i&lt;/strong&gt;&amp;rsquo;)中的最后一个&amp;quot;i&amp;quot;就是修饰符,表示忽略大小写，还有一个我们经常用到的是&amp;quot;x&amp;quot;表示忽略空格。
+我们看到的(&amp;#39;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+).html/&lt;strong&gt;i&lt;/strong&gt;&amp;#39;)中的最后一个&amp;quot;i&amp;quot;就是修饰符,表示忽略大小写，还有一个我们经常用到的是&amp;quot;x&amp;quot;表示忽略空格。
 贡献代码:&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/HELLO/&amp;rsquo;;
-$str = 'hello word&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;/HELLO/&#39;;
+$str = &#39;hello word&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
-echo 'No i:Valid Successful!&amp;rsquo;,&amp;ldquo;\n&amp;rdquo;;
+echo &#39;No i:Valid Successful!&#39;,&quot;\n&quot;;
 }
-if(preg_match($regex.'i&amp;rsquo;, $str, $matches)){
-echo 'YES i:Valid Successful!&amp;rsquo;,&amp;ldquo;\n&amp;rdquo;;
+if(preg_match($regex.&#39;i&#39;, $str, $matches)){
+echo &#39;YES i:Valid Successful!&#39;,&quot;\n&quot;;
 }&lt;/blockquote&gt;
 
 &lt;p&gt;¤ 字符域:[\w]用方括号扩起来的部分就是字符域。
@@ -1327,7 +1918,7 @@ echo 'YES i:Valid Successful!&amp;rsquo;,&amp;ldquo;\n&amp;rdquo;;
 ¤ 脱字符号（^:）
 （1）放在字符域(如:[^\w])中表示否定(不包括的意思)——“反向选择”
 （2）放在表达式之前，表示以当前这个字符开始。(/^n/i,表示以n开头)
-注意，我们经常管&amp;quot;\&amp;ldquo;叫&amp;quot;跳脱字符&amp;quot;。用于转义一些特殊符号，如&amp;rdquo;.&amp;ldquo;,&amp;rdquo;/&amp;ldquo;&lt;/p&gt;
+注意，我们经常管&amp;quot;\&amp;quot;叫&amp;quot;跳脱字符&amp;quot;。用于转义一些特殊符号，如&amp;quot;.&amp;quot;,&amp;quot;/&amp;quot;&lt;/p&gt;
 
 &lt;p&gt;*&lt;em&gt;三、通配符(lookarounds)
 *&lt;/em&gt;&lt;/p&gt;
@@ -1337,45 +1928,45 @@ echo 'YES i:Valid Successful!&amp;rsquo;,&amp;ldquo;\n&amp;rdquo;;
 正向预查:(?=) 相对应的 (?!)表示否定意思
 反向预查:(?&amp;lt;=) 相对应的 (?前后紧跟字符&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/(?&lt;=c)d(?=e)/';  /* d 前面紧跟c, d 后面紧跟e*/
-$str = 'abcdefgk';
+&lt;blockquote&gt;$regex = &#39;/(?&lt;=c)d(?=e)/&#39;;  /* d 前面紧跟c, d 后面紧跟e*/
+$str = &#39;abcdefgk&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo "\n";&lt;/blockquote&gt;
+echo &quot;\n&quot;;&lt;/blockquote&gt;
 
 &lt;p&gt;否定意义:&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/(?
-$str = 'abcdefgk&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;/(?
+$str = &#39;abcdefgk&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &amp;rdquo;\n&amp;quot;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;&lt;/blockquote&gt;
 
 &lt;p&gt;字符宽度:零
 验证零字符代码&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/HE(?=L)LO/i&amp;rsquo;;
-$str = 'HELLO&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;/HE(?=L)LO/i&#39;;
+$str = &#39;HELLO&#39;;
 $matches = array();
 
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &amp;ldquo;\n&amp;rdquo;;
+echo &quot;\n&quot;;
 打印不出结果！
 
-$regex = &amp;rsquo;/HE(?=L)LLO/i&amp;rsquo;;
-$str = 'HELLO&amp;rsquo;;
+$regex = &#39;/HE(?=L)LLO/i&#39;;
+$str = &#39;HELLO&#39;;
 $matches = array();
 
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &amp;ldquo;\n&amp;rdquo;;
+echo &quot;\n&quot;;
 能打印出结果!&lt;/blockquote&gt;
 
 &lt;p&gt;说明:(?=L)意思是HE后面紧跟一个L字符。但是(?=L)本身不占字符，要与(L)区分，（L）本身占一个字符。&lt;/p&gt;
@@ -1393,14 +1984,14 @@ echo &amp;ldquo;\n&amp;rdquo;;
 &lt;p&gt;调用格式: \编号(如\1)。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/^(Chuanshanjia)[\w\s!]+\1$/&amp;rsquo;;
-$str = 'Chuanshanjia thank Chuanshanjia&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;/^(Chuanshanjia)[\w\s!]+\1$/&#39;;
+$str = &#39;Chuanshanjia thank Chuanshanjia&#39;;
 $matches = array();
 
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &amp;ldquo;\n&amp;rdquo;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;&lt;/blockquote&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;避免捕获数据
@@ -1418,76 +2009,76 @@ string(28) “chuanshanjia Is chuanshanjia”
 [“author”] =&gt;
 string(12) “chuanshanjia”
 [1] =&gt;
-string(12) “chuanshanjia&amp;quot;
+string(12) “chuanshanjia&quot;
 }&lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;五、惰性匹配&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;(记住：会进行两部操作,请看下面的原理部分)
 格式:限定符?
-原理:&amp;ldquo;?&amp;quot;：如果前面有限定符，会使用最小的数据。如“*”会取0个，而“+”会取1个，如过是{3,5}会取3个。
+原理:&amp;quot;?&amp;quot;：如果前面有限定符，会使用最小的数据。如“*”会取0个，而“+”会取1个，如过是{3,5}会取3个。
 先看下面的两个代码:
 代码1&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/heL*/i&amp;rsquo;;
-$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;/heL*/i&#39;;
+$str = &#39;heLLLLLLLLLLLLLLLL&#39;;
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 
-echo &amp;rdquo;\n&amp;quot;;
+echo &quot;\n&quot;;
 结果1:
 array(1) {
 [0] =&gt;
-string(8) &amp;ldquo;heLLLLLLLLLLLLLLLL&amp;rdquo;
+string(8) &quot;heLLLLLLLLLLLLLLLL&quot;
 }&lt;/blockquote&gt;
 
 &lt;p&gt;代码2&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/heL*?/i&amp;rsquo;;
-$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;/heL*?/i&#39;;
+$str = &#39;heLLLLLLLLLLLLLLLL&#39;;
 
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &amp;ldquo;\n&amp;rdquo;;
+echo &quot;\n&quot;;
 结果2:
 array(1) {
 [0] =&gt;
-string(2) &amp;ldquo;he&amp;rdquo;
+string(2) &quot;he&quot;
 }&lt;/blockquote&gt;
 
 &lt;p&gt;代码3,使用“+”&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/heL+?/i&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;/heL+?/i&#39;;
 
-$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
+$str = &#39;heLLLLLLLLLLLLLLLL&#39;;
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &amp;ldquo;\n&amp;rdquo;;
+echo &quot;\n&quot;;
 
 结果3
 array(1) {
 
 [0] =
-string(3) &amp;ldquo;heL&amp;rdquo;
+string(3) &quot;heL&quot;
 }&lt;/blockquote&gt;
 
 &lt;p&gt;代码4,使用{3,5}&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/heL{3,10}?/i&amp;rsquo;;
-$str = 'heLLLLLLLLLLLLLLLL&amp;rsquo;;
+&lt;blockquote&gt;$regex = &#39;/heL{3,10}?/i&#39;;
+$str = &#39;heLLLLLLLLLLLLLLLL&#39;;
 
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 
-echo &amp;ldquo;\n&amp;rdquo;;
+echo &quot;\n&quot;;
 结果4
 array(1) {
 [0] =&gt;
-string(5) &amp;ldquo;heLLL&amp;rdquo;
+string(5) &quot;heLLL&quot;
 }&lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;六、正则表达式的注释&lt;/strong&gt;&lt;/p&gt;
@@ -1497,22 +2088,22 @@ string(5) &amp;ldquo;heLLL&amp;rdquo;
 
 &lt;p&gt;贡献代码:是一个用于连接MYSQL数据库的正则表达式&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &amp;rsquo;/
+&lt;blockquote&gt;$regex = &#39;/
 ^host=(?&lt;!\.)([\d.]+)(?!\.) (?#主机地址)
 \|
 ([\w!@#$%^&amp;*()_+\-]+) (?#用户名)
 \|
 ([\w!@#$%^&amp;*()_+\-]+) (?#密码)
-(?!\|)$/ix';
+(?!\|)$/ix&#39;;
 
-$str = 'host=192.168.10.221|root|123456';
+$str = &#39;host=192.168.10.221|root|123456&#39;;
 $matches = array();
 
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 
-echo "\n";&lt;/blockquote&gt;
+echo &quot;\n&quot;;&lt;/blockquote&gt;
 
 &lt;p&gt;*&lt;em&gt;七、特殊字符
 *&lt;/em&gt;&lt;/p&gt;
@@ -1528,18 +2119,15 @@ echo "\n";&lt;/blockquote&gt;
 
 &lt;blockquote&gt;本篇文章为转载文章，因为觉得写得的确是好，二次分享给大家，版权归原作者“川山甲”所有。
 原文链接：http://www.cnblogs.com/baochuan/archive/2012/03/12/2391135.html&lt;/blockquote&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Openfire Plugin开发指南（一）</title>
-    <link rel="alternate" href="http://blog.url.com/2015/05/17/openfire-plugin-developer-guide-01/"/>
-    <id>http://blog.url.com/2015/05/17/openfire-plugin-developer-guide-01/</id>
-    <published>2015-05-17T23:26:42+08:00</published>
-    <updated>2016-07-02T12:11:45+08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;&lt;strong&gt;一、简介&lt;/strong&gt;&lt;/p&gt;
+</description>
+				<pubDate>Thu, 11 Jun 2015 17:32:00 +0800</pubDate>
+				<link>http://aboutcoder.com/2015/06/11/php-regular-expression/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2015/06/11/php-regular-expression/</guid>
+			</item>
+		
+			<item>
+				<title>Openfire Plugin开发指南（一）</title>
+				<description>&lt;p&gt;&lt;strong&gt;一、简介&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Openfire plugin使得Openfire自身的功能得到了很好的扩展和增强。这篇文档旨在引导开发者如何进行Openfire plugin的开发。&lt;/p&gt;
 
@@ -1564,13 +2152,13 @@ myplugin/
 |- web-custom.xml &amp;lt;- 可选，用户自定义的web.xml，包含用户的servlets配置
 |- images/ &amp;lt;- 可选，插件的控制台页面所需要的图片资源文件，只支持.gif与.png格式&lt;/p&gt;
 
-&lt;p&gt;plugin中的web目录提供的是插件在管理员控制台中的管理功能，下面会撰写更为详细的相关内容。 其中，plugin.xml定义了plugin主要的类，下面是一个例子：&amp;lt;!&amp;ndash; more &amp;ndash;&amp;gt;&lt;/p&gt;
+&lt;p&gt;plugin中的web目录提供的是插件在管理员控制台中的管理功能，下面会撰写更为详细的相关内容。 其中，plugin.xml定义了plugin主要的类，下面是一个例子：&amp;lt;!-- more --&amp;gt;&lt;/p&gt;
 
 &lt;!-- Sample plugin.xml --&gt;
 
-&lt;p&gt;&amp;lt;?xml version=&amp;ldquo;1.0&amp;rdquo; encoding=&amp;ldquo;UTF-8&amp;rdquo;?&amp;gt;
+&lt;p&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
 &lt;plugin&gt;
-&amp;lt;!&amp;ndash; Main plugin class &amp;ndash;&amp;gt;
+&amp;lt;!-- Main plugin class --&amp;gt;
 &lt;class&gt;org.example.ExamplePlugin&lt;/class&gt;&lt;/p&gt;
 
 &lt;!-- Plugin meta-data --&gt;
@@ -1581,14 +2169,14 @@ myplugin/
 
 &lt;p&gt;&lt;version&gt;1.0&lt;/version&gt;
 &lt;date&gt;07/01/2006&lt;/date&gt;
-&lt;url&gt;&lt;a href="http://www.igniterealtime"&gt;http://www.igniterealtime&lt;/a&gt;. org/projects/openfire/plugins.jsp&lt;/url&gt;
+&lt;url&gt;http://www.igniterealtime. org/projects/openfire/plugins.jsp&lt;/url&gt;
 &lt;minServerVersion&gt;3.0.0&lt;/minServerVersion&gt;
 &lt;licenseType&gt;gpl&lt;/licenseType&gt;&lt;/p&gt;
 
 &lt;!-- Admin console entries --&gt;
 
 &lt;p&gt;&lt;adminconsole&gt;
-&amp;lt;!&amp;ndash; More on this below &amp;ndash;&amp;gt;
+&amp;lt;!-- More on this below --&amp;gt;
 &lt;/adminconsole&gt;
 &lt;/plugin&gt;&lt;/p&gt;
 
@@ -1602,8 +2190,8 @@ myplugin/
 &lt;li&gt;&lt;p&gt;date：发布plugin的日期，格式必须是MM/dd/yyyy，类似地“07/01/2006”&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;url：关于plugin更详尽信息的超链接&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;minServerVersion：plugin所支持的Openfire最低版本号，假如版本号高于当前运行的Openfire版本，plugin将不会被启动&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;databaseKey：假如plugin需要自己的数据库表，那么databaseKey节点必须要设置一个schema name（通常地，schema name设置成与plugin名称相同）。对于每一类Openfire所支持的数据库，数据库的schema文件都必须放置在plugin下的database目录下。例如：plugin名称为“foo”，那么该plugin的schema文件命名应该类似与“foo&lt;em&gt;mysql.sql”，“foo&lt;/em&gt;oracle.sql”等。我们推荐把数据库表的命名都增加Openfire的前缀“of”，避免与同一数据库中的其他应用的数据库表结构的命名相冲突。在schema脚本文件中，应该在ofVersion表中增加一条记录，使得Openfire可以跟踪plugin的版本信息，类似地：INSERT INTO ofVersion (name, version) VALUES (&amp;lsquo;foo&amp;rsquo;, 0);&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;databaseVersion：数据库schema版本号（PS：当一个数据库被定义之时就具有的）。新的plugin在定义其数据库之时，数据库版本号将从0开始计数。假使在后面版本的plugin需要升级其数据库结构，那么升级的schema脚本文件需要放置到目录database/upgrade的每一个升级版本的文件夹下，目录结构类似地：database/upgrade/1和database/upgrade/2可以包含文件“foo&lt;em&gt;mysql.sql”与“foo&lt;/em&gt;oracle.sql”，文件内包含了每一个版本的数据库结构的相关变更项目。在每一项数据库发生升级之时，都需要把ofVersion中的plugin版本记录更新，类似地：UPDATE ofVersion set version=1 where name=&amp;#39;foo&amp;rsquo;;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;databaseKey：假如plugin需要自己的数据库表，那么databaseKey节点必须要设置一个schema name（通常地，schema name设置成与plugin名称相同）。对于每一类Openfire所支持的数据库，数据库的schema文件都必须放置在plugin下的database目录下。例如：plugin名称为“foo”，那么该plugin的schema文件命名应该类似与“foo&lt;em&gt;mysql.sql”，“foo&lt;/em&gt;oracle.sql”等。我们推荐把数据库表的命名都增加Openfire的前缀“of”，避免与同一数据库中的其他应用的数据库表结构的命名相冲突。在schema脚本文件中，应该在ofVersion表中增加一条记录，使得Openfire可以跟踪plugin的版本信息，类似地：INSERT INTO ofVersion (name, version) VALUES (&amp;#39;foo&amp;#39;, 0);&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;databaseVersion：数据库schema版本号（PS：当一个数据库被定义之时就具有的）。新的plugin在定义其数据库之时，数据库版本号将从0开始计数。假使在后面版本的plugin需要升级其数据库结构，那么升级的schema脚本文件需要放置到目录database/upgrade的每一个升级版本的文件夹下，目录结构类似地：database/upgrade/1和database/upgrade/2可以包含文件“foo&lt;em&gt;mysql.sql”与“foo&lt;/em&gt;oracle.sql”，文件内包含了每一个版本的数据库结构的相关变更项目。在每一项数据库发生升级之时，都需要把ofVersion中的plugin版本记录更新，类似地：UPDATE ofVersion set version=1 where name=&amp;#39;foo&amp;#39;;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;parentPlugin：plugin的父插件的名称（）。当plugin拥有一个父插件（parent plugin），那么当前plugin将使用它父插件的类加载器，而不是自己新增一个类加载器。这一机制使得插件之间工作起来变得更加紧密。一个作为子节点的插件，如果没有其父插件的存在，它将无法独立工作。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;licenseType：定义着当前插件的官方所遵循的协议。有效的数值类似地：（1）“commercial”：插件的发布与传衍遵循着商业的协议&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1647,6 +2235,11 @@ public void initializePlugin(PluginManager manager, File pluginDirectory) {
 &lt;p&gt;&lt;strong&gt;常用的plugin最佳实践&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;在选择一个插件的包名之时，我们推荐可以选择一些具备唯一性的标识，类似地，可以选用你的自定义字符串或者是组织名称来尽可能地避免包或者类命名的冲突。例如，假设每个人使用的包名都是org.example.PluginName，就算是PluginName是不相同的，但是你依然会遇到这里或那里的类名冲突，这不是玩笑，在集群部署环境之下，该问题尤其突出。&lt;/p&gt;
-</content>
-  </entry>
-</feed>
+</description>
+				<pubDate>Sun, 17 May 2015 23:26:42 +0800</pubDate>
+				<link>http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01/</guid>
+			</item>
+		
+	</channel>
+</rss>
