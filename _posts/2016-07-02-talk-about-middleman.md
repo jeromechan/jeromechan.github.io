@@ -49,38 +49,50 @@ tags:
 
 以上意思是说，如果你使用了pagination，那么permalink的使用会阻断pagination的执行。也就是说，如果你有一个分页列表的页面，因为你在该页面中使用了permalink改写路径，那么页面中的paginator.posts将会失效，页面内容也将加载失败。
 
-	<!-- This loops through the paginated posts，if you had used permalink settings, the paginator parsing job will fail. -->
-	{% for post in paginator.posts %}
-	  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-	  <p class="author">
-	    <span class="date">{{ post.date }}</span>
-	  </p>
-	  <div class="content">
-	    {{ post.content }}
-	  </div>
-	{% endfor %}
+```html
+{% raw %}
+<!-- This loops through the paginated posts，if you had used permalink settings, the paginator parsing job will fail. -->
+{% for post in paginator.posts %}
+  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  <p class="author">
+    <span class="date">{{ post.date }}</span>
+  </p>
+  <div class="content">
+    {{ post.content }}
+  </div>
+{% endfor %}
+{% endraw %}	
+```
 
 第二点，就要说到liquid的语法。
 我们来假设这么个场景，在一个列表加载的页面中，我们需要在循环内判断到达指定加载条目预设上限之时，循环执行break跳出。
 这个场景使用liquid引擎是这么写的：
 
-	{% assign var = 0 %}
-	{% for post in site.posts %}
-	    {% assign var = var | plus: 1 %}
-	    {% if var > 5 %}
-	        {% break %}
-	    {% endif %}
-	{% endfor %}
+```liquid
+{% raw %}
+{% assign var = 0 %}
+{% for post in site.posts %}
+    {% assign var = var | plus: 1 %}
+    {% if var > 5 %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+{% endraw %}
+```
 
 也可以这么写：
 
-	{% assign var = 0 %} // 这句话可有可无，因为increment会将var初始化为0
-	{% for post in site.posts %}
-	    {% increment var %}  // 这句话会自动执行一个print语句，将var打印出来
-	    {% if var > 5 %}
-	        {% break %}
-	    {% endif %}
-	{% endfor %}
+```liquid
+{% raw %}
+{% assign var = 0 %} // 这句话可有可无，因为increment会将var初始化为0
+{% for post in site.posts %}
+    {% increment var %}  // 这句话会自动执行一个print语句，将var打印出来
+    {% if var > 5 %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+{% endraw %}
+```
 
 前者的写法让人觉得做一个简单的运算都需要去背记liquid的各种filters，让人觉得麻烦不已。
 后者的写法会凭空多出一个默认的print效果，这个也是UI界面编写之时无法接受的。
@@ -140,7 +152,8 @@ slim所倡导的是，一切页面元素、样式、js均可结构化。使用sl
 
 - html+js+css+liquid混合应用
 
-```	
+```	html
+{% raw %}
 <!-- html+js+css+liquid混合应用 -->
 <head>
     <meta name="theme-color" content="{{ page.color }}">
@@ -148,11 +161,12 @@ slim所倡导的是，一切页面元素、样式、js均可结构化。使用sl
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend:site.baseurl | prepend: 	site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 </head>
+{% endraw %}
 ```
 
 - slim的前端结构
 
-```
+```slim
 <!-- html+js+css+slim混合应用 -->
 doctype html
 html lang="ja"
