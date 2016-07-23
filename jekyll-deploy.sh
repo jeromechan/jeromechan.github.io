@@ -47,7 +47,7 @@ last_SHA=( $(git log -n 1 --pretty=oneline) )
 #   last commit SHA, to prevent possible conflicts
 #   with other folder names.
 tmp_dir="temp_$last_SHA"
-echo tmp_dir
+echo $tmp_dir
 # Build the Jekyll site directly to a temporary folder
 jekyll build -d ~/$tmp_dir > /dev/null 2>&1
 
@@ -77,6 +77,8 @@ cp -r ~/$tmp_dir/* $current_dir
 
 # Commit the changes to the SITE branch
 message="Automated update $SITE site from $SOURCE ($last_SHA) by jeromechan"
+echo $message
+
 git add --all .
 git commit -m "$message" > /dev/null 2>&1
 
