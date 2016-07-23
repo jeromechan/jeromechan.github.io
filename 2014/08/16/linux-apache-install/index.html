@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Linux下的Apache安装 &middot; Jerome Chan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+                                 <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08 layout-reverse">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Jerome Chan
+        </a>
+      </h1>
+      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href="https://github.com/jeromechan" target="_blank">GitHub</a>.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+<!-- 
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about">About Me</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/bibliography/">读过的书目</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/category">Category</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags">Tags</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+
+      <a class="sidebar-nav-item" href="/about">About Me</a>
+      <a class="sidebar-nav-item" href="/bibliography">Bibliography</a>
+      <a class="sidebar-nav-item" href="/tags">Tags</a>
+      <a class="sidebar-nav-item" href="/category">Category</a>
+      <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+      <!-- <a class="sidebar-nav-item" href="https://github.com/jeromechan">GitHub</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
+    </nav>
+
+    <p><small>Copyright &copy; 2013-2016</small></p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Linux下的Apache安装</h1>
+  <span class="post-date">16 Aug 2014</span>
+  <div class="highlight"><pre><code class="language-text" data-lang="text">说到LAMP/WAMP服务器环境的搭建，相信PHPer都无一不会，但是对于Freshman来说，这一块的内容还是需要认真学习，从中可以学习到许多环境配置上的基础常识，自己动手捣腾过的东西才印象深刻，犹如“好记性不如烂笔头”的说法一般。
+关于LAMP/WAMP环境的搭建，准备细分为几篇文章进行讲解，希望能为更多需要该项知识的人提供更为全面的配置流程规范。本篇文章，我们先Apache在Linux服务器环境下的搭建。
+</code></pre></div>
+<blockquote>Tips：在搭建PHP之前，一定要先安装搭建好Apache/Nginx的容器环境。</blockquote>
+
+<ol>
+<li><p>检查环境中Apache的依赖包是否已经安装齐全
+（a）APR(Apache Portable Runtime) Project：apr, apr-util, apr-iconv(optional)
+Download：<a href="http://apr.apache.org/">http://apr.apache.org/</a>
+（b）PERL Language Support
+Download：<a href="http://www.perl.org/">http://www.perl.org/</a>
+（c）PCRE Library：A set of functions that implement regular expression pattern matching using the same syntax and semantics as Perl 5.
+Download：<a href="http://sourceforge.net/projects/pcre/">http://sourceforge.net/projects/pcre/</a></p></li>
+<li><p>安装APR
+（a）解压下载的tar包</p>
+
+<blockquote>
+<blockquote>
+<p>tar zxvf apr.tar.gz -C [TARGET<em>DIR]
+tar zxvf apr-util.tar.gz -C [TARGET</em>DIR]</p>
+</blockquote>
+</blockquote></li>
+</ol>
+
+<p>（b）安装</p>
+
+<h1>先安装apr.tar.gz</h1>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt; ./configure —prefix=[INSTALL_DIR]
+&gt;&gt; make
+&gt;&gt; make install
+</code></pre></div>
+<h1>再安装apr-util.tar.gz</h1>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt; ./configure —prefix=[INSTALL_DIR] —with-apr=[APR_INSTALL_DIR]
+&gt;&gt; make
+&gt;&gt; make install
+</code></pre></div>
+<p>备注：若需要规划安装目录和系统/usr/local目录之间的关系，可以参考软链接（symbolic link）的创建，语法如</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt; ln -s [SOURCE_FILE_OR_FOLDER] [TARGET_REF_SYMBOLIC_LINK_DIR]
+</code></pre></div>
+<ol>
+<li><p>安装PERL与PCRE
+PERL的安装参照官方网站教程进行安装即可，关于PCRE的安装简单如下：</p>
+
+<blockquote>
+<blockquote>
+<p>./configure —prefix=[INSTALL_DIR]
+make
+make install</p>
+</blockquote>
+</blockquote></li>
+<li><p>安装Apache HTTP Server
+（a）解压缩httpd.tar.gz
+（b）进入解压后的目录，定制需要开启的httpd模块，类似：</p>
+
+<blockquote>
+<blockquote>
+<p>./configure —prefix=[INSTALL<em>DIR] —enable-so —enable-rewrite=shared —with-mpm=prefork —with-apr=[APR</em>INSTALL<em>DIR] —with-apr-util=[APR</em>UTIL<em>INSTALL</em>DIR] —with-pcre=[PCRE<em>INSTALL</em>DIR] 
+make 
+make install</p>
+</blockquote>
+</blockquote></li>
+<li><p>启动httpd服务</p>
+
+<blockquote>
+<blockquote>
+<p>[HTTPD<em>INSTALL</em>DIR]/bin/apachectl -k start 
+ps -ef | grep httpd （或者ps aux | grep httpd）#查看是否启动httpd成功</p>
+</blockquote>
+</blockquote></li>
+</ol>
+
+<p>备注：可以拷贝apachectl到服务目录（/etc/init.d）中，作为服务项（service命令）启动，例如</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt; cp [HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
+&gt;&gt; service https start
+</code></pre></div>
+<ol>
+<li>操作快捷Tips</li>
+</ol>
+
+<p>（a）Apache .configure命令范例</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">./configure --prefix=/opt/tuniu/apache2 --with-apr=/usr/local/apr/bin/apr-1-config --with-apr-util=/usr/local/apr/bin/apu-1-config --enable-so --enable-rewrite --enable-ssl --enable-cgi --enable-mods-shared=all --with-ssl=/usr/lib64/openssl --enable-proxy --enable-proxy-http
+</code></pre></div>
+<p>（b）安装mod<em>ssl依赖
+在安装mod</em>ssl过程中需要依赖<a href="http://httpd.apache.org/docs/2.2/ssl/">SSL/TLS Encryption库</a>，建议使用开源的OpenSSL。下载官方见这里：<a href="https://www.openssl.org/">https://www.openssl.org/</a></p>
+
+<p>资料提示：许多童鞋们会被搜索引擎导向<a href="http://www.modssl.org/">ModSSL.COM</a>，其实不然，ModSSL的扩展tar包安装不支持Apache Http Server 2.</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+          <a href="/2016/07/22/easy-chosing-opensource-license/">
+            如何快速选择开源软件协议
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/22/resolve-the-fastjson-problems-about-date/">
+            解决fastjson反序列化日期0000-00-00失败的方案
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/06/what-is-architecture/">
+            什么是架构
+            <small>06 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/02/talk-about-middleman/">
+            说说使用middleman的那些事情
+            <small>02 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/01/how-to-make-a-project-plan/">
+            学习笔记：项目管理之规划项目
+            <small>30 Jun 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2015/11/16/work-in-git/">
+            Git软件开发过程
+            <small>16 Nov 2015</small>
+          </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aboutcoder.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+  </body>
+
+  <div style="display:none;">
+	<script src="http://s23.cnzz.com/z_stat.php?id=1252898702&web_id=1252898702" language="JavaScript"></script>
+</div>
+  
+</html>

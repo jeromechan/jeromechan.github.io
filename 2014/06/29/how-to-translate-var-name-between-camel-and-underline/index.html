@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      代码规范之驼峰vs下划线风格转换方案 &middot; Jerome Chan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+                                 <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08 layout-reverse">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Jerome Chan
+        </a>
+      </h1>
+      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href="https://github.com/jeromechan" target="_blank">GitHub</a>.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+<!-- 
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about">About Me</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/bibliography/">读过的书目</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/category">Category</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags">Tags</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+
+      <a class="sidebar-nav-item" href="/about">About Me</a>
+      <a class="sidebar-nav-item" href="/bibliography">Bibliography</a>
+      <a class="sidebar-nav-item" href="/tags">Tags</a>
+      <a class="sidebar-nav-item" href="/category">Category</a>
+      <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+      <!-- <a class="sidebar-nav-item" href="https://github.com/jeromechan">GitHub</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
+    </nav>
+
+    <p><small>Copyright &copy; 2013-2016</small></p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">代码规范之驼峰vs下划线风格转换方案</h1>
+  <span class="post-date">29 Jun 2014</span>
+  <p>转换书写风格的方案均基于递归深度遍历，对key值重新建构，将value值重新赋值。</p>
+
+<p>让我们一起来看看以下详细代码实现。</p>
+
+<ol>
+<li><p>下划线风格=&gt;驼峰风格</p>
+
+<p>1     /**
+ 2      * @static 数组键名翻译成驼峰写法
+ 3      * @param $in 源数组
+ 4      * @return array 输出数组
+ 5      <em>/
+ 6     public static function arrKeysToCamelCase($in)
+ 7     {
+ 8         if(empty($in)||!is<em>array($in))
+ 9             return $in;
+10         $reCopyRes = array();
+11         foreach($in as $key=&gt;$val)
+12         {
+13             $reKey = self::ucFirstWord($key);
+14             if(!is</em>array($val)){
+15                 $reCopyRes[$reKey] = $val;
+16             }else{
+17                 $reCopyRes[$reKey] = self::arrKeysToCamelCase($val);
+18             }
+19         }
+20         return $reCopyRes;
+21     }&lt;!-- more --&gt;
+22     /</em>*
+23      * @static 将单词的首字母转换成大写(首单词除外)
+24      * @param $word 源单词字符串
+25      * @return string 输出单词字符串
+26      */
+27     public static function ucFirstWord($word)
+28     {
+29         if(!is<em>string($word)){
+30             return $word;
+31         }else{
+32             $wordArr = explode(&#39;</em>&#39;,$word);
+33             if(!empty($wordArr)){
+34                 $index = 0;
+35                 foreach($wordArr as &amp;$wd)
+36                 {
+37                     if($index==0){
+38                         $index++;
+39                         continue;
+40                     }
+41                     $wd = ucfirst($wd);
+42                 }
+43                 $outStr = implode(&#39;&#39;,$wordArr);
+44                 return $outStr;
+45             }else{
+46                 return $word;
+47             }
+48         }
+49     }</p></li>
+<li><p>驼峰风格=&gt;下划线风格</p>
+
+<p>1     /**
+ 2      * @static 数组键名翻译成下划线写法
+ 3      * @param $in 源数组
+ 4      * @return array 输出数组
+ 5      <em>/
+ 6     public static function arrKeysToUnderlineCase($in)
+ 7     {
+ 8         if(empty($in)||!is<em>array($in))
+ 9             return $in;
+10         $reCopyRes = array();
+11         foreach($in as $key=&gt;$val)
+12         {
+13             $reKey = self::lcFirstWord($key);
+14             if(!is</em>array($val)){
+15                 $reCopyRes[$reKey] = $val;
+16             }else{
+17                 $reCopyRes[$reKey] = self::arrKeysToUnderlineCase($val);
+18             }
+19         }
+20         return $reCopyRes;
+21     }
+22 
+23     /</em>*
+24      * @static 将单词的首字母转换成小写
+25      * @param $word 源单词字符串
+26      * @return string 输出单词字符串
+27      <em>/
+28     public static function lcFirstWord($word)
+29     {
+30         if(!is<em>string($word)){
+31             return $word;
+32         }else{
+33             preg</em>match<em>all(&#39;/([a-z0-9</em>]</em>)([A-Z][a-z0-9<em>]*)?/&#39;,$word,$matches,PREG</em>PATTERN<em>ORDER);
+34             if(!empty($matches)){
+35                 $strPattern1 = !empty($matches[1][0])?trim($matches[1][0]):&#39;&#39;;
+36                 $subMatch = array</em>filter($matches[2]);
+37                 $strPattern2 = !empty($subMatch)?trim(implode(&#39;<em>&#39;,$subMatch)):&#39;&#39;;
+38                 $strPattern2 = !empty($strPattern2) &amp;&amp; !empty($strPattern1)?&#39;</em>&#39;.$strPattern2:$strPattern2;
+39                 $outStr = strtolower($strPattern1.$strPattern2);
+40             }else{
+41                 $outStr = $word;
+42             }
+43             return $outStr;
+44         }
+45     }</p></li>
+</ol>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+          <a href="/2016/07/22/easy-chosing-opensource-license/">
+            如何快速选择开源软件协议
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/22/resolve-the-fastjson-problems-about-date/">
+            解决fastjson反序列化日期0000-00-00失败的方案
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/06/what-is-architecture/">
+            什么是架构
+            <small>06 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/02/talk-about-middleman/">
+            说说使用middleman的那些事情
+            <small>02 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/01/how-to-make-a-project-plan/">
+            学习笔记：项目管理之规划项目
+            <small>30 Jun 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2015/11/16/work-in-git/">
+            Git软件开发过程
+            <small>16 Nov 2015</small>
+          </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aboutcoder.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+  </body>
+
+  <div style="display:none;">
+	<script src="http://s23.cnzz.com/z_stat.php?id=1252898702&web_id=1252898702" language="JavaScript"></script>
+</div>
+  
+</html>
