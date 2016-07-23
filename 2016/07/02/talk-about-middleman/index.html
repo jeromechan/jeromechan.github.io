@@ -354,163 +354,36 @@ Setting a permalink in the front matter of your blog page will cause pagination 
 </blockquote>
 
 <p>以上意思是说，如果你使用了pagination，那么permalink的使用会阻断pagination的执行。也就是说，如果你有一个分页列表的页面，因为你在该页面中使用了permalink改写路径，那么页面中的paginator.posts将会失效，页面内容也将加载失败。</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;!-- This loops through the paginated posts，if you had used permalink settings, the paginator parsing job will fail. --&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- This loops through the paginated posts，if you had used permalink settings, the paginator parsing job will fail. --&gt;</span>
+{% for post in paginator.posts %}
+  <span class="nt">&lt;h1&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ post.url }}&quot;</span><span class="nt">&gt;</span>{{ post.title }}<span class="nt">&lt;/a&gt;&lt;/h1&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;date&quot;</span><span class="nt">&gt;</span>{{ post.date }}<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+    {{ post.content }}
+  <span class="nt">&lt;/div&gt;</span>
+{% endfor %}
 </code></pre></div>
 <p>第二点，就要说到liquid的语法。
 我们来假设这么个场景，在一个列表加载的页面中，我们需要在循环内判断到达指定加载条目预设上限之时，循环执行break跳出。
 这个场景使用liquid引擎是这么写的：</p>
-
+<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>site.posts<span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>var<span class="w"> </span>|<span class="w"> </span><span class="na">plus</span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">break</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div>
 <p>也可以这么写：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"> // 这句话可有可无，因为increment会将var初始化为0
-
-    0  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    1  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    2  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    3  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    4  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    5  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    6  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    7  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    8  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    9  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    10  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    11  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    12  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    13  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    14  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    15  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    16  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    17  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    18  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    19  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    20  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    21  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    22  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    23  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    24  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    25  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    26  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    27  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    28  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    29  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    30  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    31  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    32  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    33  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    34  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    35  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    36  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    37  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    38  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    39  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    40  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    41  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    42  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    43  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    44  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    45  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    46  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    47  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    48  // 这句话会自动执行一个print语句，将var打印出来
-
-
-    49  // 这句话会自动执行一个print语句，将var打印出来
+<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">%}</span> // 这句话可有可无，因为increment会将var初始化为0
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>site.posts<span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>var<span class="w"> </span><span class="p">%}</span>  // 这句话会自动执行一个print语句，将var打印出来
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">break</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 </code></pre></div>
 <p>前者的写法让人觉得做一个简单的运算都需要去背记liquid的各种filters，让人觉得麻烦不已。
 后者的写法会凭空多出一个默认的print效果，这个也是UI界面编写之时无法接受的。</p>
@@ -574,33 +447,33 @@ liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得�
 <ul>
 <li>html+js+css+liquid混合应用</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;!-- html+js+css+liquid混合应用 --&gt;
-&lt;head&gt;
-    &lt;meta name=&quot;theme-color&quot; content=&quot;&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;//assets/css/main.css&quot;&gt;
-    &lt;link rel=&quot;canonical&quot; href=&quot;http://aboutcoder.com//2016/07/02/talk-about-middleman/&quot;&gt;
-    &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;Jerome Chan&quot; href=&quot;http://aboutcoder.com//feed.xml&quot; /&gt;
-&lt;/head&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- html+js+css+liquid混合应用 --&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;theme-color&quot;</span> <span class="na">content=</span><span class="s">&quot;{{ page.color }}&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;{{ &quot;</span><span class="err">/</span><span class="na">assets</span><span class="err">/</span><span class="na">css</span><span class="err">/</span><span class="na">main</span><span class="err">.</span><span class="na">css</span><span class="err">&quot;</span> <span class="err">|</span> <span class="na">prepend:site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;canonical&quot;</span> <span class="na">href=</span><span class="s">&quot;{{ page.url | replace:&#39;index.html&#39;,&#39;&#39; | prepend:site.baseurl | prepend:     site.url }}&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;alternate&quot;</span> <span class="na">type=</span><span class="s">&quot;application/rss+xml&quot;</span> <span class="na">title=</span><span class="s">&quot;{{ site.title }}&quot;</span> <span class="na">href=</span><span class="s">&quot;{{ &quot;</span><span class="err">/</span><span class="na">feed</span><span class="err">.</span><span class="na">xml</span><span class="err">&quot;</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">url</span> <span class="err">}}&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
 </code></pre></div>
 <ul>
 <li>slim的前端结构</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;!-- html+js+css+slim混合应用 --&gt;
-doctype html
-html lang=&quot;ja&quot;
-  head
-    meta charset=&quot;utf-8&quot;
-    title The Elevatorpitch
-    meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;
+<div class="highlight"><pre><code class="language-slim" data-lang="slim">&lt;!-- html+js+css+slim混合应用 --&gt;
+<span class="nt">doctype</span> html
+<span class="nt">html</span><span class="na"> lang</span><span class="p">=</span><span class="s2">&quot;ja&quot;</span>
+  <span class="nt">head</span>
+    <span class="nt">meta</span><span class="na"> charset</span><span class="p">=</span><span class="s2">&quot;utf-8&quot;</span>
+    <span class="nt">title</span> The Elevatorpitch
+    <span class="nt">meta</span><span class="na"> name</span><span class="p">=</span><span class="s2">&quot;viewport&quot;</span><span class="na"> content</span><span class="p">=</span><span class="s2">&quot;width=device-width, initial-scale=1.0&quot;</span>
     css:
       body {
-        padding-top: 20px;
-        padding-bottom: 40px;
+        <span class="nt">padding-top:</span> 20px;
+        <span class="nt">padding-bottom:</span> 40px;
       }
-  body
-    div class=&quot;container-narrow&quot;
-      div class=&quot;masthead visible-desktop&quot;
-script src=&quot;/js/theelevatorpitch.js&quot;
+  <span class="nt">body</span>
+    <span class="nt">div</span><span class="na"> class</span><span class="p">=</span><span class="s2">&quot;container-narrow&quot;</span>
+      <span class="nt">div</span><span class="na"> class</span><span class="p">=</span><span class="s2">&quot;masthead visible-desktop&quot;</span>
+<span class="nt">script</span><span class="na"> src</span><span class="p">=</span><span class="s2">&quot;/js/theelevatorpitch.js&quot;</span>
 </code></pre></div>
 <p>更多slim应用可以关注我的gist：<a href="https://gist.github.com/jeromechan/0432a89f3e9810e9ba26052606e56f38">Use slim engine for building html tags</a></p>
 
