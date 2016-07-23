@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      GIT基础知识讲解（二） &middot; Jerome Chan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+                                 <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08 layout-reverse">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Jerome Chan
+        </a>
+      </h1>
+      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href="https://github.com/jeromechan" target="_blank">GitHub</a>.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+<!-- 
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about">About Me</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/bibliography/">读过的书目</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/category">Category</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags">Tags</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+
+      <a class="sidebar-nav-item" href="/about">About Me</a>
+      <a class="sidebar-nav-item" href="/bibliography">Bibliography</a>
+      <a class="sidebar-nav-item" href="/tags">Tags</a>
+      <a class="sidebar-nav-item" href="/category">Category</a>
+      <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+      <!-- <a class="sidebar-nav-item" href="https://github.com/jeromechan">GitHub</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
+    </nav>
+
+    <p><small>Copyright &copy; 2013-2016</small></p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">GIT基础知识讲解（二）</h1>
+  <span class="post-date">29 Jun 2014</span>
+  <p>七、Git分支级别的基本操作</p>
+
+<ol>
+<li>查看/编辑 本地（远程）分支信息</li>
+</ol>
+
+<p>$ git branch -[option] </p>
+
+<p>另，该命令后紧接英文短语，执行的是创建分支的操作（仅创建而不切换） </p>
+
+<ol>
+<li><p>分支的合并（详见PPT-10）</p>
+
+<p>$ git checkout master</p>
+
+<p>$ git merge iss53</p></li>
+</ol>
+
+<p>分支的合并如下图流程示例 </p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb.png" alt="image"></a></p>
+
+<p>&lt;!-- more --&gt;3. 分支的衍合（详见PPT-11）</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git checkout experiment
+
+
+
+
+$ git rebase master
+</code></pre></div>
+<p>分支的衍合如下图流程示例</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image1.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb1.png" alt="image"></a></p>
+
+<p>八、想做就做，听你的</p>
+
+<p>下面是一个有趣的例子，你也来实战一下吧</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image2.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb2.png" alt="image"></a></p>
+
+<p>注意点：Merge和Rebase的区别：</p>
+
+<p>merge是执行2个待合并版本以及公共基线版本的3方合并；</p>
+
+<p>rebase是将待合并版本之一的变动作为补丁应用到另一个待合并分支上。</p>
+
+<p>九、分支衍合行为规范</p>
+
+<p>Do not rebase commits that you have pushed to a public repository.</p>
+
+<p>（一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行衍合操作。）</p>
+
+<p>如果你遵循这条金科玉律，就不会出差错。否则，人民群众会仇恨你，你的朋友和家人也会嘲笑你，唾弃你。</p>
+
+<p>再谈merge 和 rebase 的区别：</p>
+
+<p>1），从文件结果看，merge 和 rebase 可以达到同样效果。
+2），从历史纪录看，他们存在差异：merge 显示合并后的多父结点，呈现环形，而 rebase 呈现线性结果，即它对分支历史进行合并操作。rebase 提供更好的历史呈现方式（似分支从未曾发生过），但有风险。掌握一条原则：Do not rebase commits that you have pushed to a public repository. 即，不要对你提交过的分支进行 rebase。因为本地的改变会造成远端的困惑。</p>
+
+<p>十、分支衍合的协作风险</p>
+
+<p>如下图示例</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image3.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb3.png" alt="image"></a></p>
+
+<p>After you do that, your commit history will contain both the C4 and C4&#39; commits, which have</p>
+
+<p>different SHA-1 hashes but introduce the same work and have the same commit message.</p>
+
+<p>十一、漫步在项目协作中的Mr.Git</p>
+
+<p>如何给项目贡献代码？</p>
+
+<p>如果你是没有Git的可怜人，通过邮件提交补丁可以是普通patch或format-patch，后者为佳。</p>
+
+<p>经过apply或am将代码合并到目标分支上进行验证，确认稳定后，再将其并入master分发主干上。</p>
+
+<p>拥有Git的人，这一块的操作就甭提有多方便了。</p>
+
+<p>如果你拥有Mr.Git，那么通往罗马的大道有如下几条（寡人称之为Git合并模式）：</p>
+
+<p>（1）直接合并进入本地的master主干分支进行验证；</p>
+
+<p>（2）为特性分支提供一个用于合并用途的develop-branch；</p>
+
+<p>（3）复杂项目的并行贡献</p>
+
+<p>（4）大项目的特性并入长期分支</p>
+
+<p>（5）衍合流程引入代码</p>
+
+<p>（6）挑拣（cherry-pick）流程引入补丁代码</p>
+
+<p>PS: Git项目的合并方式采用的是模式（4）</p>
+
+<p>十二、常见Git的合并模式示例</p>
+
+<p>（1）直接合并进入本地的master主干分支进行验证；</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image4.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb4.png" alt="image"></a></p>
+
+<p>（2）为特性分支提供一个用于合并用途的develop-branch；</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image5.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb5.png" alt="image"></a></p>
+
+<p>（3）复杂项目的并行贡献</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image6.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb6.png" alt="image"></a></p>
+
+<p>（4）大项目的特性并入长期分支</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image7.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb7.png" alt="image"></a></p>
+
+<p>（5）衍合流程引入代码</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image8.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb8.png" alt="image"></a></p>
+
+<p>（6）挑拣（cherry-pick）流程引入补丁代码</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image9.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb9.png" alt="image"></a></p>
+
+<p>This pulls the same change introduced in e43a6, but you get a new commit SHA-1 value, because the date applied is different. Now your history looks like Figure 5-27.</p>
+
+<p>十三、推荐：Github.com，一个神奇的网站</p>
+
+<p>当前世界首屈一指，最大没有之一的Git项目代码托管网站</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image10.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb10.png" alt="image"></a></p>
+
+<p>十四、参考链接</p>
+
+<ol>
+<li><p>Git官方文档
+<a href="http://www.git-scm.com/documentation">http://</a><a href="http://www.git-scm.com/documentation">www.git-scm.com/documentation</a><a href="http://www.git-scm.com/documentation">/</a></p></li>
+<li><p>TortoiseGit
+<a href="https://code.google.com/p/tortoisegit/">https://</a><a href="https://code.google.com/p/tortoisegit/">code.google.com/p/tortoisegit</a><a href="http://www.git-scm.com/documentation">/</a></p></li>
+<li><p>Git下载
+<a href="http://www.git-scm.com/downloads">http://</a><a href="http://www.git-scm.com/downloads">www.git-scm.com/downloads</a></p></li>
+<li><p>msysGit, another GUI Client
+<a href="http://msysgit.github.io/">http://</a><a href="http://msysgit.github.io/">msysgit.github.io</a></p></li>
+</ol>
+
+<p>十五、结束语</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image11.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb11.png" alt="image"></a></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+          <a href="/2016/07/22/easy-chosing-opensource-license/">
+            如何快速选择开源软件协议
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/22/resolve-the-fastjson-problems-about-date/">
+            解决fastjson反序列化日期0000-00-00失败的方案
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/06/what-is-architecture/">
+            什么是架构
+            <small>06 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/02/talk-about-middleman/">
+            说说使用middleman的那些事情
+            <small>02 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/01/how-to-make-a-project-plan/">
+            学习笔记：项目管理之规划项目
+            <small>30 Jun 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2015/11/16/work-in-git/">
+            Git软件开发过程
+            <small>16 Nov 2015</small>
+          </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aboutcoder.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+  </body>
+
+  <div style="display:none;">
+	<script src="http://s23.cnzz.com/z_stat.php?id=1252898702&web_id=1252898702" language="JavaScript"></script>
+</div>
+  
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Clean Code: A Handbook of Agile Software Craftsmanship (b) &middot; Jerome Chan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+                                 <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08 layout-reverse">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Jerome Chan
+        </a>
+      </h1>
+      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href="https://github.com/jeromechan" target="_blank">GitHub</a>.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+<!-- 
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about">About Me</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/bibliography/">读过的书目</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/category">Category</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags">Tags</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+
+      <a class="sidebar-nav-item" href="/about">About Me</a>
+      <a class="sidebar-nav-item" href="/bibliography">Bibliography</a>
+      <a class="sidebar-nav-item" href="/tags">Tags</a>
+      <a class="sidebar-nav-item" href="/category">Category</a>
+      <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+      <!-- <a class="sidebar-nav-item" href="https://github.com/jeromechan">GitHub</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
+    </nav>
+
+    <p><small>Copyright &copy; 2013-2016</small></p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Clean Code: A Handbook of Agile Software Craftsmanship (b)</h1>
+  <span class="post-date">29 Jun 2014</span>
+  <ol>
+<li>The grand redesign in the sky</li>
+</ol>
+
+<ul>
+<li><p>Eventually the team rebels and informs management that: </p></li>
+<li><p><a href="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image37.png"><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb37.png" alt="image"></a></p></li>
+<li><p>“If you have experienced even one small part of the story I just told, then you already know that spending time keeping your code clean is not just cost effective; it’s a matter of professional survival.” </p></li>
+</ul>
+
+<ol>
+<li>Attitude </li>
+</ol>
+
+<ul>
+<li><p>We are deeply complicit in the planning of the project and share a great deal of the responsibility for any failures; especially if those failures have to do with bad code! </p></li>
+<li><p>The manager will defend the schedule and requirements with passion. And you, it’s absolutely your job to defend the code with equal passion. </p></li>
+<li><p>It’s unprofessional for programmers to bend to the will of managers who don’t understand the risks of making messes, too. </p></li>
+</ul>
+
+<p>&lt;!-- more --&gt;3. Temporary conclusion</p>
+
+<ul>
+<li><p>“You will not make the deadline by making the mess.” </p></li>
+<li><p>The only right way to reach the goal---is to keep the code as clean as possible at all times. </p></li>
+</ul>
+
+<ol>
+<li>The art of clean code</li>
+</ol>
+
+<ul>
+<li><p>“Being able to recognize good art from bad does not mean that we know how to paint.” </p></li>
+<li><p>Writing clean code requires: </p></li>
+<li><p><a href="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image38.png"><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb38.png" alt="image"></a></p></li>
+</ul>
+
+<ol>
+<li>What is clean code</li>
+</ol>
+
+<ul>
+<li><p>Do you really know what is clean code? </p></li>
+<li><p>And what do the very well-known and deeply experienced programmers think about it? </p></li>
+</ul>
+
+<ol>
+<li>Bjarne Stroustrup(Inventor of C++)</li>
+</ol>
+
+<ul>
+<li><p>&quot;I like my code to be elegant and efficient.” </p></li>
+<li><p>“Clean code does one thing well.” </p></li>
+<li><p><a href="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image39.png"><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb39.png" alt="image"></a></p></li>
+</ul>
+
+<ol>
+<li>Grady Booch(Author of Object Oriented Analysis and Design with Applications)</li>
+</ol>
+
+<ul>
+<li><p>“Clean code is simple and direct.” </p></li>
+<li><p>“Clean code reads like well-written prose.” </p></li>
+<li><p><a href="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image40.png"><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb40.png" alt="image"></a></p></li>
+</ul>
+
+<ol>
+<li>Dave Thomas(”Founder of OTI, godfather of the Eclipse strategy”)</li>
+</ol>
+
+<ul>
+<li><p>“Clean code can be read.” </p></li>
+<li><p>“Clean code should be literate” </p></li>
+<li><p><a href="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image41.png"><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb41.png" alt="image"></a></p></li>
+</ul>
+
+<ol>
+<li>Michael Feathers(”Author of Working Effectively with Legacy Code”)</li>
+</ol>
+
+<ul>
+<li><p>“clean code always looks like it was written by someone who cares.” </p></li>
+<li><p><a href="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image42.png"><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb42.png" alt="image"></a></p></li>
+</ul>
+
+<ol>
+<li>Ron Jeffries(“Author of Extreme Programming Installed”)</li>
+</ol>
+
+<ul>
+<li><p>“Reduced duplication” </p></li>
+<li><p>“High expressiveness” </p></li>
+<li><p>“Early building of simple abstraction” </p></li>
+<li><p><a href="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image43.png"><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb43.png" alt="image"></a></p></li>
+</ul>
+
+<ol>
+<li>Ward Cunningham(“Inventor of Wiki”)</li>
+</ol>
+
+<ul>
+<li><p>“You know you are working on clean code when each routine you reads turns out to be pretty much what you expected.” </p></li>
+<li><p><a href="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image44.png"><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb44.png" alt="image"></a></p></li>
+<li><p>“You know you are working on clean code when each routine you reads turns out to be pretty much what you expected.” </p></li>
+</ul>
+
+<ol>
+<li>The boy scout rule</li>
+</ol>
+
+<ul>
+<li><p>It’s not enough to write the code well. The code has to be kept clean over time. </p></li>
+<li><p><a href="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image45.png"><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb45.png" alt="image"></a></p></li>
+</ul>
+
+<ol>
+<li>Bibliography </li>
+</ol>
+
+<ul>
+<li><p>Clean Code, Robert C. Martin, Prentice-Hall, 2009 </p></li>
+<li><p>Clean Code Slides, Herrero, <a href="http://www.slideshare.net/">www.slideshare.net</a>, 2012 </p></li>
+<li><p>Better Code Slides, Rafael Dohms, <a href="http://www.slideshare.net/">www.slideshare.net</a>, 2012 </p></li>
+<li><p>Clean Code Slides, Emily Bache, <a href="http://www.jsolutions.se/">www.jsolutions.se</a>, 2012 </p></li>
+</ul>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+          <a href="/2016/07/22/easy-chosing-opensource-license/">
+            如何快速选择开源软件协议
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/22/resolve-the-fastjson-problems-about-date/">
+            解决fastjson反序列化日期0000-00-00失败的方案
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/06/what-is-architecture/">
+            什么是架构
+            <small>06 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/02/talk-about-middleman/">
+            说说使用middleman的那些事情
+            <small>02 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/01/how-to-make-a-project-plan/">
+            学习笔记：项目管理之规划项目
+            <small>30 Jun 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2015/11/16/work-in-git/">
+            Git软件开发过程
+            <small>16 Nov 2015</small>
+          </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aboutcoder.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+  </body>
+
+  <div style="display:none;">
+	<script src="http://s23.cnzz.com/z_stat.php?id=1252898702&web_id=1252898702" language="JavaScript"></script>
+</div>
+  
+</html>

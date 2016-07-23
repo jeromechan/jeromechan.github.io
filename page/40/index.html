@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Jerome Chan &middot; A Web developer, talking about development
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+                                 <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08 layout-reverse">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Jerome Chan
+        </a>
+      </h1>
+      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href="https://github.com/jeromechan" target="_blank">GitHub</a>.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+<!-- 
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about">About Me</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/bibliography/">读过的书目</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/category">Category</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags">Tags</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+
+      <a class="sidebar-nav-item" href="/about">About Me</a>
+      <a class="sidebar-nav-item" href="/bibliography">Bibliography</a>
+      <a class="sidebar-nav-item" href="/tags">Tags</a>
+      <a class="sidebar-nav-item" href="/category">Category</a>
+      <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+      <!-- <a class="sidebar-nav-item" href="https://github.com/jeromechan">GitHub</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
+    </nav>
+
+    <p><small>Copyright &copy; 2013-2016</small></p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/06/29/using-command-to-control-service-on-windows/">
+        Windows环境下使用命令行管理服务
+      </a>
+    </h1>
+
+    <span class="post-date">29 Jun 2014</span>
+    
+    <p>一、创建服务</p>
+
+<p>1.1 命令”sc create”官方说明</p>
+
+<p>描述:
+在注册表和服务数据库中创建服务项。
+用法:
+<code>sc &lt;server&gt; create [service name] [binPath= ] &lt;option1&gt; &lt;option2&gt;...</code></p>
+
+<p>选项:
+注意: 选项名称包括等号。
+等号和值之间需要一个空格。
+<code>type= &lt;own|share|interact|kernel|filesys|rec&gt;</code></p>
+
+<p>(默认 = own)</p>
+
+<p>start= <boot|system|auto|demand|disabled|delayed-auto></p>
+
+<p>(默认 = demand)</p>
+
+<p>error= <normal|severe|critical|ignore></p>
+
+<p>(默认 = normal)</p>
+
+<p>binPath= <BinaryPathName>
+group= <LoadOrderGroup>
+tag= <yes|no>
+depend= &lt;依存关系(以 / (斜杠) 分隔)&gt;
+obj= <AccountName|ObjectName></p>
+
+<p>(默认 = LocalSystem)</p>
+
+<p>DisplayName= &lt;显示名称&gt;
+password= &lt;密码&gt;</p>
+
+<!-- more -->
+
+<p>1.2 使用示例</p>
+
+<p><code>&gt; sc create &quot;Memcached Master&quot; start=auto binPath=&quot;D:\memcached\memcached.exe -d install -m 32 -p 11211&quot; DisplayName= &quot;Memcached Master&quot;
+（图示：添加指定目录的memcache服务）</code></p>
+
+<p>二、删除服务
+2.1 命令”sc delete”官方说明</p>
+
+<p>描述:
+从注册表删除服务项。
+如果服务正在运行，或另一进程已经打开
+到此服务的句柄，服务将简单地标记为
+删除。
+用法:
+<code>sc &lt;server&gt; delete [service name]</code></p>
+
+<p>2.2 使用示例</p>
+
+<blockquote>
+<p>sc delete “Memcached Master”
+（图示：添加指定目录的Memcached Master服务）</p>
+</blockquote>
+
+<p>三、手工操作简述</p>
+
+<p>步骤1. 打开注册表编辑器（<code>Win+R打开运行 → regedit → 回车</code>）
+步骤2. 寻找服务键值目录（<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services</code>），一般服务会以相同的名字在这里显示一个主健，对应其键值进行CURD操作即便可。</p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page/41/">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page/39/">Newer</a>
+    
+  
+</div>
+    </div>
+
+  </body>
+
+  <div style="display:none;">
+	<script src="http://s23.cnzz.com/z_stat.php?id=1252898702&web_id=1252898702" language="JavaScript"></script>
+</div>
+  
+</html>

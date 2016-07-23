@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      windows下的PHP与Apache安装 &middot; Jerome Chan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+                                 <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08 layout-reverse">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Jerome Chan
+        </a>
+      </h1>
+      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href="https://github.com/jeromechan" target="_blank">GitHub</a>.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+<!-- 
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about">About Me</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/bibliography/">读过的书目</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/category">Category</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags">Tags</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+
+      <a class="sidebar-nav-item" href="/about">About Me</a>
+      <a class="sidebar-nav-item" href="/bibliography">Bibliography</a>
+      <a class="sidebar-nav-item" href="/tags">Tags</a>
+      <a class="sidebar-nav-item" href="/category">Category</a>
+      <a class="sidebar-nav-item" href="/timeline">Timeline</a>
+      <!-- <a class="sidebar-nav-item" href="https://github.com/jeromechan">GitHub</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
+    </nav>
+
+    <p><small>Copyright &copy; 2013-2016</small></p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">windows下的PHP与Apache安装</h1>
+  <span class="post-date">21 Aug 2014</span>
+  <p>站内的关联的其他几篇文章讲述了<a href="http://aboutcoder.com/2014/08/16/linux%e4%b8%8b%e7%9a%84apache%e5%ae%89%e8%a3%85/">LAMP环境搭建</a>的过程与建议Tips。今天要来讲讲的是关于WAMP，毕竟环境是Windows的童鞋们还是居多的。</p>
+
+<ol>
+<li>安装Apache HTTP SERVER + PHP
+关于如何安装Apache HTTP SERVER和PHP的过程，这一步在Windows环境下可以简单点到略过，官方都提供了.exe安装包或portable的zip包，双击按提示安装好，然后将PHP-Install-DIR/bin配置到环境变量Path中即可。</li>
+</ol>
+
+<blockquote>Tips：先安装Apache，再安装PHP，再作二者关联。</blockquote>
+
+<ol>
+<li>PHP配置
+说到PHP配置，首先要知道PHP的配置文件是php.ini，再安装好的PHP目录内，会包含几个不同用途的php.ini文件，不同的php版本之间会有所差异，大致的文件如：php.ini-development, php.ini-production, php.ini-test, php.ini，而php.ini是默认读取的配置文件。</li>
+</ol>
+
+<blockquote>   php.ini-development：开发环境常用的属性配置概况
+    php.ini-test：测试环境常用的属性配置概况
+    php.ini-production：生产环境常用的属性配置概况</blockquote>
+
+
+
+
+
+    读者可以根据需要，学习其中的配置含义，配置出自己系统最合适的配置项目。
+    
+    开发者最常用到的配置，便是扩展配置了，没有扩展，php无法实现curl远程调用，无法实现mysql，pgsql连接，更无法实现gd开发。
+    在扩展配置中，我们必须认识“extension_dir”和“extension=”配置项目，前者指向扩展链接库文件所在的目录，后者配置所需要的扩展链接库文件。
+    例如，我们配置pdo_mysql的扩展：
+
+    
+    
+        extension_dir=“D:/php/ext”
+        extension=pdo_mysql.dll
+    
+
+
+
+
+
+
+
+
+<blockquote>   Tips：Windows下的PHP安装好之后很友好，都为大家根据相应的vc版本编译好了dll扩展文件，可以为大家省下不少时间。找不到的扩展可以到官方的pecl上找：[http://pecl.php.net/packages.php](http://pecl.php.net/packages.php)</blockquote>
+
+
+
+
+
+    配置好了php，此时apache容器仍然不能解析运行php文件，因为我们还差将两者关联起来的其他一些简单配置，下面我们来讲讲这一块。
+
+3. 在Apache HTTP Server中配置关联php语言解析模块
+    php是以module的方式与apache关联起来的。
+
+    Tips：Apache HTTP Server主配置文件是httpd.conf。
+
+    在httpd.conf文件中，新增module加载项：
+
+
+    
+    
+        LoadModule php5_module D:/php/php5apache2_2.dll //关联并加载php解析模块
+        PHPIniDir “D:/php”//关联PHP安装目录及其php.ini，该项配置后，可以在phpinfo()中的属性“Loaded Configuration File”检查是否关联php.ini成功
+    
+
+
+
+
+    然后，告诉apache它现在可以执行.php文件了：
+
+
+    
+    
+        AddType application/x-httpd-php .php //让.php格式文件存储php代码并可以被执行
+        AddType application/x-httpd-php .html //让.html格式文件存储php代码并可以被执行
+        AddType application/x-httpd-php .txt //让.txt格式文件存储php代码并可以被执行
+    
+
+
+
+
+    到这里，Apache与php之间的关联关系就建立起来了。
+
+4. 启动Apache，准备执行php文件，你可能会遇到如下情况：
+    （1）php扩展配置没有生效，在phpinfo()中没有发现新增的扩展
+    答：a. 检查扩展配置项目按上文要求正确；
+            b. 是否按官方要求将libeay32.dll, ssleay32.dl拷贝到C:/windows/system32/下；
+            官方原文如下：
+            
+
+
+
+
+<blockquote>【vatozana at yahoo dot com】 3 years ago
+I had problems registering Curl extentions and it was cause by the old dll of libeay32.dll and  ssleay32.dll  which were already in my c:\windows\system32 I replaced them and all is now fine!!
+</blockquote>
+
+<ol>
+<li>其他参考：
+最官方的莫过于php.net，该站旗下有关联的许多对php很有好处的二级站点，这里可以找到：<a href="http://cn2.php.net/sites.php">http://cn2.php.net/sites.php</a></li>
+</ol>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+          <a href="/2016/07/22/easy-chosing-opensource-license/">
+            如何快速选择开源软件协议
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/22/resolve-the-fastjson-problems-about-date/">
+            解决fastjson反序列化日期0000-00-00失败的方案
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/06/what-is-architecture/">
+            什么是架构
+            <small>06 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/02/talk-about-middleman/">
+            说说使用middleman的那些事情
+            <small>02 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/01/how-to-make-a-project-plan/">
+            学习笔记：项目管理之规划项目
+            <small>30 Jun 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2015/11/16/work-in-git/">
+            Git软件开发过程
+            <small>16 Nov 2015</small>
+          </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aboutcoder.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+  </body>
+
+  <div style="display:none;">
+	<script src="http://s23.cnzz.com/z_stat.php?id=1252898702&web_id=1252898702" language="JavaScript"></script>
+</div>
+  
+</html>
