@@ -1,0 +1,35 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Paginate
+gems:             [jekyll-paginate]
+paginate:         1
+paginate_path:    "/page/:num"
+
+# Permalinks
+# permalink:        pretty
+# relative_permalinks: true
+
+# Setup
+title:            Jerome Chan
+tagline:          'A Web developer, talking about development'
+description:      'Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href="https://github.com/jeromechan" target="_blank">GitHub</a>.'
+url:              http://aboutcoder.com
+baseurl:          /
+
+author:
+  name:           'Jerome Chan'
+  url:            http://weibo.com/5812529126
+
+# Custom vars
+version:          2.1.0-u-jeromechan-01
+
+social:
+  github:         https://github.com/jeromechan
+
+track:
+  cnzz:           1252898702
+
+comment:
+  disqus:         aboutcoder
