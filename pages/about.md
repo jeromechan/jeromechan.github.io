@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: about
+permalink: about/
 title: About Me
 ---
 I am Jerome Chan, Chinese name is Chen Jinlong.  
