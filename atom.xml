@@ -4,7 +4,7 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-07-29T18:27:57+08:00</updated>
+ <updated>2016-07-29T18:35:27+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
@@ -4360,38 +4360,29 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Eventually the team rebels and informs management that: &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb37.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;“If you have experienced even one small part of the story I just told, then you already know that spending time keeping your code clean is not just cost effective; it’s a matter of professional survival.” &lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;Eventually the team rebels and informs management that: &lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb37.png&quot; alt=&quot;image&quot;&gt;&lt;/li&gt;
+&lt;li&gt;“If you have experienced even one small part of the story I just told, then you already know that spending time keeping your code clean is not just cost effective; it’s a matter of professional survival.”&lt;br&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Attitude &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;We are deeply complicit in the planning of the project and share a great deal of the responsibility for any failures; especially if those failures have to do with bad code! &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The manager will defend the schedule and requirements with passion. And you, it’s absolutely your job to defend the code with equal passion. &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;It’s unprofessional for programmers to bend to the will of managers who don’t understand the risks of making messes, too. &lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;Attitude&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;We are deeply complicit in the planning of the project and share a great deal of the responsibility for any failures; especially if those failures have to do with bad code! &lt;/li&gt;
+&lt;li&gt;The manager will defend the schedule and requirements with passion. And you, it’s absolutely your job to defend the code with equal passion. &lt;/li&gt;
+&lt;li&gt;It’s unprofessional for programmers to bend to the will of managers who don’t understand the risks of making messes, too.&lt;br&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Temporary conclusion&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;“You will not make the deadline by making the mess.” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The only right way to reach the goal---is to keep the code as clean as possible at all times. &lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;“You will not make the deadline by making the mess.” &lt;/li&gt;
+&lt;li&gt;The only right way to reach the goal---is to keep the code as clean as possible at all times.&lt;br&gt;
 
 &lt;ol&gt;
-&lt;li&gt;The art of clean code&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;“Being able to recognize good art from bad does not mean that we know how to paint.” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Writing clean code requires: &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb38.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;The art of clean code&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;“Being able to recognize good art from bad does not mean that we know how to paint.” &lt;/li&gt;
+&lt;li&gt;Writing clean code requires: &lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb38.png&quot; alt=&quot;image&quot;&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
@@ -4490,17 +4481,12 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
    <link href="http://aboutcoder.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-a/"/>
    <updated>2014-06-29T08:56:51+08:00</updated>
    <id>http://aboutcoder.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-a</id>
-   <content type="html">&lt;h1&gt;Wrote by Robert C. Martin&lt;/h1&gt;
+   <content type="html">&lt;h4&gt;Wrote by Robert C. Martin&lt;/h4&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Can you Spot the Differences?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb28.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;A tale of two apps below&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;Can you Spot the Differences?&lt;br&gt;
+&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb28.png&quot; alt=&quot;image&quot;&gt;&lt;/li&gt;
+&lt;li&gt;A tale of two apps below
 
 &lt;ul&gt;
 &lt;li&gt;One enormous class. =&amp;gt; 1300 lines &lt;/li&gt;
@@ -4512,50 +4498,27 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Several packages &lt;/li&gt;
 &lt;li&gt;“Board”, “Game”, “Strategy” classes &lt;/li&gt;
 &lt;li&gt;Small functions &lt;/li&gt;
-&lt;li&gt;Comprehensive unit tests 
-
-&lt;ol&gt;
-&lt;li&gt;The User can’t tell&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb29.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Clean code == happy coding jobs&lt;/p&gt;
+&lt;li&gt;Comprehensive unit tests &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The User can’t tell&lt;br&gt;
+&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb29.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Clean code == happy coding jobs
 
 &lt;ul&gt;
 &lt;li&gt;”If by life you were deceived, Don’t be dismal, don’t be wild!”
 –Pushkin &lt;/li&gt;
 &lt;li&gt;If horrible code sucks the life out of you, what would you do?&lt;/li&gt;
-&lt;li&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb30.png&quot; alt=&quot;image&quot;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb30.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Remember it!&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb31.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Two reasons for you&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb32.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Foreword&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb33.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;There will be code&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb34.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-
-&lt;p&gt;“Nonsense! We will never be rid of code, because code represents the details of the requirements.”&lt;/p&gt;
-
-&lt;ol&gt;
+&lt;li&gt;Remember it!&lt;br&gt;
+&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb31.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Two reasons for you&lt;br&gt;
+&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb32.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Foreword&lt;br&gt;
+&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb33.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;There will be code&lt;br&gt;
+&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb34.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;
+“Nonsense! We will never be rid of code, because code represents the details of the requirements.”&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Bad code&lt;/p&gt;
 
 &lt;ul&gt;
@@ -4563,7 +4526,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb35.png&quot; alt=&quot;image&quot;&gt;&lt;/li&gt;
 &lt;li&gt;1.“It was the bad code that brought the company down.”&lt;/li&gt;
 &lt;li&gt;2.“Of course you have been impeded by bad code. So then---why did you write it?”&lt;/li&gt;
-&lt;li&gt;3.“LeBlanc’s law: Later equals never.”&lt;/li&gt;
+&lt;li&gt;3.“LeBlanc’s law: Later equals never.”&lt;br&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The total cost of owning a mess&lt;/p&gt;
 
