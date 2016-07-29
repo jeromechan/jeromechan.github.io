@@ -2,7 +2,7 @@
 markdown:         kramdown
 highlighter:      rouge
 kramdown:
-  input: GFM
+  input:          GFM
   syntax_highlighter: rouge
 
 # Paginate
@@ -20,6 +20,11 @@ tagline:          'A Web developer, talking about development'
 description:      'Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href="https://github.com/jeromechan" target="_blank">GitHub</a>.'
 url:              http://aboutcoder.com
 baseurl:          /
+
+# Collections
+collections:
+  slides:
+    output:       true
 
 author:
   name:           'Jerome Chan'
