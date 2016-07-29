@@ -4,7 +4,7 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-07-29T03:28:39+08:00</updated>
+ <updated>2016-07-29T18:27:57+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
@@ -4361,7 +4361,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Eventually the team rebels and informs management that: &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image37.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb37.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb37.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;“If you have experienced even one small part of the story I just told, then you already know that spending time keeping your code clean is not just cost effective; it’s a matter of professional survival.” &lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -4375,7 +4375,9 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;It’s unprofessional for programmers to bend to the will of managers who don’t understand the risks of making messes, too. &lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&amp;lt;!-- more --&amp;gt;3. Temporary conclusion&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Temporary conclusion&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;“You will not make the deadline by making the mess.” &lt;/p&gt;&lt;/li&gt;
@@ -4389,7 +4391,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;“Being able to recognize good art from bad does not mean that we know how to paint.” &lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Writing clean code requires: &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image38.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb38.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb38.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
@@ -4408,7 +4410,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&amp;quot;I like my code to be elegant and efficient.” &lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;“Clean code does one thing well.” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image39.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb39.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb39.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
@@ -4418,7 +4420,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;“Clean code is simple and direct.” &lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;“Clean code reads like well-written prose.” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image40.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb40.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb40.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
@@ -4428,7 +4430,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;“Clean code can be read.” &lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;“Clean code should be literate” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image41.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb41.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb41.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
@@ -4437,7 +4439,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;“clean code always looks like it was written by someone who cares.” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image42.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb42.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb42.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
@@ -4448,7 +4450,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;“Reduced duplication” &lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;“High expressiveness” &lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;“Early building of simple abstraction” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image43.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb43.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb43.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
@@ -4457,7 +4459,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;“You know you are working on clean code when each routine you reads turns out to be pretty much what you expected.” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image44.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb44.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb44.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;“You know you are working on clean code when each routine you reads turns out to be pretty much what you expected.” &lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -4467,7 +4469,7 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;It’s not enough to write the code well. The code has to be kept clean over time. &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image45.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb45.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb45.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
@@ -4494,90 +4496,85 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Can you Spot the Differences?&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image28.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb28.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb28.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;A tale of two apps below&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;One enormous class. =&amp;gt; 1300 lines &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;26 data members &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;40 public methods named “setFlagsForLaterProcessing” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Long functions &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Badly named variables &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Tens of classes &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Several packages &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;“Board”, “Game”, “Strategy” classes &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Small functions &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Comprehensive unit tests &lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&amp;lt;!-- more --&amp;gt;3. The User can’t tell&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image29.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb29.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;One enormous class. =&amp;gt; 1300 lines &lt;/li&gt;
+&lt;li&gt;26 data members &lt;/li&gt;
+&lt;li&gt;40 public methods named “setFlagsForLaterProcessing” &lt;/li&gt;
+&lt;li&gt;Long functions &lt;/li&gt;
+&lt;li&gt;Badly named variables &lt;/li&gt;
+&lt;li&gt;Tens of classes &lt;/li&gt;
+&lt;li&gt;Several packages &lt;/li&gt;
+&lt;li&gt;“Board”, “Game”, “Strategy” classes &lt;/li&gt;
+&lt;li&gt;Small functions &lt;/li&gt;
+&lt;li&gt;Comprehensive unit tests 
 
 &lt;ol&gt;
-&lt;li&gt;Clean code == happy coding jobs&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;The User can’t tell&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb29.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Clean code == happy coding jobs&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;”If by life you were deceived, Don’t be dismal, don’t be wild!”
-–Pushkin &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;If horrible code sucks the life out of you, what would you do? &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image30.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb30.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Remember it!&lt;/li&gt;
+&lt;li&gt;”If by life you were deceived, Don’t be dismal, don’t be wild!”
+–Pushkin &lt;/li&gt;
+&lt;li&gt;If horrible code sucks the life out of you, what would you do?&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb30.png&quot; alt=&quot;image&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Remember it!&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image31.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb31.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb31.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Two reasons for you&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image32.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb32.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb32.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Foreword&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image33.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb33.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb33.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;There will be code&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image34.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb34.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb34.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;“Nonsense! We will never be rid of code, because code represents the details of the requirements.”&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Bad code&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;&lt;p&gt;Bad code&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Kent Beck’s book Implementation Patterns. He says, “…this book is based on a rather fragile premise: that good code matters….” &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image35.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb35.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;1.“It was the bad code that brought the company down.”&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;2.“Of course you have been impeded by bad code. So then---why did you write it?”&lt;/p&gt;
-
-&lt;p&gt;3.“LeBlanc’s law: Later equals never.”&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;The total cost of owning a mess&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;Kent Beck’s book Implementation Patterns. He says, “…this book is based on a rather fragile premise: that good code matters….” &lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb35.png&quot; alt=&quot;image&quot;&gt;&lt;/li&gt;
+&lt;li&gt;1.“It was the bad code that brought the company down.”&lt;/li&gt;
+&lt;li&gt;2.“Of course you have been impeded by bad code. So then---why did you write it?”&lt;/li&gt;
+&lt;li&gt;3.“LeBlanc’s law: Later equals never.”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The total cost of owning a mess&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;No change is trivial &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The productivity of the team continues to decrease &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Add more new staff to the project in hopes of increasing productivity &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;There is no way at all in the end &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image36.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb36.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;No change is trivial &lt;/li&gt;
+&lt;li&gt;The productivity of the team continues to decrease &lt;/li&gt;
+&lt;li&gt;Add more new staff to the project in hopes of increasing productivity &lt;/li&gt;
+&lt;li&gt;There is no way at all in the end &lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb36.png&quot; alt=&quot;image&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt; &lt;/p&gt;
 </content>
@@ -4935,23 +4932,25 @@ UML是一种语言，重在如何描述在软件生产过程中要产生的文�
 &lt;p&gt;究其原因：&lt;/p&gt;
 
 &lt;p&gt;在yii框架的framework/web/CUrlManager.php中定义了开放属性&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1     /**
-2      * @var boolean whether routes are case-sensitive. Defaults to true. By setting this to false,
-3      * the route in the incoming request will be turned to lower case first before further processing.
-4      * As a result, you should follow the convention that you use lower case when specifying
-5      * controller mapping ({@link CWebApplication::controllerMap}) and action mapping
-6      * ({@link CController::actions}). Also, the directory names for organizing controllers should
-7      * be in lower case.
-8      */
-9     public $caseSensitive=true;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @var boolean whether routes are case-sensitive. Defaults to true. By setting this to false,&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * the route in the incoming request will be turned to lower case first before further processing.&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * As a result, you should follow the convention that you use lower case when specifying&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * controller mapping ({@link CWebApplication::controllerMap}) and action mapping&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * ({@link CController::actions}). Also, the directory names for organizing controllers should&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * be in lower case.&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;public $caseSensitive=true;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;默认true值表示路由地址大小写敏感，false值表示路由不区分大小写。&lt;/p&gt;
 
 &lt;p&gt;据Yii官方参考描述：&lt;/p&gt;
 
+&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; By default, routes are case-sensitive. It is possible to make routes case-insensitive by setting&lt;a href=&quot;http://www.yiiframework.com/doc/api/1.1/CUrlManager#caseSensitive&quot;&gt;CUrlManager::caseSensitive&lt;/a&gt; to false in the application configuration. When in case-insensitive mode, make sure you follow the convention that directories containing controller class files are in lowercase, and both &lt;a href=&quot;http://www.yiiframework.com/doc/api/1.1/CWebApplication#controllerMap&quot;&gt;controller map&lt;/a&gt; and &lt;a href=&quot;http://www.yiiframework.com/doc/api/1.1/CController#actions&quot;&gt;action map&lt;/a&gt; have lowercase keys.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;&amp;lt;!-- more --&amp;gt;当在大小写不敏感模式中时，要确保你遵循了相应的规则约定，即：包含控制器类文件的目录名小写，且控制器映射和动作映射 中使用的键为小写。&lt;/p&gt;
+&lt;p&gt;当在大小写不敏感模式中时，要确保你遵循了相应的规则约定，即：包含控制器类文件的目录名小写，且控制器映射和动作映射 中使用的键为小写。&lt;/p&gt;
 
 &lt;p&gt;所以，除了配置main.php中的组件配置项urlManage属性caseSensitive=true以外，还应该确保以下几点：&lt;/p&gt;
 
@@ -4964,14 +4963,14 @@ UML是一种语言，重在如何描述在软件生产过程中要产生的文�
 &lt;p&gt;出现以上的约束情况的原因如下：&lt;/p&gt;
 
 &lt;p&gt;在yii框架中framework/web/CWebApplication.php之方法createController()创建控制器方法中，&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1 if(!$caseSensitive)
-2     $id=strtolower($id); //若然等于false，则控制器ID转换成小写形式
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;if(!$caseSensitive)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;   $id=strtolower($id); //若然等于false，则控制器ID转换成小写形式&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;首先会读取配置信息，其中包含检查了caseSensitive属性，若然等于false，则控制器ID即转换成全小写形式。&lt;/p&gt;
 
 &lt;p&gt;继而，每当创建控制器方法被调用的同时，控制器的首字母皆转换成大写形式。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1 //每当创建控制器实例，即时将控制器ID首字母转为大写形式
-2 $className=ucfirst($id).&amp;#39;Controller&amp;#39;;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;//每当创建控制器实例，即时将控制器ID首字母转为大写形式&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$className=ucfirst($id).&amp;#39;Controller&amp;#39;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;如此，便造成了以上异常现象。&lt;/p&gt;
 </content>
