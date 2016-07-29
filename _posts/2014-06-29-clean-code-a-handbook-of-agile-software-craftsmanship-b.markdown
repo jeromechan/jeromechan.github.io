@@ -15,17 +15,13 @@ tags:
 
 1. The grand redesign in the sky
 
-
-
-	
   * Eventually the team rebels and informs management that: 
 
 	
-  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb37.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image37.png)
+  * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb37.png)
 
 	
   * “If you have experienced even one small part of the story I just told, then you already know that spending time keeping your code clean is not just cost effective; it’s a matter of professional survival.” 
-
 
 2. Attitude 
 
@@ -41,7 +37,7 @@ tags:
   * It’s unprofessional for programmers to bend to the will of managers who don’t understand the risks of making messes, too. 
 
 
-<!-- more -->3. Temporary conclusion
+3. Temporary conclusion
 
 
 
@@ -63,14 +59,11 @@ tags:
   * Writing clean code requires: 
 
 	
-  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb38.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image38.png)
+  * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb38.png)
 
 
 5. What is clean code
 
-
-
-	
   * Do you really know what is clean code? 
 
 	
@@ -79,60 +72,46 @@ tags:
 
 6. Bjarne Stroustrup(Inventor of C++)
 
-
-
-	
   * "I like my code to be elegant and efficient.” 
 
 	
   * “Clean code does one thing well.” 
 
 	
-  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb39.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image39.png)
+  * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb39.png)
 
 
 7. Grady Booch(Author of Object Oriented Analysis and Design with Applications)
 
-
-
-	
   * “Clean code is simple and direct.” 
 
 	
   * “Clean code reads like well-written prose.” 
 
 	
-  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb40.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image40.png)
+  * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb40.png)
 
 
 8. Dave Thomas(”Founder of OTI, godfather of the Eclipse strategy”)
 
-
-
-	
   * “Clean code can be read.” 
 
 	
   * “Clean code should be literate” 
 
 	
-  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb41.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image41.png)
+  * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb41.png)
 
 
 9. Michael Feathers(”Author of Working Effectively with Legacy Code”)
-
-
-
 	
   * “clean code always looks like it was written by someone who cares.” 
 
 	
-  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb42.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image42.png)
+  * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb42.png)
 
 
 10. Ron Jeffries(“Author of Extreme Programming Installed”)
-
-
 
 	
   * “Reduced duplication” 
@@ -144,18 +123,16 @@ tags:
   * “Early building of simple abstraction” 
 
 	
-  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb43.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image43.png)
+  * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb43.png)
 
 
 11. Ward Cunningham(“Inventor of Wiki”)
-
-
 
 	
   * “You know you are working on clean code when each routine you reads turns out to be pretty much what you expected.” 
 
 	
-  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb44.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image44.png)
+  * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb44.png)
 
 	
   * “You know you are working on clean code when each routine you reads turns out to be pretty much what you expected.” 
@@ -163,20 +140,14 @@ tags:
 
 12. The boy scout rule
 
-
-
-	
   * It’s not enough to write the code well. The code has to be kept clean over time. 
 
 	
-  * [![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb45.png)](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image45.png)
+  * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb45.png)
 
 
 13. Bibliography 
 
-
-
-	
   * Clean Code, Robert C. Martin, Prentice-Hall, 2009 
 
 	
