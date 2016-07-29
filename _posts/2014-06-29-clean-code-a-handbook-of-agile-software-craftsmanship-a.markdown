@@ -13,11 +13,12 @@ tags:
 - 面向对象设计
 ---
 
-#### Wrote by Robert C. Martin
+> Wrote by Robert C. Martin
 
-1. Can you Spot the Differences?  
+#### (1) Can you Spot the Differences?  
 ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb28.png)
-2. A tale of two apps below
+
+#### (2) A tale of two apps below
   * One enormous class. => 1300 lines 
   * 26 data members 
   * 40 public methods named “setFlagsForLaterProcessing” 
@@ -28,30 +29,37 @@ tags:
   * “Board”, “Game”, “Strategy” classes 
   * Small functions 
   * Comprehensive unit tests 
-3. The User can’t tell  
+  
+#### (3) The User can’t tell  
 ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb29.png)  
-4. Clean code == happy coding jobs
+
+#### (4) Clean code == happy coding jobs
   * ”If by life you were deceived, Don’t be dismal, don’t be wild!”
 –Pushkin 
   * If horrible code sucks the life out of you, what would you do?
   * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb30.png)  
-5. Remember it!  
+  
+#### (5) Remember it!  
 ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb31.png)  
-6. Two reasons for you  
+
+#### (6) Two reasons for you  
 ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb32.png)  
-7. Foreword  
+
+#### (7) Foreword  
 ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb33.png)  
-8. There will be code  
+
+#### (8) There will be code  
 ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb34.png)  
 “Nonsense! We will never be rid of code, because code represents the details of the requirements.”  
-9. Bad code
+
+#### (9) Bad code
   * Kent Beck’s book Implementation Patterns. He says, “…this book is based on a rather fragile premise: that good code matters….” 
   * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb35.png)
   * 1.“It was the bad code that brought the company down.”
   * 2.“Of course you have been impeded by bad code. So then---why did you write it?”
   * 3.“LeBlanc’s law: Later equals never.”  
 
-10. The total cost of owning a mess
+#### (10) The total cost of owning a mess
   * No change is trivial 
   * The productivity of the team continues to decrease 
   * Add more new staff to the project in hopes of increasing productivity 
