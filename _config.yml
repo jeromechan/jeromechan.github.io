@@ -1,6 +1,9 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdown
+highlighter:      rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Paginate
 gems:             [jekyll-paginate]

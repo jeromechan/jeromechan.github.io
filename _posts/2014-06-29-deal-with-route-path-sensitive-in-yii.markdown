@@ -26,6 +26,7 @@ URI-2: [http://www.w3c.com/storehouse/show](http://www.w3c.com/storehouse/show)
 在yii框架的framework/web/CUrlManager.php中定义了开放属性
 
 ```php
+<?php
 /**
  * @var boolean whether routes are case-sensitive. Defaults to true. By setting this to false,
  * the route in the incoming request will be turned to lower case first before further processing.
@@ -61,6 +62,7 @@ public $caseSensitive=true;
 在yii框架中framework/web/CWebApplication.php之方法createController()创建控制器方法中，
 
 ```php
+<?php
 if(!$caseSensitive)
    $id=strtolower($id); //若然等于false，则控制器ID转换成小写形式
 ```
@@ -70,6 +72,7 @@ if(!$caseSensitive)
 继而，每当创建控制器方法被调用的同时，控制器的首字母皆转换成大写形式。
 
 ```php
+<?php
 //每当创建控制器实例，即时将控制器ID首字母转为大写形式
 $className=ucfirst($id).'Controller';
 ```

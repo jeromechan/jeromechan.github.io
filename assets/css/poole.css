@@ -180,7 +180,7 @@ pre code {
 }
 
 /* Pygments via Jekyll */
-.highlight {
+/*.highlight {
   margin-bottom: 1rem;
   border-radius: 4px;
 }
@@ -192,6 +192,19 @@ pre code {
   white-space: nowrap;    // this sets all children inside to nowrap
 }
 .highlight pre code {
+  white-space: pre;       // forces <code> to respect <pre> formatting
+}*/
+
+/* Rouge vis Jekyll */
+.highlighter-rouge {
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+.highlighter-rouge pre {
+  overflow-x: auto;       // this sets the scrolling in x
+  margin-bottom: 0;
+}
+.highlighter-rouge pre code {
   white-space: pre;       // forces <code> to respect <pre> formatting
 }
 

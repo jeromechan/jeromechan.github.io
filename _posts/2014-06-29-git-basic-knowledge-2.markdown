@@ -61,7 +61,7 @@ rebase是将待合并版本之一的变动作为补丁应用到另一个待合�
 
 九、分支衍合行为规范
 
-Do not rebase commits that you have pushed to a public repository.
+> Do not rebase commits that you have pushed to a public repository.
 
 （一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行衍合操作。）
 
@@ -69,8 +69,9 @@ Do not rebase commits that you have pushed to a public repository.
 
 再谈merge 和 rebase 的区别：
 
-1），从文件结果看，merge 和 rebase 可以达到同样效果。
-2），从历史纪录看，他们存在差异：merge 显示合并后的多父结点，呈现环形，而 rebase 呈现线性结果，即它对分支历史进行合并操作。rebase 提供更好的历史呈现方式（似分支从未曾发生过），但有风险。掌握一条原则：Do not rebase commits that you have pushed to a public repository. 即，不要对你提交过的分支进行 rebase。因为本地的改变会造成远端的困惑。
+1）从文件结果看，merge 和 rebase 可以达到同样效果。  
+
+2）从历史纪录看，他们存在差异：merge 显示合并后的多父结点，呈现环形，而 rebase 呈现线性结果，即它对分支历史进行合并操作。rebase 提供更好的历史呈现方式（似分支从未曾发生过），但有风险。掌握一条原则：Do not rebase commits that you have pushed to a public repository. 即，不要对你提交过的分支进行 rebase。因为本地的改变会造成远端的困惑。
 
 十、分支衍合的协作风险
 

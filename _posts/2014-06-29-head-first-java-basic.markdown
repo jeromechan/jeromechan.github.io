@@ -86,13 +86,15 @@ tags:
 	- Date类（deprecated）
 
 	![clip_image009](/images/2014-06-29-head-first-java-basic/clip_image0094_thumb.png)
-
-	- 绝对时间与相对时间的互转
+	
+	以下是绝对时间与相对时间的互转
 	绝对时间->相对时间：
+	
 	`getTime()`
 	
 	相对时间->绝对时间：
-![clip_image010](/images/2014-06-29-head-first-java-basic/clip_image0104_thumb.png)
+
+	![clip_image010](/images/2014-06-29-head-first-java-basic/clip_image0104_thumb.png)
 
 	- Calendar类（recommend）
 

@@ -20,6 +20,7 @@ tags:
 1. 下划线风格=>驼峰风格
 
 ```php
+<?php
 /**
  * @static 数组键名翻译成驼峰写法
  * @param $in 源数组
@@ -73,8 +74,9 @@ public static function ucFirstWord($word)
 ```
 
 2. 驼峰风格=>下划线风格
- 
+
 ```php
+<?php
 /**
  * @static 数组键名翻译成下划线写法
  * @param $in 源数组
