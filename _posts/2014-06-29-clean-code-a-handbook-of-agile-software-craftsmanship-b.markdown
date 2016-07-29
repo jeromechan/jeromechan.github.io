@@ -16,49 +16,18 @@ tags:
 1. The grand redesign in the sky
 
   * Eventually the team rebels and informs management that: 
-
-	
   * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb37.png)
-
-	
-  * “If you have experienced even one small part of the story I just told, then you already know that spending time keeping your code clean is not just cost effective; it’s a matter of professional survival.” 
-
-2. Attitude 
-
-
-
-	
+  * “If you have experienced even one small part of the story I just told, then you already know that spending time keeping your code clean is not just cost effective; it’s a matter of professional survival.”  
+2. Attitude  
   * We are deeply complicit in the planning of the project and share a great deal of the responsibility for any failures; especially if those failures have to do with bad code! 
-
-	
   * The manager will defend the schedule and requirements with passion. And you, it’s absolutely your job to defend the code with equal passion. 
-
-	
-  * It’s unprofessional for programmers to bend to the will of managers who don’t understand the risks of making messes, too. 
-
-
+  * It’s unprofessional for programmers to bend to the will of managers who don’t understand the risks of making messes, too.   
 3. Temporary conclusion
-
-
-
-	
   * “You will not make the deadline by making the mess.” 
-
-	
-  * The only right way to reach the goal---is to keep the code as clean as possible at all times. 
-
-
-4. The art of clean code
-
-
-
-	
+  * The only right way to reach the goal---is to keep the code as clean as possible at all times.   
+4. The art of clean code  
   * “Being able to recognize good art from bad does not mean that we know how to paint.” 
-
-	
   * Writing clean code requires: 
-
-	
   * ![image](/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb38.png)
 
 
