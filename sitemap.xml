@@ -742,7 +742,7 @@
     <url>
         <loc>http://aboutcoder.com/404.html</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -757,7 +757,7 @@
     <url>
         <loc>http://aboutcoder.com/about/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -772,7 +772,7 @@
     <url>
         <loc>http://aboutcoder.com/atom.xml</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -802,7 +802,22 @@
     <url>
         <loc>http://aboutcoder.com/categories/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
+        
+        
+        <changefreq>monthly</changefreq>
+        
+        
+        <priority>0.3</priority>
+        
+    </url>
+    
+    
+    
+    <url>
+        <loc>http://aboutcoder.com/slides/demo.html</loc>
+        
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -817,7 +832,7 @@
     <url>
         <loc>http://aboutcoder.com/feed.xml</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -832,7 +847,7 @@
     <url>
         <loc>http://aboutcoder.com/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -847,7 +862,7 @@
     <url>
         <loc>http://aboutcoder.com/blog/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -862,7 +877,7 @@
     <url>
         <loc>http://aboutcoder.com/data/index_data.html</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -877,7 +892,7 @@
     <url>
         <loc>http://aboutcoder.com/sitemap.xml</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -892,7 +907,7 @@
     <url>
         <loc>http://aboutcoder.com/tags/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -907,7 +922,7 @@
     <url>
         <loc>http://aboutcoder.com/timeline/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -922,7 +937,7 @@
     <url>
         <loc>http://aboutcoder.com/category/Programming/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -937,7 +952,7 @@
     <url>
         <loc>http://aboutcoder.com/category/Essay/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -952,7 +967,7 @@
     <url>
         <loc>http://aboutcoder.com/category/LAMP/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -967,7 +982,7 @@
     <url>
         <loc>http://aboutcoder.com/category/Translation/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -982,7 +997,7 @@
     <url>
         <loc>http://aboutcoder.com/category/Java/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -997,7 +1012,7 @@
     <url>
         <loc>http://aboutcoder.com/category/Management/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1012,7 +1027,7 @@
     <url>
         <loc>http://aboutcoder.com/category/Photography/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1027,7 +1042,7 @@
     <url>
         <loc>http://aboutcoder.com/category/Android/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1042,7 +1057,7 @@
     <url>
         <loc>http://aboutcoder.com/category/Marketing/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1057,7 +1072,7 @@
     <url>
         <loc>http://aboutcoder.com/category/middleman/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1072,7 +1087,7 @@
     <url>
         <loc>http://aboutcoder.com/category/jekyll/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1087,7 +1102,7 @@
     <url>
         <loc>http://aboutcoder.com/category/architecture/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1102,7 +1117,7 @@
     <url>
         <loc>http://aboutcoder.com/category/fastjson/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1117,7 +1132,7 @@
     <url>
         <loc>http://aboutcoder.com/category/opensource/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1132,7 +1147,7 @@
     <url>
         <loc>http://aboutcoder.com/category/license/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1147,7 +1162,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/PHP/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1162,7 +1177,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1177,7 +1192,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/Java/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1192,7 +1207,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/Git/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1207,7 +1222,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1222,7 +1237,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1237,7 +1252,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E7%94%9F%E6%B4%BB/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1252,7 +1267,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/Sitemap%20Protocol/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1267,7 +1282,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/wordpress/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1282,7 +1297,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/Linux/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1297,7 +1312,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/Linux%E7%94%A8%E6%88%B7/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1312,7 +1327,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/apache%20linux%20%E5%AE%89%E8%A3%85/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1327,7 +1342,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/Apache%E5%AE%89%E8%A3%85/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1342,7 +1357,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/LAMP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1357,7 +1372,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/php%E5%AE%89%E8%A3%85/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1372,7 +1387,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/WAMP/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1387,7 +1402,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/Build%20System/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1402,7 +1417,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/sublime%20text/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1417,7 +1432,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/php%20linux%20%E5%AE%89%E8%A3%85/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1432,7 +1447,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/2014%E5%B9%B4%E5%8D%97%E4%BA%AC%E9%9D%92%E5%A5%A5%E4%BC%9A/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1447,7 +1462,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E5%8D%97%E4%BA%AC%E5%A5%A5%E4%BD%93%E4%B8%AD%E5%BF%83/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1462,7 +1477,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/presswork%E9%9D%A2%E5%8C%85%E5%B1%91/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1477,7 +1492,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/wordpress%20%E4%B8%BB%E9%A2%98/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1492,7 +1507,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/markdown/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1507,7 +1522,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/markdown%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1522,7 +1537,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/JAVA%20Switch/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1537,7 +1552,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/Switch%E8%AF%AD%E5%8F%A5/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1552,7 +1567,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/ServerAlias/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1567,7 +1582,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/ServerName/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1582,7 +1597,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1597,7 +1612,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1612,7 +1627,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E5%8D%97%E4%BA%AC%E6%80%BB%E7%BB%9F%E5%BA%9C/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1627,7 +1642,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E5%8D%97%E4%BA%AC%E6%97%85%E6%B8%B8%E6%99%AF%E7%82%B9/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1642,7 +1657,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E7%81%B5%E8%B0%B7%E5%AF%BA/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1657,7 +1672,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E9%92%9F%E5%B1%B1%E9%A3%8E%E6%99%AF%E5%8C%BA/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1672,7 +1687,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E4%B8%8A%E6%B5%B7/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1687,7 +1702,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E4%B8%8A%E6%B5%B7%E5%8D%8E%E4%B8%9C%E5%B8%88%E5%A4%A7/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1702,7 +1717,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E9%99%86%E5%AE%B6%E5%98%B4/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1717,7 +1732,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1732,7 +1747,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E5%A4%A7%E5%AD%A6%E5%86%9B%E8%AE%AD/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1747,7 +1762,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E9%9D%92%E6%98%A5%E8%AE%B0%E5%BF%86/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1762,7 +1777,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1777,7 +1792,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E6%94%B9%E9%9D%A9%E5%BC%80%E6%94%BE/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1792,7 +1807,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E6%A6%9C%E6%A0%B7/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1807,7 +1822,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E5%A4%A7%E5%AD%A6/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1822,7 +1837,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B4%BB/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1837,7 +1852,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E9%9F%B3%E4%B9%90%E4%B9%8B%E6%97%85/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1852,7 +1867,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/openfire/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1867,7 +1882,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/openfire%20plugin/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1882,7 +1897,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1897,7 +1912,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/2004%E5%84%8B%E5%B7%9E%E6%97%B1%E6%83%85/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1912,7 +1927,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E4%B8%AD%E5%AD%A6%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1927,7 +1942,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E6%83%85%E8%B0%83%E6%9F%A5/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1942,7 +1957,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E4%BA%92%E8%81%94%E7%BD%91%E5%B8%82%E5%9C%BA/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1957,7 +1972,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E4%BA%92%E8%81%94%E7%BD%91%E8%90%A5%E9%94%80/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1972,7 +1987,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E6%8E%A8%E5%B9%BF/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -1987,7 +2002,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E7%A0%94%E5%8F%91%E4%BA%BA%E8%A7%82%E7%82%B9/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2002,7 +2017,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/git%20flow/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2017,7 +2032,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/github%20flow/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2032,7 +2047,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/git%E6%B5%81%E7%A8%8B/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2047,7 +2062,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/git%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2062,7 +2077,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/mike%20flow/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2077,7 +2092,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/project%20manage/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2092,7 +2107,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/%E8%A7%84%E5%88%92%E9%A1%B9%E7%9B%AE%E6%97%A5%E7%A8%8B/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2107,7 +2122,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/middleman/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2122,7 +2137,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/jekyll/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2137,7 +2152,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/architecture/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2152,7 +2167,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/fastjson/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2167,7 +2182,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/opensource/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2182,7 +2197,7 @@
     <url>
         <loc>http://aboutcoder.com/tag/license/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2197,7 +2212,7 @@
     <url>
         <loc>http://aboutcoder.com/page/2/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2212,7 +2227,7 @@
     <url>
         <loc>http://aboutcoder.com/page/3/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2227,7 +2242,7 @@
     <url>
         <loc>http://aboutcoder.com/page/4/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2242,7 +2257,7 @@
     <url>
         <loc>http://aboutcoder.com/page/5/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2257,7 +2272,7 @@
     <url>
         <loc>http://aboutcoder.com/page/6/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2272,7 +2287,7 @@
     <url>
         <loc>http://aboutcoder.com/page/7/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2287,7 +2302,7 @@
     <url>
         <loc>http://aboutcoder.com/page/8/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2302,7 +2317,7 @@
     <url>
         <loc>http://aboutcoder.com/page/9/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2317,7 +2332,7 @@
     <url>
         <loc>http://aboutcoder.com/page/10/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2332,7 +2347,7 @@
     <url>
         <loc>http://aboutcoder.com/page/11/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2347,7 +2362,7 @@
     <url>
         <loc>http://aboutcoder.com/page/12/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2362,7 +2377,7 @@
     <url>
         <loc>http://aboutcoder.com/page/13/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2377,7 +2392,7 @@
     <url>
         <loc>http://aboutcoder.com/page/14/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2392,7 +2407,7 @@
     <url>
         <loc>http://aboutcoder.com/page/15/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2407,7 +2422,7 @@
     <url>
         <loc>http://aboutcoder.com/page/16/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2422,7 +2437,7 @@
     <url>
         <loc>http://aboutcoder.com/page/17/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2437,7 +2452,7 @@
     <url>
         <loc>http://aboutcoder.com/page/18/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2452,7 +2467,7 @@
     <url>
         <loc>http://aboutcoder.com/page/19/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2467,7 +2482,7 @@
     <url>
         <loc>http://aboutcoder.com/page/20/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2482,7 +2497,7 @@
     <url>
         <loc>http://aboutcoder.com/page/21/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2497,7 +2512,7 @@
     <url>
         <loc>http://aboutcoder.com/page/22/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2512,7 +2527,7 @@
     <url>
         <loc>http://aboutcoder.com/page/23/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2527,7 +2542,7 @@
     <url>
         <loc>http://aboutcoder.com/page/24/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2542,7 +2557,7 @@
     <url>
         <loc>http://aboutcoder.com/page/25/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2557,7 +2572,7 @@
     <url>
         <loc>http://aboutcoder.com/page/26/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2572,7 +2587,7 @@
     <url>
         <loc>http://aboutcoder.com/page/27/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2587,7 +2602,7 @@
     <url>
         <loc>http://aboutcoder.com/page/28/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2602,7 +2617,7 @@
     <url>
         <loc>http://aboutcoder.com/page/29/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2617,7 +2632,7 @@
     <url>
         <loc>http://aboutcoder.com/page/30/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2632,7 +2647,7 @@
     <url>
         <loc>http://aboutcoder.com/page/31/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2647,7 +2662,7 @@
     <url>
         <loc>http://aboutcoder.com/page/32/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2662,7 +2677,7 @@
     <url>
         <loc>http://aboutcoder.com/page/33/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2677,7 +2692,7 @@
     <url>
         <loc>http://aboutcoder.com/page/34/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2692,7 +2707,7 @@
     <url>
         <loc>http://aboutcoder.com/page/35/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2707,7 +2722,7 @@
     <url>
         <loc>http://aboutcoder.com/page/36/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2722,7 +2737,7 @@
     <url>
         <loc>http://aboutcoder.com/page/37/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2737,7 +2752,7 @@
     <url>
         <loc>http://aboutcoder.com/page/38/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2752,7 +2767,7 @@
     <url>
         <loc>http://aboutcoder.com/page/39/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2767,7 +2782,7 @@
     <url>
         <loc>http://aboutcoder.com/page/40/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2782,7 +2797,7 @@
     <url>
         <loc>http://aboutcoder.com/page/41/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2797,7 +2812,7 @@
     <url>
         <loc>http://aboutcoder.com/page/42/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2812,7 +2827,7 @@
     <url>
         <loc>http://aboutcoder.com/page/43/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2827,7 +2842,7 @@
     <url>
         <loc>http://aboutcoder.com/page/44/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2842,7 +2857,7 @@
     <url>
         <loc>http://aboutcoder.com/page/45/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2857,7 +2872,7 @@
     <url>
         <loc>http://aboutcoder.com/page/46/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2872,7 +2887,7 @@
     <url>
         <loc>http://aboutcoder.com/page/47/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2887,7 +2902,7 @@
     <url>
         <loc>http://aboutcoder.com/page/48/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
@@ -2902,7 +2917,7 @@
     <url>
         <loc>http://aboutcoder.com/page/49/</loc>
         
-        <lastmod>2016-07-30T02:14:19+08:00</lastmod>
+        <lastmod>2016-07-30T04:13:46+08:00</lastmod>
         
         
         <changefreq>monthly</changefreq>
