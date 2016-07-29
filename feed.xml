@@ -14,8 +14,9 @@
 我们这里不做过多的介绍，只介绍一些自己常用的三个选择及其理由，以供参考。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;二、详细描述&lt;/h3&gt;
-&lt;p&gt;#### 2.1 “我需要一个简单宽松的协议”&lt;br /&gt;
-MIT License是一个简短、宽松、自由的协议。该协议允许人们使用你的代码，但必须要保留你的版权信息。与此同时，并不会给你带来任何责任和风险。&lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;.NET Core&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Rails&lt;/code&gt;使用的均是MIT License。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;2.1 “我需要一个简单宽松的协议”&lt;/h4&gt;
+&lt;p&gt;MIT License是一个简短、宽松、自由的协议。该协议允许人们使用你的代码，但必须要保留你的版权信息。与此同时，并不会给你带来任何责任和风险。&lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;.NET Core&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Rails&lt;/code&gt;使用的均是MIT License。&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The MIT License (MIT)
 Copyright (c) &amp;lt;year&amp;gt; &amp;lt;copyright holders&amp;gt;
@@ -28,7 +29,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;2.2 “我更加关心自己的专利”&lt;/h4&gt;
+&lt;h4 id=&quot;section-3&quot;&gt;2.2 “我更加关心自己的专利”&lt;/h4&gt;
 &lt;p&gt;Apache License 2.0是一项和MIT License相似的协议，但自己希望自己的专利能在开源免费使用的同时，保留自己在开源产品中的专利权益。同样，该协议要求使用者必须保留你的版权信息。&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;Android&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Apache&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Swift&lt;/code&gt;使用的均是Apache License 2.0协议。&lt;/p&gt;
 
@@ -49,7 +50,7 @@ limitations under the License.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;2.3 “我关心代码的分享以及促进”&lt;/h4&gt;
+&lt;h4 id=&quot;section-4&quot;&gt;2.3 “我关心代码的分享以及促进”&lt;/h4&gt;
 &lt;p&gt;如果你希望别人在分享的自己的作品之后，也必须遵循相同的协议，也必须是开源和免费。那么GPLv3是你更好的选择。该协议当中也明确地包含了贡献人的专利权益方面的款项。原作品的版权条款也必须延续保留。GPL协议存在非常强的“传染性”
 &lt;code class=&quot;highlighter-rouge&quot;&gt;Bash&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;GIMP&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Privacy Badger&lt;/code&gt;使用的均是GPLv3协议。&lt;/p&gt;
 
@@ -80,7 +81,7 @@ along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;g
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;三、参考资料&lt;/h3&gt;
+&lt;h3 id=&quot;section-5&quot;&gt;三、参考资料&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Opensource License：&lt;a href=&quot;http://choosealicense.com/licenses/&quot;&gt;http://choosealicense.com/licenses/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;各种开源协议介绍：&lt;a href=&quot;http://www.open-open.com/solution/view/1319816219625&quot;&gt;http://www.open-open.com/solution/view/1319816219625&lt;/a&gt;&lt;/li&gt;
@@ -1882,54 +1883,69 @@ liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得�
 
 &lt;p&gt;需要知道的术语——下面的术语你知道多少?&lt;/p&gt;
 
-&lt;p&gt;Δ  定界符
-Δ  字符域
-Δ  修饰符
-Δ  限定符
-Δ  脱字符
-Δ  通配符(正向预查，反向预查)
-Δ  反向引用
-Δ  惰性匹配
-Δ  注释
+&lt;p&gt;Δ  定界符&lt;br /&gt;
+Δ  字符域&lt;br /&gt;
+Δ  修饰符&lt;br /&gt;
+Δ  限定符&lt;br /&gt;
+Δ  脱字符&lt;br /&gt;
+Δ  通配符(正向预查，反向预查)&lt;br /&gt;
+Δ  反向引用&lt;br /&gt;
+Δ  惰性匹配&lt;br /&gt;
+Δ  注释&lt;br /&gt;
 Δ  零字符宽&lt;/p&gt;
 
-&lt;p&gt;定位
-我们什么时候使用正则表达式呢？不是所有的字符操作都用正则就好了，php在某些方面用正则反而影响效率。当我们遇到复杂文本数据的解析时候，用正则是比较好的选择。
-优点
-正则表达式在处理复杂字符操作的时候，可以提高工作效率，也在一定程度节省你的代码量。
-缺点
-我们在使用正则表达式的时候，复杂的正则表达式会加大代码的复杂度，让人很难理解。所以我们有的时候需要在正则表达式内部添加注释。&lt;!-- more --&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;定位&lt;br /&gt;
+我们什么时候使用正则表达式呢？不是所有的字符操作都用正则就好了，php在某些方面用正则反而影响效率。当我们遇到复杂文本数据的解析时候，用正则是比较好的选择。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;优点
+正则表达式在处理复杂字符操作的时候，可以提高工作效率，也在一定程度节省你的代码量。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;缺点
+我们在使用正则表达式的时候，复杂的正则表达式会加大代码的复杂度，让人很难理解。所以我们有的时候需要在正则表达式内部添加注释。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;二、通用模式&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;¤ 定界符，通常使用 “/”做为定界符开始和结束,也可以使用”#”。
-什么时候使用”#”呢?一般是在你的字符串中有很多”/”字符的时候，因为正则的时候这种字符需要转义，比如uri。
-使用”/”定界符的代码如下.&lt;/p&gt;
+&lt;p&gt;¤ 定界符&lt;br /&gt;
+通常使用 “/”做为定界符开始和结束,也可以使用”#”。&lt;br /&gt;
+什么时候使用”#”呢?一般是在你的字符串中有很多”/”字符的时候，因为正则的时候这种字符需要转义，比如uri。&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+)\.html$/i&#39;;
+&lt;p&gt;使用”/”定界符的代码如下.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+)\.html$/i&#39;;
 $str = &#39;http://www.youku.com/show_page/id_ABCDEFG.html&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &quot;\n&quot;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;preg_match中的$matches[0]将包含与整个模式匹配的字符串。
+&lt;p&gt;preg_match中的$matches[0]将包含与整个模式匹配的字符串。&lt;br /&gt;
 使用”#”定界符的代码如下.这个时候对”/”就不转义!&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;#^http://([\w.]+)/([\w]+)/([\w]+)\.html$#i&#39;;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;#^http://([\w.]+)/([\w]+)/([\w]+)\.html$#i&#39;;
 $str = &#39;http://www.youku.com/show_page/id_ABCDEFG.html&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &quot;\n&quot;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;¤ 修饰符:用于改变正则表达式的行为。
-我们看到的(‘/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+).html/&lt;strong&gt;i&lt;/strong&gt;‘)中的最后一个”i”就是修饰符,表示忽略大小写，还有一个我们经常用到的是”x”表示忽略空格。
+&lt;p&gt;¤ 修饰符:用于改变正则表达式的行为。&lt;/p&gt;
+
+&lt;p&gt;我们看到的&lt;code class=&quot;highlighter-rouge&quot;&gt;(&#39;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+)\.html/**i**&#39;)&lt;/code&gt;  中的最后一个”i”就是修饰符,表示忽略大小写，还有一个我们经常用到的是”x”表示忽略空格。&lt;br /&gt;
 贡献代码:&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/HELLO/&#39;;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/HELLO/&#39;;
 $str = &#39;hello word&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
@@ -1937,48 +1953,54 @@ echo &#39;No i:Valid Successful!&#39;,&quot;\n&quot;;
 }
 if(preg_match($regex.&#39;i&#39;, $str, $matches)){
 echo &#39;YES i:Valid Successful!&#39;,&quot;\n&quot;;
-}&lt;/blockquote&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;¤ 字符域:[\w]用方括号扩起来的部分就是字符域。
-¤ 限定符:如[\w]{3,5}或者[\w]*或者[\w]+这些[\w]后面的符号都表示限定符。现介绍具体意义。
-{3,5}表示3到5个字符。{3,}超过3个字符，{,5}最多5个，{3}三个字符。
-* 表示0到多个
-+ 表示1到多个
-¤ 脱字符号（^:）
-（1）放在字符域(如:[^\w])中表示否定(不包括的意思)——“反向选择”
-（2）放在表达式之前，表示以当前这个字符开始。(/^n/i,表示以n开头)
+&lt;p&gt;¤ 字符域:[\w]用方括号扩起来的部分就是字符域。&lt;br /&gt;
+¤ 限定符:如[\w]{3,5}或者[\w]*或者[\w]+这些[\w]后面的符号都表示限定符。现介绍具体意义。&lt;/p&gt;
+
+&lt;p&gt;{3,5}表示3到5个字符。{3,}超过3个字符，{,5}最多5个，{3}三个字符。&lt;br /&gt;
+* 表示0到多个&lt;br /&gt;
++ 表示1到多个&lt;br /&gt;
+¤ 脱字符号（^:）&lt;br /&gt;
+（1）放在字符域(如:[^\w])中表示否定(不包括的意思)——“反向选择”&lt;br /&gt;
+（2）放在表达式之前，表示以当前这个字符开始。(/^n/i,表示以n开头)&lt;br /&gt;
 注意，我们经常管”&quot;叫”跳脱字符”。用于转义一些特殊符号，如”.”,”/”&lt;/p&gt;
 
-&lt;p&gt;**三、通配符(lookarounds)
-**&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;三、通配符(lookarounds)&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;断言某些字符串中某些字符的存在与否！
-格式:
-正向预查:(?=) 相对应的 (?!)表示否定意思
+&lt;p&gt;断言某些字符串中某些字符的存在与否!&lt;br /&gt;
+格式:&lt;br /&gt;
+正向预查:(?=) 相对应的 (?!)表示否定意思&lt;br /&gt;
 反向预查:(?&amp;lt;=) 相对应的 (?前后紧跟字符&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/(?&amp;lt;=c)d(?=e)/&#39;;  /* d 前面紧跟c, d 后面紧跟e*/
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/(?&amp;lt;=c)d(?=e)/&#39;;  /* d 前面紧跟c, d 后面紧跟e*/
 $str = &#39;abcdefgk&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &quot;\n&quot;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;否定意义:&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/(?
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/(?
 $str = &#39;abcdefgk&#39;;
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &quot;\n&quot;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;字符宽度:零
+&lt;p&gt;字符宽度:零&lt;br /&gt;
 验证零字符代码&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/HE(?=L)LO/i&#39;;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/HE(?=L)LO/i&#39;;
 $str = &#39;HELLO&#39;;
 $matches = array();
 
@@ -1996,7 +2018,10 @@ if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 echo &quot;\n&quot;;
-能打印出结果!&lt;/blockquote&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;能打印出结果!&lt;/p&gt;
 
 &lt;p&gt;说明:(?=L)意思是HE后面紧跟一个L字符。但是(?=L)本身不占字符，要与(L)区分，（L）本身占一个字符。&lt;/p&gt;
 
@@ -2006,38 +2031,37 @@ echo &quot;\n&quot;;
 &lt;p&gt;没有指明类型而进行的分组,将会被获取,供以后使用。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;指明类型指的是通配符。所以只有圆括号起始位置没有问号的才能被捕捉。&lt;/p&gt;
+  &lt;p&gt;指明类型指的是通配符。所以只有圆括号起始位置没有问号的才能被捕捉。
+在同一个表达式内的引用叫做反向引用。
+调用格式: \编号(如\1)。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;在同一个表达式内的引用叫做反向引用。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;调用格式: \编号(如\1)。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;$regex = &#39;/^(Chuanshanjia)[\w\s!]+\1$/&#39;;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/^(Chuanshanjia)[\w\s!]+\1$/&#39;;
 $str = &#39;Chuanshanjia thank Chuanshanjia&#39;;
 $matches = array();
 
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
-echo &quot;\n&quot;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;避免捕获数据
-格式:(?:pattern)
-优点:将使有效反向引用数量保持在最小，代码更加、清楚。&lt;/p&gt;
+  &lt;p&gt;避免捕获数据&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;格式:(?:pattern)&lt;/p&gt;
+
+&lt;p&gt;优点:将使有效反向引用数量保持在最小，代码更加、清楚。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;命名捕获组
-格式:(?P&lt;组名&gt;) 调用方式 (?P=组名)&lt;/组名&gt;&lt;/p&gt;
+  &lt;p&gt;命名捕获组&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;blockquote&gt;arrray(3) {
+&lt;p&gt;格式:(?P&lt;组名&gt;) 调用方式 (?P=组名)&lt;/组名&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;arrray(3) {
 
 [0] =&amp;gt;
 string(28) “chuanshanjia Is chuanshanjia”
@@ -2045,7 +2069,9 @@ string(28) “chuanshanjia Is chuanshanjia”
 string(12) “chuanshanjia”
 [1] =&amp;gt;
 string(12) “chuanshanjia&quot;
-}&lt;/blockquote&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;五、惰性匹配&lt;/strong&gt;&lt;/p&gt;
 
@@ -2055,7 +2081,7 @@ string(12) “chuanshanjia&quot;
 先看下面的两个代码:
 代码1&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/heL*/i&#39;;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/heL*/i&#39;;
 $str = &#39;heLLLLLLLLLLLLLLLL&#39;;
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
@@ -2066,11 +2092,13 @@ echo &quot;\n&quot;;
 array(1) {
 [0] =&amp;gt;
 string(8) &quot;heLLLLLLLLLLLLLLLL&quot;
-}&lt;/blockquote&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;代码2&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/heL*?/i&#39;;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/heL*?/i&#39;;
 $str = &#39;heLLLLLLLLLLLLLLLL&#39;;
 
 if(preg_match($regex, $str, $matches)){
@@ -2081,11 +2109,13 @@ echo &quot;\n&quot;;
 array(1) {
 [0] =&amp;gt;
 string(2) &quot;he&quot;
-}&lt;/blockquote&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;代码3,使用“+”&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/heL+?/i&#39;;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/heL+?/i&#39;;
 
 $str = &#39;heLLLLLLLLLLLLLLLL&#39;;
 if(preg_match($regex, $str, $matches)){
@@ -2098,11 +2128,13 @@ array(1) {
 
 [0] =
 string(3) &quot;heL&quot;
-}&lt;/blockquote&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;代码4,使用{3,5}&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/heL{3,10}?/i&#39;;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/heL{3,10}?/i&#39;;
 $str = &#39;heLLLLLLLLLLLLLLLL&#39;;
 
 if(preg_match($regex, $str, $matches)){
@@ -2114,7 +2146,9 @@ echo &quot;\n&quot;;
 array(1) {
 [0] =&amp;gt;
 string(5) &quot;heLLL&quot;
-}&lt;/blockquote&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;六、正则表达式的注释&lt;/strong&gt;&lt;/p&gt;
 
@@ -2123,7 +2157,7 @@ string(5) &quot;heLLL&quot;
 
 &lt;p&gt;贡献代码:是一个用于连接MYSQL数据库的正则表达式&lt;/p&gt;
 
-&lt;blockquote&gt;$regex = &#39;/
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/
 ^host=(?&amp;lt;!\.)([\d.]+)(?!\.) (?#主机地址)
 \|
 ([\w!@#$%^&amp;amp;*()_+\-]+) (?#用户名)
@@ -2138,22 +2172,67 @@ if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 
-echo &quot;\n&quot;;&lt;/blockquote&gt;
+echo &quot;\n&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;**七、特殊字符
-**&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;七、特殊字符&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;特殊字符      解释
-*                   0到多次
-+                  1到多次还可以写成{1,}
-?                  0或1次
-.                   匹配除换行符外的所有单个的字符
-\w                [a-zA-Z0-9_]
-\s                 空白字符(空格，换行符，回车符）[\t\n\r]
-\d                 [0-9]&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;特殊字符  &lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;   解释&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;*       &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;           0到多次&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+        &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;         1到多次还可以写成{1,}&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;?    &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;             0或1次&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;.    &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;              匹配除换行符外的所有单个的字符&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\w    &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;           [a-zA-Z0-9_]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\s    &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;            空白字符(空格，换行符，回车符）[\t\n\r]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\d    &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;            [0-9]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;blockquote&gt;本篇文章为转载文章，因为觉得写得的确是好，二次分享给大家，版权归原作者“川山甲”所有。
-原文链接：http://www.cnblogs.com/baochuan/archive/2012/03/12/2391135.html&lt;/blockquote&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;本篇文章为转载文章，因为觉得写得的确是好，二次分享给大家，版权归原作者“川山甲”所有。&lt;br /&gt;
+原文链接：http://www.cnblogs.com/baochuan/archive/2012/03/12/2391135.html&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
 				<pubDate>Thu, 11 Jun 2015 17:32:00 +0800</pubDate>
 				<link>http://aboutcoder.com/2015/06/11/php-regular-expression/</link>
@@ -2170,47 +2249,52 @@ echo &quot;\n&quot;;&lt;/blockquote&gt;
 
 &lt;p&gt;plugin的源码放置在Openfire源码根目录的plugins目录下。当plugin以jar包或者war包的形式部署了之后，它将会自动解压成原始的文件夹层级结构，类似的plugin目录结构如下：&lt;/p&gt;
 
-&lt;p&gt;Plugin Structure
-myplugin/
-|- plugin.xml &amp;lt;- Plugin定义文件
-|- readme.html &amp;lt;- 可选，插件说明文件，直接呈现给最终的用户阅读
-|- changelog.html &amp;lt;- 可选，插件变更日志文件，直接呈现给最终的用户阅读
-|- logo_small.gif &amp;lt;- 可选，插件的小号Logo图片(16x16)，只支持.gif和.png格式
-|- logo_large.gif &amp;lt;- 可选，插件的大号Logo图片(32x32)，只支持.gif和.png格式
-|- classes/ &amp;lt;- 插件所需要的资源文件 (类似地，例如插件的属性配置文件)
-|- database/ &amp;lt;- 可选，插件的数据库模型文件，可内置包含数据库版本升级的模型文件
-|- i18n/ &amp;lt;- 可选，插件的i18n多语言支持文件
-|- lib/ &amp;lt;- 插件所依赖的库（即JAR包）
-|- web &amp;lt;- 可选，插件的控制台页面相关文件
+&lt;p&gt;Plugin Structure&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;myplugin/	
+|- plugin.xml &amp;lt;- Plugin定义文件	
+|- readme.html &amp;lt;- 可选，插件说明文件，直接呈现给最终的用户阅读	
+|- changelog.html &amp;lt;- 可选，插件变更日志文件，直接呈现给最终的用户阅读	
+|- logo_small.gif &amp;lt;- 可选，插件的小号Logo图片(16x16)，只支持.gif和.png格式	
+|- logo_large.gif &amp;lt;- 可选，插件的大号Logo图片(32x32)，只支持.gif和.png格式	
+|- classes/ &amp;lt;- 插件所需要的资源文件 (类似地，例如插件的属性配置文件)	
+|- database/ &amp;lt;- 可选，插件的数据库模型文件，可内置包含数据库版本升级的模型文件	
+|- i18n/ &amp;lt;- 可选，插件的i18n多语言支持文件	
+|- lib/ &amp;lt;- 插件所依赖的库（即JAR包）	
+|- web &amp;lt;- 可选，插件的控制台页面相关文件	
 |- WEB-INF/
 |- web.xml &amp;lt;- 生成的web.xml，包含了等待编译的jsp配置
 |- web-custom.xml &amp;lt;- 可选，用户自定义的web.xml，包含用户的servlets配置
-|- images/ &amp;lt;- 可选，插件的控制台页面所需要的图片资源文件，只支持.gif与.png格式&lt;/p&gt;
+|- images/ &amp;lt;- 可选，插件的控制台页面所需要的图片资源文件，只支持.gif与.png格式
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;plugin中的web目录提供的是插件在管理员控制台中的管理功能，下面会撰写更为详细的相关内容。 其中，plugin.xml定义了plugin主要的类，下面是一个例子：&lt;!-- more --&gt;&lt;/p&gt;
 
-&lt;!-- Sample plugin.xml --&gt;
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;plugin&gt;
-&lt;!-- Main plugin class --&gt;
-&lt;class&gt;org.example.ExamplePlugin&lt;/class&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Sample plugin.xml --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Main plugin class --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;class&amp;gt;&lt;/span&gt;org.example.ExamplePlugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/class&amp;gt;&lt;/span&gt;
 
-&lt;!-- Plugin meta-data --&gt;
-&lt;name&gt;Example Plugin&lt;/name&gt;
-&lt;description&gt;This is an example plugin.&lt;/description&gt;
-&lt;author&gt;Jive Software&lt;/author&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Plugin meta-data --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;Example Plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;This is an example plugin.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;author&amp;gt;&lt;/span&gt;Jive Software&lt;span class=&quot;nt&quot;&gt;&amp;lt;/author&amp;gt;&lt;/span&gt;
 
-&lt;version&gt;1.0&lt;/version&gt;
-&lt;date&gt;07/01/2006&lt;/date&gt;
-&lt;url&gt;http://www.igniterealtime. org/projects/openfire/plugins.jsp&lt;/url&gt;
-&lt;minServerVersion&gt;3.0.0&lt;/minServerVersion&gt;
-&lt;licenseType&gt;gpl&lt;/licenseType&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;date&amp;gt;&lt;/span&gt;07/01/2006&lt;span class=&quot;nt&quot;&gt;&amp;lt;/date&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;http://www.igniterealtime. org/projects/openfire/plugins.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;minServerVersion&amp;gt;&lt;/span&gt;3.0.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/minServerVersion&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;licenseType&amp;gt;&lt;/span&gt;gpl&lt;span class=&quot;nt&quot;&gt;&amp;lt;/licenseType&amp;gt;&lt;/span&gt;
 
-&lt;!-- Admin console entries --&gt;
-&lt;adminconsole&gt;
-&lt;!-- More on this below --&gt;
-&lt;/adminconsole&gt;
-&lt;/plugin&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Admin console entries --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;adminconsole&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- More on this below --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/adminconsole&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;以下的这一些元数据字段可以在plugin.xml被设置：&lt;/p&gt;
 
@@ -2248,15 +2332,19 @@ myplugin/
   &lt;li&gt;
     &lt;p&gt;licenseType：定义着当前插件的官方所遵循的协议。有效的数值类似地：（1）“commercial”：插件的发布与传衍遵循着商业的协议&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;“gpl”：the GNU Public License（GPL）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;“apache”：the Apache License&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;“internal”：限制在内部使用，并且不准备二次发布传衍&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;“other”：plugin所遵循的协议不在所列的协议范围之内，那么便可以使用other项，在其中需要撰写清楚相关协议的细节假设plugin没有指定任何协议，那么插件默认指定为other项。&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;（2）“gpl”：the GNU Public License（GPL）&lt;/p&gt;
-
-&lt;p&gt;（3）“apache”：the Apache License&lt;/p&gt;
-
-&lt;p&gt;（4）“internal”：限制在内部使用，并且不准备二次发布传衍&lt;/p&gt;
-
-&lt;p&gt;（5）“other”：plugin所遵循的协议不在所列的协议范围之内，那么便可以使用other项，在其中需要撰写清楚相关协议的细节假设plugin没有指定任何协议，那么插件默认指定为other项。&lt;/p&gt;
 
 &lt;p&gt;在plugin中还有一些额外的文件，给用户提供了更多的信息（这些文件都放置在了plugin的根目录下）：&lt;/p&gt;
 
@@ -2278,27 +2366,31 @@ myplugin/
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;// plugin的实现例子
-package org.example;
-import org.jivesoftware.openfire.container.Plugin;
-import org.jivesoftware.openfire.container.PluginManager;
-import java.io.File;
-/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// plugin的实现例子&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.jivesoftware.openfire.container.Plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.jivesoftware.openfire.container.PluginManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/**
 * A sample plugin for Openfire.
-*/
-public class ExamplePlugin implements Plugin {
-public void initializePlugin(PluginManager manager, File pluginDirectory) {
-// Your code goes here
-}&lt;/p&gt;
+*/&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ExamplePlugin&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Plugin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initializePlugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PluginManager&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;manager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pluginDirectory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Your code goes here&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;p&gt;public void destroyPlugin() {
-// Your code goes here
-}
-}&lt;/p&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;destroyPlugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Your code goes here&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;常用的plugin最佳实践&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;在选择一个插件的包名之时，我们推荐可以选择一些具备唯一性的标识，类似地，可以选用你的自定义字符串或者是组织名称来尽可能地避免包或者类命名的冲突。例如，假设每个人使用的包名都是org.example.PluginName，就算是PluginName是不相同的，但是你依然会遇到这里或那里的类名冲突，这不是玩笑，在集群部署环境之下，该问题尤其突出。&lt;/p&gt;
+&lt;p&gt;在选择一个插件的包名之时，我们推荐可以选择一些具备唯一性的标识，类似地，可以选用你的自定义字符串或者是组织名称来尽可能地避免包或者类命名的冲突。&lt;/p&gt;
+
+&lt;p&gt;例如，假设每个人使用的包名都是org.example.PluginName，就算是PluginName是不相同的，但是你依然会遇到这里或那里的类名冲突，这不是玩笑，在集群部署环境之下，该问题尤其突出。&lt;/p&gt;
 
 </description>
 				<pubDate>Sun, 17 May 2015 23:26:42 +0800</pubDate>

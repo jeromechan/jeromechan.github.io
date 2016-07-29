@@ -631,10 +631,6 @@
         
           
         
-      
-        
-          
-        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -669,83 +665,60 @@
 
 <p>描述:
 在注册表和服务数据库中创建服务项。
-用法:
-<code class="highlighter-rouge">sc &lt;server&gt; create [service name] [binPath= ] &lt;option1&gt; &lt;option2&gt;...</code></p>
+用法:</p>
 
-<p>选项:
-注意: 选项名称包括等号。
-等号和值之间需要一个空格。
-<code class="highlighter-rouge">type= &lt;own|share|interact|kernel|filesys|rec&gt;</code></p>
+<p><code class="highlighter-rouge">sc &lt;server&gt; create [service name] [binPath= ] &lt;option1&gt; &lt;option2&gt;...</code></p>
 
-<p>(默认 = own)</p>
+<p>选项:  <br />
+&gt; 注意: 选项名称包括等号。等号和值之间需要一个空格。</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>start= &lt;boot</td>
-      <td>system</td>
-      <td>auto</td>
-      <td>demand</td>
-      <td>disabled</td>
-      <td>delayed-auto&gt;</td>
-    </tr>
-  </tbody>
-</table>
+<div class="highlighter-rouge"><pre class="highlight"><code>type= &lt;own|share|interact|kernel|filesys|rec&gt; (默认 = own)
 
-<p>(默认 = demand)</p>
+start= &lt;boot|system|auto|demand|disabled|delayed-auto&gt; (默认 = demand)
 
-<table>
-  <tbody>
-    <tr>
-      <td>error= &lt;normal</td>
-      <td>severe</td>
-      <td>critical</td>
-      <td>ignore&gt;</td>
-    </tr>
-  </tbody>
-</table>
+error= &lt;normal|severe|critical|ignore&gt; (默认 = normal)
 
-<p>(默认 = normal)</p>
+binPath= &lt;BinaryPathName&gt;
 
-<p>binPath= <BinaryPathName>
-group= <LoadOrderGroup>
+group= &lt;LoadOrderGroup&gt;
+
 tag= &lt;yes|no&gt;
+
 depend= &lt;依存关系(以 / (斜杠) 分隔)&gt;
-obj= &lt;AccountName|ObjectName&gt;</LoadOrderGroup></BinaryPathName></p>
 
-<p>(默认 = LocalSystem)</p>
+obj= &lt;AccountName|ObjectName&gt; (默认 = LocalSystem)
 
-<p>DisplayName= <显示名称>
-password= <密码></密码></显示名称></p>
+DisplayName= &lt;显示名称&gt;
 
-<!-- more -->
+password= &lt;密码&gt;
+</code></pre>
+</div>
 
 <p>1.2 使用示例</p>
 
-<p><code class="highlighter-rouge">&gt; sc create "Memcached Master" start=auto binPath="D:\memcached\memcached.exe -d install -m 32 -p 11211" DisplayName= "Memcached Master"
-（图示：添加指定目录的memcache服务）</code></p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sc create <span class="s2">"Memcached Master"</span> <span class="nv">start</span><span class="o">=</span>auto <span class="nv">binPath</span><span class="o">=</span><span class="s2">"D:</span><span class="se">\m</span><span class="s2">emcached</span><span class="se">\m</span><span class="s2">emcached.exe -d install -m 32 -p 11211"</span> <span class="nv">DisplayName</span><span class="o">=</span> <span class="s2">"Memcached Master"</span>
+（图示：添加指定目录的memcache服务）<span class="sb">`</span>
+</code></pre>
+</div>
 
 <p>二、删除服务
 2.1 命令”sc delete”官方说明</p>
 
 <p>描述:
-从注册表删除服务项。
-如果服务正在运行，或另一进程已经打开
-到此服务的句柄，服务将简单地标记为
-删除。
-用法:
+从注册表删除服务项。如果服务正在运行，或另一进程已经打开到此服务的句柄，服务将简单地标记为删除。
+用法:  <br />
 <code class="highlighter-rouge">sc &lt;server&gt; delete [service name]</code></p>
 
 <p>2.2 使用示例</p>
 
-<blockquote>
-  <p>sc delete “Memcached Master”
-（图示：添加指定目录的Memcached Master服务）</p>
-</blockquote>
+<div class="highlighter-rouge"><pre class="highlight"><code>sc delete “Memcached Master”
+（图示：添加指定目录的Memcached Master服务）
+</code></pre>
+</div>
 
 <p>三、手工操作简述</p>
 
-<p>步骤1. 打开注册表编辑器（<code class="highlighter-rouge">Win+R打开运行 → regedit → 回车</code>）
+<p>步骤1. 打开注册表编辑器（<code class="highlighter-rouge">Win+R打开运行 → regedit → 回车</code>）  <br />
 步骤2. 寻找服务键值目录（<code class="highlighter-rouge">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services</code>），一般服务会以相同的名字在这里显示一个主健，对应其键值进行CURD操作即便可。</p>
 
   </div>

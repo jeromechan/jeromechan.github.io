@@ -631,10 +631,6 @@
         
           
         
-      
-        
-          
-        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -657,20 +653,26 @@
   <span class="post-date">22 Aug 2014</span>
   <p>Sublime Text目前非常流行，其功能强大到许多的web开发者爱不释手无法自拔，哈哈。最近自己也由原来的BBEdit转战为Sublime Text，由于自己常常会使用到单文件调试代码片段的执行情况，所以让Sublime Text支持单文件调试php、java文件的需求迫在眉睫。</p>
 
-<blockquote>Tips：本人使用的是Sublime Text 2，version 3没有尝试过，不过在版本更新说明中对于Build System的变更不大，也是可以支持的。</blockquote>
+<blockquote>
+  <p>Tips：本人使用的是Sublime Text 2，version 3没有尝试过，不过在版本更新说明中对于Build System的变更不大，也是可以支持的。</p>
+</blockquote>
 
 <p>Sublime Text 的构建系统（Build System）可以让我们通过外部程序来运行文件，并可以在Sublime Text 的Console中查看输出，其功能配置在“Tools &gt; Build System”。
-构建系统包括三部分：
-（1）使用JSON格式保存配置文件（.sublime-build）
-（2）使用Sublime Text命令驱动构建过程
-（3）可选的，还可以包括一个外部的可执行文件（脚本或二进制文件）
-文件格式：</p>
+构建系统包括三部分：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[ ]*File \"(...*?)\", line ([0-9]*)"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<p>（1）使用JSON格式保存配置文件（.sublime-build）</p>
+
+<p>（2）使用Sublime Text命令驱动构建过程</p>
+
+<p>（3）可选的，还可以包括一个外部的可执行文件（脚本或二进制文件）</p>
+
+<p>文件格式：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[ ]*File \"(...*?)\", line ([0-9]*)"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 
@@ -694,23 +696,23 @@
 
 <p>以下是含带variants的构建系统示例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"date"</span><span class="p">],</span><span class="w">
-
-    </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ls -l *.py"</span><span class="p">],</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List Python Files"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"shell"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"wc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Word Count (current file)"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"date"</span><span class="p">],</span><span class="w">
+    
+        </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ls -l *.py"</span><span class="p">],</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List Python Files"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"shell"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"wc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Word Count (current file)"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 
@@ -718,55 +720,85 @@
 
 <p>常见的Sublime Text构建系统内置变量有：</p>
 
-<blockquote>$file_path		当前文件所在路径, 比如 C:\Files.
-$file	当前文件的完整路径, 比如 C:\Files\Chapter1.txt.
-$file_name	当前文件的文件名, 比如 Chapter1.txt.
-$file_extension		当前文件的扩展名, 比如 txt.
-$file_base_name	当前文件仅包含文件名的部分, 比如 Document.
-$packages	Packages 文件夹的完整路径.
-$project	当前项目文件的完整路径.
-$project_path		当前项目文件的路径.
-$project_name	当前项目文件的名称.
-$project_extension	当前项目文件的扩展部分.
-$project_base_name	当前项目仅包括名的部分.</blockquote>
+<ul>
+  <li>
+    <p>$file_path		当前文件所在路径, 比如 C:\Files.</p>
+  </li>
+  <li>
+    <p>$file	当前文件的完整路径, 比如 C:\Files\Chapter1.txt.</p>
+  </li>
+  <li>
+    <p>$file_name	当前文件的文件名, 比如 Chapter1.txt.</p>
+  </li>
+  <li>
+    <p>$file_extension		当前文件的扩展名, 比如 txt.</p>
+  </li>
+  <li>
+    <p>$file_base_name	当前文件仅包含文件名的部分, 比如 Document.</p>
+  </li>
+  <li>
+    <p>$packages	Packages 文件夹的完整路径.</p>
+  </li>
+  <li>
+    <p>$project	当前项目文件的完整路径.</p>
+  </li>
+  <li>
+    <p>$project_path		当前项目文件的路径.</p>
+  </li>
+  <li>
+    <p>$project_name	当前项目文件的名称.</p>
+  </li>
+  <li>
+    <p>$project_extension	当前项目文件的扩展部分.</p>
+  </li>
+  <li>
+    <p>$project_base_name	当前项目仅包括名的部分.</p>
+  </li>
+</ul>
 
-<p>下面是本人的Build System的配置细节，提供给各位童鞋参考：
-1、php
-快捷键：
-Command + B</p>
+<p>下面是本人的Build System的配置细节，提供给各位童鞋参考：</p>
+
+<p>1、php</p>
+
+<blockquote>
+  <p>快捷键：Command + B</p>
+</blockquote>
 
 <p>配置详情：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"php"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"php$"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.php"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"php"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"php$"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.php"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 
-<p>2、Java
-快捷键：
-Command + B（编译） =&gt; Command + shift + B（执行）</p>
+<p>2、Java</p>
+
+<blockquote>
+  <p>快捷键：Command + B（编译） =&gt; Command + shift + B（执行）</p>
+</blockquote>
 
 <p>配置详情：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"javac"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-encoding"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^(...*?):([0-9]*):?([0-9]*)"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.java"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"java"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file_base_name"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"javac"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-encoding"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^(...*?):([0-9]*):?([0-9]*)"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.java"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"java"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file_base_name"</span><span class="p">],</span><span class="w">
+            </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 
-<p>参考资料链接：
-非官方Build System说明：<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html">http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html</a></p>
+<p>参考资料链接：</p>
+
+<p>非官方Build System说明：<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html">http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html</a></p>
 
 
 </div>

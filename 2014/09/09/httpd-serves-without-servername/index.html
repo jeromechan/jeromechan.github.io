@@ -631,10 +631,6 @@
         
           
         
-      
-        
-          
-        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -657,23 +653,23 @@
   <span class="post-date">09 Sep 2014</span>
   <h5 id="servernameserveralias">第一部分：了解ServerName、ServerAlias区别</h5>
 
-<p>ServerName：主机域名的解析入口，每一个虚拟主机在配置之时是必须的；
+<p>ServerName：主机域名的解析入口，每一个虚拟主机在配置之时是必须的；  <br />
 ServerAlias：域名别名，在配置了ServerName的基础上，想要集成“一主机多域名”的结构，ServerAlias是不错的选择。</p>
 
 <h5 id="servername">第二部分：如果主机缺省了ServerName的配置会如何发展</h5>
 
 <p>官方是这样解释的：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Ensure that Apache listens on port 80
-Listen 80
-# Listen for virtual host requests on all IP addresses
-NameVirtualHost *:80
-
-&lt; VirtualHost *:80&gt;
-    DocumentRoot /www/example1
-    ServerName www.example.com
-    # Other directives here
-&lt; /VirtualHost&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>    # Ensure that Apache listens on port 80
+    Listen 80
+    # Listen for virtual host requests on all IP addresses
+    NameVirtualHost *:80
+    
+    &lt; VirtualHost *:80&gt;
+        DocumentRoot /www/example1
+        ServerName www.example.com
+        # Other directives here
+    &lt; /VirtualHost&gt;
 </code></pre>
 </div>
 
@@ -685,56 +681,57 @@ NameVirtualHost *:80
 
 <p>我们准备以下用例进行分析：</p>
 
-<p><strong>第一步：重现错误解析现象</strong></p>
+<h6 id="section-1">第一步：重现错误解析现象</h6>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;vim /etc/hosts
-# 当前服务器IP是192.168.1.100
-192.168.1.100 aa.example.com
-192.168.1.100 bb.example.com
-192.168.1.100 ab.example.com
-192.168.1.100 none.servername.com
-
-&gt;&gt;vim /apache2/config/extra/httpd-vhosts.conf
-Include conf/extra/ab.example.com-vhosts.conf
-Include conf/extra/none.servername.com-vhosts.conf ##未配置ServrName
-Include conf/extra/aa.example.com-vhosts.conf
-Include conf/extra/bb.example.com-vhosts.conf
-
-&gt;&gt;/apache2/bin/apachectl -S
-VirtualHost configuration:
-wildcard NameVirtualHosts and _default_ servers:
-*:80                   is a NameVirtualHost
-     default server aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
-     port 80 namevhost aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
-     port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
-     port 80 namevhost aa.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了aa.example.com
-     port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
+<div class="highlighter-rouge"><pre class="highlight"><code>    &gt;&gt;vim /etc/hosts
+    # 当前服务器IP是192.168.1.100
+    192.168.1.100 aa.example.com
+    192.168.1.100 bb.example.com
+    192.168.1.100 ab.example.com
+    192.168.1.100 none.servername.com
+    
+    &gt;&gt;vim /apache2/config/extra/httpd-vhosts.conf
+    Include conf/extra/ab.example.com-vhosts.conf
+    Include conf/extra/none.servername.com-vhosts.conf ##未配置ServrName
+    Include conf/extra/aa.example.com-vhosts.conf
+    Include conf/extra/bb.example.com-vhosts.conf
+    
+    &gt;&gt;/apache2/bin/apachectl -S
+    VirtualHost configuration:
+    wildcard NameVirtualHosts and _default_ servers:
+    *:80                   is a NameVirtualHost
+         default server aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
+         port 80 namevhost aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
+         port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
+         port 80 namevhost aa.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了aa.example.com
+         port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
 </code></pre>
 </div>
 
-<p><strong>第二步：将hosts解析顺序作部分调整，观察修改后的解析结果</strong></p>
+<h6 id="hosts">第二步：将hosts解析顺序作部分调整，观察修改后的解析结果</h6>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;vim /etc/hosts
-# 当前服务器IP是192.168.1.100
-192.168.1.100 bb.example.com ## 将该域名修改置于最前面
-192.168.1.100 aa.example.com
-192.168.1.100 ab.example.com
-192.168.1.100 none.servername.com
-
-&gt;&gt;/apache2/bin/apachectl -S
-VirtualHost configuration:
-wildcard NameVirtualHosts and _default_ servers:
-*:80                   is a NameVirtualHost
-     default server aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
-     port 80 namevhost aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
-     port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
-     port 80 namevhost bb.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了bb.example.com
-     port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
+<div class="highlighter-rouge"><pre class="highlight"><code>    &gt;&gt;vim /etc/hosts
+    # 当前服务器IP是192.168.1.100
+    192.168.1.100 bb.example.com ## 将该域名修改置于最前面
+    192.168.1.100 aa.example.com
+    192.168.1.100 ab.example.com
+    192.168.1.100 none.servername.com
+    
+    &gt;&gt;/apache2/bin/apachectl -S
+    VirtualHost configuration:
+    wildcard NameVirtualHosts and _default_ servers:
+    *:80                   is a NameVirtualHost
+         default server aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
+         port 80 namevhost aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
+         port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
+         port 80 namevhost bb.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了bb.example.com
+         port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
 </code></pre>
 </div>
 
-<p><strong>第三步：分析前两步的现象</strong>
-从前面两步可以发现，未配置ServerName属性的虚拟主机，会优先根据本服务器的DNS解析机制依次解析，然后会将未配置ServerName的主机配置项，分配给第一条被DNS解析遇到的本服务器虚拟主机域名。</p>
+<h6 id="section-2">第三步：分析前两步的现象</h6>
+
+<p>从前面两步可以发现，未配置ServerName属性的虚拟主机，会优先根据本服务器的DNS解析机制依次解析，然后会将未配置ServerName的主机配置项，分配给第一条被DNS解析遇到的本服务器虚拟主机域名。</p>
 
 <p>通过以上的分析，相信大家已经了解了缺省了ServerName的主机会如何解析了吧。这也就是为什么常常我们发现自己的配置没有错误抛出，但是域名解析路径紊乱的原因之一。</p>
 

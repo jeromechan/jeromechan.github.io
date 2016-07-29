@@ -631,10 +631,6 @@
         
           
         
-      
-        
-          
-        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -671,47 +667,52 @@
 
 <p>plugin的源码放置在Openfire源码根目录的plugins目录下。当plugin以jar包或者war包的形式部署了之后，它将会自动解压成原始的文件夹层级结构，类似的plugin目录结构如下：</p>
 
-<p>Plugin Structure
-myplugin/
-|- plugin.xml &lt;- Plugin定义文件
-|- readme.html &lt;- 可选，插件说明文件，直接呈现给最终的用户阅读
-|- changelog.html &lt;- 可选，插件变更日志文件，直接呈现给最终的用户阅读
-|- logo_small.gif &lt;- 可选，插件的小号Logo图片(16x16)，只支持.gif和.png格式
-|- logo_large.gif &lt;- 可选，插件的大号Logo图片(32x32)，只支持.gif和.png格式
-|- classes/ &lt;- 插件所需要的资源文件 (类似地，例如插件的属性配置文件)
-|- database/ &lt;- 可选，插件的数据库模型文件，可内置包含数据库版本升级的模型文件
-|- i18n/ &lt;- 可选，插件的i18n多语言支持文件
-|- lib/ &lt;- 插件所依赖的库（即JAR包）
-|- web &lt;- 可选，插件的控制台页面相关文件
+<p>Plugin Structure</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>myplugin/	
+|- plugin.xml &lt;- Plugin定义文件	
+|- readme.html &lt;- 可选，插件说明文件，直接呈现给最终的用户阅读	
+|- changelog.html &lt;- 可选，插件变更日志文件，直接呈现给最终的用户阅读	
+|- logo_small.gif &lt;- 可选，插件的小号Logo图片(16x16)，只支持.gif和.png格式	
+|- logo_large.gif &lt;- 可选，插件的大号Logo图片(32x32)，只支持.gif和.png格式	
+|- classes/ &lt;- 插件所需要的资源文件 (类似地，例如插件的属性配置文件)	
+|- database/ &lt;- 可选，插件的数据库模型文件，可内置包含数据库版本升级的模型文件	
+|- i18n/ &lt;- 可选，插件的i18n多语言支持文件	
+|- lib/ &lt;- 插件所依赖的库（即JAR包）	
+|- web &lt;- 可选，插件的控制台页面相关文件	
 |- WEB-INF/
 |- web.xml &lt;- 生成的web.xml，包含了等待编译的jsp配置
 |- web-custom.xml &lt;- 可选，用户自定义的web.xml，包含用户的servlets配置
-|- images/ &lt;- 可选，插件的控制台页面所需要的图片资源文件，只支持.gif与.png格式</p>
+|- images/ &lt;- 可选，插件的控制台页面所需要的图片资源文件，只支持.gif与.png格式
+</code></pre>
+</div>
 
 <p>plugin中的web目录提供的是插件在管理员控制台中的管理功能，下面会撰写更为详细的相关内容。 其中，plugin.xml定义了plugin主要的类，下面是一个例子：<!-- more --></p>
 
-<!-- Sample plugin.xml -->
-<?xml version="1.0" encoding="UTF-8"?>
-<plugin>
-<!-- Main plugin class -->
-<class>org.example.ExamplePlugin</class>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- Sample plugin.xml --&gt;</span>
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;plugin&gt;</span>
+<span class="c">&lt;!-- Main plugin class --&gt;</span>
+<span class="nt">&lt;class&gt;</span>org.example.ExamplePlugin<span class="nt">&lt;/class&gt;</span>
 
-<!-- Plugin meta-data -->
-<name>Example Plugin</name>
-<description>This is an example plugin.</description>
-<author>Jive Software</author>
+<span class="c">&lt;!-- Plugin meta-data --&gt;</span>
+<span class="nt">&lt;name&gt;</span>Example Plugin<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;description&gt;</span>This is an example plugin.<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;author&gt;</span>Jive Software<span class="nt">&lt;/author&gt;</span>
 
-<version>1.0</version>
-<date>07/01/2006</date>
-<url>http://www.igniterealtime. org/projects/openfire/plugins.jsp</url>
-<minServerVersion>3.0.0</minServerVersion>
-<licenseType>gpl</licenseType>
+<span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;date&gt;</span>07/01/2006<span class="nt">&lt;/date&gt;</span>
+<span class="nt">&lt;url&gt;</span>http://www.igniterealtime. org/projects/openfire/plugins.jsp<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;minServerVersion&gt;</span>3.0.0<span class="nt">&lt;/minServerVersion&gt;</span>
+<span class="nt">&lt;licenseType&gt;</span>gpl<span class="nt">&lt;/licenseType&gt;</span>
 
-<!-- Admin console entries -->
-<adminconsole>
-<!-- More on this below -->
-</adminconsole>
-</plugin>
+<span class="c">&lt;!-- Admin console entries --&gt;</span>
+<span class="nt">&lt;adminconsole&gt;</span>
+<span class="c">&lt;!-- More on this below --&gt;</span>
+<span class="nt">&lt;/adminconsole&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre>
+</div>
 
 <p>以下的这一些元数据字段可以在plugin.xml被设置：</p>
 
@@ -749,15 +750,19 @@ myplugin/
   <li>
     <p>licenseType：定义着当前插件的官方所遵循的协议。有效的数值类似地：（1）“commercial”：插件的发布与传衍遵循着商业的协议</p>
   </li>
+  <li>
+    <p>“gpl”：the GNU Public License（GPL）</p>
+  </li>
+  <li>
+    <p>“apache”：the Apache License</p>
+  </li>
+  <li>
+    <p>“internal”：限制在内部使用，并且不准备二次发布传衍</p>
+  </li>
+  <li>
+    <p>“other”：plugin所遵循的协议不在所列的协议范围之内，那么便可以使用other项，在其中需要撰写清楚相关协议的细节假设plugin没有指定任何协议，那么插件默认指定为other项。</p>
+  </li>
 </ul>
-
-<p>（2）“gpl”：the GNU Public License（GPL）</p>
-
-<p>（3）“apache”：the Apache License</p>
-
-<p>（4）“internal”：限制在内部使用，并且不准备二次发布传衍</p>
-
-<p>（5）“other”：plugin所遵循的协议不在所列的协议范围之内，那么便可以使用other项，在其中需要撰写清楚相关协议的细节假设plugin没有指定任何协议，那么插件默认指定为other项。</p>
 
 <p>在plugin中还有一些额外的文件，给用户提供了更多的信息（这些文件都放置在了plugin的根目录下）：</p>
 
@@ -779,27 +784,31 @@ myplugin/
   </li>
 </ul>
 
-<p>// plugin的实现例子
-package org.example;
-import org.jivesoftware.openfire.container.Plugin;
-import org.jivesoftware.openfire.container.PluginManager;
-import java.io.File;
-/**
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">// plugin的实现例子</span>
+<span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">example</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.jivesoftware.openfire.container.Plugin</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.jivesoftware.openfire.container.PluginManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="cm">/**
 * A sample plugin for Openfire.
-*/
-public class ExamplePlugin implements Plugin {
-public void initializePlugin(PluginManager manager, File pluginDirectory) {
-// Your code goes here
-}</p>
+*/</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExamplePlugin</span> <span class="kd">implements</span> <span class="n">Plugin</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">initializePlugin</span><span class="o">(</span><span class="n">PluginManager</span> <span class="n">manager</span><span class="o">,</span> <span class="n">File</span> <span class="n">pluginDirectory</span><span class="o">)</span> <span class="o">{</span>
+<span class="c1">// Your code goes here</span>
+<span class="o">}</span>
 
-<p>public void destroyPlugin() {
-// Your code goes here
-}
-}</p>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroyPlugin</span><span class="o">()</span> <span class="o">{</span>
+<span class="c1">// Your code goes here</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
 
 <p><strong>常用的plugin最佳实践</strong></p>
 
-<p>在选择一个插件的包名之时，我们推荐可以选择一些具备唯一性的标识，类似地，可以选用你的自定义字符串或者是组织名称来尽可能地避免包或者类命名的冲突。例如，假设每个人使用的包名都是org.example.PluginName，就算是PluginName是不相同的，但是你依然会遇到这里或那里的类名冲突，这不是玩笑，在集群部署环境之下，该问题尤其突出。</p>
+<p>在选择一个插件的包名之时，我们推荐可以选择一些具备唯一性的标识，类似地，可以选用你的自定义字符串或者是组织名称来尽可能地避免包或者类命名的冲突。</p>
+
+<p>例如，假设每个人使用的包名都是org.example.PluginName，就算是PluginName是不相同的，但是你依然会遇到这里或那里的类名冲突，这不是玩笑，在集群部署环境之下，该问题尤其突出。</p>
 
 
   </div>
