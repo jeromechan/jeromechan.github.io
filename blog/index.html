@@ -5695,106 +5695,108 @@ UML是一种语言，重在如何描述在软件生产过程中要产生的文�
 <p>让我们一起来看看以下详细代码实现。</p>
 
 <ol>
-<li><p>下划线风格=&gt;驼峰风格</p>
-
-<p>1     /**
- 2      * @static 数组键名翻译成驼峰写法
- 3      * @param $in 源数组
- 4      * @return array 输出数组
- 5      <em>/
- 6     public static function arrKeysToCamelCase($in)
- 7     {
- 8         if(empty($in)||!is<em>array($in))
- 9             return $in;
-10         $reCopyRes = array();
-11         foreach($in as $key=&gt;$val)
-12         {
-13             $reKey = self::ucFirstWord($key);
-14             if(!is</em>array($val)){
-15                 $reCopyRes[$reKey] = $val;
-16             }else{
-17                 $reCopyRes[$reKey] = self::arrKeysToCamelCase($val);
-18             }
-19         }
-20         return $reCopyRes;
-21     }&lt;!-- more --&gt;
-22     /</em>*
-23      * @static 将单词的首字母转换成大写(首单词除外)
-24      * @param $word 源单词字符串
-25      * @return string 输出单词字符串
-26      */
-27     public static function ucFirstWord($word)
-28     {
-29         if(!is<em>string($word)){
-30             return $word;
-31         }else{
-32             $wordArr = explode(&#39;</em>&#39;,$word);
-33             if(!empty($wordArr)){
-34                 $index = 0;
-35                 foreach($wordArr as &amp;$wd)
-36                 {
-37                     if($index==0){
-38                         $index++;
-39                         continue;
-40                     }
-41                     $wd = ucfirst($wd);
-42                 }
-43                 $outStr = implode(&#39;&#39;,$wordArr);
-44                 return $outStr;
-45             }else{
-46                 return $word;
-47             }
-48         }
-49     }</p></li>
-<li><p>驼峰风格=&gt;下划线风格</p>
-
-<p>1     /**
- 2      * @static 数组键名翻译成下划线写法
- 3      * @param $in 源数组
- 4      * @return array 输出数组
- 5      <em>/
- 6     public static function arrKeysToUnderlineCase($in)
- 7     {
- 8         if(empty($in)||!is<em>array($in))
- 9             return $in;
-10         $reCopyRes = array();
-11         foreach($in as $key=&gt;$val)
-12         {
-13             $reKey = self::lcFirstWord($key);
-14             if(!is</em>array($val)){
-15                 $reCopyRes[$reKey] = $val;
-16             }else{
-17                 $reCopyRes[$reKey] = self::arrKeysToUnderlineCase($val);
-18             }
-19         }
-20         return $reCopyRes;
-21     }
-22 
-23     /</em>*
-24      * @static 将单词的首字母转换成小写
-25      * @param $word 源单词字符串
-26      * @return string 输出单词字符串
-27      <em>/
-28     public static function lcFirstWord($word)
-29     {
-30         if(!is<em>string($word)){
-31             return $word;
-32         }else{
-33             preg</em>match<em>all(&#39;/([a-z0-9</em>]</em>)([A-Z][a-z0-9<em>]*)?/&#39;,$word,$matches,PREG</em>PATTERN<em>ORDER);
-34             if(!empty($matches)){
-35                 $strPattern1 = !empty($matches[1][0])?trim($matches[1][0]):&#39;&#39;;
-36                 $subMatch = array</em>filter($matches[2]);
-37                 $strPattern2 = !empty($subMatch)?trim(implode(&#39;<em>&#39;,$subMatch)):&#39;&#39;;
-38                 $strPattern2 = !empty($strPattern2) &amp;&amp; !empty($strPattern1)?&#39;</em>&#39;.$strPattern2:$strPattern2;
-39                 $outStr = strtolower($strPattern1.$strPattern2);
-40             }else{
-41                 $outStr = $word;
-42             }
-43             return $outStr;
-44         }
-45     }</p></li>
+<li>下划线风格=&gt;驼峰风格</li>
 </ol>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/**</span>
+<span class="x"> * @static 数组键名翻译成驼峰写法</span>
+<span class="x"> * @param $in 源数组</span>
+<span class="x"> * @return array 输出数组</span>
+<span class="x"> */</span>
+<span class="x">public static function arrKeysToCamelCase($in)</span>
+<span class="x">{</span>
+<span class="x">    if(empty($in)||!is_array($in))</span>
+<span class="x">        return $in;</span>
+<span class="x">    $reCopyRes = array();</span>
+<span class="x">    foreach($in as $key=&gt;$val)</span>
+<span class="x">    {</span>
+<span class="x">        $reKey = self::ucFirstWord($key);</span>
+<span class="x">        if(!is_array($val)){</span>
+<span class="x">            $reCopyRes[$reKey] = $val;</span>
+<span class="x">        }else{</span>
+<span class="x">            $reCopyRes[$reKey] = self::arrKeysToCamelCase($val);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">    return $reCopyRes;</span>
+<span class="x">}</span>
 
+<span class="x">/**</span>
+<span class="x"> * @static 将单词的首字母转换成大写(首单词除外)</span>
+<span class="x"> * @param $word 源单词字符串</span>
+<span class="x"> * @return string 输出单词字符串</span>
+<span class="x"> */</span>
+<span class="x">public static function ucFirstWord($word)</span>
+<span class="x">{</span>
+<span class="x">    if(!is_string($word)){</span>
+<span class="x">        return $word;</span>
+<span class="x">    }else{</span>
+<span class="x">        $wordArr = explode(&#39;_&#39;,$word);</span>
+<span class="x">        if(!empty($wordArr)){</span>
+<span class="x">            $index = 0;</span>
+<span class="x">            foreach($wordArr as &amp;$wd)</span>
+<span class="x">            {</span>
+<span class="x">                if($index==0){</span>
+<span class="x">                    $index++;</span>
+<span class="x">                    continue;</span>
+<span class="x">                }</span>
+<span class="x">                $wd = ucfirst($wd);</span>
+<span class="x">            }</span>
+<span class="x">            $outStr = implode(&#39;&#39;,$wordArr);</span>
+<span class="x">            return $outStr;</span>
+<span class="x">        }else{</span>
+<span class="x">            return $word;</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
+<ol>
+<li>驼峰风格=&gt;下划线风格</li>
+</ol>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/**</span>
+<span class="x"> * @static 数组键名翻译成下划线写法</span>
+<span class="x"> * @param $in 源数组</span>
+<span class="x"> * @return array 输出数组</span>
+<span class="x"> */</span>
+<span class="x">public static function arrKeysToUnderlineCase($in)</span>
+<span class="x">{</span>
+<span class="x">    if(empty($in)||!is_array($in))</span>
+<span class="x">        return $in;</span>
+<span class="x">    $reCopyRes = array();</span>
+<span class="x">    foreach($in as $key=&gt;$val)</span>
+<span class="x">    {</span>
+<span class="x">        $reKey = self::lcFirstWord($key);</span>
+<span class="x">        if(!is_array($val)){</span>
+<span class="x">            $reCopyRes[$reKey] = $val;</span>
+<span class="x">        }else{</span>
+<span class="x">            $reCopyRes[$reKey] = self::arrKeysToUnderlineCase($val);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">    return $reCopyRes;</span>
+<span class="x">}</span>
+
+<span class="x">/**</span>
+<span class="x"> * @static 将单词的首字母转换成小写</span>
+<span class="x"> * @param $word 源单词字符串</span>
+<span class="x"> * @return string 输出单词字符串</span>
+<span class="x"> */</span>
+<span class="x">public static function lcFirstWord($word)</span>
+<span class="x">{</span>
+<span class="x">    if(!is_string($word)){</span>
+<span class="x">        return $word;</span>
+<span class="x">    }else{</span>
+<span class="x">        preg_match_all(&#39;/([a-z0-9_]*)([A-Z][a-z0-9_]*)?/&#39;,$word,EG_PATTERN_ORDER);</span>
+<span class="x">        if(!empty($matches)){</span>
+<span class="x">            $strPattern1 = !empty($matches[1][0])?trim($matches[1][0]):&#39;&#39;;</span>
+<span class="x">            $subMatch = array_filter($matches[2]);</span>
+<span class="x">            $strPattern2 = !empty($subMatch)?trim(implode(&#39;_&#39;,$subMatch)):&#39;&#39;;</span>
+<span class="x">            $strPattern2 = !empty($strPattern2) &amp;&amp; !empty($strPattern1)?&#39;_&#39;.2:$strPattern2;</span>
+<span class="x">            $outStr = strtolower($strPattern1.$strPattern2);</span>
+<span class="x">        }else{</span>
+<span class="x">            $outStr = $word;</span>
+<span class="x">        }</span>
+<span class="x">        return $outStr;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
   </div>
   
   <div class="post">

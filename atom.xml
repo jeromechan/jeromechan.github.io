@@ -4,7 +4,7 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-07-29T19:10:08+08:00</updated>
+ <updated>2016-07-29T19:16:01+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
@@ -4857,106 +4857,108 @@ UML是一种语言，重在如何描述在软件生产过程中要产生的文�
 &lt;p&gt;让我们一起来看看以下详细代码实现。&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;下划线风格=&amp;gt;驼峰风格&lt;/p&gt;
-
-&lt;p&gt;1     /**
- 2      * @static 数组键名翻译成驼峰写法
- 3      * @param $in 源数组
- 4      * @return array 输出数组
- 5      &lt;em&gt;/
- 6     public static function arrKeysToCamelCase($in)
- 7     {
- 8         if(empty($in)||!is&lt;em&gt;array($in))
- 9             return $in;
-10         $reCopyRes = array();
-11         foreach($in as $key=&amp;gt;$val)
-12         {
-13             $reKey = self::ucFirstWord($key);
-14             if(!is&lt;/em&gt;array($val)){
-15                 $reCopyRes[$reKey] = $val;
-16             }else{
-17                 $reCopyRes[$reKey] = self::arrKeysToCamelCase($val);
-18             }
-19         }
-20         return $reCopyRes;
-21     }&amp;lt;!-- more --&amp;gt;
-22     /&lt;/em&gt;*
-23      * @static 将单词的首字母转换成大写(首单词除外)
-24      * @param $word 源单词字符串
-25      * @return string 输出单词字符串
-26      */
-27     public static function ucFirstWord($word)
-28     {
-29         if(!is&lt;em&gt;string($word)){
-30             return $word;
-31         }else{
-32             $wordArr = explode(&amp;#39;&lt;/em&gt;&amp;#39;,$word);
-33             if(!empty($wordArr)){
-34                 $index = 0;
-35                 foreach($wordArr as &amp;amp;$wd)
-36                 {
-37                     if($index==0){
-38                         $index++;
-39                         continue;
-40                     }
-41                     $wd = ucfirst($wd);
-42                 }
-43                 $outStr = implode(&amp;#39;&amp;#39;,$wordArr);
-44                 return $outStr;
-45             }else{
-46                 return $word;
-47             }
-48         }
-49     }&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;驼峰风格=&amp;gt;下划线风格&lt;/p&gt;
-
-&lt;p&gt;1     /**
- 2      * @static 数组键名翻译成下划线写法
- 3      * @param $in 源数组
- 4      * @return array 输出数组
- 5      &lt;em&gt;/
- 6     public static function arrKeysToUnderlineCase($in)
- 7     {
- 8         if(empty($in)||!is&lt;em&gt;array($in))
- 9             return $in;
-10         $reCopyRes = array();
-11         foreach($in as $key=&amp;gt;$val)
-12         {
-13             $reKey = self::lcFirstWord($key);
-14             if(!is&lt;/em&gt;array($val)){
-15                 $reCopyRes[$reKey] = $val;
-16             }else{
-17                 $reCopyRes[$reKey] = self::arrKeysToUnderlineCase($val);
-18             }
-19         }
-20         return $reCopyRes;
-21     }
-22 
-23     /&lt;/em&gt;*
-24      * @static 将单词的首字母转换成小写
-25      * @param $word 源单词字符串
-26      * @return string 输出单词字符串
-27      &lt;em&gt;/
-28     public static function lcFirstWord($word)
-29     {
-30         if(!is&lt;em&gt;string($word)){
-31             return $word;
-32         }else{
-33             preg&lt;/em&gt;match&lt;em&gt;all(&amp;#39;/([a-z0-9&lt;/em&gt;]&lt;/em&gt;)([A-Z][a-z0-9&lt;em&gt;]*)?/&amp;#39;,$word,$matches,PREG&lt;/em&gt;PATTERN&lt;em&gt;ORDER);
-34             if(!empty($matches)){
-35                 $strPattern1 = !empty($matches[1][0])?trim($matches[1][0]):&amp;#39;&amp;#39;;
-36                 $subMatch = array&lt;/em&gt;filter($matches[2]);
-37                 $strPattern2 = !empty($subMatch)?trim(implode(&amp;#39;&lt;em&gt;&amp;#39;,$subMatch)):&amp;#39;&amp;#39;;
-38                 $strPattern2 = !empty($strPattern2) &amp;amp;&amp;amp; !empty($strPattern1)?&amp;#39;&lt;/em&gt;&amp;#39;.$strPattern2:$strPattern2;
-39                 $outStr = strtolower($strPattern1.$strPattern2);
-40             }else{
-41                 $outStr = $word;
-42             }
-43             return $outStr;
-44         }
-45     }&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;下划线风格=&amp;gt;驼峰风格&lt;/li&gt;
 &lt;/ol&gt;
-</content>
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @static 数组键名翻译成驼峰写法&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @param $in 源数组&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @return array 输出数组&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;public static function arrKeysToCamelCase($in)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    if(empty($in)||!is_array($in))&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        return $in;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    $reCopyRes = array();&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    foreach($in as $key=&amp;gt;$val)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    {&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        $reKey = self::ucFirstWord($key);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        if(!is_array($val)){&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $reCopyRes[$reKey] = $val;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        }else{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $reCopyRes[$reKey] = self::arrKeysToCamelCase($val);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    return $reCopyRes;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @static 将单词的首字母转换成大写(首单词除外)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @param $word 源单词字符串&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @return string 输出单词字符串&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;public static function ucFirstWord($word)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    if(!is_string($word)){&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        return $word;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    }else{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        $wordArr = explode(&amp;#39;_&amp;#39;,$word);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        if(!empty($wordArr)){&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $index = 0;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            foreach($wordArr as &amp;amp;$wd)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            {&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;                if($index==0){&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;                    $index++;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;                    continue;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;                }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;                $wd = ucfirst($wd);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $outStr = implode(&amp;#39;&amp;#39;,$wordArr);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            return $outStr;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        }else{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            return $word;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;驼峰风格=&amp;gt;下划线风格&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @static 数组键名翻译成下划线写法&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @param $in 源数组&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @return array 输出数组&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;public static function arrKeysToUnderlineCase($in)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    if(empty($in)||!is_array($in))&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        return $in;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    $reCopyRes = array();&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    foreach($in as $key=&amp;gt;$val)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    {&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        $reKey = self::lcFirstWord($key);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        if(!is_array($val)){&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $reCopyRes[$reKey] = $val;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        }else{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $reCopyRes[$reKey] = self::arrKeysToUnderlineCase($val);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    return $reCopyRes;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @static 将单词的首字母转换成小写&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @param $word 源单词字符串&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; * @return string 输出单词字符串&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;public static function lcFirstWord($word)&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    if(!is_string($word)){&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        return $word;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    }else{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        preg_match_all(&amp;#39;/([a-z0-9_]*)([A-Z][a-z0-9_]*)?/&amp;#39;,$word,EG_PATTERN_ORDER);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        if(!empty($matches)){&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $strPattern1 = !empty($matches[1][0])?trim($matches[1][0]):&amp;#39;&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $subMatch = array_filter($matches[2]);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $strPattern2 = !empty($subMatch)?trim(implode(&amp;#39;_&amp;#39;,$subMatch)):&amp;#39;&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $strPattern2 = !empty($strPattern2) &amp;amp;&amp;amp; !empty($strPattern1)?&amp;#39;_&amp;#39;.2:$strPattern2;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $outStr = strtolower($strPattern1.$strPattern2);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        }else{&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;            $outStr = $word;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;        return $outStr;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    }&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
  </entry>
  
  <entry>
