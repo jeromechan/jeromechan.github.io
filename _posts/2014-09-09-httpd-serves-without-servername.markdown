@@ -18,7 +18,7 @@ tags:
 ##### 第一部分：了解ServerName、ServerAlias区别
 
 
-ServerName：主机域名的解析入口，每一个虚拟主机在配置之时是必须的；
+ServerName：主机域名的解析入口，每一个虚拟主机在配置之时是必须的；    
 ServerAlias：域名别名，在配置了ServerName的基础上，想要集成“一主机多域名”的结构，ServerAlias是不错的选择。
 
 
@@ -28,9 +28,7 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
 
 官方是这样解释的：
 
-
-    
-    
+```
     # Ensure that Apache listens on port 80
     Listen 80
     # Listen for virtual host requests on all IP addresses
@@ -41,7 +39,7 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
         ServerName www.example.com
         # Other directives here
     < /VirtualHost>
-    
+```
 
 
 
@@ -63,10 +61,9 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
 
 我们准备以下用例进行分析：
 
-**第一步：重现错误解析现象**
+###### 第一步：重现错误解析现象
 
-    
-    
+```
     >>vim /etc/hosts
     # 当前服务器IP是192.168.1.100
     192.168.1.100 aa.example.com
@@ -89,15 +86,14 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
          port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
          port 80 namevhost aa.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了aa.example.com
          port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
-    
+```
     
 
 
 
-**第二步：将hosts解析顺序作部分调整，观察修改后的解析结果**
+###### 第二步：将hosts解析顺序作部分调整，观察修改后的解析结果
 
-    
-    
+```
     >>vim /etc/hosts
     # 当前服务器IP是192.168.1.100
     192.168.1.100 bb.example.com ## 将该域名修改置于最前面
@@ -114,12 +110,13 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
          port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
          port 80 namevhost bb.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了bb.example.com
          port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
+```
     
-    
 
 
 
-**第三步：分析前两步的现象**
+###### 第三步：分析前两步的现象
+
 从前面两步可以发现，未配置ServerName属性的虚拟主机，会优先根据本服务器的DNS解析机制依次解析，然后会将未配置ServerName的主机配置项，分配给第一条被DNS解析遇到的本服务器虚拟主机域名。
 
 通过以上的分析，相信大家已经了解了缺省了ServerName的主机会如何解析了吧。这也就是为什么常常我们发现自己的配置没有错误抛出，但是域名解析路径紊乱的原因之一。

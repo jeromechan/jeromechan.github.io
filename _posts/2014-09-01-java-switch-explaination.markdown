@@ -31,9 +31,7 @@ tags:
 
 以下这个例子SwitchDemo，声明了一个int类型的month变量，使用了switch语句，根据月份的数值，输出月份的英文单词。
 
-
-    
-    
+```java
     public class SwitchDemo {
     public static void main(String[] args) {
         int month = 8;
@@ -69,15 +67,15 @@ tags:
         System.out.println(monthString);
     }
     }
-    
+```    
 
 
 
 在以上的例子当中，结果输出了
     
-    
+```    
     August
-    
+```    
 
 
 
@@ -87,9 +85,7 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
 
 类似地，你也可以使用if-then-else语句实现SwitchDemo效果：
 
-
-    
-    
+```java
     int month = 8;
     if (month == 1) {
         System.out.println("January");
@@ -97,19 +93,18 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
         System.out.println("February");
     }
     ...  // and so on
-    
-
-
+```    
 
 关于到底是使用if-then-else语句，还是switch语句，需要根据实际的可读性和测试程序的表达式情况而定。if-then-else适用于数值范围的判断条件，而switch则适用于单数值，枚举数值和简单对象的判断。
 
 另外，switch还有一个有趣的关键语句——break。每一个break语句的出现，跳出了整个switch循环结构。
-控制流会逐个switch block顺序执行。break语句是重要的，因为假设没有break，所有switch block中的语句都会跳过不判断。自匹配正确的第一个case起，其他在该case之后的switch block会按顺序逐个执行，直到遇到break语句。
+控制流会逐个switch block顺序执行。
+
+break语句是重要的，因为假设没有break，所有switch block中的语句都会跳过不判断。自匹配正确的第一个case起，其他在该case之后的switch block会按顺序逐个执行，直到遇到break语句。
+
 以下程序SwitchDemoFallThrough展示了在没有书写break语句的时候，代码的执行结果：
 
-
-    
-    
+```java
     public class SwitchDemoFallThrough {
     
     public static void main(String[] args) {
@@ -144,31 +139,30 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
         }
     }
     }
-    
+```    
 
 
 
 以上程序输出结果为：
 
-    
-    
+```
     August
     September
     October
     November
     December
-    
+```
 
 
 
-对于以上例子，从技术上分析，代码最后的一个break语句是多余的，因为此时，尽管没有break语句，程序依然会跳出switch循环。这里推荐童鞋们善于使用break语句，如此一来，可以使得我们的代码结构可读性更高，更容易维护，更少的异常错误的发生。default这类switch block，处理的是当前面所有case分支都没有匹配的情况下，则switch进入default进行处理。
+对于以上例子，从技术上分析，代码最后的一个break语句是多余的，因为此时，尽管没有break语句，程序依然会跳出switch循环。这里推荐童鞋们善于使用break语句，如此一来，可以使得我们的代码结构可读性更高，更容易维护，更少的异常错误的发生。
+
+default这类switch block，处理的是当前面所有case分支都没有匹配的情况下，则switch进入default进行处理。
 
 以下示例代码SwitchDemp2，给我们呈现了一个statement可以拥有多个case标签。
 （示例代码实现了计算指定月份所拥有的自然天数）
 
-
-    
-    
+```java
     class SwitchDemo2 {
     public static void main(String[] args) {
     
@@ -202,26 +196,24 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
                            + numDays);
     }
     }
-    
+```
 
 
 
 以上程序输出结果为：
 
 
-    
-    
+```
     Number of Days = 29
-    
+```
 
 
 
 **在Switch中使用String**
+
 从Java SE 7版本开始，我们就可以在switch循环中使用String Object作为判断的表达式了。接下来的代码片段StringSwitchDemo，实现了根据String对象类型的month变量，输出指定月份的序号。
 
-
-    
-    
+```java         
     public class StringSwitchDemo {
     
     public static int getMonthNumber(String month) {
@@ -291,17 +283,13 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
         }
     }
     }
-    
-
-
+```
 
 以上程序输出结果为：
 
-
-    
-    
+```
     8
-    
+```
 
 
 
@@ -312,8 +300,7 @@ Note： 在以上StringSwitchDemo例子中包含了month == null的判断，确�
 **以下作一些本人对switch使用基础的理解**
 含带break语句的switch block
 
-    
-    
+```java
     switch(X)  
     {  
       case A:  
@@ -329,15 +316,13 @@ Note： 在以上StringSwitchDemo例子中包含了month == null的判断，确�
           System.out.println("Default");
           break;
     }
-    
+```
 
 
 
 等同于
 
-
-    
-    
+```java
     if(X == A){
         System.out.println("A");
     }else if(X == B){
@@ -347,14 +332,13 @@ Note： 在以上StringSwitchDemo例子中包含了month == null的判断，确�
     }else{
         System.out.println("Default");
     }
-    
+```
 
 
 
 未含带break语句的switch block
 
-    
-    
+```java
     switch(X)  
     {  
       case A:  
@@ -369,15 +353,13 @@ Note： 在以上StringSwitchDemo例子中包含了month == null的判断，确�
           System.out.println("Default");
           break;
     }
-    
+```
 
 
 
 等同于
 
-
-    
-    
+```java
     if(X == A){
         System.out.println("A");
     }else if(X == B || X == C){
@@ -386,7 +368,7 @@ Note： 在以上StringSwitchDemo例子中包含了month == null的判断，确�
     }else{
         System.out.println("Default");
     }
-    
+```
 
 
 

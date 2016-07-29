@@ -15,13 +15,13 @@ tags:
 ---
 
 很开心，周末为自己的博客更换了新装，没错，就是PressWork。它是一个自定义很强的开源wp模板项目，但是还是缺少很多实用的模块，这一部分还是需要童鞋们自己根据自己的需求去定制。
+
 这次我先来介绍对于PressWork的导航面包屑（Breadcrumb）的定制实现。
 
 一、由于默认样式的情况，作者决定在header中新增面包屑的option
 
-
-    
-    
+```php
+<?php
     /**
      * Add breadcrumb to header option
      * @author chenjinlong
@@ -34,16 +34,15 @@ tags:
                       // 其他配置项目 …
              );
     }
-    
+```    
 
 
 
 
 二、新增面包屑实现函数
 
-
-    
-    
+```php
+<?php
     /**
      * Deal with breadcrumb for single post | page. 
      * @author chenjinlong
@@ -63,17 +62,15 @@ tags:
         }
         return $home . $category_parent_top . $title;
     }
-    
+```  
 
 
 
 
 三、增加元素输出逻辑分支
 
-
-
-    
-    
+```php
+<?php
     /**
      * Add page breadcrumb for single post top. 
      * @author chenjinlong
@@ -87,9 +84,6 @@ tags:
         }
         echo '</li>';
     }
-    
-
-
-
+```
 
 参照以上的步骤，简单版的面包屑导航就弄好了，如果需要提高视觉美感，再自己增加css样式的支持即可，因为每个人要求不一，这里就不作建议样式了。

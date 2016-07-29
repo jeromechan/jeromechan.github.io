@@ -20,7 +20,7 @@ Sublime Text目前非常流行，其功能强大到许多的web开发者爱不�
 
 
 
-<blockquote>Tips：本人使用的是Sublime Text 2，version 3没有尝试过，不过在版本更新说明中对于Build System的变更不大，也是可以支持的。</blockquote>
+> Tips：本人使用的是Sublime Text 2，version 3没有尝试过，不过在版本更新说明中对于Build System的变更不大，也是可以支持的。
 
 
 
@@ -28,22 +28,22 @@ Sublime Text目前非常流行，其功能强大到许多的web开发者爱不�
 
 Sublime Text 的构建系统（Build System）可以让我们通过外部程序来运行文件，并可以在Sublime Text 的Console中查看输出，其功能配置在“Tools > Build System”。
 构建系统包括三部分：
+
 （1）使用JSON格式保存配置文件（.sublime-build）
+
 （2）使用Sublime Text命令驱动构建过程
+
 （3）可选的，还可以包括一个外部的可执行文件（脚本或二进制文件）
+
 文件格式：
 
-    
-    
+```
     {
         "cmd": ["python", "-u", "$file"],
         "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
         "selector": "source.python"
     }
-    
-
-
-
+```    
 
 cmd：
 包括命令及其参数数组，若非指定绝对路径，优先从系统PATH变量中获得；
@@ -65,8 +65,7 @@ name：
 
 以下是含带variants的构建系统示例：
 
-    
-    
+```
     {
         "selector": "source.python",
         "cmd": ["date"],
@@ -84,7 +83,7 @@ name：
             }
         ]
     }
-    
+```    
 
 
 
@@ -92,52 +91,52 @@ name：
 
 常见的Sublime Text构建系统内置变量有：
 
+- $file_path		当前文件所在路径, 比如 C:\Files.
 
+- $file	当前文件的完整路径, 比如 C:\Files\Chapter1.txt.
 
+- $file_name	当前文件的文件名, 比如 Chapter1.txt.
 
-<blockquote>$file_path		当前文件所在路径, 比如 C:\Files.
-$file	当前文件的完整路径, 比如 C:\Files\Chapter1.txt.
-$file_name	当前文件的文件名, 比如 Chapter1.txt.
-$file_extension		当前文件的扩展名, 比如 txt.
-$file_base_name	当前文件仅包含文件名的部分, 比如 Document.
-$packages	Packages 文件夹的完整路径.
-$project	当前项目文件的完整路径.
-$project_path		当前项目文件的路径.
-$project_name	当前项目文件的名称.
-$project_extension	当前项目文件的扩展部分.
-$project_base_name	当前项目仅包括名的部分.</blockquote>
+- $file_extension		当前文件的扩展名, 比如 txt.
 
+- $file_base_name	当前文件仅包含文件名的部分, 比如 Document.
 
+- $packages	Packages 文件夹的完整路径.
 
+- $project	当前项目文件的完整路径.
 
+- $project_path		当前项目文件的路径.
+
+- $project_name	当前项目文件的名称.
+
+- $project_extension	当前项目文件的扩展部分.
+
+- $project_base_name	当前项目仅包括名的部分.
 
 下面是本人的Build System的配置细节，提供给各位童鞋参考：
+
 1、php
-快捷键：
-Command + B
+
+> 快捷键：Command + B
 
 配置详情：
 
-    
-    
+```
     {
         "cmd": ["php", "$file"],
         "file_regex": "php$",
         "selector": "source.php"
     }
-    
-
-
-
+```    
 
 2、Java
-快捷键：
-Command + B（编译） => Command + shift + B（执行）
+
+> 快捷键：Command + B（编译） => Command + shift + B（执行）
 
 配置详情：
 
     
-    
+```    
     {
         "cmd": ["javac", "-encoding", "UTF-8", "$file"],
         "file_regex": "^(...*?):([0-9]*):?([0-9]*)",
@@ -149,11 +148,10 @@ Command + B（编译） => Command + shift + B（执行）
             "encoding": "UTF-8"
         }]
     }
-    
-
-
+```    
 
 
 参考资料链接：
+
 非官方Build System说明：[http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html](http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html)
 

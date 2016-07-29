@@ -20,7 +20,7 @@ tags:
 
 
 
-[![软件版本轨迹图](/images/2014-09-15-release-software-roadmap/软件版本轨迹图1-1024x328.png)](/images/2014-09-15-release-software-roadmap/软件版本轨迹图1.png)
+![软件版本轨迹图](/images/2014-09-15-release-software-roadmap/软件版本轨迹图1-1024x328.png)
 
 
 
