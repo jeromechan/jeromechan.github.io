@@ -15,37 +15,32 @@ tags:
 
 七、Git分支级别的基本操作
 
-1. 查看/编辑 本地（远程）分支信息
+- 查看/编辑 本地（远程）分支信息
 
-
-$ git branch -[option] 
+`$ git branch -[option] `
 
 另，该命令后紧接英文短语，执行的是创建分支的操作（仅创建而不切换） 
 
-2. 分支的合并（详见PPT-10）
-
-    
-    $ git checkout master
+- 分支的合并（详见PPT-10）
 
 
-
-    
-    $ git merge iss53
+```    
+$ git checkout master
+$ git merge iss53
+```
 
 
 分支的合并如下图流程示例 
 
 [![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb.png)](/images/2014-06-29-git-basic-knowledge-2/image.png)
 
-<!-- more -->3. 分支的衍合（详见PPT-11）
+- 分支的衍合（详见PPT-11）
 
     
-    $ git checkout experiment
-
-
-
-    
-    $ git rebase master
+```
+$ git checkout experiment
+$ git rebase master
+```
 
 
 分支的衍合如下图流程示例
@@ -164,3 +159,5 @@ This pulls the same change introduced in e43a6, but you get a new commit SHA-1 v
 十五、结束语
 
 [![image](/images/2014-06-29-git-basic-knowledge-2/image_thumb11.png)](/images/2014-06-29-git-basic-knowledge-2/image11.png)
+
+
