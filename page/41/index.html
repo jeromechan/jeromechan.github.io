@@ -686,14 +686,14 @@
 <p>其实，可以简单归结成以下几幅图
 <a href="/images/2014-06-29-git-basic-knowledge-1/image47.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb47.png" alt="image"></a></p>
 
-<p>&lt;!-- more --&gt;四、 Git是领军人物
+<p>四、 Git是领军人物
 实现外观上，Git是这样子做到与众不同的
 <a href="/images/2014-06-29-git-basic-knowledge-1/image48.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb48.png" alt="image"></a></p>
 
 <p>五、什么是Git </p>
 
 <ol>
-<li><p>宏观上看，跟其他的VCS系统用途区别不大，都是代码仓库管理员，&gt;=BAND4的 </p></li>
+<li>宏观上看，跟其他的VCS系统用途区别不大，都是代码仓库管理员，&gt;=BAND4的</li>
 <li><p>微观上看，具备如下特点：</p>
 
 <ol>
@@ -702,76 +702,109 @@
 <li>多数操作仅添加数据 </li>
 </ol></li>
 <li><p>Git仓库文件的三种状态：已提交，已修改，已暂存 </p></li>
-<li><p>Git的三个工作区域，如下图：
-<a href="/images/2014-06-29-git-basic-knowledge-1/image49.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb49.png" alt="image"></a></p></li>
+<li><p>Git的三个工作区域，如下图：</p></li>
 </ol>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-1/image49.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb49.png" alt="image"></a></p>
 
 <p>六、 Git文件级别的基本操作</p>
 
-<ol>
-<li><p>初始化仓库</p>
+<ul>
+<li>初始化仓库</li>
+</ul>
 
-<p>$ git init</p></li>
-<li><p>添加文件</p>
+<p><code>$ git init</code></p>
 
-<p>$ git add *.php</p></li>
-<li><p>克隆分支</p>
+<ul>
+<li>添加文件</li>
+</ul>
 
-<p>$ git clone git://github.com/schacon/grit.git</p></li>
-<li><p>检查当前检出分支的文件状态</p>
+<p><code>$ git add *.php</code></p>
 
-<p>$ git status</p></li>
-<li><p>忽略指定文件</p>
+<ul>
+<li>克隆分支</li>
+</ul>
 
-<p>$ cat .gitignore *.[oa] *~</p></li>
-<li><p>查看提交历史</p>
+<p><code>$ git clone git://github.com/schacon/grit.git</code></p>
 
-<p>$ git log –[option] XXX</p></li>
-<li><p>比较已暂存和上次提交快照间的区别</p>
+<ul>
+<li>检查当前检出分支的文件状态</li>
+</ul>
 
-<p>$ git diff –cached</p></li>
-<li><p>提交更新</p>
+<p><code>$ git status</code></p>
 
-<p>$ git commit -m “XXX“</p></li>
-</ol>
+<ul>
+<li>忽略指定文件</li>
+</ul>
+
+<p><code>$ cat .gitignore *.[oa] *~</code></p>
+
+<ul>
+<li>查看提交历史</li>
+</ul>
+
+<p><code>$ git log –[option] XXX</code></p>
+
+<ul>
+<li>比较已暂存和上次提交快照间的区别</li>
+</ul>
+
+<p><code>$ git diff –cached</code></p>
+
+<ul>
+<li>提交更新</li>
+</ul>
+
+<p><code>$ git commit -m “XXX“</code></p>
 
 <p>例外，暂存步骤可以跳过，如下</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ git commit -a -m &quot;XXX“
+
+<p><code>$ git commit -a -m &quot;XXX“</code></p>
+
+<ul>
+<li>移除文件<br></li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ rm grit.gemspec
+$ git rm grit.gemspec
 </code></pre></div>
-<ol>
-<li><p>移除文件</p>
+<ul>
+<li>移动文件</li>
+</ul>
 
-<p>$ rm grit.gemspec
-$ git rm grit.gemspec</p></li>
-<li><p>移动文件</p>
-
-<p>$ git mv file<em>from file</em>to</p></li>
-</ol>
+<p><code>$ git mv file_from file_to</code></p>
 
 <p>等同于</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ mv README.txt README
 $ git rm README.txt
 $ git add README
 </code></pre></div>
-<ol>
-<li><p>撤销上一次提交并重新提交</p>
+<ul>
+<li>撤销上一次提交并重新提交</li>
+</ul>
 
-<p>$git commit –amend –m ‘XXX’</p></li>
-<li><p>取消已经暂存的文件</p>
+<p><code>$git commit –amend –m ‘XXX’</code></p>
 
-<p>$git reset HEAD benchmarks.rb</p></li>
-<li><p>取消对文件的修改</p>
+<ul>
+<li>取消已经暂存的文件</li>
+</ul>
 
-<p>$git checkout -- benchmarks.rb</p></li>
+<p><code>$git reset HEAD benchmarks.rb</code></p>
+
+<ul>
+<li>取消对文件的修改</li>
+</ul>
+
+<p><code>$git checkout -- benchmarks.rb</code></p>
+
+<ul>
 <li><p>推送数据到Remotes</p>
 
-<p>$git push origin master</p></li>
-<li><p>从Remotes抓取数据</p>
-
-<p>$git fetch [remote-name]
-$git pull origin master</p></li>
-</ol>
-
+<p><code>$git push origin master</code></p></li>
+<li><p>从Remotes抓取数据</p></li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$git fetch [remote-name]
+$git pull origin master
+</code></pre></div>
   </div>
   
 </div>

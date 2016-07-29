@@ -657,32 +657,28 @@
   <span class="post-date">29 Jun 2014</span>
   <p>七、Git分支级别的基本操作</p>
 
-<ol>
+<ul>
 <li>查看/编辑 本地（远程）分支信息</li>
-</ol>
+</ul>
 
-<p>$ git branch -[option] </p>
+<p><code>$ git branch -[option]</code></p>
 
 <p>另，该命令后紧接英文短语，执行的是创建分支的操作（仅创建而不切换） </p>
 
-<ol>
-<li><p>分支的合并（详见PPT-10）</p>
-
-<p>$ git checkout master</p>
-
-<p>$ git merge iss53</p></li>
-</ol>
-
+<ul>
+<li>分支的合并（详见PPT-10）</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git checkout master
+$ git merge iss53
+</code></pre></div>
 <p>分支的合并如下图流程示例 </p>
 
 <p><a href="/images/2014-06-29-git-basic-knowledge-2/image.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb.png" alt="image"></a></p>
 
-<p>&lt;!-- more --&gt;3. 分支的衍合（详见PPT-11）</p>
+<ul>
+<li>分支的衍合（详见PPT-11）</li>
+</ul>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git checkout experiment
-
-
-
-
 $ git rebase master
 </code></pre></div>
 <p>分支的衍合如下图流程示例</p>

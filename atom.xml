@@ -4,7 +4,7 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-07-29T18:41:50+08:00</updated>
+ <updated>2016-07-29T19:10:08+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
@@ -3889,32 +3889,28 @@ Sitemap Protocol：&lt;a href=&quot;http://www.sitemaps.org%20&quot;&gt;http://w
    <id>http://aboutcoder.com/2014/06/29/git-basic-knowledge-2</id>
    <content type="html">&lt;p&gt;七、Git分支级别的基本操作&lt;/p&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;查看/编辑 本地（远程）分支信息&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;$ git branch -[option] &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ git branch -[option]&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;另，该命令后紧接英文短语，执行的是创建分支的操作（仅创建而不切换） &lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;分支的合并（详见PPT-10）&lt;/p&gt;
-
-&lt;p&gt;$ git checkout master&lt;/p&gt;
-
-&lt;p&gt;$ git merge iss53&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
+&lt;ul&gt;
+&lt;li&gt;分支的合并（详见PPT-10）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ git checkout master
+$ git merge iss53
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;分支的合并如下图流程示例 &lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2014-06-29-git-basic-knowledge-2/image.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-git-basic-knowledge-2/image_thumb.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!-- more --&amp;gt;3. 分支的衍合（详见PPT-11）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分支的衍合（详见PPT-11）&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ git checkout experiment
-
-
-
-
 $ git rebase master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;分支的衍合如下图流程示例&lt;/p&gt;
@@ -4262,14 +4258,14 @@ password= &amp;lt;密码&amp;gt;&lt;/p&gt;
 &lt;p&gt;其实，可以简单归结成以下几幅图
 &lt;a href=&quot;/images/2014-06-29-git-basic-knowledge-1/image47.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-git-basic-knowledge-1/image_thumb47.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!-- more --&amp;gt;四、 Git是领军人物
+&lt;p&gt;四、 Git是领军人物
 实现外观上，Git是这样子做到与众不同的
 &lt;a href=&quot;/images/2014-06-29-git-basic-knowledge-1/image48.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-git-basic-knowledge-1/image_thumb48.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;五、什么是Git &lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;宏观上看，跟其他的VCS系统用途区别不大，都是代码仓库管理员，&amp;gt;=BAND4的 &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;宏观上看，跟其他的VCS系统用途区别不大，都是代码仓库管理员，&amp;gt;=BAND4的&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;微观上看，具备如下特点：&lt;/p&gt;
 
 &lt;ol&gt;
@@ -4278,76 +4274,109 @@ password= &amp;lt;密码&amp;gt;&lt;/p&gt;
 &lt;li&gt;多数操作仅添加数据 &lt;/li&gt;
 &lt;/ol&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Git仓库文件的三种状态：已提交，已修改，已暂存 &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Git的三个工作区域，如下图：
-&lt;a href=&quot;/images/2014-06-29-git-basic-knowledge-1/image49.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-git-basic-knowledge-1/image_thumb49.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Git的三个工作区域，如下图：&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&quot;/images/2014-06-29-git-basic-knowledge-1/image49.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-git-basic-knowledge-1/image_thumb49.png&quot; alt=&quot;image&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;六、 Git文件级别的基本操作&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;初始化仓库&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;初始化仓库&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;$ git init&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;添加文件&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ git init&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;$ git add *.php&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;克隆分支&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;添加文件&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;$ git clone git://github.com/schacon/grit.git&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;检查当前检出分支的文件状态&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ git add *.php&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;$ git status&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;忽略指定文件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;克隆分支&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;$ cat .gitignore *.[oa] *~&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;查看提交历史&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ git clone git://github.com/schacon/grit.git&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;$ git log –[option] XXX&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;比较已暂存和上次提交快照间的区别&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;检查当前检出分支的文件状态&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;$ git diff –cached&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;提交更新&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ git status&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;$ git commit -m “XXX“&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;忽略指定文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;$ cat .gitignore *.[oa] *~&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;查看提交历史&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;$ git log –[option] XXX&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;比较已暂存和上次提交快照间的区别&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;$ git diff –cached&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;提交更新&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;$ git commit -m “XXX“&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;例外，暂存步骤可以跳过，如下&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ git commit -a -m &amp;quot;XXX“
+
+&lt;p&gt;&lt;code&gt;$ git commit -a -m &amp;quot;XXX“&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;移除文件&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ rm grit.gemspec
+$ git rm grit.gemspec
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;移除文件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;移动文件&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;$ rm grit.gemspec
-$ git rm grit.gemspec&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;移动文件&lt;/p&gt;
-
-&lt;p&gt;$ git mv file&lt;em&gt;from file&lt;/em&gt;to&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;$ git mv file_from file_to&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;等同于&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ mv README.txt README
 $ git rm README.txt
 $ git add README
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;撤销上一次提交并重新提交&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;撤销上一次提交并重新提交&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;$git commit –amend –m ‘XXX’&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;取消已经暂存的文件&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$git commit –amend –m ‘XXX’&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;$git reset HEAD benchmarks.rb&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;取消对文件的修改&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;取消已经暂存的文件&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;$git checkout -- benchmarks.rb&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;code&gt;$git reset HEAD benchmarks.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;取消对文件的修改&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;$git checkout -- benchmarks.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;推送数据到Remotes&lt;/p&gt;
 
-&lt;p&gt;$git push origin master&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;从Remotes抓取数据&lt;/p&gt;
-
-&lt;p&gt;$git fetch [remote-name]
-$git pull origin master&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</content>
+&lt;p&gt;&lt;code&gt;$git push origin master&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;从Remotes抓取数据&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$git fetch [remote-name]
+$git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
  </entry>
  
  <entry>
@@ -4562,73 +4591,126 @@ $git pull origin master&lt;/p&gt;&lt;/li&gt;
    <link href="http://aboutcoder.com/2014/06/29/head-first-java-basic/"/>
    <updated>2014-06-29T08:55:29+08:00</updated>
    <id>http://aboutcoder.com/2014/06/29/head-first-java-basic</id>
-   <content type="html">&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;编程离不开参考物，Java的强大正在于它的海纳百川&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Java的参考文档形式：
-（a）原生HTML形式
-（b）排版CHM形式
-（c）其它…&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;从Java doc里看ooad世界
-（a）包-接口-类-异常-错误的阐述，应有尽有
-（b）类的方法和属性的说明和使用说明，让你一如既往都感觉是在书写hello world&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;package的分类
-（a）java.&lt;em&gt;：基础语言包
-（b）javax.&lt;/em&gt;：jdk扩展包
-（c）org.&lt;em&gt;：第三方功能包
-（d）com.sun.&lt;/em&gt;：sun公司提供的功能包，因其不具备兼容性，变更大，并不在std-api-doc内公开&amp;lt;!-- more --&amp;gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;java.lang包
-（a）默认自动引入
-（b）包含了Java语言所需要的基本功能类和接口的信息，是进行Java编程的基础
-（c）Object类
-&lt;1&gt; Object类是Java语言的灵魂，所有的Java类（除了Object类）都是Object类的儿子，它的所有方法将出现在所有类的内部，这就是Java继承树的唯一根，这就是独具Java语言特色的单根继承体系
-&lt;2&gt; equals方法
-判断两个对象内容是否相同。Object.equals()实现如下：
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0024.jpg&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0024_thumb.jpg&quot; alt=&quot;clip_image002[4]&quot;&gt;&lt;/a&gt;
-&lt;3&gt; finalize方法
-概念与构造函数相反，如同C++中的析构函数一般，该方法会被JVM自动调用执行垃圾回收。
-&lt;4&gt; hashcode方法
-获取一个散列码数值，使用这个散列码可以快速判断对象是否&lt;strong&gt;不相同&lt;/strong&gt;。
-两个内容相同的对象，hashcode返回值必须相同，而对于两个不相同的对象，返回的hashcode也有可能相同。
-&lt;5&gt; toString方法
-显示对象内容时会被系统自动调用的方法
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0044.jpg&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0044_thumb.jpg&quot; alt=&quot;clip_image004[4]&quot;&gt;&lt;/a&gt;
-（d）Math类
-&lt;1&gt; 放置常用的数学常数和方法
-&lt;2&gt; 类的常数和方法皆是静态类型的
-（e） String和StringBuffer
-都是代表任意多个字符串组成的序列，两者实现的区别，一般把String看成固定的字符串，而StringBuffer看成可变的字符串。并不是说前者不能变更，而是因为前者变更如同品牌笔记本维修主板一般，直接取新替换，浪费机器资源；而后者则是维修自身。
-String类的声明
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0054.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0054_thumb.png&quot; alt=&quot;clip_image005[4]&quot;&gt;&lt;/a&gt;
-其实String类还有好多方法，例如charAt()，compareTo()，compareToIgnoreCase()，concat()，equals()，length()等等
-StringBuffer类的声明
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0064.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0064_thumb.png&quot; alt=&quot;clip_image006[4]&quot;&gt;&lt;/a&gt;
-String与StringBuffer间的转换关系
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0084.jpg&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0084_thumb.jpg&quot; alt=&quot;clip_image008[4]&quot;&gt;&lt;/a&gt;
-诸如此类的方法多如绵绵春雨，还是等待大家慢慢深入研究吧:D&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;java.util包
-（a）时间日期类
-Date类（deprecated）
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0094.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0094_thumb.png&quot; alt=&quot;clip_image009[4]&quot;&gt;&lt;/a&gt;
-绝对时间与相对时间的互转
-绝对时间-&amp;gt;相对时间：getTime()
-相对时间-&amp;gt;绝对时间：
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0104.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0104_thumb.png&quot; alt=&quot;clip_image010[4]&quot;&gt;&lt;/a&gt;
-Calendar类（recommend）
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0124.jpg&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0124_thumb.jpg&quot; alt=&quot;clip_image012[4]&quot;&gt;&lt;/a&gt;
-要提一下的是，它家的add(Calendar.YEAR, 1)方法可以实现计算某字段之后添加或减少一定的数值&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;集成框架（CF）
-List系列类：按索引值操作数据，允许存放重复元素
-Set系列类：按索引值操作数据，不允许存放重复数据
-Map系列类：按照名称操作数据，名称不允许重复，值可以重复，一个名称对应唯一的值
-简而言之，CF类的复杂性在于它们使用了数据结构类型进行存储和实现，具备了该种数据结构的特点。
-示例1：LIST
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0134.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0134_thumb.png&quot; alt=&quot;clip_image013[4]&quot;&gt;&lt;/a&gt;
-示例2：SET
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0144.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0144_thumb.png&quot; alt=&quot;clip_image014[4]&quot;&gt;&lt;/a&gt;
-示例3：MAP
-&lt;a href=&quot;/images/2014-06-29-head-first-java-basic/clip_image0154.png&quot;&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0154_thumb.png&quot; alt=&quot;clip_image015[4]&quot;&gt;&lt;/a&gt;其实大家也都会发现，以上谈到的都只是些边边角角的JAVA最基本的知识。
-所谓学海无涯苦作舟，大家就乘着风，扬起帆，继续前进吧。&lt;/p&gt;&lt;/li&gt;
+   <content type="html">&lt;h4&gt;编程离不开参考物，Java的强大正在于它的海纳百川&lt;/h4&gt;
+
+&lt;h4&gt;一、Java的参考文档形式：&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;原生HTML形式&lt;/li&gt;
+&lt;li&gt;排版CHM形式&lt;/li&gt;
+&lt;li&gt;其它…&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h4&gt;二、从Java doc里看ooad世界&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;包-接口-类-异常-错误的阐述，应有尽有&lt;/li&gt;
+&lt;li&gt;类的方法和属性的说明和使用说明，让你一如既往都感觉是在书写hello world&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;三、package的分类&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;java.*：基础语言包&lt;/li&gt;
+&lt;li&gt;javax.*：jdk扩展包&lt;/li&gt;
+&lt;li&gt;org.*：第三方功能包&lt;/li&gt;
+&lt;li&gt;com.sun.*：sun公司提供的功能包，因其不具备兼容性，变更大，并不在std-api-doc内公开&amp;lt;!-- more --&amp;gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;四、java.lang包&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;默认自动引入&lt;/li&gt;
+&lt;li&gt;包含了Java语言所需要的基本功能类和接口的信息，是进行Java编程的基础&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Object类  &lt;/p&gt;
+
+&lt;p&gt;&lt;1&gt; Object类是Java语言的灵魂，所有的Java类（除了Object类）都是Object类的儿子，它的所有方法将出现在所有类的内部，这就是Java继承树的唯一根，这就是独具Java语言特色的单根继承体系&lt;/p&gt;
+
+&lt;p&gt;&lt;2&gt; equals方法&lt;br&gt;
+判断两个对象内容是否相同。Object.equals()实现如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0024_thumb.jpg&quot; alt=&quot;clip_image002&quot;&gt;  &lt;/p&gt;
+
+&lt;p&gt;&lt;3&gt; finalize方法
+概念与构造函数相反，如同C++中的析构函数一般，该方法会被JVM自动调用执行垃圾回收。&lt;/p&gt;
+
+&lt;p&gt;&lt;4&gt; hashcode方法
+获取一个散列码数值，使用这个散列码可以快速判断对象是否&lt;strong&gt;不相同&lt;/strong&gt;。
+两个内容相同的对象，hashcode返回值必须相同，而对于两个不相同的对象，返回的hashcode也有可能相同。&lt;/p&gt;
+
+&lt;p&gt;&lt;5&gt; toString方法&lt;br&gt;
+显示对象内容时会被系统自动调用的方法&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0044_thumb.jpg&quot; alt=&quot;clip_image004&quot;&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Math类
+&lt;1&gt; 放置常用的数学常数和方法
+&lt;2&gt; 类的常数和方法皆是静态类型的&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;String和StringBuffer
+都是代表任意多个字符串组成的序列，两者实现的区别，一般把String看成固定的字符串，而StringBuffer看成可变的字符串。并不是说前者不能变更，而是因为前者变更如同品牌笔记本维修主板一般，直接取新替换，浪费机器资源；而后者则是维修自身。
+String类的声明&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0054_thumb.png&quot; alt=&quot;clip_image005&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;其实String类还有好多方法，例如charAt()，compareTo()，compareToIgnoreCase()，concat()，equals()，length()等等
+StringBuffer类的声明&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0064_thumb.png&quot; alt=&quot;clip_image006&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;String与StringBuffer间的转换关系&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0084_thumb.jpg&quot; alt=&quot;clip_image008&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;诸如此类的方法多如绵绵春雨，还是等待大家慢慢深入研究吧:D&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;五、java.util包&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;时间日期类&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Date类（deprecated）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0094_thumb.png&quot; alt=&quot;clip_image009&quot;&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;- 绝对时间与相对时间的互转
+绝对时间-&amp;gt;相对时间：
+`getTime()`
+
+相对时间-&amp;gt;绝对时间：
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0104_thumb.png&quot; alt=&quot;clip_image010&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;- Calendar类（recommend）
+
+![clip_image012](/images/2014-06-29-head-first-java-basic/clip_image0124_thumb.jpg)
+
+要提一下的是，它家的add(Calendar.YEAR, 1)方法可以实现计算某字段之后添加或减少一定的数值
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;集成框架（CF）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;List系列类：按索引值操作数据，允许存放重复元素&lt;/li&gt;
+&lt;li&gt;Set系列类：按索引值操作数据，不允许存放重复数据&lt;/li&gt;
+&lt;li&gt;Map系列类：按照名称操作数据，名称不允许重复，值可以重复，一个名称对应唯一的值
+简而言之，CF类的复杂性在于它们使用了数据结构类型进行存储和实现，具备了该种数据结构的特点。
+示例1：LIST&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0134_thumb.png&quot; alt=&quot;clip_image013&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;示例2：SET&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0144_thumb.png&quot; alt=&quot;clip_image014&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;示例3：MAP&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-06-29-head-first-java-basic/clip_image0154_thumb.png&quot; alt=&quot;clip_image015&quot;&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;其实大家也都会发现，以上谈到的都只是些边边角角的JAVA最基本的知识。
+所谓学海无涯苦作舟，大家就乘着风，扬起帆，继续前进吧。&lt;/p&gt;
 </content>
  </entry>
  
