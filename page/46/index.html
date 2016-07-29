@@ -664,28 +664,28 @@
     <span class="post-date">29 Jun 2014</span>
     
     <ol>
-<li>UML行为建模图
+  <li>UML行为建模图
 3.1 用例图(Use Case Diagram)
 （1）参与者(Actor)
 在寻找用例图中的参与者时候，先要确定系统的边界，然后确定系统的涉众，从中确认出驱动用例的动作来源，从而确定参与者。参与者是位于边界之外的。参与者并非只能是人，也可以非人，因为有些需求是没有人参与的。如果没有人参与，这是就需要去找到指令或者计算机动作的来源。
 （2）用例(Use Case)
 判断用例是否准确的依据有：</li>
-<li>用例是相对独立的：这意味着它不需要与其他用例交互而独自完成参与者的目的，即用例从功能上说是完备的。</li>
-<li>用例的执行结果对参与者来说是可观测的和有意义的。
-<a href="/images/2014-06-29-uml-modeling-3/image10.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb10.png" alt="image"></a> &lt;!-- more --&gt;
-<a href="/images/2014-06-29-uml-modeling-3/image11.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb11.png" alt="image"></a></li>
-<li>用例必须由一个参与者发起，不存在没有参与者的用例，用例不应该自动启动，也不应该主动启动另一个用例。
-<a href="/images/2014-06-29-uml-modeling-3/image12.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb12.png" alt="image"></a></li>
-<li>用例必然是以动宾短语形式出现的。
-<a href="/images/2014-06-29-uml-modeling-3/image13.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb13.png" alt="image"></a></li>
-<li>参与者是用例驱动的来源，然而，用例的粒度大小则由需求的要求而定，最适合需求的用例和用例描述才是最适合的。
+  <li>用例是相对独立的：这意味着它不需要与其他用例交互而独自完成参与者的目的，即用例从功能上说是完备的。</li>
+  <li>用例的执行结果对参与者来说是可观测的和有意义的。
+<a href="/images/2014-06-29-uml-modeling-3/image10.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb10.png" alt="image" /></a> <!-- more -->
+<a href="/images/2014-06-29-uml-modeling-3/image11.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb11.png" alt="image" /></a></li>
+  <li>用例必须由一个参与者发起，不存在没有参与者的用例，用例不应该自动启动，也不应该主动启动另一个用例。
+<a href="/images/2014-06-29-uml-modeling-3/image12.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb12.png" alt="image" /></a></li>
+  <li>用例必然是以动宾短语形式出现的。
+<a href="/images/2014-06-29-uml-modeling-3/image13.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb13.png" alt="image" /></a></li>
+  <li>参与者是用例驱动的来源，然而，用例的粒度大小则由需求的要求而定，最适合需求的用例和用例描述才是最适合的。
 但是，容易步入一些分析中的误区。
 （1）目标和步骤的误区
-<a href="/images/2014-06-29-uml-modeling-3/image14.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb14.png" alt="image"></a>
+<a href="/images/2014-06-29-uml-modeling-3/image14.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb14.png" alt="image" /></a>
 应该以完整目标为用例，而不应该以步骤作为用例。
 （2）边界的超越
 参与者对于用例的操作都应该位于合法系统边界之内，不可以越界驱动用例。
-<a href="/images/2014-06-29-uml-modeling-3/image15.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb15.png" alt="image"></a>
+<a href="/images/2014-06-29-uml-modeling-3/image15.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb15.png" alt="image" /></a>
 右图中的“应征立减活动”用例并非属于“促销产品部管理员”职权范围之内，此处为越界的用例，是不正确的。
 3.2 活动图
 （1）用例活动图
@@ -695,22 +695,22 @@
 （3）泳道
 详见图示与解说。
 下图是根据业务场景所进行的建模。
-<a href="/images/2014-06-29-uml-modeling-3/image16.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb16.png" alt="image"></a>
+<a href="/images/2014-06-29-uml-modeling-3/image16.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb16.png" alt="image" /></a>
 3.3 时序图
-<a href="/images/2014-06-29-uml-modeling-3/image17.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb17.png" alt="image"></a>
+<a href="/images/2014-06-29-uml-modeling-3/image17.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb17.png" alt="image" /></a>
 3.4 状态图
 状态图显示一个状态机，状态机主要用于描述对象的状态变化以确定何种行为改变了对象状态，以及对象状态变化对系统的影响。通常，状态机用于描述实体类对象的整个生命周期内的状态变迁以获得对这个实体对象的理解，同时获得系统和实体对象互相影响的关系。
 需要注意的是，状态图通常只用于描述单个对象的行为，如果要描述对象间的交互，最好采用时序图或者协作图。
 状态图包含的元素有：</li>
-<li>初始状态</li>
-<li>状态：包含entry/入口行为，do/执行的行为，event/事件-事件行为，exit/退出行为。</li>
-<li>复合状态</li>
-<li>转移</li>
-<li>事件</li>
-<li>条件：常常是一个布尔表达式</li>
-<li>最终状态
+  <li>初始状态</li>
+  <li>状态：包含entry/入口行为，do/执行的行为，event/事件-事件行为，exit/退出行为。</li>
+  <li>复合状态</li>
+  <li>转移</li>
+  <li>事件</li>
+  <li>条件：常常是一个布尔表达式</li>
+  <li>最终状态
 如下例子详述：
-<a href="/images/2014-06-29-uml-modeling-3/image18.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb18.png" alt="image"></a>
+<a href="/images/2014-06-29-uml-modeling-3/image18.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb18.png" alt="image" /></a>
 当然，UML的知识不止于以上所述，正所谓“路漫漫其修远兮，吾将上下而求索，不断努力地去求索…”
 Thank you very much!</li>
 </ol>

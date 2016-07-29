@@ -668,108 +668,117 @@
 <p>让我们一起来看看以下详细代码实现。</p>
 
 <ol>
-<li>下划线风格=&gt;驼峰风格</li>
+  <li>下划线风格=&gt;驼峰风格</li>
 </ol>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/**</span>
-<span class="x"> * @static 数组键名翻译成驼峰写法</span>
-<span class="x"> * @param $in 源数组</span>
-<span class="x"> * @return array 输出数组</span>
-<span class="x"> */</span>
-<span class="x">public static function arrKeysToCamelCase($in)</span>
-<span class="x">{</span>
-<span class="x">    if(empty($in)||!is_array($in))</span>
-<span class="x">        return $in;</span>
-<span class="x">    $reCopyRes = array();</span>
-<span class="x">    foreach($in as $key=&gt;$val)</span>
-<span class="x">    {</span>
-<span class="x">        $reKey = self::ucFirstWord($key);</span>
-<span class="x">        if(!is_array($val)){</span>
-<span class="x">            $reCopyRes[$reKey] = $val;</span>
-<span class="x">        }else{</span>
-<span class="x">            $reCopyRes[$reKey] = self::arrKeysToCamelCase($val);</span>
-<span class="x">        }</span>
-<span class="x">    }</span>
-<span class="x">    return $reCopyRes;</span>
-<span class="x">}</span>
 
-<span class="x">/**</span>
-<span class="x"> * @static 将单词的首字母转换成大写(首单词除外)</span>
-<span class="x"> * @param $word 源单词字符串</span>
-<span class="x"> * @return string 输出单词字符串</span>
-<span class="x"> */</span>
-<span class="x">public static function ucFirstWord($word)</span>
-<span class="x">{</span>
-<span class="x">    if(!is_string($word)){</span>
-<span class="x">        return $word;</span>
-<span class="x">    }else{</span>
-<span class="x">        $wordArr = explode(&#39;_&#39;,$word);</span>
-<span class="x">        if(!empty($wordArr)){</span>
-<span class="x">            $index = 0;</span>
-<span class="x">            foreach($wordArr as &amp;$wd)</span>
-<span class="x">            {</span>
-<span class="x">                if($index==0){</span>
-<span class="x">                    $index++;</span>
-<span class="x">                    continue;</span>
-<span class="x">                }</span>
-<span class="x">                $wd = ucfirst($wd);</span>
-<span class="x">            }</span>
-<span class="x">            $outStr = implode(&#39;&#39;,$wordArr);</span>
-<span class="x">            return $outStr;</span>
-<span class="x">        }else{</span>
-<span class="x">            return $word;</span>
-<span class="x">        }</span>
-<span class="x">    }</span>
-<span class="x">}</span>
-</code></pre></div>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * @static 数组键名翻译成驼峰写法
+ * @param $in 源数组
+ * @return array 输出数组
+ */</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">arrKeysToCamelCase</span><span class="p">(</span><span class="nv">$in</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$in</span><span class="p">)</span><span class="o">||!</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$in</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nv">$in</span><span class="p">;</span>
+    <span class="nv">$reCopyRes</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$in</span> <span class="k">as</span> <span class="nv">$key</span><span class="o">=&gt;</span><span class="nv">$val</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$reKey</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">ucFirstWord</span><span class="p">(</span><span class="nv">$key</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$val</span><span class="p">)){</span>
+            <span class="nv">$reCopyRes</span><span class="p">[</span><span class="nv">$reKey</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$val</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nv">$reCopyRes</span><span class="p">[</span><span class="nv">$reKey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">arrKeysToCamelCase</span><span class="p">(</span><span class="nv">$val</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nv">$reCopyRes</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="sd">/**
+ * @static 将单词的首字母转换成大写(首单词除外)
+ * @param $word 源单词字符串
+ * @return string 输出单词字符串
+ */</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">ucFirstWord</span><span class="p">(</span><span class="nv">$word</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">is_string</span><span class="p">(</span><span class="nv">$word</span><span class="p">)){</span>
+        <span class="k">return</span> <span class="nv">$word</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nv">$wordArr</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">'_'</span><span class="p">,</span><span class="nv">$word</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$wordArr</span><span class="p">)){</span>
+            <span class="nv">$index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">foreach</span><span class="p">(</span><span class="nv">$wordArr</span> <span class="k">as</span> <span class="o">&amp;</span><span class="nv">$wd</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="nv">$index</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+                    <span class="nv">$index</span><span class="o">++</span><span class="p">;</span>
+                    <span class="k">continue</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="nv">$wd</span> <span class="o">=</span> <span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$wd</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="nv">$outStr</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span><span class="nv">$wordArr</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nv">$outStr</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$word</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
 <ol>
-<li>驼峰风格=&gt;下划线风格</li>
+  <li>驼峰风格=&gt;下划线风格</li>
 </ol>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/**</span>
-<span class="x"> * @static 数组键名翻译成下划线写法</span>
-<span class="x"> * @param $in 源数组</span>
-<span class="x"> * @return array 输出数组</span>
-<span class="x"> */</span>
-<span class="x">public static function arrKeysToUnderlineCase($in)</span>
-<span class="x">{</span>
-<span class="x">    if(empty($in)||!is_array($in))</span>
-<span class="x">        return $in;</span>
-<span class="x">    $reCopyRes = array();</span>
-<span class="x">    foreach($in as $key=&gt;$val)</span>
-<span class="x">    {</span>
-<span class="x">        $reKey = self::lcFirstWord($key);</span>
-<span class="x">        if(!is_array($val)){</span>
-<span class="x">            $reCopyRes[$reKey] = $val;</span>
-<span class="x">        }else{</span>
-<span class="x">            $reCopyRes[$reKey] = self::arrKeysToUnderlineCase($val);</span>
-<span class="x">        }</span>
-<span class="x">    }</span>
-<span class="x">    return $reCopyRes;</span>
-<span class="x">}</span>
 
-<span class="x">/**</span>
-<span class="x"> * @static 将单词的首字母转换成小写</span>
-<span class="x"> * @param $word 源单词字符串</span>
-<span class="x"> * @return string 输出单词字符串</span>
-<span class="x"> */</span>
-<span class="x">public static function lcFirstWord($word)</span>
-<span class="x">{</span>
-<span class="x">    if(!is_string($word)){</span>
-<span class="x">        return $word;</span>
-<span class="x">    }else{</span>
-<span class="x">        preg_match_all(&#39;/([a-z0-9_]*)([A-Z][a-z0-9_]*)?/&#39;,$word,EG_PATTERN_ORDER);</span>
-<span class="x">        if(!empty($matches)){</span>
-<span class="x">            $strPattern1 = !empty($matches[1][0])?trim($matches[1][0]):&#39;&#39;;</span>
-<span class="x">            $subMatch = array_filter($matches[2]);</span>
-<span class="x">            $strPattern2 = !empty($subMatch)?trim(implode(&#39;_&#39;,$subMatch)):&#39;&#39;;</span>
-<span class="x">            $strPattern2 = !empty($strPattern2) &amp;&amp; !empty($strPattern1)?&#39;_&#39;.2:$strPattern2;</span>
-<span class="x">            $outStr = strtolower($strPattern1.$strPattern2);</span>
-<span class="x">        }else{</span>
-<span class="x">            $outStr = $word;</span>
-<span class="x">        }</span>
-<span class="x">        return $outStr;</span>
-<span class="x">    }</span>
-<span class="x">}</span>
-</code></pre></div>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * @static 数组键名翻译成下划线写法
+ * @param $in 源数组
+ * @return array 输出数组
+ */</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">arrKeysToUnderlineCase</span><span class="p">(</span><span class="nv">$in</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$in</span><span class="p">)</span><span class="o">||!</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$in</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nv">$in</span><span class="p">;</span>
+    <span class="nv">$reCopyRes</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$in</span> <span class="k">as</span> <span class="nv">$key</span><span class="o">=&gt;</span><span class="nv">$val</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$reKey</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">lcFirstWord</span><span class="p">(</span><span class="nv">$key</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$val</span><span class="p">)){</span>
+            <span class="nv">$reCopyRes</span><span class="p">[</span><span class="nv">$reKey</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$val</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nv">$reCopyRes</span><span class="p">[</span><span class="nv">$reKey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">arrKeysToUnderlineCase</span><span class="p">(</span><span class="nv">$val</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nv">$reCopyRes</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="sd">/**
+ * @static 将单词的首字母转换成小写
+ * @param $word 源单词字符串
+ * @return string 输出单词字符串
+ */</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">lcFirstWord</span><span class="p">(</span><span class="nv">$word</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">is_string</span><span class="p">(</span><span class="nv">$word</span><span class="p">)){</span>
+        <span class="k">return</span> <span class="nv">$word</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nb">preg_match_all</span><span class="p">(</span><span class="s1">'/([a-z0-9_]*)([A-Z][a-z0-9_]*)?/'</span><span class="p">,</span><span class="nv">$word</span><span class="p">,</span><span class="nx">EG_PATTERN_ORDER</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$matches</span><span class="p">)){</span>
+            <span class="nv">$strPattern1</span> <span class="o">=</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$matches</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">?</span><span class="nb">trim</span><span class="p">(</span><span class="nv">$matches</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">:</span><span class="s1">''</span><span class="p">;</span>
+            <span class="nv">$subMatch</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$matches</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+            <span class="nv">$strPattern2</span> <span class="o">=</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$subMatch</span><span class="p">)</span><span class="o">?</span><span class="nb">trim</span><span class="p">(</span><span class="nb">implode</span><span class="p">(</span><span class="s1">'_'</span><span class="p">,</span><span class="nv">$subMatch</span><span class="p">))</span><span class="o">:</span><span class="s1">''</span><span class="p">;</span>
+            <span class="nv">$strPattern2</span> <span class="o">=</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$strPattern2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$strPattern1</span><span class="p">)</span><span class="o">?</span><span class="s1">'_'</span><span class="o">.</span><span class="mi">2</span><span class="o">:</span><span class="nv">$strPattern2</span><span class="p">;</span>
+            <span class="nv">$outStr</span> <span class="o">=</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$strPattern1</span><span class="o">.</span><span class="nv">$strPattern2</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nv">$outStr</span> <span class="o">=</span> <span class="nv">$word</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nv">$outStr</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
   </div>
   
 </div>

@@ -674,22 +674,26 @@
 <p>究其原因：</p>
 
 <p>在yii框架的framework/web/CUrlManager.php中定义了开放属性</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">/**</span>
-<span class="x"> * @var boolean whether routes are case-sensitive. Defaults to true. By setting this to false,</span>
-<span class="x"> * the route in the incoming request will be turned to lower case first before further processing.</span>
-<span class="x"> * As a result, you should follow the convention that you use lower case when specifying</span>
-<span class="x"> * controller mapping ({@link CWebApplication::controllerMap}) and action mapping</span>
-<span class="x"> * ({@link CController::actions}). Also, the directory names for organizing controllers should</span>
-<span class="x"> * be in lower case.</span>
-<span class="x"> */</span>
-<span class="x">public $caseSensitive=true;</span>
-</code></pre></div>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * @var boolean whether routes are case-sensitive. Defaults to true. By setting this to false,
+ * the route in the incoming request will be turned to lower case first before further processing.
+ * As a result, you should follow the convention that you use lower case when specifying
+ * controller mapping ({@link CWebApplication::controllerMap}) and action mapping
+ * ({@link CController::actions}). Also, the directory names for organizing controllers should
+ * be in lower case.
+ */</span>
+<span class="k">public</span> <span class="nv">$caseSensitive</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p>默认true值表示路由地址大小写敏感，false值表示路由不区分大小写。</p>
 
 <p>据Yii官方参考描述：</p>
 
 <blockquote>
-<p><strong>Note:</strong> By default, routes are case-sensitive. It is possible to make routes case-insensitive by setting<a href="http://www.yiiframework.com/doc/api/1.1/CUrlManager#caseSensitive">CUrlManager::caseSensitive</a> to false in the application configuration. When in case-insensitive mode, make sure you follow the convention that directories containing controller class files are in lowercase, and both <a href="http://www.yiiframework.com/doc/api/1.1/CWebApplication#controllerMap">controller map</a> and <a href="http://www.yiiframework.com/doc/api/1.1/CController#actions">action map</a> have lowercase keys.</p>
+  <p><strong>Note:</strong> By default, routes are case-sensitive. It is possible to make routes case-insensitive by setting<a href="http://www.yiiframework.com/doc/api/1.1/CUrlManager#caseSensitive">CUrlManager::caseSensitive</a> to false in the application configuration. When in case-insensitive mode, make sure you follow the convention that directories containing controller class files are in lowercase, and both <a href="http://www.yiiframework.com/doc/api/1.1/CWebApplication#controllerMap">controller map</a> and <a href="http://www.yiiframework.com/doc/api/1.1/CController#actions">action map</a> have lowercase keys.</p>
 </blockquote>
 
 <p>当在大小写不敏感模式中时，要确保你遵循了相应的规则约定，即：包含控制器类文件的目录名小写，且控制器映射和动作映射 中使用的键为小写。</p>
@@ -697,24 +701,39 @@
 <p>所以，除了配置main.php中的组件配置项urlManage属性caseSensitive=true以外，还应该确保以下几点：</p>
 
 <ol>
-<li><p>控制器所在目录名称为小写；</p></li>
-<li><p>控制器文件名和类名仅限于形如“StorehouseController.php”，杜绝“StoreHouseController.php” ；</p></li>
-<li><p>如若控制器文件上层目录结构中有modules，则所属的模块目录名称也需要为小写，模块入口文件XyzModule.php遵循第2条约定。</p></li>
+  <li>
+    <p>控制器所在目录名称为小写；</p>
+  </li>
+  <li>
+    <p>控制器文件名和类名仅限于形如“StorehouseController.php”，杜绝“StoreHouseController.php” ；</p>
+  </li>
+  <li>
+    <p>如若控制器文件上层目录结构中有modules，则所属的模块目录名称也需要为小写，模块入口文件XyzModule.php遵循第2条约定。</p>
+  </li>
 </ol>
 
 <p>出现以上的约束情况的原因如下：</p>
 
 <p>在yii框架中framework/web/CWebApplication.php之方法createController()创建控制器方法中，</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">if(!$caseSensitive)</span>
-<span class="x">   $id=strtolower($id); //若然等于false，则控制器ID转换成小写形式</span>
-</code></pre></div>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$caseSensitive</span><span class="p">)</span>
+   <span class="nv">$id</span><span class="o">=</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span> <span class="c1">//若然等于false，则控制器ID转换成小写形式
+</span></code></pre>
+</div>
+
 <p>首先会读取配置信息，其中包含检查了caseSensitive属性，若然等于false，则控制器ID即转换成全小写形式。</p>
 
 <p>继而，每当创建控制器方法被调用的同时，控制器的首字母皆转换成大写形式。</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">//每当创建控制器实例，即时将控制器ID首字母转为大写形式</span>
-<span class="x">$className=ucfirst($id).&#39;Controller&#39;;</span>
-</code></pre></div>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="c1">//每当创建控制器实例，即时将控制器ID首字母转为大写形式
+</span><span class="nv">$className</span><span class="o">=</span><span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span><span class="o">.</span><span class="s1">'Controller'</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p>如此，便造成了以上异常现象。</p>
+
 
   </div>
   

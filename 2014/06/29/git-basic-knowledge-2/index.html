@@ -658,38 +658,44 @@
   <p>七、Git分支级别的基本操作</p>
 
 <ul>
-<li>查看/编辑 本地（远程）分支信息</li>
+  <li>查看/编辑 本地（远程）分支信息</li>
 </ul>
 
-<p><code>$ git branch -[option]</code></p>
+<p><code class="highlighter-rouge">$ git branch -[option] </code></p>
 
-<p>另，该命令后紧接英文短语，执行的是创建分支的操作（仅创建而不切换） </p>
+<p>另，该命令后紧接英文短语，执行的是创建分支的操作（仅创建而不切换）</p>
 
 <ul>
-<li>分支的合并（详见PPT-10）</li>
+  <li>分支的合并（详见PPT-10）</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ git checkout master
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git checkout master
 $ git merge iss53
-</code></pre></div>
-<p>分支的合并如下图流程示例 </p>
+</code></pre>
+</div>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb.png" alt="image"></a></p>
+<p>分支的合并如下图流程示例</p>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb.png" alt="image" /></a></p>
 
 <ul>
-<li>分支的衍合（详见PPT-11）</li>
+  <li>分支的衍合（详见PPT-11）</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ git checkout experiment
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git checkout experiment
 $ git rebase master
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>分支的衍合如下图流程示例</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image1.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb1.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image1.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb1.png" alt="image" /></a></p>
 
 <p>八、想做就做，听你的</p>
 
 <p>下面是一个有趣的例子，你也来实战一下吧</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image2.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb2.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image2.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb2.png" alt="image" /></a></p>
 
 <p>注意点：Merge和Rebase的区别：</p>
 
@@ -699,7 +705,9 @@ $ git rebase master
 
 <p>九、分支衍合行为规范</p>
 
-<p>Do not rebase commits that you have pushed to a public repository.</p>
+<blockquote>
+  <p>Do not rebase commits that you have pushed to a public repository.</p>
+</blockquote>
 
 <p>（一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行衍合操作。）</p>
 
@@ -707,16 +715,17 @@ $ git rebase master
 
 <p>再谈merge 和 rebase 的区别：</p>
 
-<p>1），从文件结果看，merge 和 rebase 可以达到同样效果。
-2），从历史纪录看，他们存在差异：merge 显示合并后的多父结点，呈现环形，而 rebase 呈现线性结果，即它对分支历史进行合并操作。rebase 提供更好的历史呈现方式（似分支从未曾发生过），但有风险。掌握一条原则：Do not rebase commits that you have pushed to a public repository. 即，不要对你提交过的分支进行 rebase。因为本地的改变会造成远端的困惑。</p>
+<p>1）从文件结果看，merge 和 rebase 可以达到同样效果。</p>
+
+<p>2）从历史纪录看，他们存在差异：merge 显示合并后的多父结点，呈现环形，而 rebase 呈现线性结果，即它对分支历史进行合并操作。rebase 提供更好的历史呈现方式（似分支从未曾发生过），但有风险。掌握一条原则：Do not rebase commits that you have pushed to a public repository. 即，不要对你提交过的分支进行 rebase。因为本地的改变会造成远端的困惑。</p>
 
 <p>十、分支衍合的协作风险</p>
 
 <p>如下图示例</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image3.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb3.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image3.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb3.png" alt="image" /></a></p>
 
-<p>After you do that, your commit history will contain both the C4 and C4&#39; commits, which have</p>
+<p>After you do that, your commit history will contain both the C4 and C4’ commits, which have</p>
 
 <p>different SHA-1 hashes but introduce the same work and have the same commit message.</p>
 
@@ -750,27 +759,27 @@ $ git rebase master
 
 <p>（1）直接合并进入本地的master主干分支进行验证；</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image4.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb4.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image4.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb4.png" alt="image" /></a></p>
 
 <p>（2）为特性分支提供一个用于合并用途的develop-branch；</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image5.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb5.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image5.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb5.png" alt="image" /></a></p>
 
 <p>（3）复杂项目的并行贡献</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image6.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb6.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image6.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb6.png" alt="image" /></a></p>
 
 <p>（4）大项目的特性并入长期分支</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image7.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb7.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image7.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb7.png" alt="image" /></a></p>
 
 <p>（5）衍合流程引入代码</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image8.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb8.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image8.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb8.png" alt="image" /></a></p>
 
 <p>（6）挑拣（cherry-pick）流程引入补丁代码</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image9.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb9.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image9.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb9.png" alt="image" /></a></p>
 
 <p>This pulls the same change introduced in e43a6, but you get a new commit SHA-1 value, because the date applied is different. Now your history looks like Figure 5-27.</p>
 
@@ -778,24 +787,33 @@ $ git rebase master
 
 <p>当前世界首屈一指，最大没有之一的Git项目代码托管网站</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image10.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb10.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image10.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb10.png" alt="image" /></a></p>
 
 <p>十四、参考链接</p>
 
 <ol>
-<li><p>Git官方文档
-<a href="http://www.git-scm.com/documentation">http://</a><a href="http://www.git-scm.com/documentation">www.git-scm.com/documentation</a><a href="http://www.git-scm.com/documentation">/</a></p></li>
-<li><p>TortoiseGit
-<a href="https://code.google.com/p/tortoisegit/">https://</a><a href="https://code.google.com/p/tortoisegit/">code.google.com/p/tortoisegit</a><a href="http://www.git-scm.com/documentation">/</a></p></li>
-<li><p>Git下载
-<a href="http://www.git-scm.com/downloads">http://</a><a href="http://www.git-scm.com/downloads">www.git-scm.com/downloads</a></p></li>
-<li><p>msysGit, another GUI Client
-<a href="http://msysgit.github.io/">http://</a><a href="http://msysgit.github.io/">msysgit.github.io</a></p></li>
+  <li>
+    <p>Git官方文档
+<a href="http://www.git-scm.com/documentation">http://</a><a href="http://www.git-scm.com/documentation">www.git-scm.com/documentation</a><a href="http://www.git-scm.com/documentation">/</a></p>
+  </li>
+  <li>
+    <p>TortoiseGit
+<a href="https://code.google.com/p/tortoisegit/">https://</a><a href="https://code.google.com/p/tortoisegit/">code.google.com/p/tortoisegit</a><a href="http://www.git-scm.com/documentation">/</a></p>
+  </li>
+  <li>
+    <p>Git下载
+<a href="http://www.git-scm.com/downloads">http://</a><a href="http://www.git-scm.com/downloads">www.git-scm.com/downloads</a></p>
+  </li>
+  <li>
+    <p>msysGit, another GUI Client
+<a href="http://msysgit.github.io/">http://</a><a href="http://msysgit.github.io/">msysgit.github.io</a></p>
+  </li>
 </ol>
 
 <p>十五、结束语</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image11.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb11.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-2/image11.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb11.png" alt="image" /></a></p>
+
 
 </div>
 

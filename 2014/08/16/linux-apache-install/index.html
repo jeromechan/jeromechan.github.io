@@ -655,92 +655,120 @@
       <div class="post">
   <h1 class="post-title">Linux下的Apache安装</h1>
   <span class="post-date">16 Aug 2014</span>
-  <div class="highlight"><pre><code class="language-text" data-lang="text">说到LAMP/WAMP服务器环境的搭建，相信PHPer都无一不会，但是对于Freshman来说，这一块的内容还是需要认真学习，从中可以学习到许多环境配置上的基础常识，自己动手捣腾过的东西才印象深刻，犹如“好记性不如烂笔头”的说法一般。
+  <div class="highlighter-rouge"><pre class="highlight"><code>说到LAMP/WAMP服务器环境的搭建，相信PHPer都无一不会，但是对于Freshman来说，这一块的内容还是需要认真学习，从中可以学习到许多环境配置上的基础常识，自己动手捣腾过的东西才印象深刻，犹如“好记性不如烂笔头”的说法一般。
 关于LAMP/WAMP环境的搭建，准备细分为几篇文章进行讲解，希望能为更多需要该项知识的人提供更为全面的配置流程规范。本篇文章，我们先Apache在Linux服务器环境下的搭建。
-</code></pre></div>
+</code></pre>
+</div>
+
 <blockquote>Tips：在搭建PHP之前，一定要先安装搭建好Apache/Nginx的容器环境。</blockquote>
 
 <ol>
-<li><p>检查环境中Apache的依赖包是否已经安装齐全
+  <li>
+    <p>检查环境中Apache的依赖包是否已经安装齐全
 （a）APR(Apache Portable Runtime) Project：apr, apr-util, apr-iconv(optional)
-Download：<a href="http://apr.apache.org/">http://apr.apache.org/</a>
+ Download：<a href="http://apr.apache.org/">http://apr.apache.org/</a>
 （b）PERL Language Support
-Download：<a href="http://www.perl.org/">http://www.perl.org/</a>
+ Download：<a href="http://www.perl.org/">http://www.perl.org/</a>
 （c）PCRE Library：A set of functions that implement regular expression pattern matching using the same syntax and semantics as Perl 5.
-Download：<a href="http://sourceforge.net/projects/pcre/">http://sourceforge.net/projects/pcre/</a></p></li>
-<li><p>安装APR
+ Download：<a href="http://sourceforge.net/projects/pcre/">http://sourceforge.net/projects/pcre/</a></p>
+  </li>
+  <li>
+    <p>安装APR
 （a）解压下载的tar包</p>
 
-<blockquote>
-<blockquote>
-<p>tar zxvf apr.tar.gz -C [TARGET<em>DIR]
-tar zxvf apr-util.tar.gz -C [TARGET</em>DIR]</p>
-</blockquote>
-</blockquote></li>
+    <blockquote>
+      <blockquote>
+        <p>tar zxvf apr.tar.gz -C [TARGET_DIR]
+tar zxvf apr-util.tar.gz -C [TARGET_DIR]</p>
+      </blockquote>
+    </blockquote>
+  </li>
 </ol>
 
 <p>（b）安装</p>
 
-<h1>先安装apr.tar.gz</h1>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt; ./configure —prefix=[INSTALL_DIR]
+<p>#先安装apr.tar.gz</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt; ./configure —prefix=[INSTALL_DIR]
 &gt;&gt; make
 &gt;&gt; make install
-</code></pre></div>
-<h1>再安装apr-util.tar.gz</h1>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt; ./configure —prefix=[INSTALL_DIR] —with-apr=[APR_INSTALL_DIR]
+</code></pre>
+</div>
+
+<p>#再安装apr-util.tar.gz</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt; ./configure —prefix=[INSTALL_DIR] —with-apr=[APR_INSTALL_DIR]
 &gt;&gt; make
 &gt;&gt; make install
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>备注：若需要规划安装目录和系统/usr/local目录之间的关系，可以参考软链接（symbolic link）的创建，语法如</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt; ln -s [SOURCE_FILE_OR_FOLDER] [TARGET_REF_SYMBOLIC_LINK_DIR]
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt; ln -s [SOURCE_FILE_OR_FOLDER] [TARGET_REF_SYMBOLIC_LINK_DIR]
+</code></pre>
+</div>
+
 <ol>
-<li><p>安装PERL与PCRE
+  <li>
+    <p>安装PERL与PCRE
 PERL的安装参照官方网站教程进行安装即可，关于PCRE的安装简单如下：</p>
 
-<blockquote>
-<blockquote>
-<p>./configure —prefix=[INSTALL_DIR]
+    <blockquote>
+      <blockquote>
+        <p>./configure —prefix=[INSTALL_DIR]
 make
 make install</p>
-</blockquote>
-</blockquote></li>
-<li><p>安装Apache HTTP Server
+      </blockquote>
+    </blockquote>
+  </li>
+  <li>
+    <p>安装Apache HTTP Server
 （a）解压缩httpd.tar.gz
 （b）进入解压后的目录，定制需要开启的httpd模块，类似：</p>
 
-<blockquote>
-<blockquote>
-<p>./configure —prefix=[INSTALL<em>DIR] —enable-so —enable-rewrite=shared —with-mpm=prefork —with-apr=[APR</em>INSTALL<em>DIR] —with-apr-util=[APR</em>UTIL<em>INSTALL</em>DIR] —with-pcre=[PCRE<em>INSTALL</em>DIR] 
+    <blockquote>
+      <blockquote>
+        <p>./configure —prefix=[INSTALL_DIR] —enable-so —enable-rewrite=shared —with-mpm=prefork —with-apr=[APR_INSTALL_DIR] —with-apr-util=[APR_UTIL_INSTALL_DIR] —with-pcre=[PCRE_INSTALL_DIR] 
 make 
 make install</p>
-</blockquote>
-</blockquote></li>
-<li><p>启动httpd服务</p>
+      </blockquote>
+    </blockquote>
+  </li>
+  <li>
+    <p>启动httpd服务</p>
 
-<blockquote>
-<blockquote>
-<p>[HTTPD<em>INSTALL</em>DIR]/bin/apachectl -k start 
+    <blockquote>
+      <blockquote>
+        <p>[HTTPD_INSTALL_DIR]/bin/apachectl -k start 
 ps -ef | grep httpd （或者ps aux | grep httpd）#查看是否启动httpd成功</p>
-</blockquote>
-</blockquote></li>
+      </blockquote>
+    </blockquote>
+  </li>
 </ol>
 
 <p>备注：可以拷贝apachectl到服务目录（/etc/init.d）中，作为服务项（service命令）启动，例如</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt; cp [HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt; cp [HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
 &gt;&gt; service https start
-</code></pre></div>
+</code></pre>
+</div>
+
 <ol>
-<li>操作快捷Tips</li>
+  <li>操作快捷Tips</li>
 </ol>
 
 <p>（a）Apache .configure命令范例</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">./configure --prefix=/opt/tuniu/apache2 --with-apr=/usr/local/apr/bin/apr-1-config --with-apr-util=/usr/local/apr/bin/apu-1-config --enable-so --enable-rewrite --enable-ssl --enable-cgi --enable-mods-shared=all --with-ssl=/usr/lib64/openssl --enable-proxy --enable-proxy-http
-</code></pre></div>
-<p>（b）安装mod<em>ssl依赖
-在安装mod</em>ssl过程中需要依赖<a href="http://httpd.apache.org/docs/2.2/ssl/">SSL/TLS Encryption库</a>，建议使用开源的OpenSSL。下载官方见这里：<a href="https://www.openssl.org/">https://www.openssl.org/</a></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./configure --prefix=/opt/tuniu/apache2 --with-apr=/usr/local/apr/bin/apr-1-config --with-apr-util=/usr/local/apr/bin/apu-1-config --enable-so --enable-rewrite --enable-ssl --enable-cgi --enable-mods-shared=all --with-ssl=/usr/lib64/openssl --enable-proxy --enable-proxy-http
+</code></pre>
+</div>
+
+<p>（b）安装mod_ssl依赖
+在安装mod_ssl过程中需要依赖<a href="http://httpd.apache.org/docs/2.2/ssl/">SSL/TLS Encryption库</a>，建议使用开源的OpenSSL。下载官方见这里：<a href="https://www.openssl.org/">https://www.openssl.org/</a></p>
 
 <p>资料提示：许多童鞋们会被搜索引擎导向<a href="http://www.modssl.org/">ModSSL.COM</a>，其实不然，ModSSL的扩展tar包安装不支持Apache Http Server 2.</p>
+
 
 </div>
 

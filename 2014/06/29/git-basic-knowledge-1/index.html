@@ -660,143 +660,173 @@
 <p>一、 一览众山，随便看看</p>
 
 <ol>
-<li><p>版本控制的那些事儿，简单谈谈历史痕迹 </p></li>
-<li><p>Git是什么神器 </p></li>
-<li><p>文件级别的基本操作 </p></li>
-<li><p>分支级别基本操作 </p></li>
-<li><p>项目管理中Git的使用 </p></li>
-<li><p>托管商Github.com平台介绍 </p></li>
-<li><p>其他你们想问而我知道的 </p></li>
-<li><p>参考资料链接</p></li>
+  <li>
+    <p>版本控制的那些事儿，简单谈谈历史痕迹</p>
+  </li>
+  <li>
+    <p>Git是什么神器</p>
+  </li>
+  <li>
+    <p>文件级别的基本操作</p>
+  </li>
+  <li>
+    <p>分支级别基本操作</p>
+  </li>
+  <li>
+    <p>项目管理中Git的使用</p>
+  </li>
+  <li>
+    <p>托管商Github.com平台介绍</p>
+  </li>
+  <li>
+    <p>其他你们想问而我知道的</p>
+  </li>
+  <li>
+    <p>参考资料链接</p>
+  </li>
 </ol>
 
 <p>二、 侬晓得使用Git经常说的一句话是什么吗？
-<a href="/images/2014-06-29-git-basic-knowledge-1/image46.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb46.png" alt="image"></a></p>
+<a href="/images/2014-06-29-git-basic-knowledge-1/image46.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb46.png" alt="image" /></a></p>
 
 <p>三、 那些年，版本控制的那些事儿</p>
 
 <p>其实，可以简单归结成以下几幅图
-<a href="/images/2014-06-29-git-basic-knowledge-1/image47.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb47.png" alt="image"></a></p>
+<a href="/images/2014-06-29-git-basic-knowledge-1/image47.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb47.png" alt="image" /></a></p>
 
 <p>四、 Git是领军人物
 实现外观上，Git是这样子做到与众不同的
-<a href="/images/2014-06-29-git-basic-knowledge-1/image48.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb48.png" alt="image"></a></p>
+<a href="/images/2014-06-29-git-basic-knowledge-1/image48.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb48.png" alt="image" /></a></p>
 
-<p>五、什么是Git </p>
-
-<ol>
-<li>宏观上看，跟其他的VCS系统用途区别不大，都是代码仓库管理员，&gt;=BAND4的</li>
-<li><p>微观上看，具备如下特点：</p>
+<p>五、什么是Git</p>
 
 <ol>
-<li>近乎所有操作都是本地执行</li>
-<li>时刻保持数据完整性</li>
-<li>多数操作仅添加数据 </li>
-</ol></li>
-<li><p>Git仓库文件的三种状态：已提交，已修改，已暂存 </p></li>
-<li><p>Git的三个工作区域，如下图：</p></li>
+  <li>宏观上看，跟其他的VCS系统用途区别不大，都是代码仓库管理员，&gt;=BAND4的</li>
+  <li>微观上看，具备如下特点：
+  	1. 近乎所有操作都是本地执行
+    <ol>
+      <li>时刻保持数据完整性</li>
+      <li>多数操作仅添加数据</li>
+    </ol>
+  </li>
+  <li>Git仓库文件的三种状态：已提交，已修改，已暂存</li>
+  <li>Git的三个工作区域，如下图：</li>
 </ol>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-1/image49.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb49.png" alt="image"></a></p>
+<p><a href="/images/2014-06-29-git-basic-knowledge-1/image49.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb49.png" alt="image" /></a></p>
 
 <p>六、 Git文件级别的基本操作</p>
 
 <ul>
-<li>初始化仓库</li>
+  <li>初始化仓库</li>
 </ul>
 
-<p><code>$ git init</code></p>
+<p><code class="highlighter-rouge">$ git init</code></p>
 
 <ul>
-<li>添加文件</li>
+  <li>添加文件</li>
 </ul>
 
-<p><code>$ git add *.php</code></p>
+<p><code class="highlighter-rouge">$ git add *.php</code></p>
 
 <ul>
-<li>克隆分支</li>
+  <li>克隆分支</li>
 </ul>
 
-<p><code>$ git clone git://github.com/schacon/grit.git</code></p>
+<p><code class="highlighter-rouge">$ git clone git://github.com/schacon/grit.git</code></p>
 
 <ul>
-<li>检查当前检出分支的文件状态</li>
+  <li>检查当前检出分支的文件状态</li>
 </ul>
 
-<p><code>$ git status</code></p>
+<p><code class="highlighter-rouge">$ git status</code></p>
 
 <ul>
-<li>忽略指定文件</li>
+  <li>忽略指定文件</li>
 </ul>
 
-<p><code>$ cat .gitignore *.[oa] *~</code></p>
+<p><code class="highlighter-rouge">$ cat .gitignore *.[oa] *~</code></p>
 
 <ul>
-<li>查看提交历史</li>
+  <li>查看提交历史</li>
 </ul>
 
-<p><code>$ git log –[option] XXX</code></p>
+<p><code class="highlighter-rouge">$ git log –[option] XXX</code></p>
 
 <ul>
-<li>比较已暂存和上次提交快照间的区别</li>
+  <li>比较已暂存和上次提交快照间的区别</li>
 </ul>
 
-<p><code>$ git diff –cached</code></p>
+<p><code class="highlighter-rouge">$ git diff –cached</code></p>
 
 <ul>
-<li>提交更新</li>
+  <li>提交更新</li>
 </ul>
 
-<p><code>$ git commit -m “XXX“</code></p>
+<p><code class="highlighter-rouge">$ git commit -m “XXX“</code></p>
 
 <p>例外，暂存步骤可以跳过，如下</p>
 
-<p><code>$ git commit -a -m &quot;XXX“</code></p>
+<p><code class="highlighter-rouge">$ git commit -a -m "XXX“  </code></p>
 
 <ul>
-<li>移除文件<br></li>
+  <li>移除文件</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ rm grit.gemspec
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ rm grit.gemspec
 $ git rm grit.gemspec
-</code></pre></div>
+</code></pre>
+</div>
+
 <ul>
-<li>移动文件</li>
+  <li>移动文件</li>
 </ul>
 
-<p><code>$ git mv file_from file_to</code></p>
+<p><code class="highlighter-rouge">$ git mv file_from file_to</code></p>
 
 <p>等同于</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ mv README.txt README
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ mv README.txt README
 $ git rm README.txt
 $ git add README
-</code></pre></div>
-<ul>
-<li>撤销上一次提交并重新提交</li>
-</ul>
-
-<p><code>$git commit –amend –m ‘XXX’</code></p>
+</code></pre>
+</div>
 
 <ul>
-<li>取消已经暂存的文件</li>
+  <li>撤销上一次提交并重新提交</li>
 </ul>
 
-<p><code>$git reset HEAD benchmarks.rb</code></p>
+<p><code class="highlighter-rouge">$git commit –amend –m ‘XXX’</code></p>
 
 <ul>
-<li>取消对文件的修改</li>
+  <li>取消已经暂存的文件</li>
 </ul>
 
-<p><code>$git checkout -- benchmarks.rb</code></p>
+<p><code class="highlighter-rouge">$git reset HEAD benchmarks.rb</code></p>
 
 <ul>
-<li><p>推送数据到Remotes</p>
-
-<p><code>$git push origin master</code></p></li>
-<li><p>从Remotes抓取数据</p></li>
+  <li>取消对文件的修改</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$git fetch [remote-name]
+
+<p><code class="highlighter-rouge">$git checkout -- benchmarks.rb</code></p>
+
+<ul>
+  <li>
+    <p>推送数据到Remotes</p>
+
+    <p><code class="highlighter-rouge">$git push origin master</code></p>
+  </li>
+  <li>
+    <p>从Remotes抓取数据</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$git fetch [remote-name]
 $git pull origin master
-</code></pre></div>
+</code></pre>
+</div>
+
+
 </div>
 
 <div class="related">

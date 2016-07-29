@@ -687,95 +687,127 @@
 
 其中，sitemap必须满足以下条件：
 
-> 
-> 
-    
->   * 以<urlset></urlset>包含所有其他XML节点；
-> 
-    
->   * 在urlset中参照协议标准定义相应的命名空间；
-> 
-    
->   * 至少包含一个以父节点存在的有效的<url>；
-> 
-    
->   * 在<url>节点中至少包含一个<loc>节点，以说明需要被爬取内容的链接；
-> 
-    
->   * sitemap中仅允许包含相同域名的站点，如果是多个域名，则需要书写多个sitemap；
-> 
+&gt; 
+&gt; 
+	
+&gt;   * 以<urlset></urlset>包含所有其他XML节点；
+&gt; 
+	
+&gt;   * 在urlset中参照协议标准定义相应的命名空间；
+&gt; 
+	
+&gt;   * 至少包含一个以父节点存在的有效的<url>；
+&gt; 
+	
+&gt;   * 在<url>节点中至少包含一个<loc>节点，以说明需要被爬取内容的链接；
+&gt; 
+	
+&gt;   * sitemap中仅允许包含相同域名的站点，如果是多个域名，则需要书写多个sitemap；
+&gt; 
 
-</blockquote>
+&lt;/blockquote&gt;
 
-<p>前面谈到了Entity escaping是什么呢？给大家一张图相信大家就知道了，简单说就是把一些特殊字符用其他的形式表示起来。如下图所示：</p>
+
+前面谈到了Entity escaping是什么呢？给大家一张图相信大家就知道了，简单说就是把一些特殊字符用其他的形式表示起来。如下图所示：
+
 
 <blockquote> Character               Escape Code
-Ampersand    &         &amp;
+Ampersand    &amp;         &amp;
 Single Quote   '          &apos;
 Double Quote "          &quot;
-Greater Than >          &gt;
-Less Than      <          &lt;</blockquote>
+Greater Than &gt;          &gt;
+Less Than      &lt;          &lt;</blockquote>
 
-<p>以下提供一个简单的sitemap.xml示例供大家参考：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
-   &lt;url&gt;
-      &lt;loc&gt;http://www.example.com/&lt;/loc&gt;
-      &lt;lastmod&gt;2005-01-01&lt;/lastmod&gt;
-      &lt;changefreq&gt;monthly&lt;/changefreq&gt;
-      &lt;priority&gt;0.8&lt;/priority&gt;
-   &lt;/url&gt;
-&lt;/urlset&gt; 
-</code></pre></div>
-<p>如果需要在同一个站点中维护不同subdomain的sitemap，那么可以参考如下做法：</p>
 
-<p>http://www.sitemaphost.com/sitemap-host1.xml
+以下提供一个简单的sitemap.xml示例供大家参考：
+
+    
+    
+    
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+       <url>
+          <loc>http://www.example.com/</loc>
+          <lastmod>2005-01-01</lastmod>
+          <changefreq>monthly</changefreq>
+          <priority>0.8</priority>
+       </url>
+    </urlset> 
+    
+
+
+如果需要在同一个站点中维护不同subdomain的sitemap，那么可以参考如下做法：
+
+http://www.sitemaphost.com/sitemap-host1.xml
 http://www.sitemaphost.com/sitemap-host2.xml
-http://www.sitemaphost.com/sitemap-host3.xml</p>
+http://www.sitemaphost.com/sitemap-host3.xml
 
-<p>以下做一些关于wordpress的sitemap的介绍。</p>
+以下做一些关于wordpress的sitemap的介绍。
 
-<p>wordpress制作sitemap，最为简单的途径，就是可以借助其平台强大的plugin功能，但是不管你是否相信，wordpress的plugin开启地越多，对wp系统的运行效率的影响越大。所以，能手工添加还是尽量走手工添加定期更新为佳，毕竟搜索引擎也不会每天日以继夜地抓取你的小站点，你也不会日以继夜分秒必争地更新着你的博客文章。所以个人小博客站点类，建议手工添加sitemap文件。</p>
+wordpress制作sitemap，最为简单的途径，就是可以借助其平台强大的plugin功能，但是不管你是否相信，wordpress的plugin开启地越多，对wp系统的运行效率的影响越大。所以，能手工添加还是尽量走手工添加定期更新为佳，毕竟搜索引擎也不会每天日以继夜地抓取你的小站点，你也不会日以继夜分秒必争地更新着你的博客文章。所以个人小博客站点类，建议手工添加sitemap文件。
 
-<p>在手工添加这条道路上，Google和Baidu提供了许许多多地做法，都可以达到不错的效果。我这里只简单介绍本站博客的做法。</p>
+在手工添加这条道路上，Google和Baidu提供了许许多多地做法，都可以达到不错的效果。我这里只简单介绍本站博客的做法。
 
-<ol>
-<li><p>在wp根目录下新增sitemap.php文件，填充以下代码：</p>
 
-<p>&#39;; ?&gt;
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc></loc>
-        <lastmod></lastmod>
-        <changefreq>always</changefreq>
-        <priority>1.0</priority>
-    </url>
-    get<em>results(&quot;SELECT * FROM $wpdb-&gt;posts WHERE post</em>status = &#39;publish&#39; ORDER by post_modified DESC&quot;); ?&gt;</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">    &lt;url&gt;
-        &lt;loc&gt;ID); ?&gt;&lt;/loc&gt;
-        &lt;lastmod&gt;post_modified, false); ?&gt;&lt;/lastmod&gt;
-        &lt;changefreq&gt;daily&lt;/changefreq&gt;
-        &lt;priority&gt;0.8&lt;/priority&gt;
-    &lt;/url&gt;
-</code></pre></div>
-<p></urlset></p></li>
-<li><p>新增sitemap_gen.php，填充以下代码，用以生成XML文件：</p>
 
-<p>$ch = curl<em>init();
-curl</em>setopt($ch, CURLOPT<em>URL, &quot;http://DOMAIN:PORT/sitemap.php&quot;);
-curl</em>setopt($ch, CURLOPT<em>RETURNTRANSFER, 1);
-curl</em>setopt($ch, CURLOPT<em>HEADER, 0);
-$output = curl</em>exec($ch);
-file<em>put</em>contents(&#39;./sitemap.xml&#39;, $output);
-curl_close($ch);</p></li>
-<li><p>上传到站点根目录，浏览器执行“http://DOMAIN:PORT/sitemap_gen.php，就这样sitemap.xml就在站点根目录生成成功了。</p></li>
-<li><p>剩下的步骤，就是向Google和Baidu等各大搜索引擎提交sitemap.xml访问地址。</p></li>
-</ol>
+	
+  1. 在wp根目录下新增sitemap.php文件，填充以下代码：
 
-<p>参考资料：
-Sitemap Protocol：<a href="http://www.sitemaps.org%20">http://www.sitemaps.org
-</a>Simply Making Sitemap：<a href="http://www.xml-sitemaps.com">http://www.xml-sitemaps.com
-</a>Google Sitemap Generator WP Plugin：<a href="http://wordpress.org/plugins/google-sitemap-generator/">http://wordpress.org/plugins/google-sitemap-generator/
-</a>Sitemap Formats And Guidelines：<a href="https://support.google.com/webmasters/answer/183668">https://support.google.com/webmasters/answer/183668</a></p>
+    
+    
+    
+    '; ?&gt;
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <url>
+            <loc></loc>
+            <lastmod></lastmod>
+            <changefreq>always</changefreq>
+            <priority>1.0</priority>
+        </url>
+        get_results("SELECT * FROM $wpdb-&gt;posts WHERE post_status = 'publish' ORDER by post_modified DESC"); ?&gt;
+        
+            <url>
+                <loc>ID); ?&gt;</loc>
+                <lastmod>post_modified, false); ?&gt;</lastmod>
+                <changefreq>daily</changefreq>
+                <priority>0.8</priority>
+            </url>
+        
+    </urlset>
+    
+
+
+
+
+	
+  2. 新增sitemap_gen.php，填充以下代码，用以生成XML文件：
+
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "http://DOMAIN:PORT/sitemap.php");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    $output = curl_exec($ch);
+    file_put_contents('./sitemap.xml', $output);
+    curl_close($ch);
+    
+
+
+
+
+	
+  3. 上传到站点根目录，浏览器执行“http://DOMAIN:PORT/sitemap_gen.php，就这样sitemap.xml就在站点根目录生成成功了。
+
+	
+  4. 剩下的步骤，就是向Google和Baidu等各大搜索引擎提交sitemap.xml访问地址。
+
+
+参考资料：
+Sitemap Protocol：[http://www.sitemaps.org
+](http://www.sitemaps.org%20)Simply Making Sitemap：[http://www.xml-sitemaps.com
+](http://www.xml-sitemaps.com)Google Sitemap Generator WP Plugin：[http://wordpress.org/plugins/google-sitemap-generator/
+](http://wordpress.org/plugins/google-sitemap-generator/)Sitemap Formats And Guidelines：[https://support.google.com/webmasters/answer/183668](https://support.google.com/webmasters/answer/183668)
+
+</loc></url></url></blockquote>
 
   </div>
   

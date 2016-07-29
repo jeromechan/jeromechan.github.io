@@ -663,22 +663,28 @@
 
     <span class="post-date">30 Aug 2014</span>
     
-    <p><a href="/images/2014-08-30-markdown-tutorial/markdown-logo.png"><img src="/images/2014-08-30-markdown-tutorial/markdown-logo.png" alt="markdown-logo"></a></p>
+    <p><a href="/images/2014-08-30-markdown-tutorial/markdown-logo.png"><img src="/images/2014-08-30-markdown-tutorial/markdown-logo.png" alt="markdown-logo" /></a></p>
 
 <p><strong>Part 1</strong></p>
 
-<p>让我们开始学习Markdown基本语法吧。 首先我们先学习两种文字格式：<em>斜体（italics）</em>和<strong>粗体（bold）</strong></p>
+<p>让我们开始学习Markdown基本语法吧。 首先我们先学习两种文字格式：_斜体（italics）_和<strong>粗体（bold）</strong></p>
 
 <ul>
-<li><p><em>斜体（italics）</em>
+  <li>
+    <p><em>斜体（italics）</em>
  Tips：
-在需要改变为斜体的文字前后，各增加两条下划线，例如：<em>斜体文本</em></p></li>
-<li><p><strong>粗体（bold）</strong>
+在需要改变为斜体的文字前后，各增加两条下划线，例如：<em>斜体文本</em></p>
+  </li>
+  <li>
+    <p><strong>粗体（bold）</strong>
  Tips:
-在需要改变为粗体的文字前后，各增加两个星号，例如：<strong>粗体文本</strong></p></li>
-<li><p><strong><em>斜体（italics） + 粗体（bold）</em></strong>
+在需要改变为粗体的文字前后，各增加两个星号，例如：<strong>粗体文本</strong></p>
+  </li>
+  <li>
+    <p><strong><em>斜体（italics） + 粗体（bold）</em></strong>
  Tips：
-在需要改变为斜体+粗体的文字前后，先增加下划线使得文本成为斜体，然后再增加星号，使其在斜体的前提下，增加粗体的效果，例如：<strong><em>斜体文本+粗体文本</em></strong></p></li>
+在需要改变为斜体+粗体的文字前后，先增加下划线使得文本成为斜体，然后再增加星号，使其在斜体的前提下，增加粗体的效果，例如：<strong><em>斜体文本+粗体文本</em></strong></p>
+  </li>
 </ul>
 
 <p><strong>Part 2</strong></p>
@@ -699,59 +705,69 @@
 
 <p>样式如下所示：</p>
 
-<h1><strong>Header one</strong></h1>
+<h1 id="header-one"><strong>Header one</strong></h1>
 
-<h2><strong>Header two</strong></h2>
+<h2 id="header-two"><strong>Header two</strong></h2>
 
-<h3><strong>Header three</strong></h3>
+<h3 id="header-three"><strong>Header three</strong></h3>
 
-<h4><strong>Header four</strong></h4>
+<h4 id="header-four"><strong>Header four</strong></h4>
 
-<h5><strong>Header five</strong></h5>
+<h5 id="header-five"><strong>Header five</strong></h5>
 
-<h6><strong>Header six</strong></h6>
+<h6 id="header-six"><strong>Header six</strong></h6>
 
 <p><strong>Part 3</strong></p>
 
 <ul>
-<li><p>为文本添加直接超链接（Inline Link）
+  <li>
+    <p>为文本添加直接超链接（Inline Link）
   Tips：
-<a href="%22%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80%22">&quot;超链接标题&quot;</a>，例如：<a href="www.google.com">Search for it.</a></p></li>
-<li><p>为文本添加引用超链接（Reference Link）
+<a href="&quot;超链接地址&quot;">“超链接标题”</a>，例如：<a href="www.google.com">Search for it.</a></p>
+  </li>
+  <li>
+    <p>为文本添加引用超链接（Reference Link）
   Tips：
 例如：
-Do you want to <a href="www.google.com">see something fun</a>?</p></li>
+Do you want to [see something fun][REF LINK VAR HERE]?
+[REF LINK VAR HERE]: www.google.com
+需要注意的是，引用超链接的定义需要放置在引用上下文的下方。</p>
+  </li>
 </ul>
-
-<p>需要注意的是，引用超链接的定义需要放置在引用上下文的下方。</p>
 
 <p><strong>Part 4</strong></p>
 
 <ul>
-<li><p>添加直接图片
+  <li>
+    <p>添加直接图片
   Tips：
 添加图片的Markdown语法与文本添加超链接相似，不同在于，需要在其最前面增加一个感叹号“!”（Exclamation Point），例如：
-<img src="%22%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%22" alt="&quot;替换文本 Alt Text&quot;">
-替换文本可以解决当图片地址受损之时，在图片位置上呈现出相应的说明文字。</p></li>
-<li><p>添加引用图片
+<img src="&quot;图片地址&quot;" alt="&quot;替换文本 Alt Text&quot;" />
+替换文本可以解决当图片地址受损之时，在图片位置上呈现出相应的说明文字。</p>
+  </li>
+  <li>
+    <p>添加引用图片
   Tips：
   其Markdown语法类似于Part 3讲解过的为文本添加引用超链接，不同在于，需要在其最前面添加一个感叹号“!”。例如：
-<img src="http://octodex.github.com/images/founding-father.jpg" alt="The first father">
-<img src="http://octodex.github.com/images/foundingfather_v2.png" alt="The second first father"></p></li>
+![The first father][First Father]
+![The second first father][Second Father]
+[First Father]: http://octodex.github.com/images/founding-father.jpg
+[Second Father]: http://octodex.github.com/images/foundingfather_v2.png</p>
+  </li>
 </ul>
 
 <p><strong>Part 5</strong></p>
 
 <p>如果你需要对引述的文字内容作一些特殊的标识，或者是为杂志文章设计醒目的引文格式，Markdown的“块引用（blockquote）”将会对你非常有用处。块引用会使得读者对引述的句子或者段落更容易注意到。例如：</p>
 
-<p><em>&quot;The sin of doing nothing is the deadliest of all the seven sins. It has been said that for evil men to accomplish their purpose it is only necessary that good men should do nothing.&quot;</em></p>
+<p><em>“The sin of doing nothing is the deadliest of all the seven sins. It has been said that for evil men to accomplish their purpose it is only necessary that good men should do nothing.”</em></p>
 
 <p>那么，如何为你的文字段落添加块引用呢？</p>
 
 <ul>
-<li>添加块引用
+  <li>添加块引用
   Tips：
-创建一个块引用，你只需要在引述的段落之前，放置一个大于号（greater than）&quot;&gt;&quot;，例如：
+创建一个块引用，你只需要在引述的段落之前，放置一个大于号（greater than）”&gt;”，例如：
 &gt; This is a blockquote sentence.</li>
 </ul>
 
@@ -762,24 +778,26 @@ Do you want to <a href="www.google.com">see something fun</a>?</p></li>
 <p>那么，如何使用Markdown语法创建两类列表呢？下面紧接着介绍书写的方法。</p>
 
 <ul>
-<li><p>创建无需列表
+  <li>创建无需列表
   Tips：
- 在列表的每一项条目之前，放置一个星号（asterist）“*”，例如：</p>
+ 在列表的每一项条目之前，放置一个星号（asterist）“*”，例如：</li>
+  <li>Milk</li>
+  <li>Eggs</li>
+  <li>
+    <p>Rice</p>
 
-<ul>
-<li>Milk</li>
-<li>Eggs</li>
-<li>Rice</li>
-</ul></li>
-<li><p>创建无序列表
+    <ul>
+      <li>创建无序列表
   Tips：
-  在列表的每一项条目之前，放置一个数字，加上一个点号（period）“.”，例如：</p>
-
-<ol>
-<li>Buy shoes</li>
-<li>Do shopping</li>
-<li>Finish homework</li>
-</ol></li>
+  在列表的每一项条目之前，放置一个数字，加上一个点号（period）“.”，例如：
+        <ol>
+          <li>Buy shoes</li>
+          <li>Do shopping</li>
+          <li>Finish homework</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <p><strong>Part 7</strong></p>
@@ -787,30 +805,32 @@ Do you want to <a href="www.google.com">see something fun</a>?</p></li>
 <p>我们有很多地方式实现段落的格式化。下面我们来介绍Markdown在创建段落和列表对其段落的两种方式。</p>
 
 <ul>
-<li><p>Hard Break
+  <li>
+    <p>Hard Break
   Tips：
 为非列表的段落文字划分段落格式，HB的切分方式是向需要截成段落的文字处，插入回车（return）2次。例如：
 Do I contradict myself?
 “回车1次”
-“回车2次”I am large, I contain multitudes.</p></li>
-<li><p>  为列表的段落文字进行分行并对齐，即上文所述的“列表对其段落”，HB的切分方式是向需要截成段落的文字处，插入回车（return）2次，并在第2次回车之后，增加一个空格（blank），例如：</p>
-
-<ol>
-<li>Do I contradict myself?
+“回车2次”I am large, I contain multitudes.</p>
+  </li>
+  <li>  为列表的段落文字进行分行并对齐，即上文所述的“列表对其段落”，HB的切分方式是向需要截成段落的文字处，插入回车（return）2次，并在第2次回车之后，增加一个空格（blank），例如：
+    <ol>
+      <li>Do I contradict myself?
 “回车1次”
 “回车2次”“空格1个”I am large, I contain multitudes.</li>
-<li>Anything else here.</li>
-</ol></li>
-<li><p>Soft Break
+      <li>Anything else here.</li>
+    </ol>
+  </li>
+  <li>Soft Break
   Tips:
   为非列表的段落文字划分段落格式，SB的切分方式是向需要截成段落的文字处，插入空格（blank）2次。例如：
-Do I contradict myself?“空格1次”“空格2次”I am large, I contain multitudes.为列表的段落文字进行分行并对齐，即上文所述的“列表对其段落”，SB的切分方式是向需要截成段落的文字处，插入空格（blank）2次之后，增加一个回车（return），例如：</p>
-
-<ol>
-<li>Do I contradict myself?“空格1次”“空格2次”
+Do I contradict myself?“空格1次”“空格2次”I am large, I contain multitudes.为列表的段落文字进行分行并对齐，即上文所述的“列表对其段落”，SB的切分方式是向需要截成段落的文字处，插入空格（blank）2次之后，增加一个回车（return），例如：
+    <ol>
+      <li>Do I contradict myself?“空格1次”“空格2次”
 “回车1个”I am large, I contain multitudes.</li>
-<li>Anything else here.</li>
-</ol></li>
+      <li>Anything else here.</li>
+    </ol>
+  </li>
 </ul>
 
 <p>效果图如下：</p>
@@ -824,10 +844,14 @@ Very well then I contradict myself,
 <p>【列表对其段落】</p>
 
 <ol>
-<li><p>Crack three eggs over a bowl.
-Now, you&#39;re going to want to crack the eggs in such a way that you don&#39;t make a mess. If you <em>do</em> make a mess, use a towel to clean it up!</p></li>
-<li><p>Pour a gallon of milk into the bowl.
-Basically, take the same guidance as above: don&#39;t be messy, but if you are, clean it up!</p></li>
+  <li>
+    <p>Crack three eggs over a bowl.
+Now, you’re going to want to crack the eggs in such a way that you don’t make a mess. If you <em>do</em> make a mess, use a towel to clean it up!</p>
+  </li>
+  <li>
+    <p>Pour a gallon of milk into the bowl.
+Basically, take the same guidance as above: don’t be messy, but if you are, clean it up!</p>
+  </li>
 </ol>
 
 <p><strong>Part 8</strong></p>
@@ -841,10 +865,18 @@ Basically, take the same guidance as above: don&#39;t be messy, but if you are, 
 <p>如果你想要学习到更多的Markdown的应用知识，欢迎跳转至其他的一些Markdown教程和应用平台进行知识提升。以下列出了部分可供各位参考：</p>
 
 <ul>
-<li><p><a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p></li>
-<li><p><a href="http://en.wikipedia.org/wiki/Markdown#Syntax_examples">http://en.wikipedia.org/wiki/Markdown#Syntax_examples</a></p></li>
-<li><p><a href="http://johnmacfarlane.net/babelmark2/faq.html">http://johnmacfarlane.net/babelmark2/faq.html</a></p></li>
-<li><p><a href="http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/">http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/</a></p></li>
+  <li>
+    <p><a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p>
+  </li>
+  <li>
+    <p><a href="http://en.wikipedia.org/wiki/Markdown#Syntax_examples">http://en.wikipedia.org/wiki/Markdown#Syntax_examples</a></p>
+  </li>
+  <li>
+    <p><a href="http://johnmacfarlane.net/babelmark2/faq.html">http://johnmacfarlane.net/babelmark2/faq.html</a></p>
+  </li>
+  <li>
+    <p><a href="http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/">http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/</a></p>
+  </li>
 </ul>
 
 <p>声明：本篇文章内容由本人翻译自MarkdownTutorial.COM，欲阅读原版，请跳转至<a href="http://markdowntutorial.com/">Markdown Tutorial</a></p>
