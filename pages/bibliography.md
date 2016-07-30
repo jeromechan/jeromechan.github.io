@@ -3,7 +3,6 @@ author: jeromechan
 comments: true
 date: 2014-06-29 01:25:10
 layout: page
-permalink: bibliography/
 slug: bibliography
 title: 读过的书目
 wordpress_id: 34
