@@ -637,6 +637,26 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -659,80 +679,256 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/08/25/how-to-add-breadcrumb-to-presswork/">
-        关于PressWork增加导航面包屑的实现
+      <a href="/2014/08/30/markdown-tutorial/">
+        Markdown之旅
       </a>
     </h1>
 
-    <span class="post-date">25 Aug 2014</span>
+    <span class="post-date">30 Aug 2014</span>
     
-    <p>很开心，周末为自己的博客更换了新装，没错，就是PressWork。它是一个自定义很强的开源wp模板项目，但是还是缺少很多实用的模块，这一部分还是需要童鞋们自己根据自己的需求去定制。</p>
+    <p><a href="/images/2014-08-30-markdown-tutorial/markdown-logo.png"><img src="/images/2014-08-30-markdown-tutorial/markdown-logo.png" alt="markdown-logo" /></a></p>
 
-<p>这次我先来介绍对于PressWork的导航面包屑（Breadcrumb）的定制实现。</p>
+<p><strong>Part 1</strong></p>
 
-<p>一、由于默认样式的情况，作者决定在header中新增面包屑的option</p>
+<p>让我们开始学习Markdown基本语法吧。 首先我们先学习两种文字格式：_斜体（italics）_和<strong>粗体（bold）</strong></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-    <span class="sd">/**
-     * Add breadcrumb to header option
-     * @author chenjinlong
-     * @description presswork/functions.php
-     */</span>
-    <span class="k">if</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$pw_default_options</span><span class="p">))</span> <span class="p">{</span>
-    	<span class="nv">$pw_default_options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-                      <span class="c1">// 新增breadcrumb选项
-</span>    		<span class="s2">"header_option"</span> <span class="o">=&gt;</span> <span class="s2">"header_logo,nav,breadcrumb"</span>
-                      <span class="c1">// 其他配置项目 …
-</span>             <span class="p">);</span>
-    <span class="p">}</span>
+<ul>
+  <li>
+    <p><em>斜体（italics）</em>
+ Tips：
+在需要改变为斜体的文字前后，各增加两条下划线，例如：<em>斜体文本</em></p>
+  </li>
+  <li>
+    <p><strong>粗体（bold）</strong>
+ Tips:
+在需要改变为粗体的文字前后，各增加两个星号，例如：<strong>粗体文本</strong></p>
+  </li>
+  <li>
+    <p><strong><em>斜体（italics） + 粗体（bold）</em></strong>
+ Tips：
+在需要改变为斜体+粗体的文字前后，先增加下划线使得文本成为斜体，然后再增加星号，使其在斜体的前提下，增加粗体的效果，例如：<strong><em>斜体文本+粗体文本</em></strong></p>
+  </li>
+</ul>
+
+<p><strong>Part 2</strong></p>
+
+<p>让我们来看看另外一种Markdown格式——“Header”。“Header”经常被用作网站、杂志文章和提示弹窗，渲染出能够体现重点关注的标题部分。其中，“Header”总共区分有六级，如下所示：</p>
+
+<p>    # Header one</p>
+
+<p>    ## Header two</p>
+
+<p>    ### Header three</p>
+
+<p>    #### Header four</p>
+
+<p>    ##### Header five</p>
+
+<p>    ###### Header six</p>
+
+<p>样式如下所示：</p>
+
+<h1 id="header-one"><strong>Header one</strong></h1>
+
+<h2 id="header-two"><strong>Header two</strong></h2>
+
+<h3 id="header-three"><strong>Header three</strong></h3>
+
+<h4 id="header-four"><strong>Header four</strong></h4>
+
+<h5 id="header-five"><strong>Header five</strong></h5>
+
+<h6 id="header-six"><strong>Header six</strong></h6>
+
+<p><strong>Part 3</strong></p>
+
+<ul>
+  <li>
+    <p>为文本添加直接超链接（Inline Link）
+  Tips：
+<a href="&quot;超链接地址&quot;">“超链接标题”</a>，例如：<a href="www.google.com">Search for it.</a></p>
+  </li>
+  <li>
+    <p>为文本添加引用超链接（Reference Link）
+  Tips：
+例如：
+Do you want to [see something fun][REF LINK VAR HERE]?
+[REF LINK VAR HERE]: www.google.com
+需要注意的是，引用超链接的定义需要放置在引用上下文的下方。</p>
+  </li>
+</ul>
+
+<p><strong>Part 4</strong></p>
+
+<ul>
+  <li>添加直接图片</li>
+</ul>
+
+<blockquote>
+  <p>Tips：添加图片的Markdown语法与文本添加超链接相似，不同在于，需要在其最前面增加一个感叹号“!”（Exclamation Point），例如：</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">!["替换文本 Alt Text"]("图片地址")</code></p>
+
+<p>替换文本可以解决当图片地址受损之时，在图片位置上呈现出相应的说明文字。</p>
+
+<ul>
+  <li>添加引用图片</li>
+</ul>
+
+<blockquote>
+  <p>Tips：
+其Markdown语法类似于Part 3讲解过的为文本添加引用超链接，不同在于，需要在其最前面添加一个感叹号“!”。
+例如：</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>![The first father][First Father]    
+![The second first father][Second Father]    
+[First Father]: http://octodex.github.com/images/founding-father.jpg    
+[Second Father]: http://octodex.github.com/images/foundingfather_v2.png    
 </code></pre>
 </div>
 
-<p>二、新增面包屑实现函数</p>
+<p><strong>Part 5</strong></p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-    <span class="sd">/**
-     * Deal with breadcrumb for single post | page. 
-     * @author chenjinlong
-     * @description presswork/functions.php
-     */</span>
-    <span class="k">function</span> <span class="nf">pw_get_breadcrumb</span><span class="p">(){</span>
-        <span class="nv">$home</span> <span class="o">=</span> <span class="s1">'&lt;a href="'</span><span class="o">.</span><span class="nx">home_url</span><span class="p">()</span><span class="o">.</span><span class="s1">'"&gt;首页&lt;/a&gt;'</span> <span class="o">.</span> <span class="s1">' » '</span><span class="p">;</span>
-        <span class="nv">$category_parent_top</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">is_single</span><span class="p">()){</span>
-            <span class="nv">$categorys</span> <span class="o">=</span> <span class="nx">get_the_category</span><span class="p">();</span>
-            <span class="nv">$category_parent_top</span> <span class="o">=</span> <span class="nx">get_category_parents</span><span class="p">(</span><span class="nv">$categorys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">term_id</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s1">' » '</span><span class="p">);</span>
-            <span class="nv">$title</span> <span class="o">=</span> <span class="nx">the_title</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-        <span class="p">}</span><span class="k">elseif</span><span class="p">(</span><span class="nx">is_page</span><span class="p">()){</span>
-            <span class="nv">$title</span> <span class="o">=</span> <span class="nx">the_title</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="nv">$title</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="nv">$home</span> <span class="o">.</span> <span class="nv">$category_parent_top</span> <span class="o">.</span> <span class="nv">$title</span><span class="p">;</span>
-    <span class="p">}</span>
+<p>如果你需要对引述的文字内容作一些特殊的标识，或者是为杂志文章设计醒目的引文格式，Markdown的“块引用（blockquote）”将会对你非常有用处。块引用会使得读者对引述的句子或者段落更容易注意到。例如：</p>
+
+<p><em>“The sin of doing nothing is the deadliest of all the seven sins. It has been said that for evil men to accomplish their purpose it is only necessary that good men should do nothing.”</em></p>
+
+<p>那么，如何为你的文字段落添加块引用呢？</p>
+
+<ul>
+  <li>添加块引用</li>
+</ul>
+
+<blockquote>
+  <p>Tips：创建一个块引用，你只需要在引述的段落之前，放置一个大于号（greater than）”&gt;”，例如：
+This is a blockquote sentence.</p>
+</blockquote>
+
+<p><strong>Part 6</strong></p>
+
+<p>本部分为童鞋们介绍如何使用Markdown书写列表格式。 众所周知的是，列表主要区分为两类：有序（ordered），无序（unordered）。另外，有一种更为时髦的叫法，无序列表称为“Lists with bullet points”，有序列表称为“Lists with numbers”。</p>
+
+<p>那么，如何使用Markdown语法创建两类列表呢？下面紧接着介绍书写的方法。</p>
+
+<ul>
+  <li>创建无需列表</li>
+</ul>
+
+<blockquote>
+  <p>Tips：在列表的每一项条目之前，放置一个星号（asterist）“*”，例如：</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Milk
+* Eggs
+* Rice
 </code></pre>
 </div>
 
-<p>三、增加元素输出逻辑分支</p>
+<ul>
+  <li>创建无序列表</li>
+</ul>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-    <span class="sd">/**
-     * Add page breadcrumb for single post top. 
-     * @author chenjinlong
-     * @description presswork/functions.php, ‘pw_get_element’ function
-     */</span>
-    <span class="k">if</span><span class="p">(</span><span class="nv">$pw_add_name</span><span class="o">==</span><span class="s2">"breadcrumb"</span><span class="p">){</span>
-        <span class="k">echo</span> <span class="s1">'&lt;li&gt;'</span><span class="p">;</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">is_single</span><span class="p">()</span> <span class="o">||</span> <span class="nx">is_page</span><span class="p">()){</span>
-            <span class="nv">$handle</span> <span class="o">=</span> <span class="nx">pw_get_breadcrumb</span><span class="p">();</span>
-            <span class="k">echo</span> <span class="nv">$handle</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">echo</span> <span class="s1">'&lt;/li&gt;'</span><span class="p">;</span>
-    <span class="p">}</span>
+<blockquote>
+  <p>Tips：在列表的每一项条目之前，放置一个数字，加上一个点号（period）“.”，例如：</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1. Buy shoes
+2. Do shopping
+3. Finish homework
 </code></pre>
 </div>
 
-<p>参照以上的步骤，简单版的面包屑导航就弄好了，如果需要提高视觉美感，再自己增加css样式的支持即可，因为每个人要求不一，这里就不作建议样式了。</p>
+<p><strong>Part 7</strong></p>
+
+<p>我们有很多地方式实现段落的格式化。下面我们来介绍Markdown在创建段落和列表对其段落的两种方式。</p>
+
+<ul>
+  <li>Hard Break</li>
+</ul>
+
+<p>Tips：为非列表的段落文字划分段落格式，HB的切分方式是向需要截成段落的文字处，插入回车（return）2次。例如：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Do I contradict myself?
+“回车1次”
+“回车2次”I am large, I contain multitudes.
+</code></pre>
+</div>
+
+<ul>
+  <li>为列表的段落文字进行分行并对齐，即上文所述的“列表对其段落”，HB的切分方式是向需要截成段落的文字处，插入回车（return）2次，并在第2次回车之后，增加一个空格（blank），例如：</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1. Do I contradict myself?
+“回车1次”
+“回车2次”“空格1个”I am large, I contain multitudes.
+2. Anything else here.
+</code></pre>
+</div>
+
+<ul>
+  <li>Soft Break</li>
+</ul>
+
+<blockquote>
+  <p>Tips:为非列表的段落文字划分段落格式，SB的切分方式是向需要截成段落的文字处，插入空格（blank）2次。例如：</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Do I contradict myself?“空格1次”“空格2次”I am large, I contain multitudes.为列表的段落文字进行分行并对齐，即上文所述的“列表对其段落”，SB的切分方式是向需要截成段落的文字处，插入空格（blank）2次之后，增加一个回车（return），例如：
+1. Do I contradict myself?“空格1次”“空格2次”
+“回车1个”I am large, I contain multitudes.
+2. Anything else here.
+</code></pre>
+</div>
+
+<p>效果图如下：</p>
+
+<p>【段落】</p>
+
+<p>Do I contradict myself?
+Very well then I contradict myself,
+(I am large, I contain multitudes.)</p>
+
+<p>【列表对其段落】</p>
+
+<ol>
+  <li>
+    <p>Crack three eggs over a bowl.
+Now, you’re going to want to crack the eggs in such a way that you don’t make a mess. If you <em>do</em> make a mess, use a towel to clean it up!</p>
+  </li>
+  <li>
+    <p>Pour a gallon of milk into the bowl.
+Basically, take the same guidance as above: don’t be messy, but if you are, clean it up!</p>
+  </li>
+</ol>
+
+<p><strong>Part 8</strong></p>
+
+<p>恭喜你，阅读至此，如果前面谈到的知识你都掌握了，那么你已经具备了编写Markdown文档的基本能力。</p>
+
+<p>不管你是否相信，但是你也只是刚刚踏入Markdown的学习门槛，而Markdown的扩展性是非常强大的，Markdown目前已经可以支持编写类似于表格（table）、预定义列表（definition list）、页脚备注（footnotes）等等。</p>
+
+<p>因为那是Markdown的扩展内容，并不是必不可少的，所以本篇文章只介绍了Markdown的基础知识。</p>
+
+<p>如果你想要学习到更多的Markdown的应用知识，欢迎跳转至其他的一些Markdown教程和应用平台进行知识提升。以下列出了部分可供各位参考：</p>
+
+<ul>
+  <li>
+    <p><a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p>
+  </li>
+  <li>
+    <p><a href="http://en.wikipedia.org/wiki/Markdown#Syntax_examples">http://en.wikipedia.org/wiki/Markdown#Syntax_examples</a></p>
+  </li>
+  <li>
+    <p><a href="http://johnmacfarlane.net/babelmark2/faq.html">http://johnmacfarlane.net/babelmark2/faq.html</a></p>
+  </li>
+  <li>
+    <p><a href="http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/">http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/</a></p>
+  </li>
+</ul>
+
+<p>声明：本篇文章内容由本人翻译自MarkdownTutorial.COM，欲阅读原版，请跳转至<a href="http://markdowntutorial.com/">Markdown Tutorial</a></p>
 
   </div>
   

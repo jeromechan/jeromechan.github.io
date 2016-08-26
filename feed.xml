@@ -6,6 +6,324 @@
 		<atom:link href="http://aboutcoder.com/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>XRebel入门与实践</title>
+				<description>&lt;h4 id=&quot;xrebel&quot;&gt;一、XRebel简介&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14721890028699.jpg&quot; alt=&quot;&quot; /&gt;
+XRebel是一款轻量级的性能优化器，可以帮助开发者们主动去发现和修复一些通用性的问题。XRebel提供了即时的方式，使得开发者可以针对每一个独立的请求进行分析、定位一些诸如DB查询、session变更细节等。&lt;br /&gt;
+XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的时间，便可以非常简洁地集成到开发环境当中去。&lt;/p&gt;
+
+&lt;p&gt;为什么开发者需要使用到XRebel呢？其实原因很简单。
+许多开发者们都遇到过很多挣扎的事宜，例如为了寻找系统crash或者发现issues问题，不断地去确认编码逻辑，不断地去核实业务实现细节等等，是否有线程间通信安全问题，是否出现了未捕获异常等等。这些都是非常耗费时间精力的，而这些问题我们可以让其在整个软件开发过程中，暴露地更早。在软件开发周期中，问题暴露地越早，所花费的成本就会越低。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The severity of an issue is higher(obviously) if it is later in the development cycle.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14721925857856.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;XRebel正是为了让开发者们避免继续低效率地挣扎，遭遇节假日技术支持的困扰而诞生的性能优化工具。&lt;br /&gt;
+它可以帮助开发者们在开发过程中，实时地检测所编程代码的效率参数和通信细节，XRebel只输出了开发者们所关心的关键监控参数细节，而一些无关的其他参数，它将智能地识别并且隐藏起来。&lt;br /&gt;
+开发者们使用XRebel，并不需要频繁地切换系统程序和XRebel分析窗口，因为两者是分离开的。你可以在浏览器中的不同tab上打开对应的页面。这一点很好地提高了开发者的开发效率，方便了开发者在不同窗口内查看指定的数据。&lt;/p&gt;
+
+&lt;p&gt;相对于其他的性能优化器产品，XRebel实现了开发、生产环境在代码监测层面上的零差异。开发环境所监测到的sql、session、exception、code trace log等等，无论是在development环境，或是在product环境，都是一致的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14721931961702.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;而其他的一些产品，诸如JProfiler、APM，所监测到的数据大多基于CPU、Memory、Threads等方面，定位问题需要先找到对应的Thread，然后打开Thread Tree/Stack进行逐一排查，非常繁琐，并不是那么地简易操作。&lt;br /&gt;
+恰恰XRebel解决了这个排查的技巧性问题。XRebel可以直接捕获到发生异常的代码行和exception detail，同时还可以查看发生该异常的请求之时，所涉及的sql、cache、queue、session等组件的交互情况，使得开发者更易于快速提高解决问题的效率。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14721926122030.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;xrebel-1&quot;&gt;二、XRebel安装使用教程&lt;/h4&gt;
+
+&lt;p&gt;前面介绍了关于XRebel的一些背景和特点，以下介绍XRebel的安装步骤及其Tips。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;首先要说明的一点，XRebel是一款收费工具，并非开源免费。
+该工具值得你去购买，如果这笔款项不会影响你的生活质量。关于破解的方法，这里不做介绍，请自行Google。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;section&quot;&gt;下载与安装&lt;/h5&gt;
+
+&lt;p&gt;1.从官网上下载XRebel压缩包（.zip）&lt;a href=&quot;http://zeroturnaround.com/software/xrebel/download/&quot;&gt;http://zeroturnaround.com/software/xrebel/download/&lt;/a&gt;。&lt;br /&gt;
+如果你提前登陆了zeroturnaround.com，那么你所下载的zip包中就非常便捷地包含了你的帐号信息。&lt;/p&gt;
+
+&lt;p&gt;2.解压zip包到指定的目录中，zip包中包含的内容如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14721938888446.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3.将&lt;code class=&quot;highlighter-rouge&quot;&gt;xrebel.jar&lt;/code&gt;添加到应用服务容器的JVM参数中，添加时候确认路径是正确无误的。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;4.启动应用服务容器，XRebel就会自动成功启动。&lt;br /&gt;
+启动完成之后，打开浏览器，XRebel toolbar就会显示在你服务页面的左下角。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2016-05-20 16:29:42 XRebel: #####################################################
+2016-05-20 16:29:42 XRebel:
+2016-05-20 16:29:42 XRebel:  XRebel 3.1.1 (201605131009)
+2016-05-20 16:29:42 XRebel:  (c) Copyright ZeroTurnaround AS, Estonia, Tallinn.
+2016-05-20 16:29:42 XRebel:
+2016-05-20 16:29:42 XRebel:  For questions and support,
+2016-05-20 16:29:42 XRebel:  contact xrebel@zeroturnaround.com
+2016-05-20 16:29:42 XRebel:
+2016-05-20 16:29:42 XRebel: #####################################################
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;license&quot;&gt;License激活&lt;/h5&gt;
+
+&lt;p&gt;使用XRebel必须先激活，毕竟是收费工具。当然，在你购买前，你会拥有15天的评估试用期。&lt;br /&gt;
+怎么激活呢？其实很简单，在你安装完XRebel之后，首次打开浏览器，以下窗口便会自动弹跳出来，根据提示进行License注册便是。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14721942799287.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;xrebelserver&quot;&gt;将XRebel集成到你的Server中&lt;/h5&gt;
+
+&lt;p&gt;这里会有两个方面可以实践。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IDE集成&lt;/li&gt;
+  &lt;li&gt;Server容器集成&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下逐一介绍。首先第一种：IDE集成。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.Eclipse&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tips: 插件&lt;strong&gt;&lt;a href=&quot;http://manuals.zeroturnaround.com/xrebel/install/eclipse.html#xrebel-eclipse-install&quot;&gt;XRebel for Eclipse&lt;/a&gt;&lt;/strong&gt;已经在Marketplace提供下载。目前该插件仅支持Eclipse 3.6版本及以上。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;（1）打开Eclipse的 Run &amp;gt; Run Configurations…；&lt;br /&gt;
+（2）选择Server服务容器，打开Arguments参数设置tab标签；&lt;br /&gt;
+（3）将以下参数填写到VM arguments配置项目中；&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722183417609.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;（4）点击Apply应用并保存到当前的Run Configuration中。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.Intellij IDEA&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（1）打开IDEA的Run &amp;gt; Edit Configurations…；&lt;br /&gt;
+（2）选择Server服务容器；&lt;br /&gt;
+（3）将以下参数填写到VM arguments配置项目中；&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722184711430.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;（4）点击Apply应用并保存到当前的Run Configuration中。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3.NetBeans&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（1）打开NetBeans的Tools &amp;gt; Servers；&lt;br /&gt;
+（2）选择Server服务容器，打开Platform参数设置tab标签；&lt;br /&gt;
+（3）将以下参数填写到VM arguments配置项目中；&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722186661015.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;（4）点击Close保存并关闭当前窗口。&lt;/p&gt;
+
+&lt;p&gt;下面我们介绍第二种：Server容器集成。&lt;/p&gt;
+
+&lt;p&gt;由于容器种类繁多，这里仅举例应用最为广泛的Tomcat上的应用，其他的容器配置可参考官方文章&lt;a href=&quot;http://manuals.zeroturnaround.com/xrebel/install/index.html#adding-the-xrebel-parameter-without-an-ide&quot;&gt;Adding-the-xrebel-parameter-without-an-ide&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.Tomcat on Windows Platform&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（1）找到安装Tomcat的目录（即Tomcat home folder）；&lt;br /&gt;
+（2）打开bin文件夹；&lt;br /&gt;
+（3）新增一个可执行.bat文件，例如命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;catalina-xrebel.bat&lt;/code&gt;；&lt;br /&gt;
+（4）将以下内容增加到第3步所创建好的.bat文件中；&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@echo off
+set JAVA_OPTS=-javaagent:[path/to/]xrebel.jar %JAVA_OPTS%
+call &quot;%~dp0\catalina.bat&quot; %*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;（5）执行以上.bat文件，启动Tomcat。&lt;/p&gt;
+
+&lt;p&gt;PS: 需要将Tomcat以服务的方式启动着？可以打开tomcat包装器&lt;code class=&quot;highlighter-rouge&quot;&gt;tomcatXw.exe&lt;/code&gt;，在tomcatXw包装器的设置项目Java &amp;gt; Java Options中，新增如下参数：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2.Tomcat on Mac OS and Linux&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（1）找到安装Tomcat的目录（即Tomcat home folder）；&lt;br /&gt;
+（2）打开bin文件夹；&lt;br /&gt;
+（3）新增一个可执行.sh文件，例如命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;catalina-xrebel.sh&lt;/code&gt;；&lt;br /&gt;
+（4）将以下内容增加到第3步所创建好的.sh文件中；&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JAVA_OPTS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-javaagent:[path/to/]xrebel.jar &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$JAVA_OPTS&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;dirname &lt;span class=&quot;nv&quot;&gt;$0&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;/catalina.sh &lt;span class=&quot;nv&quot;&gt;$@&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;（5）按照如下命令，执行以上.sh启动脚本，启动Tomcat。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./catalina-xrebel.sh run
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;xrebel-2&quot;&gt;三、XRebel应用&lt;/h4&gt;
+
+&lt;p&gt;经过前两部分的折腾，你应该已经可以成功启动XRebel了。下面我们来进一步介绍以下，如何去实际使用XRebel？XRebel到底给我们开发者提供了怎样的便捷特性？下面会逐一展开讲道。&lt;/p&gt;
+
+&lt;p&gt;以下主界面非常明显地呈现出了Toolbar的位置，也是XRebel主要的操作菜单功能区。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722230804350.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.第一大功能：Access application profiling&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722233171431.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;PS：为了书写方便，这里暂且称之为AAP功能。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;AAP功能包含的是系统服务所接收到的请求列表，以及每一个请求的时间消耗细节监测数据。该数据的统计维度是定位到Method级别的。&lt;br /&gt;
+请跟随以下图示，对AAP功能有一个现状的概览印象，具体事宜可以在真实实践的时候进一步逐一了解。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722236434252.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722237721529.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722238537773.jpg&quot; alt=&quot;&quot; /&gt;
+查看AAP功能的栈信息之时，留意符号的含义。该符号标识了一个异步的执行请求。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;2.第二大功能：Review IO query&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;PS：为了书写方便，这里暂且称之为RIQ功能。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;RIQ功能可以支持但不仅限于jdbc的监测。例如RabbitMQ、JMS、Redis等框架的执行数据的监控。&lt;br /&gt;
+如第3张图示，清晰地监测到了请求中所包含的执行SQL语句，这一点对于开发、测试过程都是及其有帮助的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722233844623.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722239944661.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722243069603.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3.第三大功能：Find exceptions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;PS：为了书写方便，这里暂且称之为FE功能。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;FE功能简单易懂，即异常日志的捕获。开发者们除了在slf4log、log4j等日志框架下定义好的路径中查看系统日志以外，还可以在系统程序运行时从XRebel中查看到即时的日志详情。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722234443155.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722244480081.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;以上介绍完了XRebel最为常用的三大功能点，关于session监控的部分，这里也截图一张说明一下，有需要的开发者可以自行研究，例如应用到CAS等用户登录相关场景之时，相信Session data这项功能是你非常好的监控助手。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Session data的功能需要从XRebel的Settings中打开配置选项，默认是不勾选的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722252061448.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;此外这里再补充一点，也就是主界面三大功能的右上角&lt;code class=&quot;highlighter-rouge&quot;&gt;Hidden items&lt;/code&gt;选项。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-08-26-xrebel-tutorial/14722246072371.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;将该选项打上勾，便可以查看到操作过程中，开发者们标记了hidden的条目，以及XRebel智能隐藏的其他条目。具体看应用场景的需要。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;四、高级配置选项&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;1.XRebel过滤名单&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;XRebel允许配置一项黑名单列表，将不需要监测的class路径添加进去，即达到忽略的目的。&lt;br /&gt;
+黑名单配置文件在这里：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.xrebel/traces-blacklist.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;XRebel还允许配置一项黑名单，以过滤&lt;code class=&quot;highlighter-rouge&quot;&gt;static&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;transient&lt;/code&gt;属性的大小，使之不影响所在对象Object的大小计算。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.xrebel/session-blacklist.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2.XRebel启动参数&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.single_app_mode=true|false&lt;/code&gt; (default value: true) – Consider all deployments to be part of a single application. This reports activity from different deployment units to one and the same toolbar.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.injection.log_response=true|false&lt;/code&gt; (default: false) – When true, the content of HTTP servlet responses will be logged to xrebel.log. This is meant to help debug cases when XRebel toolbar is not properly injected into the application’s HTML.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.session.include_transient_fields=true|false&lt;/code&gt; (default value: false) – When true, fields with the transient modifier will be considered when constructing the session graph. By default, all transient fields are ignored and objects reachable only through transient fields are not considered to be part of the session.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.browser.console_log=true|false&lt;/code&gt; (default value: false) – When true, the client side XRebel log will be written into the browser console.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.injection=true|false&lt;/code&gt; (default value: true) – Disables the XRebel toolbar injection into application HTML. Add /xrebel to your application URL to view the toolbar in a separate tab (this opens the alternative UI view).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.traces.filter_resources=true|false&lt;/code&gt; (default value: true) – Prevents displaying resource requests in the Application profiling view.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.include_all_io=true|false&lt;/code&gt; (default value: true) – Enables the display of all detected IO events. Uncategorized IO events are displayed as Unidentified.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.sql.format=true|false&lt;/code&gt; (default value: true) – Enables formatting of SQL queries.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.traces.all=true|false&lt;/code&gt; (default value: false) – Enables tracing for all contexts.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.traces.jms=true|false&lt;/code&gt; (default value: false) – Enables tracing for JMS.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.traces.scheduler=true|false&lt;/code&gt; (default value: false) – Enables tracing for ScheduledExecutorService.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.traces.quartz=true|false&lt;/code&gt; (default value: false) – Enables tracing for Quartz.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.traces.rabbitmq=true|false&lt;/code&gt; (default value: false) – Enables tracing for RabbitMQ.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;3.XRebel特性Module配置参数&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.http.HttpURLConnection=true|false&lt;/code&gt; (default value: true) – Disables collecting IQ queries from java.net.HttpURLConnection usage.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.http.HttpCore=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from Apache HttpCore 4.x usage.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.http.HttpClient3=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from Apache HttpClient 3.x usage.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.mongodb=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from MongoDB driver usage.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.hbase=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from HBase driver usage.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.redis=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from Redis driver usage.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.cassandra=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from Cassandra driver usage.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.orm=true|false&lt;/code&gt; (default value: true) – Disables collecting information about ORM queries, including Hibernate JPA queries.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.equinox=true|false&lt;/code&gt; (default value: true) – Disables support for Equinox class loaders (boot delegation).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.rmi=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from RMI (java.rmi) remote object invocations.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.traces=true|false&lt;/code&gt; (default value: true) – Disables collecting all method calls during HTTP requests.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.session=true|false&lt;/code&gt; (default value: true) – Disables taking session snapshots.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.springloaded=true|false&lt;/code&gt; (default value: true) – Disables Spring Loaded agent when detected.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.async=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from asynchronously executed threads.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.quartz=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries within a Quartz job context.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.jms=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries within JMS MessageListener.onMessage() context.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.scheduler=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries for ScheduledThreadPoolExecutor tasks.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.rabbitmq=true|false&lt;/code&gt; (default value: true) – Disables collecting IO events within RabbitMQ consumer.handleDelivery() context and outgoing messages.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.remote_events=true|false&lt;/code&gt; (default value: true) – Disables collecting and displaying data from remote XRebel-enabled web services (microservices).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.jdbc=true|false&lt;/code&gt; (default value: true) – Disable collecting IO queries from JDBC usage.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.jdbc.sql=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from relational database JDBC usage. Requires -Dxrebel.module.jdbc to be true.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.jdbc.neo4j=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from Neo4j JDBC usage. Requires -Dxrebel.module.jdbc to be true.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.jdbc.cassandra=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from Cassandra JDBC usage. Requires -Dxrebel.module.jdbc to be true.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-Dxrebel.module.jdbc.phoenix=true|false&lt;/code&gt; (default value: true) – Disables collecting IO queries from Apache Phoenix (HBase) usage. Requires -Dxrebel.module.jdbc to be true.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;五、参考资料&lt;/h4&gt;
+
+&lt;p&gt;本篇文章基于个人在近期实践XRebel过程中，所用到的知识归纳成文。&lt;br /&gt;
+XRebel实用性极高，对自己在日常的开发中，方便了发现代码缺陷以及存在的性能隐患，所以作此一文推荐一番。&lt;/p&gt;
+
+&lt;p&gt;具体官方资料可查阅：&lt;a href=&quot;http://manuals.zeroturnaround.com/xrebel/index.html&quot;&gt;http://manuals.zeroturnaround.com/xrebel/index.html&lt;/a&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Tue, 23 Aug 2016 17:00:00 +0800</pubDate>
+				<link>http://aboutcoder.com/2016/08/26/xrebel-tutorial/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2016/08/26/xrebel-tutorial/</guid>
+			</item>
+		
+			<item>
 				<title>如何快速选择开源软件协议</title>
 				<description>&lt;p&gt;&lt;img src=&quot;/images/2016-07-22-easy-chosing-opensource-license/14691964599348.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -2237,165 +2555,6 @@ echo &quot;\n&quot;;
 				<pubDate>Thu, 11 Jun 2015 17:32:00 +0800</pubDate>
 				<link>http://aboutcoder.com/2015/06/11/php-regular-expression/</link>
 				<guid isPermaLink="true">http://aboutcoder.com/2015/06/11/php-regular-expression/</guid>
-			</item>
-		
-			<item>
-				<title>Openfire Plugin开发指南（一）</title>
-				<description>&lt;p&gt;&lt;strong&gt;一、简介&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Openfire plugin使得Openfire自身的功能得到了很好的扩展和增强。这篇文档旨在引导开发者如何进行Openfire plugin的开发。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;二、plugin的结构&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;plugin的源码放置在Openfire源码根目录的plugins目录下。当plugin以jar包或者war包的形式部署了之后，它将会自动解压成原始的文件夹层级结构，类似的plugin目录结构如下：&lt;/p&gt;
-
-&lt;p&gt;Plugin Structure&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;myplugin/	
-|- plugin.xml &amp;lt;- Plugin定义文件	
-|- readme.html &amp;lt;- 可选，插件说明文件，直接呈现给最终的用户阅读	
-|- changelog.html &amp;lt;- 可选，插件变更日志文件，直接呈现给最终的用户阅读	
-|- logo_small.gif &amp;lt;- 可选，插件的小号Logo图片(16x16)，只支持.gif和.png格式	
-|- logo_large.gif &amp;lt;- 可选，插件的大号Logo图片(32x32)，只支持.gif和.png格式	
-|- classes/ &amp;lt;- 插件所需要的资源文件 (类似地，例如插件的属性配置文件)	
-|- database/ &amp;lt;- 可选，插件的数据库模型文件，可内置包含数据库版本升级的模型文件	
-|- i18n/ &amp;lt;- 可选，插件的i18n多语言支持文件	
-|- lib/ &amp;lt;- 插件所依赖的库（即JAR包）	
-|- web &amp;lt;- 可选，插件的控制台页面相关文件	
-|- WEB-INF/
-|- web.xml &amp;lt;- 生成的web.xml，包含了等待编译的jsp配置
-|- web-custom.xml &amp;lt;- 可选，用户自定义的web.xml，包含用户的servlets配置
-|- images/ &amp;lt;- 可选，插件的控制台页面所需要的图片资源文件，只支持.gif与.png格式
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;plugin中的web目录提供的是插件在管理员控制台中的管理功能，下面会撰写更为详细的相关内容。 其中，plugin.xml定义了plugin主要的类，下面是一个例子：&lt;!-- more --&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Sample plugin.xml --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Main plugin class --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;class&amp;gt;&lt;/span&gt;org.example.ExamplePlugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/class&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Plugin meta-data --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;Example Plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;This is an example plugin.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;author&amp;gt;&lt;/span&gt;Jive Software&lt;span class=&quot;nt&quot;&gt;&amp;lt;/author&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;date&amp;gt;&lt;/span&gt;07/01/2006&lt;span class=&quot;nt&quot;&gt;&amp;lt;/date&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;http://www.igniterealtime. org/projects/openfire/plugins.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;minServerVersion&amp;gt;&lt;/span&gt;3.0.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/minServerVersion&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;licenseType&amp;gt;&lt;/span&gt;gpl&lt;span class=&quot;nt&quot;&gt;&amp;lt;/licenseType&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Admin console entries --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;adminconsole&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- More on this below --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/adminconsole&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;以下的这一些元数据字段可以在plugin.xml被设置：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;name：plugin的名称&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;description：plugin的描述&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;author：plugin的作者&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;version：plugin的版本号&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;date：发布plugin的日期，格式必须是MM/dd/yyyy，类似地“07/01/2006”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;url：关于plugin更详尽信息的超链接&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;minServerVersion：plugin所支持的Openfire最低版本号，假如版本号高于当前运行的Openfire版本，plugin将不会被启动&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;databaseKey：假如plugin需要自己的数据库表，那么databaseKey节点必须要设置一个schema name（通常地，schema name设置成与plugin名称相同）。对于每一类Openfire所支持的数据库，数据库的schema文件都必须放置在plugin下的database目录下。例如：plugin名称为“foo”，那么该plugin的schema文件命名应该类似与“foo_mysql.sql”，“foo_oracle.sql”等。我们推荐把数据库表的命名都增加Openfire的前缀“of”，避免与同一数据库中的其他应用的数据库表结构的命名相冲突。在schema脚本文件中，应该在ofVersion表中增加一条记录，使得Openfire可以跟踪plugin的版本信息，类似地：INSERT INTO ofVersion (name, version) VALUES (‘foo’, 0);&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;databaseVersion：数据库schema版本号（PS：当一个数据库被定义之时就具有的）。新的plugin在定义其数据库之时，数据库版本号将从0开始计数。假使在后面版本的plugin需要升级其数据库结构，那么升级的schema脚本文件需要放置到目录database/upgrade的每一个升级版本的文件夹下，目录结构类似地：database/upgrade/1和database/upgrade/2可以包含文件“foo_mysql.sql”与“foo_oracle.sql”，文件内包含了每一个版本的数据库结构的相关变更项目。在每一项数据库发生升级之时，都需要把ofVersion中的plugin版本记录更新，类似地：UPDATE ofVersion set version=1 where name=’foo’;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;parentPlugin：plugin的父插件的名称（）。当plugin拥有一个父插件（parent plugin），那么当前plugin将使用它父插件的类加载器，而不是自己新增一个类加载器。这一机制使得插件之间工作起来变得更加紧密。一个作为子节点的插件，如果没有其父插件的存在，它将无法独立工作。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;licenseType：定义着当前插件的官方所遵循的协议。有效的数值类似地：（1）“commercial”：插件的发布与传衍遵循着商业的协议&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;“gpl”：the GNU Public License（GPL）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;“apache”：the Apache License&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;“internal”：限制在内部使用，并且不准备二次发布传衍&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;“other”：plugin所遵循的协议不在所列的协议范围之内，那么便可以使用other项，在其中需要撰写清楚相关协议的细节假设plugin没有指定任何协议，那么插件默认指定为other项。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在plugin中还有一些额外的文件，给用户提供了更多的信息（这些文件都放置在了plugin的根目录下）：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;readme.html：可选，插件的说明文件，呈现给最终用户阅读&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;changelog.html：可选，插件的变更文件，呈现给最终用户阅读&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;logo_small.png：可选，插件的logo小图片，仅限于.png和.gif格式&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;logo_large.png：可选，插件的logo大图片，仅限于.png和.gif格式&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;plugin的类文件必须实现Openfire API中所定义的Plugin接口，自然地，类文件有默认的一个无参数的构造器。plugin的类文件实现了Plugin接口中的initializing和destroying接口。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// plugin的实现例子&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.jivesoftware.openfire.container.Plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.jivesoftware.openfire.container.PluginManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;/**
-* A sample plugin for Openfire.
-*/&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ExamplePlugin&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Plugin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initializePlugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PluginManager&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;manager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pluginDirectory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// Your code goes here&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;destroyPlugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// Your code goes here&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;常用的plugin最佳实践&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;在选择一个插件的包名之时，我们推荐可以选择一些具备唯一性的标识，类似地，可以选用你的自定义字符串或者是组织名称来尽可能地避免包或者类命名的冲突。&lt;/p&gt;
-
-&lt;p&gt;例如，假设每个人使用的包名都是org.example.PluginName，就算是PluginName是不相同的，但是你依然会遇到这里或那里的类名冲突，这不是玩笑，在集群部署环境之下，该问题尤其突出。&lt;/p&gt;
-
-</description>
-				<pubDate>Sun, 17 May 2015 23:26:42 +0800</pubDate>
-				<link>http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01/</guid>
 			</item>
 		
 	</channel>

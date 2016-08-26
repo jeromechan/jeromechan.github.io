@@ -637,6 +637,26 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -659,256 +679,341 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/08/30/markdown-tutorial/">
-        Markdown之旅
+      <a href="/2014/09/01/java-switch-explanation/">
+        详解Switch语句的使用
       </a>
     </h1>
 
-    <span class="post-date">30 Aug 2014</span>
+    <span class="post-date">01 Sep 2014</span>
     
-    <p><a href="/images/2014-08-30-markdown-tutorial/markdown-logo.png"><img src="/images/2014-08-30-markdown-tutorial/markdown-logo.png" alt="markdown-logo" /></a></p>
+    <p>与 if-then和if-then-else语句不同，switch语句可以有许多可以执行的分支。一个switch可以使用的类型包括如下类型：</p>
 
-<p><strong>Part 1</strong></p>
+<blockquote>基本数据类型：byte, short, char, int
+枚举类型：enum
+对象类型：Charater, Byte, Short, Integer</blockquote>
 
-<p>让我们开始学习Markdown基本语法吧。 首先我们先学习两种文字格式：_斜体（italics）_和<strong>粗体（bold）</strong></p>
+<p>以下这个例子SwitchDemo，声明了一个int类型的month变量，使用了switch语句，根据月份的数值，输出月份的英文单词。</p>
 
-<ul>
-  <li>
-    <p><em>斜体（italics）</em>
- Tips：
-在需要改变为斜体的文字前后，各增加两条下划线，例如：<em>斜体文本</em></p>
-  </li>
-  <li>
-    <p><strong>粗体（bold）</strong>
- Tips:
-在需要改变为粗体的文字前后，各增加两个星号，例如：<strong>粗体文本</strong></p>
-  </li>
-  <li>
-    <p><strong><em>斜体（italics） + 粗体（bold）</em></strong>
- Tips：
-在需要改变为斜体+粗体的文字前后，先增加下划线使得文本成为斜体，然后再增加星号，使其在斜体的前提下，增加粗体的效果，例如：<strong><em>斜体文本+粗体文本</em></strong></p>
-  </li>
-</ul>
-
-<p><strong>Part 2</strong></p>
-
-<p>让我们来看看另外一种Markdown格式——“Header”。“Header”经常被用作网站、杂志文章和提示弹窗，渲染出能够体现重点关注的标题部分。其中，“Header”总共区分有六级，如下所示：</p>
-
-<p>    # Header one</p>
-
-<p>    ## Header two</p>
-
-<p>    ### Header three</p>
-
-<p>    #### Header four</p>
-
-<p>    ##### Header five</p>
-
-<p>    ###### Header six</p>
-
-<p>样式如下所示：</p>
-
-<h1 id="header-one"><strong>Header one</strong></h1>
-
-<h2 id="header-two"><strong>Header two</strong></h2>
-
-<h3 id="header-three"><strong>Header three</strong></h3>
-
-<h4 id="header-four"><strong>Header four</strong></h4>
-
-<h5 id="header-five"><strong>Header five</strong></h5>
-
-<h6 id="header-six"><strong>Header six</strong></h6>
-
-<p><strong>Part 3</strong></p>
-
-<ul>
-  <li>
-    <p>为文本添加直接超链接（Inline Link）
-  Tips：
-<a href="&quot;超链接地址&quot;">“超链接标题”</a>，例如：<a href="www.google.com">Search for it.</a></p>
-  </li>
-  <li>
-    <p>为文本添加引用超链接（Reference Link）
-  Tips：
-例如：
-Do you want to [see something fun][REF LINK VAR HERE]?
-[REF LINK VAR HERE]: www.google.com
-需要注意的是，引用超链接的定义需要放置在引用上下文的下方。</p>
-  </li>
-</ul>
-
-<p><strong>Part 4</strong></p>
-
-<ul>
-  <li>添加直接图片</li>
-</ul>
-
-<blockquote>
-  <p>Tips：添加图片的Markdown语法与文本添加超链接相似，不同在于，需要在其最前面增加一个感叹号“!”（Exclamation Point），例如：</p>
-</blockquote>
-
-<p><code class="highlighter-rouge">!["替换文本 Alt Text"]("图片地址")</code></p>
-
-<p>替换文本可以解决当图片地址受损之时，在图片位置上呈现出相应的说明文字。</p>
-
-<ul>
-  <li>添加引用图片</li>
-</ul>
-
-<blockquote>
-  <p>Tips：
-其Markdown语法类似于Part 3讲解过的为文本添加引用超链接，不同在于，需要在其最前面添加一个感叹号“!”。
-例如：</p>
-</blockquote>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>![The first father][First Father]    
-![The second first father][Second Father]    
-[First Father]: http://octodex.github.com/images/founding-father.jpg    
-[Second Father]: http://octodex.github.com/images/foundingfather_v2.png    
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwitchDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">monthString</span><span class="o">;</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">month</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>  <span class="n">monthString</span> <span class="o">=</span> <span class="s">"January"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>  <span class="n">monthString</span> <span class="o">=</span> <span class="s">"February"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>  <span class="n">monthString</span> <span class="o">=</span> <span class="s">"March"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>  <span class="n">monthString</span> <span class="o">=</span> <span class="s">"April"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>  <span class="n">monthString</span> <span class="o">=</span> <span class="s">"May"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">6</span><span class="o">:</span>  <span class="n">monthString</span> <span class="o">=</span> <span class="s">"June"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">7</span><span class="o">:</span>  <span class="n">monthString</span> <span class="o">=</span> <span class="s">"July"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">8</span><span class="o">:</span>  <span class="n">monthString</span> <span class="o">=</span> <span class="s">"August"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">9</span><span class="o">:</span>  <span class="n">monthString</span> <span class="o">=</span> <span class="s">"September"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">10</span><span class="o">:</span> <span class="n">monthString</span> <span class="o">=</span> <span class="s">"October"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">11</span><span class="o">:</span> <span class="n">monthString</span> <span class="o">=</span> <span class="s">"November"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">12</span><span class="o">:</span> <span class="n">monthString</span> <span class="o">=</span> <span class="s">"December"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">default</span><span class="o">:</span> <span class="n">monthString</span> <span class="o">=</span> <span class="s">"Invalid month"</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">monthString</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="o">}</span>
 </code></pre>
 </div>
 
-<p><strong>Part 5</strong></p>
+<p>在以上的例子当中，结果输出了</p>
 
-<p>如果你需要对引述的文字内容作一些特殊的标识，或者是为杂志文章设计醒目的引文格式，Markdown的“块引用（blockquote）”将会对你非常有用处。块引用会使得读者对引述的句子或者段落更容易注意到。例如：</p>
-
-<p><em>“The sin of doing nothing is the deadliest of all the seven sins. It has been said that for evil men to accomplish their purpose it is only necessary that good men should do nothing.”</em></p>
-
-<p>那么，如何为你的文字段落添加块引用呢？</p>
-
-<ul>
-  <li>添加块引用</li>
-</ul>
-
-<blockquote>
-  <p>Tips：创建一个块引用，你只需要在引述的段落之前，放置一个大于号（greater than）”&gt;”，例如：
-This is a blockquote sentence.</p>
-</blockquote>
-
-<p><strong>Part 6</strong></p>
-
-<p>本部分为童鞋们介绍如何使用Markdown书写列表格式。 众所周知的是，列表主要区分为两类：有序（ordered），无序（unordered）。另外，有一种更为时髦的叫法，无序列表称为“Lists with bullet points”，有序列表称为“Lists with numbers”。</p>
-
-<p>那么，如何使用Markdown语法创建两类列表呢？下面紧接着介绍书写的方法。</p>
-
-<ul>
-  <li>创建无需列表</li>
-</ul>
-
-<blockquote>
-  <p>Tips：在列表的每一项条目之前，放置一个星号（asterist）“*”，例如：</p>
-</blockquote>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>* Milk
-* Eggs
-* Rice
+<div class="highlighter-rouge"><pre class="highlight"><code>    August
 </code></pre>
 </div>
 
-<ul>
-  <li>创建无序列表</li>
-</ul>
+<p>一个switch的case主体被称为switch block，一个switch block可以包含多个case，或者仅仅是default分支。
+Switch语句将验证它的表达式，验证通过后，将执行验证通过的case分支之后的所有语句。</p>
 
-<blockquote>
-  <p>Tips：在列表的每一项条目之前，放置一个数字，加上一个点号（period）“.”，例如：</p>
-</blockquote>
+<p>类似地，你也可以使用if-then-else语句实现SwitchDemo效果：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>1. Buy shoes
-2. Do shopping
-3. Finish homework
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">month</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"January"</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">month</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"February"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="o">...</span>  <span class="c1">// and so on</span>
 </code></pre>
 </div>
 
-<p><strong>Part 7</strong></p>
+<p>关于到底是使用if-then-else语句，还是switch语句，需要根据实际的可读性和测试程序的表达式情况而定。if-then-else适用于数值范围的判断条件，而switch则适用于单数值，枚举数值和简单对象的判断。</p>
 
-<p>我们有很多地方式实现段落的格式化。下面我们来介绍Markdown在创建段落和列表对其段落的两种方式。</p>
+<p>另外，switch还有一个有趣的关键语句——break。每一个break语句的出现，跳出了整个switch循环结构。
+控制流会逐个switch block顺序执行。</p>
 
-<ul>
-  <li>Hard Break</li>
-</ul>
+<p>break语句是重要的，因为假设没有break，所有switch block中的语句都会跳过不判断。自匹配正确的第一个case起，其他在该case之后的switch block会按顺序逐个执行，直到遇到break语句。</p>
 
-<p>Tips：为非列表的段落文字划分段落格式，HB的切分方式是向需要截成段落的文字处，插入回车（return）2次。例如：</p>
+<p>以下程序SwitchDemoFallThrough展示了在没有书写break语句的时候，代码的执行结果：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Do I contradict myself?
-“回车1次”
-“回车2次”I am large, I contain multitudes.
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwitchDemoFallThrough</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">futureMonths</span> <span class="o">=</span>
+            <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;();</span>
+    
+        <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+    
+        <span class="k">switch</span> <span class="o">(</span><span class="n">month</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>  <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"January"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>  <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"February"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>  <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"March"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>  <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"April"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>  <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"May"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">6</span><span class="o">:</span>  <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"June"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">7</span><span class="o">:</span>  <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"July"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">8</span><span class="o">:</span>  <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"August"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">9</span><span class="o">:</span>  <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"September"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">10</span><span class="o">:</span> <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"October"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">11</span><span class="o">:</span> <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"November"</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">12</span><span class="o">:</span> <span class="n">futureMonths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"December"</span><span class="o">);</span>
+                     <span class="k">break</span><span class="o">;</span>
+            <span class="k">default</span><span class="o">:</span> <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+    
+        <span class="k">if</span> <span class="o">(</span><span class="n">futureMonths</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Invalid month number"</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">monthName</span> <span class="o">:</span> <span class="n">futureMonths</span><span class="o">)</span> <span class="o">{</span>
+               <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">monthName</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">}</span>
 </code></pre>
 </div>
 
-<ul>
-  <li>为列表的段落文字进行分行并对齐，即上文所述的“列表对其段落”，HB的切分方式是向需要截成段落的文字处，插入回车（return）2次，并在第2次回车之后，增加一个空格（blank），例如：</li>
-</ul>
+<p>以上程序输出结果为：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>1. Do I contradict myself?
-“回车1次”
-“回车2次”“空格1个”I am large, I contain multitudes.
-2. Anything else here.
+<div class="highlighter-rouge"><pre class="highlight"><code>    August
+    September
+    October
+    November
+    December
 </code></pre>
 </div>
 
-<ul>
-  <li>Soft Break</li>
-</ul>
+<p>对于以上例子，从技术上分析，代码最后的一个break语句是多余的，因为此时，尽管没有break语句，程序依然会跳出switch循环。这里推荐童鞋们善于使用break语句，如此一来，可以使得我们的代码结构可读性更高，更容易维护，更少的异常错误的发生。</p>
 
-<blockquote>
-  <p>Tips:为非列表的段落文字划分段落格式，SB的切分方式是向需要截成段落的文字处，插入空格（blank）2次。例如：</p>
-</blockquote>
+<p>default这类switch block，处理的是当前面所有case分支都没有匹配的情况下，则switch进入default进行处理。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Do I contradict myself?“空格1次”“空格2次”I am large, I contain multitudes.为列表的段落文字进行分行并对齐，即上文所述的“列表对其段落”，SB的切分方式是向需要截成段落的文字处，插入空格（blank）2次之后，增加一个回车（return），例如：
-1. Do I contradict myself?“空格1次”“空格2次”
-“回车1个”I am large, I contain multitudes.
-2. Anything else here.
+<p>以下示例代码SwitchDemp2，给我们呈现了一个statement可以拥有多个case标签。
+（示例代码实现了计算指定月份所拥有的自然天数）</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kd">class</span> <span class="nc">SwitchDemo2</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    
+        <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">year</span> <span class="o">=</span> <span class="mi">2000</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">numDays</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    
+        <span class="k">switch</span> <span class="o">(</span><span class="n">month</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span> <span class="k">case</span> <span class="mi">3</span><span class="o">:</span> <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
+            <span class="k">case</span> <span class="mi">7</span><span class="o">:</span> <span class="k">case</span> <span class="mi">8</span><span class="o">:</span> <span class="k">case</span> <span class="mi">10</span><span class="o">:</span>
+            <span class="k">case</span> <span class="mi">12</span><span class="o">:</span>
+                <span class="n">numDays</span> <span class="o">=</span> <span class="mi">31</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="o">:</span> <span class="k">case</span> <span class="mi">6</span><span class="o">:</span>
+            <span class="k">case</span> <span class="mi">9</span><span class="o">:</span> <span class="k">case</span> <span class="mi">11</span><span class="o">:</span>
+                <span class="n">numDays</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+                <span class="k">if</span> <span class="o">(((</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">&amp;&amp;</span> 
+                     <span class="o">!(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="o">))</span>
+                     <span class="o">||</span> <span class="o">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="o">))</span>
+                    <span class="n">numDays</span> <span class="o">=</span> <span class="mi">29</span><span class="o">;</span>
+                <span class="k">else</span>
+                    <span class="n">numDays</span> <span class="o">=</span> <span class="mi">28</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Invalid month."</span><span class="o">);</span>
+                <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number of Days = "</span>
+                           <span class="o">+</span> <span class="n">numDays</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="o">}</span>
 </code></pre>
 </div>
 
-<p>效果图如下：</p>
+<p>以上程序输出结果为：</p>
 
-<p>【段落】</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>    Number of Days = 29
+</code></pre>
+</div>
 
-<p>Do I contradict myself?
-Very well then I contradict myself,
-(I am large, I contain multitudes.)</p>
+<p><strong>在Switch中使用String</strong></p>
 
-<p>【列表对其段落】</p>
+<p>从Java SE 7版本开始，我们就可以在switch循环中使用String Object作为判断的表达式了。接下来的代码片段StringSwitchDemo，实现了根据String对象类型的month变量，输出指定月份的序号。</p>
 
-<ol>
-  <li>
-    <p>Crack three eggs over a bowl.
-Now, you’re going to want to crack the eggs in such a way that you don’t make a mess. If you <em>do</em> make a mess, use a towel to clean it up!</p>
-  </li>
-  <li>
-    <p>Pour a gallon of milk into the bowl.
-Basically, take the same guidance as above: don’t be messy, but if you are, clean it up!</p>
-  </li>
-</ol>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringSwitchDemo</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getMonthNumber</span><span class="o">(</span><span class="n">String</span> <span class="n">month</span><span class="o">)</span> <span class="o">{</span>
+    
+        <span class="kt">int</span> <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    
+        <span class="k">if</span> <span class="o">(</span><span class="n">month</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">monthNumber</span><span class="o">;</span>
+        <span class="o">}</span>
+    
+        <span class="k">switch</span> <span class="o">(</span><span class="n">month</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="s">"january"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"february"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"march"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"april"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"may"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"june"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"july"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"august"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"september"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">9</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"october"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"november"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">"december"</span><span class="o">:</span>
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">12</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">default</span><span class="o">:</span> 
+                <span class="n">monthNumber</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+    
+        <span class="k">return</span> <span class="n">monthNumber</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    
+        <span class="n">String</span> <span class="n">month</span> <span class="o">=</span> <span class="s">"August"</span><span class="o">;</span>
+    
+        <span class="kt">int</span> <span class="n">returnedMonthNumber</span> <span class="o">=</span>
+            <span class="n">StringSwitchDemo</span><span class="o">.</span><span class="na">getMonthNumber</span><span class="o">(</span><span class="n">month</span><span class="o">);</span>
+    
+        <span class="k">if</span> <span class="o">(</span><span class="n">returnedMonthNumber</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Invalid month"</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">returnedMonthNumber</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre>
+</div>
 
-<p><strong>Part 8</strong></p>
+<p>以上程序输出结果为：</p>
 
-<p>恭喜你，阅读至此，如果前面谈到的知识你都掌握了，那么你已经具备了编写Markdown文档的基本能力。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>    8
+</code></pre>
+</div>
 
-<p>不管你是否相信，但是你也只是刚刚踏入Markdown的学习门槛，而Markdown的扩展性是非常强大的，Markdown目前已经可以支持编写类似于表格（table）、预定义列表（definition list）、页脚备注（footnotes）等等。</p>
+<p>关于以上例子的编写，在每一个switch block中的case判断，等同于执行了在每一次匹配判断之时，使用了String.equals方法。以上的例子也正是使用了String.toLowerCase方法，确保了在每一次case的判断中，都是以小写形式的字符串进行匹配。</p>
 
-<p>因为那是Markdown的扩展内容，并不是必不可少的，所以本篇文章只介绍了Markdown的基础知识。</p>
+<p>Note： 在以上StringSwitchDemo例子中包含了month == null的判断，确保了在每一个case判断语句中不会抛出空指针NullPointerException异常。</p>
 
-<p>如果你想要学习到更多的Markdown的应用知识，欢迎跳转至其他的一些Markdown教程和应用平台进行知识提升。以下列出了部分可供各位参考：</p>
+<p><strong>以下作一些本人对switch使用基础的理解</strong>
+含带break语句的switch block</p>
 
-<ul>
-  <li>
-    <p><a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p>
-  </li>
-  <li>
-    <p><a href="http://en.wikipedia.org/wiki/Markdown#Syntax_examples">http://en.wikipedia.org/wiki/Markdown#Syntax_examples</a></p>
-  </li>
-  <li>
-    <p><a href="http://johnmacfarlane.net/babelmark2/faq.html">http://johnmacfarlane.net/babelmark2/faq.html</a></p>
-  </li>
-  <li>
-    <p><a href="http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/">http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/</a></p>
-  </li>
-</ul>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="k">switch</span><span class="o">(</span><span class="n">X</span><span class="o">)</span>  
+    <span class="o">{</span>  
+      <span class="k">case</span> <span class="nl">A:</span>  
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
+          <span class="k">break</span><span class="o">;</span>
+      <span class="k">case</span> <span class="nl">B:</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"B"</span><span class="o">);</span>
+          <span class="k">break</span><span class="o">;</span>
+      <span class="k">case</span> <span class="nl">C:</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+          <span class="k">break</span><span class="o">;</span>
+      <span class="k">default</span><span class="o">:</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Default"</span><span class="o">);</span>
+          <span class="k">break</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre>
+</div>
 
-<p>声明：本篇文章内容由本人翻译自MarkdownTutorial.COM，欲阅读原版，请跳转至<a href="http://markdowntutorial.com/">Markdown Tutorial</a></p>
+<p>等同于</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">A</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
+    <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">B</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"B"</span><span class="o">);</span>
+    <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">C</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+    <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Default"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+</div>
+
+<p>未含带break语句的switch block</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="k">switch</span><span class="o">(</span><span class="n">X</span><span class="o">)</span>  
+    <span class="o">{</span>  
+      <span class="k">case</span> <span class="nl">A:</span>  
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
+          <span class="k">break</span><span class="o">;</span>
+      <span class="k">case</span> <span class="nl">B:</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"B"</span><span class="o">);</span>
+      <span class="k">case</span> <span class="nl">C:</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+          <span class="k">break</span><span class="o">;</span>
+      <span class="k">default</span><span class="o">:</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Default"</span><span class="o">);</span>
+          <span class="k">break</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre>
+</div>
+
+<p>等同于</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">A</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
+    <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">B</span> <span class="o">||</span> <span class="n">X</span> <span class="o">==</span> <span class="n">C</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"B"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+    <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Default"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+</div>
+
+<p>阅读完以上，童鞋们应该已经明白了switch的使用方法了。哈哈，如果对你有用，可以分享给更多身边的朋友（可以使用右侧板块的文章分享功能）。</p>
+
+<p>声明：除文章结尾处本人的理解观点描述外，本篇文章主要内容由本人翻译自Docs.Oracle.COM，欲阅读原版，请跳转至 <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html">The switch Statement</a></p>
 
   </div>
   
