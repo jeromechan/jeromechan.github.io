@@ -1,6 +1,686 @@
-<h4 id="xrebel">一、XRebel简介</h4>
+<!DOCTYPE html>
+<html lang="en-us">
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721890028699.jpg" alt="" />
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      XRebel入门与实践 &middot; Jerome Chan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+                                 <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08 layout-reverse">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Jerome Chan
+        </a>
+      </h1>
+      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+<!-- 
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About Me</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pages/bibliography.html">读过的书目</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/categories/">Categories</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/slides/">Slides</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags/">Tags</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/timeline/">Timeline</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+
+      <a class="sidebar-nav-item" href="/about/">About Me</a>
+      <a class="sidebar-nav-item" href="/bibliography/" target="_blank">Bibliography</a>
+      <a class="sidebar-nav-item" href="/slides/">Slides</a>
+      <a class="sidebar-nav-item" href="/tags/">Tags</a>
+      <a class="sidebar-nav-item" href="/categories/">Category</a>
+      <a class="sidebar-nav-item" href="/timeline/">Timeline</a>
+      <!-- <a class="sidebar-nav-item" href="https://github.com/jeromechan">GitHub</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
+    </nav>
+
+    <p><small>Copyright &copy; 2013-2016</small></p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">XRebel入门与实践</h1>
+  <span class="post-date">26 Aug 2016</span>
+  <h4 id="xrebel">一、XRebel简介</h4>
+
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721890028699.jpg" alt="" />
 XRebel是一款轻量级的性能优化器，可以帮助开发者们主动去发现和修复一些通用性的问题。XRebel提供了即时的方式，使得开发者可以针对每一个独立的请求进行分析、定位一些诸如DB查询、session变更细节等。<br />
 XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的时间，便可以非常简洁地集成到开发环境当中去。</p>
 
@@ -11,7 +691,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
   <p>The severity of an issue is higher(obviously) if it is later in the development cycle.</p>
 </blockquote>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721925857856.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721925857856.jpg" alt="" /></p>
 
 <p>XRebel正是为了让开发者们避免继续低效率地挣扎，遭遇节假日技术支持的困扰而诞生的性能优化工具。<br />
 它可以帮助开发者们在开发过程中，实时地检测所编程代码的效率参数和通信细节，XRebel只输出了开发者们所关心的关键监控参数细节，而一些无关的其他参数，它将智能地识别并且隐藏起来。<br />
@@ -19,12 +699,12 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 
 <p>相对于其他的性能优化器产品，XRebel实现了开发、生产环境在代码监测层面上的零差异。开发环境所监测到的sql、session、exception、code trace log等等，无论是在development环境，或是在product环境，都是一致的。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721931961702.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721931961702.jpg" alt="" /></p>
 
 <p>而其他的一些产品，诸如JProfiler、APM，所监测到的数据大多基于CPU、Memory、Threads等方面，定位问题需要先找到对应的Thread，然后打开Thread Tree/Stack进行逐一排查，非常繁琐，并不是那么地简易操作。<br />
 恰恰XRebel解决了这个排查的技巧性问题。XRebel可以直接捕获到发生异常的代码行和exception detail，同时还可以查看发生该异常的请求之时，所涉及的sql、cache、queue、session等组件的交互情况，使得开发者更易于快速提高解决问题的效率。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721926122030.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721926122030.jpg" alt="" /></p>
 
 <h4 id="xrebel-1">二、XRebel安装使用教程</h4>
 
@@ -42,7 +722,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 
 <p>2.解压zip包到指定的目录中，zip包中包含的内容如下：</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721938888446.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721938888446.jpg" alt="" /></p>
 
 <p>3.将<code class="highlighter-rouge">xrebel.jar</code>添加到应用服务容器的JVM参数中，添加时候确认路径是正确无误的。</p>
 
@@ -70,7 +750,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 <p>使用XRebel必须先激活，毕竟是收费工具。当然，在你购买前，你会拥有15天的评估试用期。<br />
 怎么激活呢？其实很简单，在你安装完XRebel之后，首次打开浏览器，以下窗口便会自动弹跳出来，根据提示进行License注册便是。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721942799287.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721942799287.jpg" alt="" /></p>
 
 <h5 id="xrebelserver">将XRebel集成到你的Server中</h5>
 
@@ -96,7 +776,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 <div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
 </code></pre>
 </div>
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722183417609.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722183417609.jpg" alt="" /></p>
 
 <p>（4）点击Apply应用并保存到当前的Run Configuration中。</p>
 
@@ -109,7 +789,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 <div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
 </code></pre>
 </div>
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722184711430.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722184711430.jpg" alt="" /></p>
 
 <p>（4）点击Apply应用并保存到当前的Run Configuration中。</p>
 
@@ -122,7 +802,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 <div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
 </code></pre>
 </div>
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722186661015.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722186661015.jpg" alt="" /></p>
 
 <p>（4）点击Close保存并关闭当前窗口。</p>
 
@@ -176,22 +856,22 @@ call "%~dp0\catalina.bat" %*
 
 <p>以下主界面非常明显地呈现出了Toolbar的位置，也是XRebel主要的操作菜单功能区。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722230804350.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722230804350.jpg" alt="" /></p>
 
 <p><strong>1.第一大功能：Access application profiling</strong></p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722233171431.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722233171431.jpg" alt="" /></p>
 
 <p><em>PS：为了书写方便，这里暂且称之为AAP功能。</em></p>
 
 <p>AAP功能包含的是系统服务所接收到的请求列表，以及每一个请求的时间消耗细节监测数据。该数据的统计维度是定位到Method级别的。<br />
 请跟随以下图示，对AAP功能有一个现状的概览印象，具体事宜可以在真实实践的时候进一步逐一了解。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722236434252.jpg" alt="" />
-<img src="/images/2014-08-26-xrebel-tutorial/14722237721529.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722236434252.jpg" alt="" />
+<img src="/images/2016-08-26-xrebel-tutorial/14722237721529.jpg" alt="" /></p>
 
 <blockquote>
-  <p><img src="/images/2014-08-26-xrebel-tutorial/14722238537773.jpg" alt="" />
+  <p><img src="/images/2016-08-26-xrebel-tutorial/14722238537773.jpg" alt="" />
 查看AAP功能的栈信息之时，留意符号的含义。该符号标识了一个异步的执行请求。</p>
 </blockquote>
 
@@ -202,10 +882,10 @@ call "%~dp0\catalina.bat" %*
 <p>RIQ功能可以支持但不仅限于jdbc的监测。例如RabbitMQ、JMS、Redis等框架的执行数据的监控。<br />
 如第3张图示，清晰地监测到了请求中所包含的执行SQL语句，这一点对于开发、测试过程都是及其有帮助的。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722233844623.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722233844623.jpg" alt="" /></p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722239944661.jpg" alt="" />
-<img src="/images/2014-08-26-xrebel-tutorial/14722243069603.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722239944661.jpg" alt="" />
+<img src="/images/2016-08-26-xrebel-tutorial/14722243069603.jpg" alt="" /></p>
 
 <p><strong>3.第三大功能：Find exceptions</strong></p>
 
@@ -213,9 +893,9 @@ call "%~dp0\catalina.bat" %*
 
 <p>FE功能简单易懂，即异常日志的捕获。开发者们除了在slf4log、log4j等日志框架下定义好的路径中查看系统日志以外，还可以在系统程序运行时从XRebel中查看到即时的日志详情。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722234443155.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722234443155.jpg" alt="" /></p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722244480081.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722244480081.jpg" alt="" /></p>
 
 <p>以上介绍完了XRebel最为常用的三大功能点，关于session监控的部分，这里也截图一张说明一下，有需要的开发者可以自行研究，例如应用到CAS等用户登录相关场景之时，相信Session data这项功能是你非常好的监控助手。</p>
 
@@ -223,11 +903,11 @@ call "%~dp0\catalina.bat" %*
   <p>Session data的功能需要从XRebel的Settings中打开配置选项，默认是不勾选的。</p>
 </blockquote>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722252061448.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722252061448.jpg" alt="" /></p>
 
 <p>此外这里再补充一点，也就是主界面三大功能的右上角<code class="highlighter-rouge">Hidden items</code>选项。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722246072371.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722246072371.jpg" alt="" /></p>
 
 <p>将该选项打上勾，便可以查看到操作过程中，开发者们标记了hidden的条目，以及XRebel智能隐藏的其他条目。具体看应用场景的需要。</p>
 
@@ -308,3 +988,86 @@ XRebel实用性极高，对自己在日常的开发中，方便了发现代码�
 
 <p>具体官方资料可查阅：<a href="http://manuals.zeroturnaround.com/xrebel/index.html">http://manuals.zeroturnaround.com/xrebel/index.html</a></p>
 
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+          <a href="/2016/07/22/easy-chosing-opensource-license/">
+            如何快速选择开源软件协议
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/22/resolve-the-fastjson-problems-about-date/">
+            解决fastjson反序列化日期0000-00-00失败的方案
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/06/what-is-architecture/">
+            什么是架构
+            <small>06 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/02/talk-about-middleman/">
+            说说使用middleman的那些事情
+            <small>02 Jul 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/01/how-to-make-a-project-plan/">
+            学习笔记：项目管理之规划项目
+            <small>30 Jun 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2015/11/16/work-in-git/">
+            Git软件开发过程
+            <small>16 Nov 2015</small>
+          </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aboutcoder.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+  </body>
+
+  <div style="display:none;">
+	<script src="http://s23.cnzz.com/z_stat.php?id=1252898702&web_id=1252898702" language="JavaScript"></script>
+</div>
+  
+</html>

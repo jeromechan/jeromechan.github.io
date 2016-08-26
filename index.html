@@ -684,11 +684,11 @@
       </a>
     </h1>
 
-    <span class="post-date">23 Aug 2016</span>
+    <span class="post-date">26 Aug 2016</span>
     
     <h4 id="xrebel">一、XRebel简介</h4>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721890028699.jpg" alt="" />
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721890028699.jpg" alt="" />
 XRebel是一款轻量级的性能优化器，可以帮助开发者们主动去发现和修复一些通用性的问题。XRebel提供了即时的方式，使得开发者可以针对每一个独立的请求进行分析、定位一些诸如DB查询、session变更细节等。<br />
 XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的时间，便可以非常简洁地集成到开发环境当中去。</p>
 
@@ -699,7 +699,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
   <p>The severity of an issue is higher(obviously) if it is later in the development cycle.</p>
 </blockquote>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721925857856.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721925857856.jpg" alt="" /></p>
 
 <p>XRebel正是为了让开发者们避免继续低效率地挣扎，遭遇节假日技术支持的困扰而诞生的性能优化工具。<br />
 它可以帮助开发者们在开发过程中，实时地检测所编程代码的效率参数和通信细节，XRebel只输出了开发者们所关心的关键监控参数细节，而一些无关的其他参数，它将智能地识别并且隐藏起来。<br />
@@ -707,12 +707,12 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 
 <p>相对于其他的性能优化器产品，XRebel实现了开发、生产环境在代码监测层面上的零差异。开发环境所监测到的sql、session、exception、code trace log等等，无论是在development环境，或是在product环境，都是一致的。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721931961702.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721931961702.jpg" alt="" /></p>
 
 <p>而其他的一些产品，诸如JProfiler、APM，所监测到的数据大多基于CPU、Memory、Threads等方面，定位问题需要先找到对应的Thread，然后打开Thread Tree/Stack进行逐一排查，非常繁琐，并不是那么地简易操作。<br />
 恰恰XRebel解决了这个排查的技巧性问题。XRebel可以直接捕获到发生异常的代码行和exception detail，同时还可以查看发生该异常的请求之时，所涉及的sql、cache、queue、session等组件的交互情况，使得开发者更易于快速提高解决问题的效率。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721926122030.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721926122030.jpg" alt="" /></p>
 
 <h4 id="xrebel-1">二、XRebel安装使用教程</h4>
 
@@ -730,7 +730,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 
 <p>2.解压zip包到指定的目录中，zip包中包含的内容如下：</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721938888446.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721938888446.jpg" alt="" /></p>
 
 <p>3.将<code class="highlighter-rouge">xrebel.jar</code>添加到应用服务容器的JVM参数中，添加时候确认路径是正确无误的。</p>
 
@@ -758,7 +758,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 <p>使用XRebel必须先激活，毕竟是收费工具。当然，在你购买前，你会拥有15天的评估试用期。<br />
 怎么激活呢？其实很简单，在你安装完XRebel之后，首次打开浏览器，以下窗口便会自动弹跳出来，根据提示进行License注册便是。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14721942799287.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14721942799287.jpg" alt="" /></p>
 
 <h5 id="xrebelserver">将XRebel集成到你的Server中</h5>
 
@@ -784,7 +784,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 <div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
 </code></pre>
 </div>
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722183417609.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722183417609.jpg" alt="" /></p>
 
 <p>（4）点击Apply应用并保存到当前的Run Configuration中。</p>
 
@@ -797,7 +797,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 <div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
 </code></pre>
 </div>
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722184711430.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722184711430.jpg" alt="" /></p>
 
 <p>（4）点击Apply应用并保存到当前的Run Configuration中。</p>
 
@@ -810,7 +810,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 <div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
 </code></pre>
 </div>
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722186661015.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722186661015.jpg" alt="" /></p>
 
 <p>（4）点击Close保存并关闭当前窗口。</p>
 
@@ -864,22 +864,22 @@ call "%~dp0\catalina.bat" %*
 
 <p>以下主界面非常明显地呈现出了Toolbar的位置，也是XRebel主要的操作菜单功能区。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722230804350.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722230804350.jpg" alt="" /></p>
 
 <p><strong>1.第一大功能：Access application profiling</strong></p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722233171431.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722233171431.jpg" alt="" /></p>
 
 <p><em>PS：为了书写方便，这里暂且称之为AAP功能。</em></p>
 
 <p>AAP功能包含的是系统服务所接收到的请求列表，以及每一个请求的时间消耗细节监测数据。该数据的统计维度是定位到Method级别的。<br />
 请跟随以下图示，对AAP功能有一个现状的概览印象，具体事宜可以在真实实践的时候进一步逐一了解。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722236434252.jpg" alt="" />
-<img src="/images/2014-08-26-xrebel-tutorial/14722237721529.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722236434252.jpg" alt="" />
+<img src="/images/2016-08-26-xrebel-tutorial/14722237721529.jpg" alt="" /></p>
 
 <blockquote>
-  <p><img src="/images/2014-08-26-xrebel-tutorial/14722238537773.jpg" alt="" />
+  <p><img src="/images/2016-08-26-xrebel-tutorial/14722238537773.jpg" alt="" />
 查看AAP功能的栈信息之时，留意符号的含义。该符号标识了一个异步的执行请求。</p>
 </blockquote>
 
@@ -890,10 +890,10 @@ call "%~dp0\catalina.bat" %*
 <p>RIQ功能可以支持但不仅限于jdbc的监测。例如RabbitMQ、JMS、Redis等框架的执行数据的监控。<br />
 如第3张图示，清晰地监测到了请求中所包含的执行SQL语句，这一点对于开发、测试过程都是及其有帮助的。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722233844623.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722233844623.jpg" alt="" /></p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722239944661.jpg" alt="" />
-<img src="/images/2014-08-26-xrebel-tutorial/14722243069603.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722239944661.jpg" alt="" />
+<img src="/images/2016-08-26-xrebel-tutorial/14722243069603.jpg" alt="" /></p>
 
 <p><strong>3.第三大功能：Find exceptions</strong></p>
 
@@ -901,9 +901,9 @@ call "%~dp0\catalina.bat" %*
 
 <p>FE功能简单易懂，即异常日志的捕获。开发者们除了在slf4log、log4j等日志框架下定义好的路径中查看系统日志以外，还可以在系统程序运行时从XRebel中查看到即时的日志详情。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722234443155.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722234443155.jpg" alt="" /></p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722244480081.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722244480081.jpg" alt="" /></p>
 
 <p>以上介绍完了XRebel最为常用的三大功能点，关于session监控的部分，这里也截图一张说明一下，有需要的开发者可以自行研究，例如应用到CAS等用户登录相关场景之时，相信Session data这项功能是你非常好的监控助手。</p>
 
@@ -911,11 +911,11 @@ call "%~dp0\catalina.bat" %*
   <p>Session data的功能需要从XRebel的Settings中打开配置选项，默认是不勾选的。</p>
 </blockquote>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722252061448.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722252061448.jpg" alt="" /></p>
 
 <p>此外这里再补充一点，也就是主界面三大功能的右上角<code class="highlighter-rouge">Hidden items</code>选项。</p>
 
-<p><img src="/images/2014-08-26-xrebel-tutorial/14722246072371.jpg" alt="" /></p>
+<p><img src="/images/2016-08-26-xrebel-tutorial/14722246072371.jpg" alt="" /></p>
 
 <p>将该选项打上勾，便可以查看到操作过程中，开发者们标记了hidden的条目，以及XRebel智能隐藏的其他条目。具体看应用场景的需要。</p>
 
