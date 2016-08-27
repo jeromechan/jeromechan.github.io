@@ -6,6 +6,183 @@
 		<atom:link href="http://aboutcoder.com/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Git使用规范</title>
+				<description>&lt;blockquote&gt;
+  &lt;p&gt;以下是关于源代码版本控制的一些共通的约定、协议。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;一、管理仓库&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;避免将自己开发环境中的内容添加到版本控制系统中；&lt;/li&gt;
+  &lt;li&gt;每当merge完成之后，删除本地以及远程的相应的特性分支；&lt;/li&gt;
+  &lt;li&gt;只在特性分支中完成编码工作；&lt;/li&gt;
+  &lt;li&gt;经常性的执行Rebase，使得upstream的变更及时合并到本地内容中；&lt;/li&gt;
+  &lt;li&gt;发起pull request，使得代码得以他人评审。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;二、在特性分支工作&lt;/h4&gt;
+
+&lt;p&gt;基于master，在本地创建特性分支。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout master
+git pull
+git checkout -b &amp;lt;branch-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;经常性的执行Rebase，使得upstream的变更及时合并到本地内容中。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin
+git rebase origin/master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果出现冲突，应在Rebase过程中及时解决。&lt;br /&gt;
+当特性分支编码完成、通过测试之后，这个时候，需要将内容提交到index storage，即index暂存区。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add --all
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;当你完成了内容的暂存，即以上的add操作，这个时候你便可以提交它了。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git status
+git commit --verbose
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这里有一个Tips，对阅读者友好的commit注释是非常必要的，例如以下，就是一则好的提交注释。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Present-tense summary under 50 characters
+
+* More information about commit (under 72 characters).
+* More information about commit (under 72 characters).
+
+http://project.management-system.com/ticket/123
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果你之前创建了多个commit，那么你应该使用交互式的Rebase操作，以更好地进行代码的合并，并且生成更为友好的提交注释。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase -i origin/master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;代码提交完成之后，便是要将你提交的内容share给大家。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin &amp;lt;branch-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这个时候，便是向你的团队小伙伴们提交pull request的时候了，请团队成员们帮忙评审自己所编写的代码。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;三、评审代码&lt;/h4&gt;
+
+&lt;p&gt;邀请一个团队成员来评审自己的代码，是一个很好的发现缺陷issues的良策，还可以避免沟通上的遗漏和错误的传达。&lt;/p&gt;
+
+&lt;p&gt;通过pull request的评审，可以使得评审的工作不仅限于项目组的讨论会议。&lt;/p&gt;
+
+&lt;p&gt;另外，评审人员也可以自行作出代码变更和修改，只需要将变更内容检出到自己本地的分支。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout &amp;lt;branch-name&amp;gt;
+./bin/setup
+git diff staging/master..HEAD
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;当评审人员在自己的branch上修改完毕，测试通过，提交commit并且push到远程origin分支中。&lt;br /&gt;
+对所有变更满意之后，就可以在pull request中备注注释：&lt;code class=&quot;highlighter-rouge&quot;&gt;Ready to merge&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;四、代码合并&lt;/h4&gt;
+
+&lt;p&gt;使用交互式的Rebase进行代码的衍合，在每一项衍合所产生的提交中，必要的时候将注释丰富，例如增加message&lt;code class=&quot;highlighter-rouge&quot;&gt;Fix whitespace&lt;/code&gt;的备注。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin
+git rebase -i origin/master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;倘若你force push你的commit(s)到master，倘若你所使用的平台是GitHub，那么GitHub将自动地关闭你的pull request，同时标记该pull request为”Merged”状态。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push --force-with-lease origin &amp;lt;branch-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;说到这里，可能各位看官会疑惑，为什么这里引用了&lt;code class=&quot;highlighter-rouge&quot;&gt;--force-with-lease&lt;/code&gt;这么一个git push的option呢？&lt;/p&gt;
+
+&lt;p&gt;下面介绍下这个参数是什么用途：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--[no-]force-with-lease
+--force-with-lease=&amp;lt;refname&amp;gt;
+--force-with-lease=&amp;lt;refname&amp;gt;:&amp;lt;expect&amp;gt;
+Usually, &quot;git push&quot; refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it.
+
+This option overrides this restriction if the current value of the remote ref is the expected value. &quot;git push&quot; fails otherwise.
+
+Imagine that you have to rebase what you have already published. You will have to bypass the &quot;must fast-forward&quot; rule in order to replace the history you originally published with the rebased history. If somebody else built on top of your original history while you are rebasing, the tip of the branch at the remote may advance with her commit, and blindly pushing with --force will lose her work.
+
+This option allows you to say that you expect the history you are updating is what you rebased and want to replace. If the remote ref still points at the commit you specified, you can be sure that no other people did anything to the ref. It is like taking a &quot;lease&quot; on the ref without explicitly locking it, and the remote ref is updated only if the &quot;lease&quot; is still valid.
+
+--force-with-lease alone, without specifying the details, will protect all remote refs that are going to be updated by requiring their current value to be the same as the remote-tracking branch we have for them.
+
+--force-with-lease=&amp;lt;refname&amp;gt;, without specifying the expected value, will protect the named ref (alone), if it is going to be updated, by requiring its current value to be the same as the remote-tracking branch we have for it.
+
+--force-with-lease=&amp;lt;refname&amp;gt;:&amp;lt;expect&amp;gt; will protect the named ref (alone), if it is going to be updated, by requiring its current value to be the same as the specified value &amp;lt;expect&amp;gt; (which is allowed to be different from the remote-tracking branch we have for the refname, or we do not even have to have such a remote-tracking branch when this form is used).
+
+Note that all forms other than --force-with-lease=&amp;lt;refname&amp;gt;:&amp;lt;expect&amp;gt; that specifies the expected current value of the ref explicitly are still experimental and their semantics may change as we gain experience with this feature.
+
+&quot;--no-force-with-lease&quot; will cancel all the previous --force-with-lease on the command line.
+
+-f
+--force
+Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it. Also, when --force-with-lease option is used, the command refuses to update a remote ref whose current value does not match what is expected.
+
+This flag disables these checks, and can cause the remote repository to lose commits; use it with care.
+
+Note that --force applies to all the refs that are pushed, hence using it with push.default set to matching or with multiple push destinations configured with remote.*.push may overwrite refs other than the current branch (including local refs that are strictly behind their remote counterpart). To force a push to only one branch, use a + in front of the refspec to push (e.g git push origin +master to force a push to the master branch). See the &amp;lt;refspec&amp;gt;... section above for details.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;以上大致的意思是指，在执行git push之时，增加&lt;code class=&quot;highlighter-rouge&quot;&gt;--force-with-lease&lt;/code&gt;参数，可以避免覆盖其他开发者在你fetch了之后，对目标分支做了其他的更新，然后你简单的&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -f&lt;/code&gt;的操作强制覆盖了他人的commits内容。&lt;br /&gt;
+如果想要了解&lt;code class=&quot;highlighter-rouge&quot;&gt;--force-with-lease&lt;/code&gt;参数更多的相关知识，可以查看这里Stack Overflow的例子: &lt;a href=&quot;http://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push&quot;&gt;How do I properly force a Git push?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;想要查看新提交的commit(s)列表，想要查看变更的文件列表，以及合并开发分支代码到master，以下命令可以实现这些目的：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log origin/master..&amp;lt;branch-name&amp;gt;
+
+git diff --stat origin/master
+
+git checkout master
+git merge &amp;lt;branch-name&amp;gt; --ff-only
+git push
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;特性分支代码既然都已然成功合并到master上，这个时候我们需要去删除特性分支，无论是本地工程目录，还是远程仓库。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Delete your remote feature branch.
+git push origin --delete &amp;lt;branch-name&amp;gt;
+
+# Delete your local feature branch.
+git branch --delete &amp;lt;branch-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;五、参考资料&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/thoughtbot/guides/tree/master/protocol/git&quot;&gt;Git Protocol&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push&quot;&gt;How do I properly force a Git push?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Sat, 27 Aug 2016 17:00:00 +0800</pubDate>
+				<link>http://aboutcoder.com/git/2016/08/27/git-protocol.html</link>
+				<guid isPermaLink="true">http://aboutcoder.com/git/2016/08/27/git-protocol.html</guid>
+			</item>
+		
+			<item>
 				<title>XRebel入门与实践</title>
 				<description>&lt;h4 id=&quot;xrebel&quot;&gt;一、XRebel简介&lt;/h4&gt;
 
@@ -2191,370 +2368,6 @@ liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得�
 				<pubDate>Tue, 16 Jun 2015 20:11:24 +0800</pubDate>
 				<link>http://aboutcoder.com/2015/06/16/practice-in-senior-school-period/</link>
 				<guid isPermaLink="true">http://aboutcoder.com/2015/06/16/practice-in-senior-school-period/</guid>
-			</item>
-		
-			<item>
-				<title>PHP正则表达式</title>
-				<description>&lt;p&gt;&lt;strong&gt;一、介绍&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;正则表达式，大家在开发中应该是经常用到，现在很多开发语言都有正则表达式的应用，比如javascript，java，.net,php等等，我今天就把我对正则表达式的理解跟大家唠唠，不当之处，请多多指教！&lt;/p&gt;
-
-&lt;p&gt;需要知道的术语——下面的术语你知道多少?&lt;/p&gt;
-
-&lt;p&gt;Δ  定界符&lt;br /&gt;
-Δ  字符域&lt;br /&gt;
-Δ  修饰符&lt;br /&gt;
-Δ  限定符&lt;br /&gt;
-Δ  脱字符&lt;br /&gt;
-Δ  通配符(正向预查，反向预查)&lt;br /&gt;
-Δ  反向引用&lt;br /&gt;
-Δ  惰性匹配&lt;br /&gt;
-Δ  注释&lt;br /&gt;
-Δ  零字符宽&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;定位&lt;br /&gt;
-我们什么时候使用正则表达式呢？不是所有的字符操作都用正则就好了，php在某些方面用正则反而影响效率。当我们遇到复杂文本数据的解析时候，用正则是比较好的选择。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;优点
-正则表达式在处理复杂字符操作的时候，可以提高工作效率，也在一定程度节省你的代码量。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;缺点
-我们在使用正则表达式的时候，复杂的正则表达式会加大代码的复杂度，让人很难理解。所以我们有的时候需要在正则表达式内部添加注释。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;二、通用模式&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;¤ 定界符&lt;br /&gt;
-通常使用 “/”做为定界符开始和结束,也可以使用”#”。&lt;br /&gt;
-什么时候使用”#”呢?一般是在你的字符串中有很多”/”字符的时候，因为正则的时候这种字符需要转义，比如uri。&lt;/p&gt;
-
-&lt;p&gt;使用”/”定界符的代码如下.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+)\.html$/i&#39;;
-$str = &#39;http://www.youku.com/show_page/id_ABCDEFG.html&#39;;
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &quot;\n&quot;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;preg_match中的$matches[0]将包含与整个模式匹配的字符串。&lt;br /&gt;
-使用”#”定界符的代码如下.这个时候对”/”就不转义!&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;#^http://([\w.]+)/([\w]+)/([\w]+)\.html$#i&#39;;
-$str = &#39;http://www.youku.com/show_page/id_ABCDEFG.html&#39;;
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &quot;\n&quot;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;¤ 修饰符:用于改变正则表达式的行为。&lt;/p&gt;
-
-&lt;p&gt;我们看到的&lt;code class=&quot;highlighter-rouge&quot;&gt;(&#39;/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+)\.html/**i**&#39;)&lt;/code&gt;  中的最后一个”i”就是修饰符,表示忽略大小写，还有一个我们经常用到的是”x”表示忽略空格。&lt;br /&gt;
-贡献代码:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/HELLO/&#39;;
-$str = &#39;hello word&#39;;
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-echo &#39;No i:Valid Successful!&#39;,&quot;\n&quot;;
-}
-if(preg_match($regex.&#39;i&#39;, $str, $matches)){
-echo &#39;YES i:Valid Successful!&#39;,&quot;\n&quot;;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;¤ 字符域:[\w]用方括号扩起来的部分就是字符域。&lt;br /&gt;
-¤ 限定符:如[\w]{3,5}或者[\w]*或者[\w]+这些[\w]后面的符号都表示限定符。现介绍具体意义。&lt;/p&gt;
-
-&lt;p&gt;{3,5}表示3到5个字符。{3,}超过3个字符，{,5}最多5个，{3}三个字符。&lt;br /&gt;
-* 表示0到多个&lt;br /&gt;
-+ 表示1到多个&lt;br /&gt;
-¤ 脱字符号（^:）&lt;br /&gt;
-（1）放在字符域(如:[^\w])中表示否定(不包括的意思)——“反向选择”&lt;br /&gt;
-（2）放在表达式之前，表示以当前这个字符开始。(/^n/i,表示以n开头)&lt;br /&gt;
-注意，我们经常管”&quot;叫”跳脱字符”。用于转义一些特殊符号，如”.”,”/”&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;三、通配符(lookarounds)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;断言某些字符串中某些字符的存在与否!&lt;br /&gt;
-格式:&lt;br /&gt;
-正向预查:(?=) 相对应的 (?!)表示否定意思&lt;br /&gt;
-反向预查:(?&amp;lt;=) 相对应的 (?前后紧跟字符&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/(?&amp;lt;=c)d(?=e)/&#39;;  /* d 前面紧跟c, d 后面紧跟e*/
-$str = &#39;abcdefgk&#39;;
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &quot;\n&quot;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;否定意义:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/(?
-$str = &#39;abcdefgk&#39;;
-$matches = array();
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &quot;\n&quot;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;字符宽度:零&lt;br /&gt;
-验证零字符代码&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/HE(?=L)LO/i&#39;;
-$str = &#39;HELLO&#39;;
-$matches = array();
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &quot;\n&quot;;
-打印不出结果！
-
-$regex = &#39;/HE(?=L)LLO/i&#39;;
-$str = &#39;HELLO&#39;;
-$matches = array();
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &quot;\n&quot;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;能打印出结果!&lt;/p&gt;
-
-&lt;p&gt;说明:(?=L)意思是HE后面紧跟一个L字符。但是(?=L)本身不占字符，要与(L)区分，（L）本身占一个字符。&lt;/p&gt;
-
-&lt;p&gt;**四、捕获数据
-**&lt;/p&gt;
-
-&lt;p&gt;没有指明类型而进行的分组,将会被获取,供以后使用。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;指明类型指的是通配符。所以只有圆括号起始位置没有问号的才能被捕捉。
-在同一个表达式内的引用叫做反向引用。
-调用格式: \编号(如\1)。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/^(Chuanshanjia)[\w\s!]+\1$/&#39;;
-$str = &#39;Chuanshanjia thank Chuanshanjia&#39;;
-$matches = array();
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &quot;\n&quot;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;避免捕获数据&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;格式:(?:pattern)&lt;/p&gt;
-
-&lt;p&gt;优点:将使有效反向引用数量保持在最小，代码更加、清楚。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;命名捕获组&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;格式:(?P&lt;组名&gt;) 调用方式 (?P=组名)&lt;/组名&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;arrray(3) {
-
-[0] =&amp;gt;
-string(28) “chuanshanjia Is chuanshanjia”
-[“author”] =&amp;gt;
-string(12) “chuanshanjia”
-[1] =&amp;gt;
-string(12) “chuanshanjia&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;五、惰性匹配&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;(记住：会进行两部操作,请看下面的原理部分)
-格式:限定符?
-原理:”?”：如果前面有限定符，会使用最小的数据。如“*”会取0个，而“+”会取1个，如过是{3,5}会取3个。
-先看下面的两个代码:
-代码1&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/heL*/i&#39;;
-$str = &#39;heLLLLLLLLLLLLLLLL&#39;;
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-
-echo &quot;\n&quot;;
-结果1:
-array(1) {
-[0] =&amp;gt;
-string(8) &quot;heLLLLLLLLLLLLLLLL&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;代码2&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/heL*?/i&#39;;
-$str = &#39;heLLLLLLLLLLLLLLLL&#39;;
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &quot;\n&quot;;
-结果2:
-array(1) {
-[0] =&amp;gt;
-string(2) &quot;he&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;代码3,使用“+”&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/heL+?/i&#39;;
-
-$str = &#39;heLLLLLLLLLLLLLLLL&#39;;
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-echo &quot;\n&quot;;
-
-结果3
-array(1) {
-
-[0] =
-string(3) &quot;heL&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;代码4,使用{3,5}&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/heL{3,10}?/i&#39;;
-$str = &#39;heLLLLLLLLLLLLLLLL&#39;;
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-
-echo &quot;\n&quot;;
-结果4
-array(1) {
-[0] =&amp;gt;
-string(5) &quot;heLLL&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;六、正则表达式的注释&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;格式:(?# 注释内容)
-用途:主要用于复杂的注释&lt;/p&gt;
-
-&lt;p&gt;贡献代码:是一个用于连接MYSQL数据库的正则表达式&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$regex = &#39;/
-^host=(?&amp;lt;!\.)([\d.]+)(?!\.) (?#主机地址)
-\|
-([\w!@#$%^&amp;amp;*()_+\-]+) (?#用户名)
-\|
-([\w!@#$%^&amp;amp;*()_+\-]+) (?#密码)
-(?!\|)$/ix&#39;;
-
-$str = &#39;host=192.168.10.221|root|123456&#39;;
-$matches = array();
-
-if(preg_match($regex, $str, $matches)){
-var_dump($matches);
-}
-
-echo &quot;\n&quot;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;七、特殊字符&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;特殊字符  &lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;   解释&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;*       &lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;           0到多次&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;+        &lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;         1到多次还可以写成{1,}&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;?    &lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;             0或1次&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;.    &lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;              匹配除换行符外的所有单个的字符&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\w    &lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;           [a-zA-Z0-9_]&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\s    &lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;            空白字符(空格，换行符，回车符）[\t\n\r]&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\d    &lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;            [0-9]&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本篇文章为转载文章，因为觉得写得的确是好，二次分享给大家，版权归原作者“川山甲”所有。&lt;br /&gt;
-原文链接：http://www.cnblogs.com/baochuan/archive/2012/03/12/2391135.html&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-				<pubDate>Thu, 11 Jun 2015 17:32:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2015/06/11/php-regular-expression/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2015/06/11/php-regular-expression/</guid>
 			</item>
 		
 	</channel>

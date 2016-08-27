@@ -657,6 +657,22 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -679,162 +695,127 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2/">
-        关于Sublime Text 2 支持执行PHP、JAVA单文件的配置说明
+      <a href="/2014/08/22/linux-php-install/">
+        Linux下的PHP安装
       </a>
     </h1>
 
     <span class="post-date">22 Aug 2014</span>
     
-    <p>Sublime Text目前非常流行，其功能强大到许多的web开发者爱不释手无法自拔，哈哈。最近自己也由原来的BBEdit转战为Sublime Text，由于自己常常会使用到单文件调试代码片段的执行情况，所以让Sublime Text支持单文件调试php、java文件的需求迫在眉睫。</p>
-
-<blockquote>
-  <p>Tips：本人使用的是Sublime Text 2，version 3没有尝试过，不过在版本更新说明中对于Build System的变更不大，也是可以支持的。</p>
+    <blockquote>
+  <p>Tips：在安装php之前，请确认服务环境的httpd服务已经安装成功。若还没有安装apache http serer，参考这里：<a href="http://aboutcoder.com/2014/08/16/linux%e4%b8%8b%e7%9a%84apache%e5%ae%89%e8%a3%85/">Linux下的Apache安装</a></p>
 </blockquote>
 
-<p>Sublime Text 的构建系统（Build System）可以让我们通过外部程序来运行文件，并可以在Sublime Text 的Console中查看输出，其功能配置在“Tools &gt; Build System”。
-构建系统包括三部分：</p>
+<p>1.检查机器环境</p>
 
-<p>（1）使用JSON格式保存配置文件（.sublime-build）</p>
+<p>首先要确认机器环境中的php是否已经安装了其他版本，是否需要共存多版本，机器版本是否已经符合要求…</p>
 
-<p>（2）使用Sublime Text命令驱动构建过程</p>
+<p>可以参考的shell命令：</p>
 
-<p>（3）可选的，还可以包括一个外部的可执行文件（脚本或二进制文件）</p>
-
-<p>文件格式：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[ ]*File \"(...*?)\", line ([0-9]*)"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
+<div class="highlighter-rouge"><pre class="highlight"><code>whereis php #环境变量已配置的php
+ls /usr/local/php #常用php安装目录（或软链接目录）
+</code></pre>
 </div>
 
-<p>cmd：
-包括命令及其参数数组，若非指定绝对路径，优先从系统PATH变量中获得；</p>
+<p>2.PHP基本安装</p>
 
-<p>file_regrex：
-可选选项，Perl格式的Regular Expression可以获取cmd的错误输出；</p>
+<p>（a）下载php的tar包  <br />
+官方地址：http://www.php.net</p>
 
-<p>selector：
-可选选项，在选定Tools &gt; Build System &gt; Automatic时生效，由系统根据当前文件情况尝试自动选择构建系统；</p>
+<p>（b） 解压下载好的php压缩包</p>
 
-<p>target：
-可选选项。运行的Sublime Text命令，缺省为exec（Packages/Default/exec.py）。该命令从*.build-system中获取配置的选项数据；</p>
-
-<p>variants：
-可选选项。该项配置下的内容是主构建系统配置项目的备选内容。如果构建系统中的selector与激活的文件相匹配，variants中的变量“name”则会出现在Command Palette（Tools &gt; Build System）下；</p>
-
-<p>name：
-仅适用于variant中。用来识别系统中的不同构建系统。如果“name”为“Run”，则会显示在Command Palette下，并且通过快捷键“Command + shift + B”调用；</p>
-
-<p>以下是含带variants的构建系统示例：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"date"</span><span class="p">],</span><span class="w">
-    
-        </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ls -l *.py"</span><span class="p">],</span><span class="w">
-              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List Python Files"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"shell"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"wc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Word Count (current file)"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
+<div class="highlighter-rouge"><pre class="highlight"><code>tar zxvf php-5.3.3.tar.gz
+</code></pre>
 </div>
 
-<p>根据以上的设定，按 Ctrl + B 会运行<em>date</em>命令, 按 Crtl + Shift + B 会运行Python 解释器，并且在构建系统激活时将剩余的备选项显示在Command Palette中</p>
-
-<p>常见的Sublime Text构建系统内置变量有：</p>
-
-<ul>
-  <li>
-    <p>$file_path		当前文件所在路径, 比如 C:\Files.</p>
-  </li>
-  <li>
-    <p>$file	当前文件的完整路径, 比如 C:\Files\Chapter1.txt.</p>
-  </li>
-  <li>
-    <p>$file_name	当前文件的文件名, 比如 Chapter1.txt.</p>
-  </li>
-  <li>
-    <p>$file_extension		当前文件的扩展名, 比如 txt.</p>
-  </li>
-  <li>
-    <p>$file_base_name	当前文件仅包含文件名的部分, 比如 Document.</p>
-  </li>
-  <li>
-    <p>$packages	Packages 文件夹的完整路径.</p>
-  </li>
-  <li>
-    <p>$project	当前项目文件的完整路径.</p>
-  </li>
-  <li>
-    <p>$project_path		当前项目文件的路径.</p>
-  </li>
-  <li>
-    <p>$project_name	当前项目文件的名称.</p>
-  </li>
-  <li>
-    <p>$project_extension	当前项目文件的扩展部分.</p>
-  </li>
-  <li>
-    <p>$project_base_name	当前项目仅包括名的部分.</p>
-  </li>
-</ul>
-
-<p>下面是本人的Build System的配置细节，提供给各位童鞋参考：</p>
-
-<p>1、php</p>
+<p>（c）生成makefile并编译安装</p>
 
 <blockquote>
-  <p>快捷键：Command + B</p>
+  <p>Tips：./configure —help可以查看到配置选项，如果需要定制，选择适合的选项作为安装配置也未尝不可。</p>
 </blockquote>
 
-<p>配置详情：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"php"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"php$"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.php"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
+<div class="highlighter-rouge"><pre class="highlight"><code>./configure —prefix=/usr/local/php5 —with-apxs2=/usr/local/apache2/bin/apxs —with-config-file-path=/usr/local/php5/lib 
+</code></pre>
 </div>
 
-<p>2、Java</p>
+<p>—prefix=PATH：指定安装目录</p>
+
+<p>—with-apxs2=PATH：指定已安装好的apache apxs文件，关联Apache http server，生成libphp5.so</p>
+
+<p>—with-config-file-path=PATH：指定php.ini的文件存放目录</p>
 
 <blockquote>
-  <p>快捷键：Command + B（编译） =&gt; Command + shift + B（执行）</p>
+  <p>Tips：安装过程中，视每个人的机器环境不同，会出现一些依赖包缺少的异常发生，致使安装失败。这时候不要着急，按照提示信息安装对应的依赖包就好，好事多磨嘛，haha</p>
 </blockquote>
 
-<p>配置详情：</p>
+<p>（d）关于php.ini文件的配置，可以自行Google或者百度就好，上面的相关说明文章多如牛毛，这里就不啰嗦了。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"javac"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-encoding"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^(...*?):([0-9]*):?([0-9]*)"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.java"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"java"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file_base_name"</span><span class="p">],</span><span class="w">
-            </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="w">
-        </span><span class="p">}]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
+<p>3.Apache HTTP Server与PHP的关联配置</p>
+
+<p>（a）配置入口文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    &lt;ifmodule dir_module=""&gt;
+    	DirectoryIndex index.html index.php
+    &lt;/ifmodule&gt;
+</code></pre>
 </div>
 
-<p>参考资料链接：</p>
+<p>（b）配置php解析模块</p>
 
-<p>非官方Build System说明：<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html">http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html</a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>    LoadModule php5_module modules/libphp5.so
+</code></pre>
+</div>
 
+<blockquote>
+  <p>Tips：这里容易混淆的是，libphp5.so其实是php源码编译安装之时生成的，而非apache自己包含的。&lt;/blockquote&gt;</p>
+</blockquote>
+
+<p>（c）添加解析文件类型</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> AddType application/x-httpd-php .php
+</code></pre>
+</div>
+
+<ol>
+  <li>PHP扩展安装</li>
+</ol>
+
+<p>（a）扩展的认识</p>
+
+<p>php的扩展区分为php自带扩展和自定义扩展包，php自带的扩展位于php安装包下的 /ext 文件夹下，而额外的自定义扩展，则需要通过PECL平台下载，地址为：<a href="http://pecl.php.net/packages.php">http://pecl.php.net/packages.php </a></p>
+
+<p>（b）安装扩展</p>
+
+<p>安装的过程中，我们需要认识一个命令：phpize</p>
+
+<blockquote>
+  <p>Tips：phpize命令位于php安装目录的/bin文件夹下，是用来扩展php扩展模块的，通过phpize可以新增php的外挂模块。&lt;/blockquote&gt;</p>
+</blockquote>
+
+<p>以下举例（安装pdo_mysql扩展）说明：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd pdo_mysql
+/usr/local/php5/bin/phpize
+./configure —prefix=/usr/local/php5/extensions —with-php-config=/usr/local/php5/bin/php-config
+make
+make test
+make install
+</code></pre>
+</div>
+
+<p>此时，当make install执行完成后，在terminal中会打印出.so扩展文件存放的目录路径。然后再进一步配置php.ini文件中的“extension_dir=”和“extension=pdo_mysql.so”即可。</p>
+
+<ol>
+  <li>启动apache</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    &gt;&gt; /usr/local/apache2/bin/apachectl -k start
+    &gt;&gt; /usr/local/apache2/bin/apachectl -k stop
+    &gt;&gt; /usr/local/apache2/bin/apachectl -k restart
+</code></pre>
+</div>
+
+<p>此时，可以通过浏览器访问指定的虚拟主机，通过php函数phpinfo()可以查看到当前php安装的情况，包括php.ini配置文件路径、已安装扩展配置情况和apache http server的关联配置情况等。</p>
 
   </div>
   

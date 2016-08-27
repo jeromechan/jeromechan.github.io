@@ -657,6 +657,22 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -679,91 +695,162 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/08/21/how-to-install-php-apache-on-windows/">
-        windows下的PHP与Apache安装
+      <a href="/2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2/">
+        关于Sublime Text 2 支持执行PHP、JAVA单文件的配置说明
       </a>
     </h1>
 
-    <span class="post-date">21 Aug 2014</span>
+    <span class="post-date">22 Aug 2014</span>
     
-    <p>站内的关联的其他几篇文章讲述了<a href="http://aboutcoder.com/2014/08/16/linux%e4%b8%8b%e7%9a%84apache%e5%ae%89%e8%a3%85/">LAMP环境搭建</a>的过程与建议Tips。今天要来讲讲的是关于WAMP，毕竟环境是Windows的童鞋们还是居多的。</p>
-
-<p>1.安装Apache HTTP SERVER + PHP</p>
-
-<p>关于如何安装Apache HTTP SERVER和PHP的过程，这一步在Windows环境下可以简单点到略过，官方都提供了.exe安装包或portable的zip包，双击按提示安装好，然后将PHP-Install-DIR/bin配置到环境变量Path中即可。</p>
+    <p>Sublime Text目前非常流行，其功能强大到许多的web开发者爱不释手无法自拔，哈哈。最近自己也由原来的BBEdit转战为Sublime Text，由于自己常常会使用到单文件调试代码片段的执行情况，所以让Sublime Text支持单文件调试php、java文件的需求迫在眉睫。</p>
 
 <blockquote>
-  <p>Tips：先安装Apache，再安装PHP，再作二者关联。</p>
+  <p>Tips：本人使用的是Sublime Text 2，version 3没有尝试过，不过在版本更新说明中对于Build System的变更不大，也是可以支持的。</p>
 </blockquote>
 
-<p>2.PHP配置</p>
+<p>Sublime Text 的构建系统（Build System）可以让我们通过外部程序来运行文件，并可以在Sublime Text 的Console中查看输出，其功能配置在“Tools &gt; Build System”。
+构建系统包括三部分：</p>
 
-<p>说到PHP配置，首先要知道PHP的配置文件是php.ini，再安装好的PHP目录内，会包含几个不同用途的php.ini文件，不同的php版本之间会有所差异，大致的文件如：php.ini-development, php.ini-production, php.ini-test, php.ini，而php.ini是默认读取的配置文件。</p>
+<p>（1）使用JSON格式保存配置文件（.sublime-build）</p>
 
-<blockquote>
-  <p>php.ini-development：开发环境常用的属性配置概况  <br />
-php.ini-test：测试环境常用的属性配置概况  <br />
-php.ini-production：生产环境常用的属性配置概况</p>
-</blockquote>
+<p>（2）使用Sublime Text命令驱动构建过程</p>
 
-<p>读者可以根据需要，学习其中的配置含义，配置出自己系统最合适的配置项目。</p>
+<p>（3）可选的，还可以包括一个外部的可执行文件（脚本或二进制文件）</p>
 
-<p>开发者最常用到的配置，便是扩展配置了，没有扩展，php无法实现curl远程调用，无法实现mysql，pgsql连接，更无法实现gd开发。</p>
+<p>文件格式：</p>
 
-<p>在扩展配置中，我们必须认识“extension_dir”和“extension=”配置项目，前者指向扩展链接库文件所在的目录，后者配置所需要的扩展链接库文件。
-例如，我们配置pdo_mysql的扩展：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>extension_dir=“D:/php/ext”
-extension=pdo_mysql.dll
-</code></pre>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[ ]*File \"(...*?)\", line ([0-9]*)"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<blockquote>
-  <p>Tips：Windows下的PHP安装好之后很友好，都为大家根据相应的vc版本编译好了dll扩展文件，可以为大家省下不少时间。找不到的扩展可以到官方的pecl上找：<a href="http://pecl.php.net/packages.php">http://pecl.php.net/packages.php</a>&lt;/blockquote&gt;</p>
-</blockquote>
+<p>cmd：
+包括命令及其参数数组，若非指定绝对路径，优先从系统PATH变量中获得；</p>
 
-<p>配置好了php，此时apache容器仍然不能解析运行php文件，因为我们还差将两者关联起来的其他一些简单配置，下面我们来讲讲这一块。</p>
+<p>file_regrex：
+可选选项，Perl格式的Regular Expression可以获取cmd的错误输出；</p>
 
-<p>3.在Apache HTTP Server中配置关联php语言解析模块</p>
+<p>selector：
+可选选项，在选定Tools &gt; Build System &gt; Automatic时生效，由系统根据当前文件情况尝试自动选择构建系统；</p>
 
-<p>php是以module的方式与apache关联起来的。</p>
+<p>target：
+可选选项。运行的Sublime Text命令，缺省为exec（Packages/Default/exec.py）。该命令从*.build-system中获取配置的选项数据；</p>
 
-<blockquote>
-  <p>Tips：Apache HTTP Server主配置文件是httpd.conf。</p>
-</blockquote>
+<p>variants：
+可选选项。该项配置下的内容是主构建系统配置项目的备选内容。如果构建系统中的selector与激活的文件相匹配，variants中的变量“name”则会出现在Command Palette（Tools &gt; Build System）下；</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// 在httpd.conf文件中，新增module加载项：
-LoadModule php5_module D:/php/php5apache2_2.dll //关联并加载php解析模块
-PHPIniDir “D:/php”//关联PHP安装目录及其php.ini，该项配置后，可以在phpinfo()中的属性“Loaded Configuration File”检查是否关联php.ini成功
-</code></pre>
+<p>name：
+仅适用于variant中。用来识别系统中的不同构建系统。如果“name”为“Run”，则会显示在Command Palette下，并且通过快捷键“Command + shift + B”调用；</p>
+
+<p>以下是含带variants的构建系统示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"date"</span><span class="p">],</span><span class="w">
+    
+        </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ls -l *.py"</span><span class="p">],</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List Python Files"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"shell"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"wc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Word Count (current file)"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>然后，告诉apache它现在可以执行.php文件了：</p>
+<p>根据以上的设定，按 Ctrl + B 会运行<em>date</em>命令, 按 Crtl + Shift + B 会运行Python 解释器，并且在构建系统激活时将剩余的备选项显示在Command Palette中</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>AddType application/x-httpd-php .php //让.php格式文件存储php代码并可以被执行
-AddType application/x-httpd-php .html //让.html格式文件存储php代码并可以被执行
-AddType application/x-httpd-php .txt //让.txt格式文件存储php代码并可以被执行
-</code></pre>
-</div>
+<p>常见的Sublime Text构建系统内置变量有：</p>
 
-<p>到这里，Apache与php之间的关联关系就建立起来了。</p>
+<ul>
+  <li>
+    <p>$file_path		当前文件所在路径, 比如 C:\Files.</p>
+  </li>
+  <li>
+    <p>$file	当前文件的完整路径, 比如 C:\Files\Chapter1.txt.</p>
+  </li>
+  <li>
+    <p>$file_name	当前文件的文件名, 比如 Chapter1.txt.</p>
+  </li>
+  <li>
+    <p>$file_extension		当前文件的扩展名, 比如 txt.</p>
+  </li>
+  <li>
+    <p>$file_base_name	当前文件仅包含文件名的部分, 比如 Document.</p>
+  </li>
+  <li>
+    <p>$packages	Packages 文件夹的完整路径.</p>
+  </li>
+  <li>
+    <p>$project	当前项目文件的完整路径.</p>
+  </li>
+  <li>
+    <p>$project_path		当前项目文件的路径.</p>
+  </li>
+  <li>
+    <p>$project_name	当前项目文件的名称.</p>
+  </li>
+  <li>
+    <p>$project_extension	当前项目文件的扩展部分.</p>
+  </li>
+  <li>
+    <p>$project_base_name	当前项目仅包括名的部分.</p>
+  </li>
+</ul>
 
-<p>4.启动Apache，准备执行php文件，你可能会遇到如下情况：</p>
+<p>下面是本人的Build System的配置细节，提供给各位童鞋参考：</p>
 
-<p>1）php扩展配置没有生效，在phpinfo()中没有发现新增的扩展
-答：a. 检查扩展配置项目按上文要求正确；
-b. 是否按官方要求将libeay32.dll, ssleay32.dl拷贝到C:/windows/system32/下；</p>
-
-<p>官方原文如下：</p>
+<p>1、php</p>
 
 <blockquote>
-  <p>vatozana at yahoo dot com 3 years ago
-I had problems registering Curl extentions and it was cause by the old dll of libeay32.dll and  ssleay32.dll  which were already in my c:\windows\system32 I replaced them and all is now fine!!</p>
+  <p>快捷键：Command + B</p>
 </blockquote>
 
-<p>5.其他参考：</p>
+<p>配置详情：</p>
 
-<p>最官方的莫过于php.net，该站旗下有关联的许多对php很有好处的二级站点，这里可以找到：<a href="http://cn2.php.net/sites.php">http://cn2.php.net/sites.php</a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"php"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"php$"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.php"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>2、Java</p>
+
+<blockquote>
+  <p>快捷键：Command + B（编译） =&gt; Command + shift + B（执行）</p>
+</blockquote>
+
+<p>配置详情：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"javac"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-encoding"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^(...*?):([0-9]*):?([0-9]*)"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.java"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"java"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file_base_name"</span><span class="p">],</span><span class="w">
+            </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>参考资料链接：</p>
+
+<p>非官方Build System说明：<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html">http://sublime-text-unofficial-documentation.readthedocs.org/en/sublime-text-2/reference/build_systems.html</a></p>
+
 
   </div>
   
