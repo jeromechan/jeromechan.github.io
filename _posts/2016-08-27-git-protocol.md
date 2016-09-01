@@ -4,6 +4,7 @@ title: "Git使用规范"
 date: 2016-08-27 09:00:00
 description: "Git使用规范,Git协议"
 keywords: "git protocol"
+permalink: /2016/08/27/git-protocol/
 categories:
 - git
 tags:
