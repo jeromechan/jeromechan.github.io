@@ -673,6 +673,22 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -695,84 +711,121 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/06/29/uml-modeling-2/">
-        UML基础建模知识小结（二）
+      <a href="/2014/06/29/uml-modeling-3/">
+        UML基础建模知识小结（三）
       </a>
     </h1>
 
     <span class="post-date">29 Jun 2014</span>
     
-    <h4 id="uml">二、UML结构建模图</h4>
-<p>结构图定义了一个模型的静态架构，例如类，对象，接口和物理组件。另，结构图也被用作对元素间关联和依赖关系进行建模。</p>
+    <h4 id="uml">3. UML行为建模图</h4>
 
-<h5 id="section">2.1 包</h5>
-<p>包常用来在较高的层次描述着类或用例之间的交互关系，同时将模型根据不同的思维逻辑，划分成为了不同的容器。
-<a href="/images/2014-06-29-uml-modeling-2/image.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb.png" alt="image" /></a>
-上图包含了关于包的合并，包的导入，嵌套连接符。关于每个包内的元素要求，尽量要做到，同一个包中，赋予这些类或引入包相同的继承层次，通常认为把通过符合相关联的类、以及与它们相协作的类放在同一个包内。</p>
+<h5 id="use-case-diagram">3.1 用例图(Use Case Diagram)</h5>
 
-<h5 id="section-1">2.2 类与类图</h5>
-<p>“类”是对一组具有相同属性、操作、关系和语意的对象的描述，在图形上常常把它画为一个矩形。如下图：
-<a href="/images/2014-06-29-uml-modeling-2/image1.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb1.png" alt="image" /></a></p>
+<p>（1）参与者(Actor)</p>
 
-<p>以上的图属于类图类别中的“设计类”，而还有一个不为人知的“分析类”并未包含阐述，如下：
-<a href="/images/2014-06-29-uml-modeling-2/image2.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb2.png" alt="image" /></a></p>
+<p>在寻找用例图中的参与者时候，先要确定系统的边界，然后确定系统的涉众，从中确认出驱动用例的动作来源，从而确定参与者。参与者是位于边界之外的。参与者并非只能是人，也可以非人，因为有些需求是没有人参与的。如果没有人参与，这是就需要去找到指令或者计算机动作的来源。</p>
 
-<p>分析类主要应用于Conceptual Modeling阶段，旨在RUP用例驱动的过程中进一步将需求以更为贴近开发的角度去描述。</p>
+<p>（2）用例(Use Case)</p>
 
-<p>“分析类”是从业务需求向系统设计转化的过程中最为主要的元素，它们在高层次抽象出系统实现业务需求的原型，业务需求通过分析类被逻辑化，成为可以被计算机可以理解的语意。
-分析类的抽象层次具有三高的特点：</p>
+<p>判断用例是否准确的依据有：</p>
 
-<p>（1）高于设计实现：专注解决需求问题，避免实现问题的干扰</p>
+<ol>
+  <li>
+    <p>用例是相对独立的：这意味着它不需要与其他用例交互而独自完成参与者的目的，即用例从功能上说是完备的。</p>
+  </li>
+  <li>
+    <p>用例的执行结果对参与者来说是可观测的和有意义的。
+<img src="/images/2014-06-29-uml-modeling-3/image_thumb10.png" alt="image" />
+<img src="/images/2014-06-29-uml-modeling-3/image_thumb11.png" alt="image" /></p>
+  </li>
+  <li>
+    <p>用例必须由一个参与者发起，不存在没有参与者的用例，用例不应该自动启动，也不应该主动启动另一个用例。
+<img src="/images/2014-06-29-uml-modeling-3/image_thumb12.png" alt="image" /></p>
+  </li>
+  <li>
+    <p>用例必然是以动宾短语形式出现的。
+<img src="/images/2014-06-29-uml-modeling-3/image_thumb13.png" alt="image" /></p>
+  </li>
+  <li>
+    <p>参与者是用例驱动的来源，然而，用例的粒度大小则由需求的要求而定，最适合需求的用例和用例描述才是最适合的。
+但是，容易步入一些分析中的误区。</p>
 
-<p>（2）高于语言实现：不依赖于任一语言的限制</p>
+    <p>（1）目标和步骤的误区</p>
 
-<p>（3）高于实现方式：不需提前考虑实现的方式</p>
+    <p><img src="/images/2014-06-29-uml-modeling-3/image_thumb14.png" alt="image" /></p>
 
-<h5 id="section-2">2.3 关系</h5>
-<p>（1）关联(Association)
-<a href="/images/2014-06-29-uml-modeling-2/image3.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb3.png" alt="image" /></a>
-可以使用“知道”二字描述两者间的关系。
-在很多的画图中并不需要特意地强调关联关系的方向性，而Rose中提供了额外的带方向的关联关系画图方法。</p>
+    <p>应该以完整目标为用例，而不应该以步骤作为用例。</p>
 
-<p>（2）依赖(Dependency)</p>
+    <p>（2）边界的超越</p>
 
-<p><a href="/images/2014-06-29-uml-modeling-2/image4.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb4.png" alt="image" /></a>
-可以使用“知道并使用”描述两者间的关系。
-依赖关系统统都是带箭头的，在OOD中，双向依赖是一种非常不好的结构，我们在设计的时候总应该保持单向依赖，杜绝双向依赖关系的发生。</p>
+    <p>参与者对于用例的操作都应该位于合法系统边界之内，不可以越界驱动用例。
+ <a href="/images/2014-06-29-uml-modeling-3/image15.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb15.png" alt="image" /></a>
+ 右图中的“应征立减活动”用例并非属于“促销产品部管理员”职权范围之内，此处为越界的用例，是不正确的。</p>
+  </li>
+</ol>
 
-<p>（3）包含(Include)与扩展(Extends)</p>
+<h5 id="section">3.2 活动图</h5>
+<p>（1）用例活动图</p>
 
-<p><a href="/images/2014-06-29-uml-modeling-2/image5.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb5.png" alt="image" /></a>
-包含关系用来把一个较复杂的用例所表示的功能分解成较小的步骤。（箭头指向分解出来的功能子用例）
-扩展关系是指用例功能的延伸，相当于为基础用例提供一个附加功能。（箭头指向基础用例）</p>
+<p>用例活动图是最经常使用的。用例表达了参与者的一个目标，用例场景则描述了如何来达到这个目标。活动图用来描述用例场景，也就是通常所说的业务流程。</p>
 
-<p>（4）泛化(Generalization)</p>
+<p>（2）对象活动图</p>
 
-<p>泛化关系是程序中继承关系的UML表示法。
-<a href="/images/2014-06-29-uml-modeling-2/image6.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb6.png" alt="image" /></a>
-参见程序设计中的继承关系的详细阐述。</p>
+<p>详见图示与解说。</p>
 
-<p>（5）实现(Realize)</p>
+<p>（3）泳道</p>
 
-<p>实现关系特别用于在用例模型中连接用例和用例实现，说明基本用例的一个实现方式。开发中常见的如类与接口的关系，表示类是接口所有特征和行为的实现。
-<a href="/images/2014-06-29-uml-modeling-2/image7.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb7.png" alt="image" /></a></p>
+<p>详见图示与解说。
+下图是根据业务场景所进行的建模。
+<img src="/images/2014-06-29-uml-modeling-3/image_thumb16.png" alt="image" /></p>
 
-<p>（6）聚合(Aggregation)与组合(Composition)</p>
+<p>3.3 时序图</p>
 
-<p>聚合关系用于类图，特别用于表示实体对象之间的关系，表达整体由部分构成的语义。
-组合关系用于类图，用于表示实体对象的关系，表达整体拥有部分的语意。
-组合关系是一种强依赖的特殊聚合关系，如果整体不存在了，则部分也等同于消亡。而与组合关系不同的是，聚合关系的整体和部分不是强依赖的，即使整体不复存在了，部分仍然存在。
-<a href="/images/2014-06-29-uml-modeling-2/image8.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb8.png" alt="image" /></a></p>
+<p><img src="/images/2014-06-29-uml-modeling-3/image_thumb17.png" alt="image" /></p>
 
-<p>（7）精化(Refine)</p>
+<p>3.4 状态图</p>
 
-<p>精化关系用于用例模型，一个基本用力可以分解出许多更小的关键精化用例。这些更小的精化用例更细致地展示了基本用例的核心业务。</p>
+<p>状态图显示一个状态机，状态机主要用于描述对象的状态变化以确定何种行为改变了对象状态，以及对象状态变化对系统的影响。通常，状态机用于描述实体类对象的整个生命周期内的状态变迁以获得对这个实体对象的理解，同时获得系统和实体对象互相影响的关系。</p>
 
-<p>与泛化关系不同的是，精化关系表示由基本对象可以分解为更明确的、更为精细的子对象，这些子对象并没有增加、减少、改变基本对象的行为和属性，仅仅是更加细致和明确化了。在泛化关系中，基本对象被泛化成为子对象之后，子对象继承了基本对象的所有特征，并且子对象可以增加、改变基本对象的行为和属性。另一方面，精化关系仅用于建模阶段，在实现语言中是没有精化这一概念的。
-<a href="/images/2014-06-29-uml-modeling-2/image9.png"><img src="/images/2014-06-29-uml-modeling-2/image_thumb9.png" alt="image" /></a></p>
+<p>需要注意的是，状态图通常只用于描述单个对象的行为，如果要描述对象间的交互，最好采用时序图或者协作图。</p>
 
-<p>（总结）关系的强弱顺序
-泛化==实现&gt;组合&gt;聚合&gt;关联&gt;依赖</p>
+<p>状态图包含的元素有：</p>
+
+<ol>
+  <li>
+    <p>初始状态</p>
+  </li>
+  <li>
+    <p>状态：</p>
+  </li>
+</ol>
+
+<p>包含entry/入口行为，do/执行的行为，event/事件-事件行为，exit/退出行为。</p>
+
+<ol>
+  <li>
+    <p>复合状态</p>
+  </li>
+  <li>
+    <p>转移</p>
+  </li>
+  <li>
+    <p>事件</p>
+  </li>
+  <li>
+    <p>条件：常常是一个布尔表达式</p>
+  </li>
+  <li>
+    <p>最终状态</p>
+  </li>
+</ol>
+
+<p>如下例子详述：
+<img src="/images/2014-06-29-uml-modeling-3/image_thumb18.png" alt="image" /></p>
+
+<p>当然，UML的知识不止于以上所述，正所谓“路漫漫其修远兮，吾将上下而求索，不断努力地去求索…”
+Thank you very much!</p>
 
   </div>
   

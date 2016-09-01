@@ -673,6 +673,22 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -695,184 +711,74 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/06/29/git-basic-knowledge-1/">
-        Git基础知识讲解（一）
+      <a href="/2014/06/29/using-command-to-control-service-on-windows/">
+        Windows环境下使用命令行管理服务
       </a>
     </h1>
 
     <span class="post-date">29 Jun 2014</span>
     
-    <p><em>备注：本文内容来源于作者分享的PPT之“Finding Mr.Git”</em></p>
+    <p>一、创建服务</p>
 
-<p>一、 一览众山，随便看看</p>
+<p>1.1 命令”sc create”官方说明</p>
 
-<ol>
-  <li>
-    <p>版本控制的那些事儿，简单谈谈历史痕迹</p>
-  </li>
-  <li>
-    <p>Git是什么神器</p>
-  </li>
-  <li>
-    <p>文件级别的基本操作</p>
-  </li>
-  <li>
-    <p>分支级别基本操作</p>
-  </li>
-  <li>
-    <p>项目管理中Git的使用</p>
-  </li>
-  <li>
-    <p>托管商Github.com平台介绍</p>
-  </li>
-  <li>
-    <p>其他你们想问而我知道的</p>
-  </li>
-  <li>
-    <p>参考资料链接</p>
-  </li>
-</ol>
+<p>描述:
+在注册表和服务数据库中创建服务项。
+用法:</p>
 
-<p>二、 侬晓得使用Git经常说的一句话是什么吗？
-<a href="/images/2014-06-29-git-basic-knowledge-1/image46.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb46.png" alt="image" /></a></p>
+<p><code class="highlighter-rouge">sc &lt;server&gt; create [service name] [binPath= ] &lt;option1&gt; &lt;option2&gt;...</code></p>
 
-<p>三、 那些年，版本控制的那些事儿</p>
+<p>选项:  <br />
+&gt; 注意: 选项名称包括等号。等号和值之间需要一个空格。</p>
 
-<p>其实，可以简单归结成以下几幅图
-<a href="/images/2014-06-29-git-basic-knowledge-1/image47.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb47.png" alt="image" /></a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>type= &lt;own|share|interact|kernel|filesys|rec&gt; (默认 = own)
 
-<p>四、 Git是领军人物
-实现外观上，Git是这样子做到与众不同的
-<a href="/images/2014-06-29-git-basic-knowledge-1/image48.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb48.png" alt="image" /></a></p>
+start= &lt;boot|system|auto|demand|disabled|delayed-auto&gt; (默认 = demand)
 
-<p>五、什么是Git</p>
+error= &lt;normal|severe|critical|ignore&gt; (默认 = normal)
 
-<ol>
-  <li>宏观上看，跟其他的VCS系统用途区别不大，都是代码仓库管理员，&gt;=BAND4的</li>
-  <li>微观上看，具备如下特点：
-  	1. 近乎所有操作都是本地执行
-    <ol>
-      <li>时刻保持数据完整性</li>
-      <li>多数操作仅添加数据</li>
-    </ol>
-  </li>
-  <li>Git仓库文件的三种状态：已提交，已修改，已暂存</li>
-  <li>Git的三个工作区域，如下图：</li>
-</ol>
+binPath= &lt;BinaryPathName&gt;
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-1/image49.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb49.png" alt="image" /></a></p>
+group= &lt;LoadOrderGroup&gt;
 
-<p>六、 Git文件级别的基本操作</p>
+tag= &lt;yes|no&gt;
 
-<ul>
-  <li>初始化仓库</li>
-</ul>
+depend= &lt;依存关系(以 / (斜杠) 分隔)&gt;
 
-<p><code class="highlighter-rouge">$ git init</code></p>
+obj= &lt;AccountName|ObjectName&gt; (默认 = LocalSystem)
 
-<ul>
-  <li>添加文件</li>
-</ul>
+DisplayName= &lt;显示名称&gt;
 
-<p><code class="highlighter-rouge">$ git add *.php</code></p>
-
-<ul>
-  <li>克隆分支</li>
-</ul>
-
-<p><code class="highlighter-rouge">$ git clone git://github.com/schacon/grit.git</code></p>
-
-<ul>
-  <li>检查当前检出分支的文件状态</li>
-</ul>
-
-<p><code class="highlighter-rouge">$ git status</code></p>
-
-<ul>
-  <li>忽略指定文件</li>
-</ul>
-
-<p><code class="highlighter-rouge">$ cat .gitignore *.[oa] *~</code></p>
-
-<ul>
-  <li>查看提交历史</li>
-</ul>
-
-<p><code class="highlighter-rouge">$ git log –[option] XXX</code></p>
-
-<ul>
-  <li>比较已暂存和上次提交快照间的区别</li>
-</ul>
-
-<p><code class="highlighter-rouge">$ git diff –cached</code></p>
-
-<ul>
-  <li>提交更新</li>
-</ul>
-
-<p><code class="highlighter-rouge">$ git commit -m “XXX“</code></p>
-
-<p>例外，暂存步骤可以跳过，如下</p>
-
-<p><code class="highlighter-rouge">$ git commit -a -m "XXX“  </code></p>
-
-<ul>
-  <li>移除文件</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ rm grit.gemspec
-$ git rm grit.gemspec
+password= &lt;密码&gt;
 </code></pre>
 </div>
 
-<ul>
-  <li>移动文件</li>
-</ul>
+<p>1.2 使用示例</p>
 
-<p><code class="highlighter-rouge">$ git mv file_from file_to</code></p>
-
-<p>等同于</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ mv README.txt README
-$ git rm README.txt
-$ git add README
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sc create <span class="s2">"Memcached Master"</span> <span class="nv">start</span><span class="o">=</span>auto <span class="nv">binPath</span><span class="o">=</span><span class="s2">"D:</span><span class="se">\m</span><span class="s2">emcached</span><span class="se">\m</span><span class="s2">emcached.exe -d install -m 32 -p 11211"</span> <span class="nv">DisplayName</span><span class="o">=</span> <span class="s2">"Memcached Master"</span>
+（图示：添加指定目录的memcache服务）<span class="sb">`</span>
 </code></pre>
 </div>
 
-<ul>
-  <li>撤销上一次提交并重新提交</li>
-</ul>
+<p>二、删除服务
+2.1 命令”sc delete”官方说明</p>
 
-<p><code class="highlighter-rouge">$git commit –amend –m ‘XXX’</code></p>
+<p>描述:
+从注册表删除服务项。如果服务正在运行，或另一进程已经打开到此服务的句柄，服务将简单地标记为删除。
+用法:  <br />
+<code class="highlighter-rouge">sc &lt;server&gt; delete [service name]</code></p>
 
-<ul>
-  <li>取消已经暂存的文件</li>
-</ul>
+<p>2.2 使用示例</p>
 
-<p><code class="highlighter-rouge">$git reset HEAD benchmarks.rb</code></p>
-
-<ul>
-  <li>取消对文件的修改</li>
-</ul>
-
-<p><code class="highlighter-rouge">$git checkout -- benchmarks.rb</code></p>
-
-<ul>
-  <li>
-    <p>推送数据到Remotes</p>
-
-    <p><code class="highlighter-rouge">$git push origin master</code></p>
-  </li>
-  <li>
-    <p>从Remotes抓取数据</p>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$git fetch [remote-name]
-$git pull origin master
+<div class="highlighter-rouge"><pre class="highlight"><code>sc delete “Memcached Master”
+（图示：添加指定目录的Memcached Master服务）
 </code></pre>
 </div>
 
+<p>三、手工操作简述</p>
+
+<p>步骤1. 打开注册表编辑器（<code class="highlighter-rouge">Win+R打开运行 → regedit → 回车</code>）  <br />
+步骤2. 寻找服务键值目录（<code class="highlighter-rouge">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services</code>），一般服务会以相同的名字在这里显示一个主健，对应其键值进行CURD操作即便可。</p>
 
   </div>
   

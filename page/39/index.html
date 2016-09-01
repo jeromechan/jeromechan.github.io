@@ -673,6 +673,22 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -695,171 +711,172 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/06/29/git-basic-knowledge-2/">
-        GIT基础知识讲解（二）
+      <a href="/2014/07/29/talking-about-sitemap/">
+        浅谈sitemap协议及其应用
       </a>
     </h1>
 
-    <span class="post-date">29 Jun 2014</span>
+    <span class="post-date">29 Jul 2014</span>
     
-    <p>七、Git分支级别的基本操作</p>
+    <p>很多人都知道，一个站点建立起来之后，不仅内容要丰富，还有另外一点非常重要，那就是搜索引擎的爬取与收录。</p>
 
-<ul>
-  <li>查看/编辑 本地（远程）分支信息</li>
-</ul>
+<p>众所周知的著名搜索引擎，国际上有Google，Yahoo!，Bing，国内通用的有百度，搜狗，360搜索等。当前国情决定，国际上著名的在国内发展地都不怎么样，要么发展路线左倾，与方针精神不相符合然后各种关键词词库过滤，要么特例独行直接放弃陪你们这么玩。这其中著名的产物应该当属伟大的墙无疑。不知道伟大的墙是什么？<a href="http://baike.baidu.com/link?url=K8sYMHBU2GewuCXIkD6YbhymvsQCMWKb-BNs5iZoiYAbpOV4LWR64iwKC_K_Ed7PYBF-G3Vp34j60USGwduISOOnFzFhxVNQ619NE_4GLAS">点击这里</a> 进一步了解。</p>
 
-<p><code class="highlighter-rouge">$ git branch -[option] </code></p>
+<p>前面分析了国际著名Search Engine的国内发展情况，“革命尚未成功，仍需更加努力”。接着我们来聊聊国内的引擎。在作者高中刚接触计算机的时候，听闻的是“百谷虎”是身边最多人使用的，因为他是三个引擎的结果集合。直到高三之后才发现，原来那是一个山寨的网站，呵呵。</p>
 
-<p>另，该命令后紧接英文短语，执行的是创建分支的操作（仅创建而不切换）</p>
+<p>百度，当属目前互联网最大的中文搜索引擎无疑，在Google“回家”之后，更是肆无忌惮地称霸中原了，搜狗，搜搜啥的，只能喝喝菜汤啥的就觉得相比往年已是N*100%的增长，啥狗啥更懂你的，其实等你真正用起来的时候就会发现，其实他们更多的是其合作方提供的外卖。</p>
 
-<ul>
-  <li>分支的合并（详见PPT-10）</li>
-</ul>
+<p>360搜索算是异军突起，凭借着安全领域揽到的N亿群体，直接进军百度帝国的搜索领域，其初期不遵循robots协议的做法为同行业所谴责，但与此同时也为其快速发展提供了很大的帮助，这是否能说是不择手段呢？这或许每个人都会有不同的看法。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git checkout master
-$ git merge iss53
-</code></pre>
-</div>
+<p>360搜索的强势也带来了很高的回报，发布1年之后，保守估计，确实快速蚕食了百度的超2-3成左右的份额。</p>
 
-<p>分支的合并如下图流程示例</p>
+<p>好了，好像已经偏题了，其实前面说那么多也无非是让大家都了解了解我们身边的搜索引擎的发展态势。继续今天的主题，就是sitemap。</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb.png" alt="image" /></a></p>
-
-<ul>
-  <li>分支的衍合（详见PPT-11）</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git checkout experiment
-$ git rebase master
-</code></pre>
-</div>
-
-<p>分支的衍合如下图流程示例</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image1.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb1.png" alt="image" /></a></p>
-
-<p>八、想做就做，听你的</p>
-
-<p>下面是一个有趣的例子，你也来实战一下吧</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image2.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb2.png" alt="image" /></a></p>
-
-<p>注意点：Merge和Rebase的区别：</p>
-
-<p>merge是执行2个待合并版本以及公共基线版本的3方合并；</p>
-
-<p>rebase是将待合并版本之一的变动作为补丁应用到另一个待合并分支上。</p>
-
-<p>九、分支衍合行为规范</p>
+<p>那么什么是sitemap？我们来看下wikipedia的定义：</p>
 
 <blockquote>
-  <p>Do not rebase commits that you have pushed to a public repository.</p>
+  <p>A site map (or sitemap) is a list of pages of a web site accessible to crawlers or users. It can be either a document in any form used as a planning tool for Web design, or a Web page that lists the pages on a Web site, typically organized in hierarchical fashion.</p>
 </blockquote>
 
-<p>（一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行衍合操作。）</p>
+<p>简单了说，就是一个站点的树形层级结构，站点的脑图，根据它可以遍历整个站点的角角落落。</p>
 
-<p>如果你遵循这条金科玉律，就不会出差错。否则，人民群众会仇恨你，你的朋友和家人也会嘲笑你，唾弃你。</p>
+<p>那么，我们为什么需要它呢？因为sitemap可以提供给搜索引擎，提供给spider一个内容爬取的大道入口。搜索引擎如何知道你上线了一个站点，如何知道你发布了一篇博客，如何知道你的站点里含了哪些其他存档的文章等等。</p>
 
-<p>再谈merge 和 rebase 的区别：</p>
+<p>如果你的站点有了sitemap，spider会在它的周期内很快收录你站点中的所有文章，按照权重提供到用户的搜索结果中。</p>
 
-<p>1）从文件结果看，merge 和 rebase 可以达到同样效果。</p>
+<p>以上只是说明了sitemap的好处和作用，不要误解sitemap是引擎收录文章的唯一入口。当然不是，只是说，如果你有了sitemap，符合指定搜索引擎所适配的sitemap，那么会收录地更快更好。具体可以抽空学习SEO知识，你会收获更多。</p>
 
-<p>2）从历史纪录看，他们存在差异：merge 显示合并后的多父结点，呈现环形，而 rebase 呈现线性结果，即它对分支历史进行合并操作。rebase 提供更好的历史呈现方式（似分支从未曾发生过），但有风险。掌握一条原则：Do not rebase commits that you have pushed to a public repository. 即，不要对你提交过的分支进行 rebase。因为本地的改变会造成远端的困惑。</p>
+<p>接下来介绍一下sitemap协议。</p>
 
-<p>十、分支衍合的协作风险</p>
+<blockquote>
+  <p>sitemap通用的做法是使用XML Schema书写的文档形式，必须包含XML tags，同时文档中包含的内容必须是被处理（Entity escaping）过的，同时文档必须符合UTF-8编码。</p>
 
-<p>如下图示例</p>
+  <p>其中，sitemap必须满足以下条件：</p>
 
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image3.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb3.png" alt="image" /></a></p>
+  <ul>
+    <li>以<urlset></urlset>包含所有其他XML节点；</li>
+    <li>在urlset中参照协议标准定义相应的命名空间；</li>
+    <li>至少包含一个以父节点存在的有效的<url>；</url></li>
+    <li>在<url>节点中至少包含一个<loc>节点，以说明需要被爬取内容的链接；</loc></url></li>
+    <li>sitemap中仅允许包含相同域名的站点，如果是多个域名，则需要书写多个sitemap；</li>
+  </ul>
+</blockquote>
 
-<p>After you do that, your commit history will contain both the C4 and C4’ commits, which have</p>
+<p>前面谈到了Entity escaping是什么呢？给大家一张图相信大家就知道了，简单说就是把一些特殊字符用其他的形式表示起来。如下图所示：</p>
 
-<p>different SHA-1 hashes but introduce the same work and have the same commit message.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th style="text-align: left">Escape Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ampersand    &amp;  </td>
+      <td style="text-align: left">      &amp; amp;</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Single Quote   ‘  </td>
+      <td style="text-align: left">       &amp; apos;</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Double Quote “  </td>
+      <td style="text-align: left">       &amp; quot;</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Greater Than &gt;  </td>
+      <td style="text-align: left">       &amp; gt;</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Less Than      &lt;  </td>
+      <td style="text-align: left">       &amp; lt;</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>十一、漫步在项目协作中的Mr.Git</p>
+<p>以下提供一个简单的sitemap.xml示例供大家参考：</p>
 
-<p>如何给项目贡献代码？</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;url&gt;</span>
+      <span class="nt">&lt;loc&gt;</span>http://www.example.com/<span class="nt">&lt;/loc&gt;</span>
+      <span class="nt">&lt;lastmod&gt;</span>2005-01-01<span class="nt">&lt;/lastmod&gt;</span>
+      <span class="nt">&lt;changefreq&gt;</span>monthly<span class="nt">&lt;/changefreq&gt;</span>
+      <span class="nt">&lt;priority&gt;</span>0.8<span class="nt">&lt;/priority&gt;</span>
+   <span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/urlset&gt;</span> 
+</code></pre>
+</div>
 
-<p>如果你是没有Git的可怜人，通过邮件提交补丁可以是普通patch或format-patch，后者为佳。</p>
+<p>如果需要在同一个站点中维护不同subdomain的sitemap，那么可以参考如下做法：</p>
 
-<p>经过apply或am将代码合并到目标分支上进行验证，确认稳定后，再将其并入master分发主干上。</p>
+<p>http://www.sitemaphost.com/sitemap-host1.xml
+http://www.sitemaphost.com/sitemap-host2.xml
+http://www.sitemaphost.com/sitemap-host3.xml</p>
 
-<p>拥有Git的人，这一块的操作就甭提有多方便了。</p>
+<p>以下做一些关于wordpress的sitemap的介绍。</p>
 
-<p>如果你拥有Mr.Git，那么通往罗马的大道有如下几条（寡人称之为Git合并模式）：</p>
+<p>wordpress制作sitemap，最为简单的途径，就是可以借助其平台强大的plugin功能，但是不管你是否相信，wordpress的plugin开启地越多，对wp系统的运行效率的影响越大。</p>
 
-<p>（1）直接合并进入本地的master主干分支进行验证；</p>
+<p>所以，能手工添加还是尽量走手工添加定期更新为佳，毕竟搜索引擎也不会每天日以继夜地抓取你的小站点，你也不会日以继夜分秒必争地更新着你的博客文章。所以个人小博客站点类，建议手工添加sitemap文件。</p>
 
-<p>（2）为特性分支提供一个用于合并用途的develop-branch；</p>
+<p>在手工添加这条道路上，Google和Baidu提供了许许多多地做法，都可以达到不错的效果。我这里只简单介绍本站博客的做法。</p>
 
-<p>（3）复杂项目的并行贡献</p>
+<p>1.在wp根目录下新增sitemap.php文件，填充以下代码：</p>
 
-<p>（4）大项目的特性并入长期分支</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;url&gt;</span>
+        <span class="nt">&lt;loc&gt;&lt;/loc&gt;</span>
+        <span class="nt">&lt;lastmod&gt;&lt;/lastmod&gt;</span>
+        <span class="nt">&lt;changefreq&gt;</span>always<span class="nt">&lt;/changefreq&gt;</span>
+        <span class="nt">&lt;priority&gt;</span>1.0<span class="nt">&lt;/priority&gt;</span>
+    <span class="nt">&lt;/url&gt;</span>
+    get_results("SELECT * FROM $wpdb-&gt;posts WHERE post_status = 'publish' ORDER by post_modified DESC"); ?&gt;
+        <span class="nt">&lt;url&gt;</span>
+            <span class="nt">&lt;loc&gt;</span>ID); ?&gt;<span class="nt">&lt;/loc&gt;</span>
+            <span class="nt">&lt;lastmod&gt;</span>post_modified, false); ?&gt;<span class="nt">&lt;/lastmod&gt;</span>
+            <span class="nt">&lt;changefreq&gt;</span>daily<span class="nt">&lt;/changefreq&gt;</span>
+            <span class="nt">&lt;priority&gt;</span>0.8<span class="nt">&lt;/priority&gt;</span>
+        <span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/urlset&gt;</span>
+</code></pre>
+</div>
 
-<p>（5）衍合流程引入代码</p>
+<p>2.新增sitemap_gen.php，填充以下代码，用以生成XML文件：</p>
 
-<p>（6）挑拣（cherry-pick）流程引入补丁代码</p>
-
-<p>PS: Git项目的合并方式采用的是模式（4）</p>
-
-<p>十二、常见Git的合并模式示例</p>
-
-<p>（1）直接合并进入本地的master主干分支进行验证；</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image4.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb4.png" alt="image" /></a></p>
-
-<p>（2）为特性分支提供一个用于合并用途的develop-branch；</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image5.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb5.png" alt="image" /></a></p>
-
-<p>（3）复杂项目的并行贡献</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image6.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb6.png" alt="image" /></a></p>
-
-<p>（4）大项目的特性并入长期分支</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image7.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb7.png" alt="image" /></a></p>
-
-<p>（5）衍合流程引入代码</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image8.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb8.png" alt="image" /></a></p>
-
-<p>（6）挑拣（cherry-pick）流程引入补丁代码</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image9.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb9.png" alt="image" /></a></p>
-
-<p>This pulls the same change introduced in e43a6, but you get a new commit SHA-1 value, because the date applied is different. Now your history looks like Figure 5-27.</p>
-
-<p>十三、推荐：Github.com，一个神奇的网站</p>
-
-<p>当前世界首屈一指，最大没有之一的Git项目代码托管网站</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image10.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb10.png" alt="image" /></a></p>
-
-<p>十四、参考链接</p>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>   
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"http://DOMAIN:PORT/sitemap.php"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nv">$output</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">file_put_contents</span><span class="p">(</span><span class="s1">'./sitemap.xml'</span><span class="p">,</span> <span class="nv">$output</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+</code></pre>
+</div>
 
 <ol>
   <li>
-    <p>Git官方文档
-<a href="http://www.git-scm.com/documentation">http://</a><a href="http://www.git-scm.com/documentation">www.git-scm.com/documentation</a><a href="http://www.git-scm.com/documentation">/</a></p>
+    <p>上传到站点根目录，浏览器执行“http://DOMAIN:PORT/sitemap_gen.php，就这样sitemap.xml就在站点根目录生成成功了。</p>
   </li>
   <li>
-    <p>TortoiseGit
-<a href="https://code.google.com/p/tortoisegit/">https://</a><a href="https://code.google.com/p/tortoisegit/">code.google.com/p/tortoisegit</a><a href="http://www.git-scm.com/documentation">/</a></p>
-  </li>
-  <li>
-    <p>Git下载
-<a href="http://www.git-scm.com/downloads">http://</a><a href="http://www.git-scm.com/downloads">www.git-scm.com/downloads</a></p>
-  </li>
-  <li>
-    <p>msysGit, another GUI Client
-<a href="http://msysgit.github.io/">http://</a><a href="http://msysgit.github.io/">msysgit.github.io</a></p>
+    <p>剩下的步骤，就是向Google和Baidu等各大搜索引擎提交sitemap.xml访问地址。</p>
   </li>
 </ol>
 
-<p>十五、结束语</p>
-
-<p><a href="/images/2014-06-29-git-basic-knowledge-2/image11.png"><img src="/images/2014-06-29-git-basic-knowledge-2/image_thumb11.png" alt="image" /></a></p>
+<p>参考资料：  <br />
+- Sitemap Protocol：<a href="http://www.sitemaps.org%20">http://www.sitemaps.org</a>  <br />
+- Simply Making Sitemap：<a href="http://www.xml-sitemaps.com">http://www.xml-sitemaps.com</a>  <br />
+- Google Sitemap Generator WP Plugin：<a href="http://wordpress.org/plugins/google-sitemap-generator/">http://wordpress.org/plugins/google-sitemap-generator/</a>  <br />
+- Sitemap Formats And Guidelines：<a href="https://support.google.com/webmasters/answer/183668">https://support.google.com/webmasters/answer/183668</a></p>
 
 
   </div>

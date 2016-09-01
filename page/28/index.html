@@ -673,6 +673,22 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -695,96 +711,72 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/09/09/httpd-serves-without-servername/">
-        缺省ServerName的Apache Http Server主机解析流程
+      <a href="/2014/09/15/release-software-roadmap/">
+        软件版本发布之旅
       </a>
     </h1>
 
-    <span class="post-date">09 Sep 2014</span>
+    <span class="post-date">15 Sep 2014</span>
     
-    <h5 id="servernameserveralias">第一部分：了解ServerName、ServerAlias区别</h5>
+    <p><strong>一、版本变更轨迹图</strong></p>
 
-<p>ServerName：主机域名的解析入口，每一个虚拟主机在配置之时是必须的；  <br />
-ServerAlias：域名别名，在配置了ServerName的基础上，想要集成“一主机多域名”的结构，ServerAlias是不错的选择。</p>
+<p><img src="/images/2014-09-15-release-software-roadmap/软件版本轨迹图1-1024x328.png" alt="软件版本轨迹图" /></p>
 
-<h5 id="servername">第二部分：如果主机缺省了ServerName的配置会如何发展</h5>
+<p><strong>二、各版本解释</strong></p>
 
-<p>官方是这样解释的：</p>
+<ul>
+  <li>
+    <p>Alpha
+面向于测试人员提供的一个内部测试版本，该版本存在许多待修复缺陷</p>
+  </li>
+  <li>
+    <p>Beta
+属于测试版本，该阶段的发生是由于在Alpha阶段发生了功能新增等需求变更</p>
+  </li>
+  <li>
+    <p>RC（Release Candidate）
+用作发布的候选版本，该版本不会再发生功能新增，主要用于排查缺陷和异常</p>
+  </li>
+  <li>
+    <p>EVAL（Evaluate）
+评估版，与正式发布的版本在功能上没有差别，EVAL仅提供给特定的用户群来测试使用，在该版本下，已经消除了软件大部分的不完善之处，但仍然存在未被发现的缺陷或漏洞</p>
+  </li>
+  <li>
+    <p>PREVIEW
+预览版，类似于EVAL版，其用途与EVAL版相同，不同厂商会根据自己的习惯，将评估版命名为EVAL或者PREVIEW</p>
+  </li>
+  <li>
+    <p>GA（General Availability）
+正式发布的版本，常用于国外的开源项目的版本发布Roadmap中</p>
+  </li>
+  <li>
+    <p>OEM（Original Equipment Manufacturer）
+提供给计算机厂商随着计算机售卖的版本，亦称随机版。该版本不能使用于单独零售</p>
+  </li>
+  <li>
+    <p>RTM（Release To Manufacture）
+提供给生产厂商大量压片的版本，内容与正式版相同</p>
+  </li>
+  <li>
+    <p>RTL（Retail）
+零售版，即真正的正式版，正式面向于全体用户群售卖</p>
+  </li>
+</ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    # Ensure that Apache listens on port 80
-    Listen 80
-    # Listen for virtual host requests on all IP addresses
-    NameVirtualHost *:80
-    
-    &lt; VirtualHost *:80&gt;
-        DocumentRoot /www/example1
-        ServerName www.example.com
-        # Other directives here
-    &lt; /VirtualHost&gt;
-</code></pre>
-</div>
+<p>上图中涉及了软件测试过程的三个阶段：α、β、λ，下面作一些简单的解释：</p>
 
-<blockquote>The asterisks match all addresses, so the main server serves no requests. Due to the fact that www.example.com is first in the configuration file, it has the highest priority and can be seen as the default or primary server. That means that if a request is received that does not match one of the specified ServerName directives, it will be served by this first VirtualHost. [Reference Link](http://httpd.apache.org/docs/2.2/vhosts/examples.html)</blockquote>
+<ul>
+  <li>
+    <p>α：第一阶段，该阶段下的软件产品仅提供给内部测试使用；</p>
+  </li>
+  <li>
+    <p>β：第二阶段，该阶段下，软件产品的大部分缺陷漏洞均已修复，但仍然会存在未修正的问题；</p>
+  </li>
+  <li>
+    <p>λ：第三阶段，该阶段的软件产品已经基本完善，相当成熟，至多需要个别地方作些优化工作即可发布使用</p>
+  </li>
+</ul>
 
-<p>最后一句话已经提及，如果缺省了ServerName，则该请求域名会被映射到第一台虚拟主机配置中。 那么，哪一台是第一台呢？难道就是配置过程中，或者Include引入过程中的排在第一位置的吗？</p>
-
-<h5 id="section">第三部分：哪台主机是第一位置</h5>
-
-<p>我们准备以下用例进行分析：</p>
-
-<h6 id="section-1">第一步：重现错误解析现象</h6>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>    &gt;&gt;vim /etc/hosts
-    # 当前服务器IP是192.168.1.100
-    192.168.1.100 aa.example.com
-    192.168.1.100 bb.example.com
-    192.168.1.100 ab.example.com
-    192.168.1.100 none.servername.com
-    
-    &gt;&gt;vim /apache2/config/extra/httpd-vhosts.conf
-    Include conf/extra/ab.example.com-vhosts.conf
-    Include conf/extra/none.servername.com-vhosts.conf ##未配置ServrName
-    Include conf/extra/aa.example.com-vhosts.conf
-    Include conf/extra/bb.example.com-vhosts.conf
-    
-    &gt;&gt;/apache2/bin/apachectl -S
-    VirtualHost configuration:
-    wildcard NameVirtualHosts and _default_ servers:
-    *:80                   is a NameVirtualHost
-         default server aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
-         port 80 namevhost aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
-         port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
-         port 80 namevhost aa.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了aa.example.com
-         port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
-</code></pre>
-</div>
-
-<h6 id="hosts">第二步：将hosts解析顺序作部分调整，观察修改后的解析结果</h6>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>    &gt;&gt;vim /etc/hosts
-    # 当前服务器IP是192.168.1.100
-    192.168.1.100 bb.example.com ## 将该域名修改置于最前面
-    192.168.1.100 aa.example.com
-    192.168.1.100 ab.example.com
-    192.168.1.100 none.servername.com
-    
-    &gt;&gt;/apache2/bin/apachectl -S
-    VirtualHost configuration:
-    wildcard NameVirtualHosts and _default_ servers:
-    *:80                   is a NameVirtualHost
-         default server aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
-         port 80 namevhost aa.example.com (/apache2/conf/extra/aa.example.com-vhosts.conf:1)
-         port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
-         port 80 namevhost bb.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了bb.example.com
-         port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
-</code></pre>
-</div>
-
-<h6 id="section-2">第三步：分析前两步的现象</h6>
-
-<p>从前面两步可以发现，未配置ServerName属性的虚拟主机，会优先根据本服务器的DNS解析机制依次解析，然后会将未配置ServerName的主机配置项，分配给第一条被DNS解析遇到的本服务器虚拟主机域名。</p>
-
-<p>通过以上的分析，相信大家已经了解了缺省了ServerName的主机会如何解析了吧。这也就是为什么常常我们发现自己的配置没有错误抛出，但是域名解析路径紊乱的原因之一。</p>
 
   </div>
   
