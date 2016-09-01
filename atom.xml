@@ -4,7 +4,7 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-09-01T18:34:25+08:00</updated>
+ <updated>2016-09-01T22:39:25+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
@@ -250,9 +250,9 @@ MAMP_Xdebug_MAMP
  
  <entry>
    <title>Git使用规范</title>
-   <link href="http://aboutcoder.com/git/2016/08/27/git-protocol.html"/>
+   <link href="http://aboutcoder.com/2016/08/27/git-protocol/"/>
    <updated>2016-08-27T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/git/2016/08/27/git-protocol</id>
+   <id>http://aboutcoder.com/2016/08/27/git-protocol</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;以下是关于源代码版本控制的一些共通的约定、协议。&lt;/p&gt;
 &lt;/blockquote&gt;
