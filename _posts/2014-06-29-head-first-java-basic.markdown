@@ -8,7 +8,7 @@ title: 入门JAVA，你需要知道的一些简单的不能再简单了的知识
 wordpress_id: 14
 permalink: /2014/06/29/head-first-java-basic/
 categories:
-- Programming
+- JAVA
 tags:
 - Java
 ---

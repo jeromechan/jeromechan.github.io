@@ -8,8 +8,7 @@ title: 缺省ServerName的Apache Http Server主机解析流程
 wordpress_id: 147
 permalink: /2014/09/09/httpd-serves-without-servername/
 categories:
-- LAMP
-- Programming
+- OPERATION
 tags:
 - ServerAlias
 - ServerName
@@ -120,3 +119,5 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
 从前面两步可以发现，未配置ServerName属性的虚拟主机，会优先根据本服务器的DNS解析机制依次解析，然后会将未配置ServerName的主机配置项，分配给第一条被DNS解析遇到的本服务器虚拟主机域名。
 
 通过以上的分析，相信大家已经了解了缺省了ServerName的主机会如何解析了吧。这也就是为什么常常我们发现自己的配置没有错误抛出，但是域名解析路径紊乱的原因之一。
+
+

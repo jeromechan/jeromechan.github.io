@@ -7,7 +7,7 @@ slug: how-to-make-a-project-plan
 title: 学习笔记：项目管理之规划项目
 permalink: /2016/07/01/how-to-make-a-project-plan/
 categories:
-- Management
+- MANAGEMENT
 tags:
 - project manage
 - 项目管理

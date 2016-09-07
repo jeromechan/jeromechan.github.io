@@ -6,7 +6,7 @@ description: "PhpStorm+MAMP+xdebug集成失败,"
 keywords: "xdebug,MAMP,phpstorm,PHP_IDE_CONFIG"
 permalink: /2016/09/01/integrate-phpstorm-mamp-xdebug/
 categories:
-- php
+- PHP
 tags:
 - php
 - xdebug

@@ -8,7 +8,7 @@ title: GIT基础知识讲解（二）
 wordpress_id: 40
 permalink: /2014/06/29/git-basic-knowledge-2/
 categories:
-- Programming
+- VCS
 tags:
 - Git
 ---

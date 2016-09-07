@@ -8,7 +8,7 @@ title: 《做最好的自己》——李开复 读书笔记
 wordpress_id: 210
 permalink: /2015/04/12/read-by-your-personal-best/
 categories:
-- Essay
+- ESSAY
 tags:
 - 读书笔记
 - 青春记忆
@@ -46,3 +46,5 @@ Google公司的核心价值观是：坚决不做邪恶的事情，无论有多�
 “报纸头条测试法”，裁掉师兄，保持自己的诚信原则，留下了有潜力的新员工。
 
 _撰写于2008年
+
+

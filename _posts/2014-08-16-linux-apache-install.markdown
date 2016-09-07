@@ -8,8 +8,7 @@ title: Linux下的Apache安装
 wordpress_id: 84
 permalink: /2014/08/16/linux-apache-install/
 categories:
-- LAMP
-- Programming
+- OPERATION
 tags:
 - apache linux 安装
 - Apache安装

@@ -8,7 +8,7 @@ title: 关于Sublime Text 2 支持执行PHP、JAVA单文件的配置说明
 wordpress_id: 94
 permalink: /2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2/
 categories:
-- Programming
+- TOOLS
 tags:
 - Build System
 - sublime text

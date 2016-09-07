@@ -8,7 +8,7 @@ title: UML基础建模知识小结（三）
 wordpress_id: 12
 permalink: /2014/06/29/uml-modeling-3/
 categories:
-- Programming
+- DESIGN
 tags:
 - 面向对象设计
 ---
@@ -100,3 +100,5 @@ tags:
 
 当然，UML的知识不止于以上所述，正所谓“路漫漫其修远兮，吾将上下而求索，不断努力地去求索…”
 Thank you very much!
+
+

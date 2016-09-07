@@ -8,7 +8,7 @@ title: 谈谈Linux用户管理
 wordpress_id: 76
 permalink: /2014/08/16/talking-about-linux-user-management/
 categories:
-- Programming
+- OPERATION
 tags:
 - Linux
 - Linux用户
@@ -138,3 +138,4 @@ visudo
 [USER_NAME]    [MACHINE_NAME]=([SWITCH_IDENTITY/USER_NAME])   [COMMAND]
 示例：%wheel    ALL=(ALL)   NOPASSWD: ALL #允许wheel用户组中的用户在不输入该用户的密码的情况下使用所有命令 
 ```
+

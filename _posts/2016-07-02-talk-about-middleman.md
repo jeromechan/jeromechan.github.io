@@ -6,8 +6,7 @@ description: “middleman实践分析及其简明教程”
 keywords: “middleman, jekyll, 静态网站”
 permalink: /2016/07/02/talk-about-middleman/
 categories:
-- middleman
-- jekyll
+- WEB
 tags:
 - middleman
 - jekyll

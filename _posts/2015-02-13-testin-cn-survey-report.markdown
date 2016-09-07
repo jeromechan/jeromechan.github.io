@@ -8,8 +8,7 @@ title: Testin.CN平台调研总结
 wordpress_id: 194
 permalink: /2015/02/13/testin-cn-survey-report/
 categories:
-- Android
-- Programming
+- TOOLS
 ---
 
 ##### 1.认证要求
@@ -184,3 +183,5 @@ categories:
 
 
     作者发现提交测试之时选定的机型是A台，测试报告中“已通过”的机型，加上“问题机型”并不等于A台。所以关于这一点如果发现，不要惊讶，Testin已经尽力了。或许是这些机型的电源线被老鼠咬断了也说不定哦^_^
+
+

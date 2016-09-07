@@ -8,7 +8,7 @@ title: 浅谈sitemap协议及其应用
 wordpress_id: 48
 permalink: /2014/07/29/talking-about-sitemap/
 categories:
-- Programming
+- WEB
 tags:
 - Sitemap Protocol
 - wordpress

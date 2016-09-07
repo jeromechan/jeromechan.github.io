@@ -8,7 +8,7 @@ title: 研发人看互联网营销
 wordpress_id: 284
 permalink: /2015/06/18/internet-marketing-views-of-developers/
 categories:
-- Marketing
+- MANAGEMENT
 tags:
 - 互联网市场
 - 互联网营销
@@ -221,3 +221,5 @@ tags:
 
 
 最后，6.16是FW的生日，这里也同时给他送上一份衷心的祝福，Happy birthday to FW ALM！
+
+

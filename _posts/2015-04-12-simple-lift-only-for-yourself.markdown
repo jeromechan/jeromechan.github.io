@@ -8,7 +8,7 @@ title: 对自己的生命负责，也许就是如此Simple
 wordpress_id: 217
 permalink: /2015/04/12/simple-lift-only-for-yourself/
 categories:
-- Essay
+- ESSAY
 tags:
 - 大学军训
 - 青春记忆

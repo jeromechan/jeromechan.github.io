@@ -8,7 +8,7 @@ title: 'Clean Code: A Handbook of Agile Software Craftsmanship (b)'
 wordpress_id: 20
 permalink: /2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-b/
 categories:
-- Programming
+- DESIGN
 tags:
 - 面向对象设计
 ---

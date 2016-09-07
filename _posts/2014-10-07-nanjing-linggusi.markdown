@@ -8,9 +8,7 @@ title: 钟山风景 · 灵谷寺
 wordpress_id: 162
 permalink: /2014/10/07/nanjing-linggusi/
 categories:
-- Photography
-post_format:
-- Gallery
+- PHOTOGRAPHY
 tags:
 - 灵谷寺
 - 钟山风景区
@@ -31,3 +29,5 @@ tags:
 [![钟山风景区·灵谷寺](/images/2014-10-07-nanjing-linggusi/psb-1.jpeg)](/images/2014-10-07-nanjing-linggusi/psb-1.jpeg)
 
 （钟山风景区 · 灵谷寺 · 灵谷塔）
+
+

@@ -8,8 +8,7 @@ title: 软件版本发布之旅
 wordpress_id: 151
 permalink: /2014/09/15/release-software-roadmap/
 categories:
-- Programming
-- Management
+- VCS
 tags:
 - 版本发布
 - 软件版本

@@ -8,8 +8,7 @@ title: windows下的PHP与Apache安装
 wordpress_id: 89
 permalink: /2014/08/21/how-to-install-php-apache-on-windows/
 categories:
-- LAMP
-- Programming
+- OPERATION
 tags:
 - Apache安装
 - php安装
@@ -84,3 +83,5 @@ b. 是否按官方要求将libeay32.dll, ssleay32.dl拷贝到C:/windows/system32
 5.其他参考：
 
 最官方的莫过于php.net，该站旗下有关联的许多对php很有好处的二级站点，这里可以找到：[http://cn2.php.net/sites.php](http://cn2.php.net/sites.php)
+
+

@@ -8,8 +8,7 @@ title: Openfire Plugin开发指南（一）
 wordpress_id: 244
 permalink: /2015/05/17/openfire-plugin-developer-guide-01/
 categories:
-- Java
-- Translation
+- JAVA
 tags:
 - openfire
 - openfire plugin

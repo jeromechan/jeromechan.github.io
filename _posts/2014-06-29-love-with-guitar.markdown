@@ -8,7 +8,7 @@ title: 和吉他谈一场恋爱
 wordpress_id: 29
 permalink: /2014/06/29/love-with-guitar/
 categories:
-- Essay
+- ESSAY
 tags:
 - 生活
 ---

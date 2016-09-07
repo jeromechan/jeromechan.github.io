@@ -8,7 +8,7 @@ title: 盎然间，出发旗舰
 wordpress_id: 219
 permalink: /2015/04/12/start-up-with-suddenly/
 categories:
-- Essay
+- ESSAY
 tags:
 - 大学
 - 青春记忆
@@ -27,3 +27,5 @@ tags:
 
 
 [![Screen Shot 2015-04-12 at 12.36.56 PM](/images/2015-04-12-start-up-with-suddenly/Screen-Shot-2015-04-12-at-12.36.56-PM.png)](/images/2015-04-12-start-up-with-suddenly/Screen-Shot-2015-04-12-at-12.36.56-PM.png)
+
+

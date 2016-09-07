@@ -6,7 +6,7 @@ description: "解决fastjson反序列化日期0000-00-00失败的方案"
 keywords: "fastjson,date,0000-00-00,deserialize"
 permalink: /2016/07/22/resolve-the-fastjson-problems-about-date/
 categories:
-- fastjson
+- JAVA
 tags:
 - fastjson
 ---

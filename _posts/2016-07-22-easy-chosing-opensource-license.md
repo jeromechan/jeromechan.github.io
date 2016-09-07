@@ -6,8 +6,7 @@ description: "如何快速选择开源软件协议,How to easy chose and opensou
 keywords: "opensource,license,MIT,Apache,GPL,GPL2,GPL3"
 permalink: /2016/07/22/easy-chosing-opensource-license/
 categories:
-- opensource 
-- license
+- DESIGN
 tags:
 - opensource
 - license

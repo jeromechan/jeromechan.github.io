@@ -8,7 +8,7 @@ title: 关于PressWork增加导航面包屑的实现
 wordpress_id: 125
 permalink: /2014/08/25/how-to-add-breadcrumb-to-presswork/
 categories:
-- Programming
+- WEB
 tags:
 - presswork面包屑
 - wordpress 主题
@@ -87,3 +87,5 @@ tags:
 ```
 
 参照以上的步骤，简单版的面包屑导航就弄好了，如果需要提高视觉美感，再自己增加css样式的支持即可，因为每个人要求不一，这里就不作建议样式了。
+
+

@@ -8,8 +8,7 @@ title: Markdown之旅
 wordpress_id: 130
 permalink: /2014/08/30/markdown-tutorial/
 categories:
-- Programming
-- Translation
+- TRANSLATION
 tags:
 - markdown
 - markdown基础知识
@@ -338,3 +337,5 @@ Basically, take the same guidance as above: don't be messy, but if you are, clea
   * [http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/](http://idratherbewriting.com/2013/06/04/exploring-markdown-in-collaborative-authoring-to-publishing-workflows/)
 
 声明：本篇文章内容由本人翻译自MarkdownTutorial.COM，欲阅读原版，请跳转至[Markdown Tutorial](http://markdowntutorial.com/)
+
+

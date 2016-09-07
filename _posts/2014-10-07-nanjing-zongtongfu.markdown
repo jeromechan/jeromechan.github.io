@@ -8,9 +8,7 @@ title: 南京 · 总统府
 wordpress_id: 158
 permalink: /2014/10/07/nanjing-zongtongfu/
 categories:
-- Photography
-post_format:
-- Gallery
+- PHOTOGRAPHY
 tags:
 - 南京总统府
 - 南京旅游景点
@@ -27,3 +25,5 @@ tags:
 
 
  （南京 · 总统府 · 高行清粹）
+
+

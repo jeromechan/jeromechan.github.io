@@ -8,7 +8,7 @@ title: Nanjing 2014 Youth Olympic Games
 wordpress_id: 110
 permalink: /2014/08/24/nanjing-2014-youth-olympic-games/
 categories:
-- Programming
+- PHOTOGRAPHY
 post_format:
 - Gallery
 tags:
@@ -63,3 +63,5 @@ tags:
 
 
 （南京 · 奥体中心 · 韩国三星）
+
+

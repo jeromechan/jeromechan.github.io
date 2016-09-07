@@ -8,7 +8,7 @@ title: 感动，只因为一个女孩
 wordpress_id: 224
 permalink: /2015/04/12/suck-because-a-girl/
 categories:
-- Essay
+- ESSAY
 tags:
 - 大学生活
 - 青春记忆
@@ -31,3 +31,5 @@ tags:
 一丝不倦地折叠着自己的梦帆，放飞着自己的理想 ... ...
 
 __撰写于2010年冬季
+
+

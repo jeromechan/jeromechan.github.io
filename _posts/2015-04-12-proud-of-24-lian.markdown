@@ -8,7 +8,7 @@ title: 24连，我们永远的骄傲
 wordpress_id: 208
 permalink: /2015/04/12/proud-of-24-lian/
 categories:
-- Essay
+- ESSAY
 tags:
 - 大学军训
 - 青春记忆
@@ -47,3 +47,5 @@ tags:
 ——Randy Chen  
 
 2008/08/30 15:12华东师大
+
+

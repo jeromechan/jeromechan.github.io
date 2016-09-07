@@ -8,7 +8,7 @@ title: 关于Yii路由大小写敏感的解决方案
 wordpress_id: 4
 permalink: /2014/06/29/deal-with-route-path-sensitive-in-yii/
 categories:
-- Programming
+- PHP
 tags:
 - PHP
 ---

@@ -8,9 +8,7 @@ title: 详解Switch语句的使用
 wordpress_id: 140
 permalink: /2014/09/01/java-switch-explanation/
 categories:
-- Java
-- Programming
-- Translation
+- JAVA
 tags:
 - JAVA Switch
 - Switch语句
@@ -375,3 +373,5 @@ Note： 在以上StringSwitchDemo例子中包含了month == null的判断，确�
 阅读完以上，童鞋们应该已经明白了switch的使用方法了。哈哈，如果对你有用，可以分享给更多身边的朋友（可以使用右侧板块的文章分享功能）。
 
 声明：除文章结尾处本人的理解观点描述外，本篇文章主要内容由本人翻译自Docs.Oracle.COM，欲阅读原版，请跳转至 [The switch Statement](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html)
+
+

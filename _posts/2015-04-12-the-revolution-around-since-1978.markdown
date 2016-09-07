@@ -8,7 +8,7 @@ title: 我身边的改革开放
 wordpress_id: 212
 permalink: /2015/04/12/the-revolution-around-since-1978/
 categories:
-- Essay
+- ESSAY
 tags:
 - 改革开放
 - 青春记忆
@@ -40,3 +40,5 @@ tags:
 改革开放让海南焕发起了青春，让我们的生活蒸蒸日上，让老百姓们深刻地体会到了，国家对他们的关爱与重视。在这改革开放30年盛大节日道来之际，愿祖国未来更加繁荣和富强！
 
 _撰写欲2008年夏季
+
+

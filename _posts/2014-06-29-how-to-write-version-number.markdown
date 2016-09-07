@@ -8,7 +8,7 @@ title: 关于文档的版本号理解
 wordpress_id: 27
 permalink: /2014/06/29/how-to-write-version-number/
 categories:
-- Programming
+- VCS
 tags:
 - 项目管理
 ---
@@ -37,3 +37,5 @@ D：变更日期，例如"911"(9月11日),"1109"(11月09日)。 ”</blockquote>
 
 
 以上是对于文档的版本号管理，而互联网产品的版本号与文档的版本号规范有一定区分，后面的文章会对互联网产品的版本号常用规范作出分析。
+
+

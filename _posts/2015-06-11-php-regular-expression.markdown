@@ -8,7 +8,7 @@ title: PHP正则表达式
 wordpress_id: 264
 permalink: /2015/06/11/php-regular-expression/
 categories:
-- Programming
+- PHP
 tags:
 - 正则表达式
 ---
@@ -346,3 +346,5 @@ echo "\n";
 
 > 本篇文章为转载文章，因为觉得写得的确是好，二次分享给大家，版权归原作者“川山甲”所有。  
 > 原文链接：http://www.cnblogs.com/baochuan/archive/2012/03/12/2391135.html
+
+

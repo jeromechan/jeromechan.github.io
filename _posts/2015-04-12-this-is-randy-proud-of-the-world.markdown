@@ -8,7 +8,7 @@ title: This is Randy，世界的骄傲
 wordpress_id: 214
 permalink: /2015/04/12/this-is-randy-proud-of-the-world/
 categories:
-- Essay
+- ESSAY
 tags:
 - 榜样
 - 青春记忆
@@ -29,3 +29,5 @@ tags:
 ———Randy Chen
 
 2008/08/12 Write in Shanghai China
+
+

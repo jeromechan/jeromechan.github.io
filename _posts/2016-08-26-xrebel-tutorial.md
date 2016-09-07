@@ -6,8 +6,7 @@ description: "XRebel入门、安装、实践"
 keywords: "xrebel tutorial,xrebel install"
 permalink: /2016/08/26/xrebel-tutorial/
 categories:
-- java
-- profiling
+- JAVA
 tags:
 - xrebel
 - performance monitor

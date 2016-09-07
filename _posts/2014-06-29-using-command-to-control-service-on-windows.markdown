@@ -8,7 +8,7 @@ title: Windows环境下使用命令行管理服务
 wordpress_id: 24
 permalink: /2014/06/29/using-command-to-control-service-on-windows/
 categories:
-- Programming
+- OPERATION
 tags:
 - 系统运维
 ---
@@ -77,3 +77,5 @@ sc delete “Memcached Master”
 
 步骤1. 打开注册表编辑器（`Win+R打开运行 → regedit → 回车`）    
 步骤2. 寻找服务键值目录（`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services`），一般服务会以相同的名字在这里显示一个主健，对应其键值进行CURD操作即便可。
+
+

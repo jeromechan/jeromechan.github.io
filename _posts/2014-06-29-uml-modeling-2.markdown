@@ -8,7 +8,7 @@ title: UML基础建模知识小结（二）
 wordpress_id: 10
 permalink: /2014/06/29/uml-modeling-2/
 categories:
-- Programming
+- DESIGN
 tags:
 - 面向对象设计
 ---
@@ -84,3 +84,5 @@ tags:
 
 （总结）关系的强弱顺序
 泛化==实现>组合>聚合>关联>依赖
+
+

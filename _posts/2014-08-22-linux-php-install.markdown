@@ -8,8 +8,7 @@ title: Linux下的PHP安装
 wordpress_id: 96
 permalink: /2014/08/22/linux-php-install/
 categories:
-- LAMP
-- Programming
+- OPERATION
 tags:
 - LAMP环境搭建
 - php linux 安装
@@ -118,3 +117,5 @@ make install
 ```    
 
 此时，可以通过浏览器访问指定的虚拟主机，通过php函数phpinfo()可以查看到当前php安装的情况，包括php.ini配置文件路径、已安装扩展配置情况和apache http server的关联配置情况等。
+
+

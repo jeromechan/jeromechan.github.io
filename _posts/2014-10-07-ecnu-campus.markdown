@@ -8,9 +8,7 @@ title: 上海 · 华东师大 · 陆家嘴
 wordpress_id: 169
 permalink: /2014/10/07/ecnu-campus/
 categories:
-- Photography
-post_format:
-- Gallery
+- PHOTOGRAPHY
 tags:
 - 上海
 - 上海华东师大
@@ -28,3 +26,5 @@ tags:
 [![上海 · 陆家嘴](/images/2014-10-07-ecnu-campus/psb-4.jpeg)](/images/2014-10-07-ecnu-campus/psb-4.jpeg)
 
 （上海 · 陆家嘴 · 夜景）
+
+

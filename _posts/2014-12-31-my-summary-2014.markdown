@@ -8,7 +8,7 @@ title: 我的2014年度总结
 wordpress_id: 181
 permalink: /2015/01/01/my-summary-2014/
 categories:
-- Essay
+- ESSAY
 tags:
 - 年度总结
 ---
@@ -90,3 +90,5 @@ tags:
 
 
         另外，年底了，自己最为要好的朋友s新婚，祝他们俩新婚快乐，白头偕老！也祝自己所爱的所有亲朋好友们身体健康，万事如意，事业蒸蒸日上！
+
+

@@ -8,7 +8,7 @@ title: 2012的第一批文字
 wordpress_id: 226
 permalink: /2015/04/12/words-in-2012-the-first-time/
 categories:
-- Essay
+- ESSAY
 tags:
 - 大学生活
 - 青春记忆

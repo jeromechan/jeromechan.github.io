@@ -6,7 +6,7 @@ description: "什么是架构？架构的真正定义和导向"
 keywords: “什么是架构,what is the real architecture”
 permalink: 2016/07/06/what-is-architecture/
 categories:
-- architecture
+- DESIGN
 tags:
 - architecture
 ---

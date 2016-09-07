@@ -8,7 +8,7 @@ title: 走进社会生活，在实践中成长
 wordpress_id: 273
 permalink: /2015/06/16/practice-in-senior-school-period/
 categories:
-- Essay
+- ESSAY
 tags:
 - 2004儋州旱情
 - 中学社会实践
@@ -820,3 +820,5 @@ A、会 B、不会 C、说不清
 兰洋组：林 莹（8） 谢春榴（8） 张明嘉 刘壁如
 
 注：共分17个小组，总计72人。括号内为除1、2班外的学生的班别，姓名下划线者为各组组长。
+
+

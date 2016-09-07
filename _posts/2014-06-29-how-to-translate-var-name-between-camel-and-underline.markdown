@@ -8,7 +8,7 @@ title: 代码规范之驼峰vs下划线风格转换方案
 wordpress_id: 6
 permalink: /2014/06/29/how-to-translate-var-name-between-camel-and-underline/
 categories:
-- Programming
+- PHP
 tags:
 - PHP
 ---
