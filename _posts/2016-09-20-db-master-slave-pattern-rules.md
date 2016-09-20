@@ -6,7 +6,7 @@ description: "How to use Master-Slave pattern for database."
 keywords: “Read Write Separation,Master Slave Pattern”
 permalink: /2016/09/06/db-master-slave-pattern-rules/
 categories:
-- java
+- JAVA
 tags:
 - Database
 ---
