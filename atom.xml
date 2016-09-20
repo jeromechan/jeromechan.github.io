@@ -4,13 +4,62 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-09-07T22:22:39+08:00</updated>
+ <updated>2016-09-20T15:21:31+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>读写分离的原则</title>
+   <link href="http://aboutcoder.com/2016/09/06/db-master-slave-pattern-rules/"/>
+   <updated>2016-09-20T09:00:00+08:00</updated>
+   <id>http://aboutcoder.com/2016/09/06/db-master-slave-pattern-rules</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2016-09-20-db-master-slave-pattern-rules/14743556033765.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;一、读写分离是什么？&lt;/h4&gt;
+
+&lt;p&gt;简单了说，就是数据库一主一从/一主多从/多主多从的部署方式。先简单介绍下mysql的原生同步机制，其是将master的binlog期间的执行日志根据顺序，拷贝至slave的relaylog中，然后逐一解析和执行。&lt;/p&gt;
+
+&lt;p&gt;目前司内大多系统使用slave作为备份库，而并不是真正意义上的系统slave库。&lt;/p&gt;
+
+&lt;p&gt;读写分离的好处在于：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;硬件处理能力得到了横向的扩增，拿机器和带宽换性能&lt;/li&gt;
+  &lt;li&gt;降低了主库服务器的压力，提高并发性能&lt;/li&gt;
+  &lt;li&gt;缓解读锁（S锁，共享锁，Shared Lock）和写锁（X锁，排他锁，Exclusive Lock）的竞争&lt;/li&gt;
+  &lt;li&gt;系统运行性能得到间接的提升&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;二、如何判别是否需要读写分离？&lt;/h4&gt;
+
+&lt;p&gt;谈及读写分离，必定要先了解怎样的应用层场景才需要使用到读写分离模式。以下是几点比较共性的场景特点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;以读操作为主的应用或者服务&lt;/li&gt;
+  &lt;li&gt;可接受时间上短暂的信息延迟&lt;/li&gt;
+  &lt;li&gt;单一线程内同时涵盖读写操作的，使用主库&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;三、常见的读写分离的方式有哪些？&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;中间件，例如java-amoeba&lt;/li&gt;
+  &lt;li&gt;框架特性，例如spring-aop&lt;/li&gt;
+  &lt;li&gt;自定义组件，例如在dal层的prepare过程，增加拦截代码，以执行数据源的路由逻辑。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;四、参考文章&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://my.oschina.net/candiesyangyang/blog/203425&quot;&gt;为什么数据库读写分离可以提高性能&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>关于PhpStorm+MAMP+xdebug集成失败的处理办法</title>
