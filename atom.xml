@@ -4,7 +4,7 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-09-20T15:21:31+08:00</updated>
+ <updated>2016-09-20T15:27:01+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
@@ -22,8 +22,6 @@
 &lt;h4 id=&quot;section&quot;&gt;一、读写分离是什么？&lt;/h4&gt;
 
 &lt;p&gt;简单了说，就是数据库一主一从/一主多从/多主多从的部署方式。先简单介绍下mysql的原生同步机制，其是将master的binlog期间的执行日志根据顺序，拷贝至slave的relaylog中，然后逐一解析和执行。&lt;/p&gt;
-
-&lt;p&gt;目前司内大多系统使用slave作为备份库，而并不是真正意义上的系统slave库。&lt;/p&gt;
 
 &lt;p&gt;读写分离的好处在于：&lt;/p&gt;
 
