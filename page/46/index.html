@@ -665,6 +665,14 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -687,163 +695,183 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-b/">
-        Clean Code: A Handbook of Agile Software Craftsmanship (b)
+      <a href="/2014/06/29/git-basic-knowledge-1/">
+        Git基础知识讲解（一）
       </a>
     </h1>
 
     <span class="post-date">29 Jun 2014</span>
     
-    <h4 id="the-grand-redesign-in-the-sky">(1)The grand redesign in the sky</h4>
+    <p><em>备注：本文内容来源于作者分享的PPT之“Finding Mr.Git”</em></p>
+
+<p>一、 一览众山，随便看看</p>
+
+<ol>
+  <li>
+    <p>版本控制的那些事儿，简单谈谈历史痕迹</p>
+  </li>
+  <li>
+    <p>Git是什么神器</p>
+  </li>
+  <li>
+    <p>文件级别的基本操作</p>
+  </li>
+  <li>
+    <p>分支级别基本操作</p>
+  </li>
+  <li>
+    <p>项目管理中Git的使用</p>
+  </li>
+  <li>
+    <p>托管商Github.com平台介绍</p>
+  </li>
+  <li>
+    <p>其他你们想问而我知道的</p>
+  </li>
+  <li>
+    <p>参考资料链接</p>
+  </li>
+</ol>
+
+<p>二、 侬晓得使用Git经常说的一句话是什么吗？
+<a href="/images/2014-06-29-git-basic-knowledge-1/image46.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb46.png" alt="image" /></a></p>
+
+<p>三、 那些年，版本控制的那些事儿</p>
+
+<p>其实，可以简单归结成以下几幅图
+<a href="/images/2014-06-29-git-basic-knowledge-1/image47.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb47.png" alt="image" /></a></p>
+
+<p>四、 Git是领军人物
+实现外观上，Git是这样子做到与众不同的
+<a href="/images/2014-06-29-git-basic-knowledge-1/image48.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb48.png" alt="image" /></a></p>
+
+<p>五、什么是Git</p>
+
+<ol>
+  <li>宏观上看，跟其他的VCS系统用途区别不大，都是代码仓库管理员，&gt;=BAND4的</li>
+  <li>微观上看，具备如下特点：
+  	1. 近乎所有操作都是本地执行
+    <ol>
+      <li>时刻保持数据完整性</li>
+      <li>多数操作仅添加数据</li>
+    </ol>
+  </li>
+  <li>Git仓库文件的三种状态：已提交，已修改，已暂存</li>
+  <li>Git的三个工作区域，如下图：</li>
+</ol>
+
+<p><a href="/images/2014-06-29-git-basic-knowledge-1/image49.png"><img src="/images/2014-06-29-git-basic-knowledge-1/image_thumb49.png" alt="image" /></a></p>
+
+<p>六、 Git文件级别的基本操作</p>
 
 <ul>
-  <li>Eventually the team rebels and informs management that:</li>
-  <li><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb37.png" alt="image" /></li>
-  <li>“If you have experienced even one small part of the story I just told, then you already know that spending time keeping your code clean is not just cost effective; it’s a matter of professional survival.”</li>
+  <li>初始化仓库</li>
 </ul>
 
-<h4 id="attitude">(2)Attitude</h4>
-<ul>
-  <li>We are deeply complicit in the planning of the project and share a great deal of the responsibility for any failures; especially if those failures have to do with bad code!</li>
-  <li>The manager will defend the schedule and requirements with passion. And you, it’s absolutely your job to defend the code with equal passion.</li>
-  <li>It’s unprofessional for programmers to bend to the will of managers who don’t understand the risks of making messes, too.</li>
-</ul>
-
-<h4 id="temporary-conclusion">(3)Temporary conclusion</h4>
-<ul>
-  <li>“You will not make the deadline by making the mess.”</li>
-  <li>The only right way to reach the goal—is to keep the code as clean as possible at all times.</li>
-</ul>
-
-<h4 id="the-art-of-clean-code">(4)The art of clean code</h4>
-<ul>
-  <li>“Being able to recognize good art from bad does not mean that we know how to paint.”</li>
-  <li>Writing clean code requires:</li>
-  <li><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb38.png" alt="image" /></li>
-</ul>
-
-<h4 id="what-is-clean-code">(5)What is clean code</h4>
+<p><code class="highlighter-rouge">$ git init</code></p>
 
 <ul>
-  <li>
-    <p>Do you really know what is clean code?</p>
-  </li>
-  <li>
-    <p>And what do the very well-known and deeply experienced programmers think about it?</p>
-  </li>
+  <li>添加文件</li>
 </ul>
 
-<h4 id="bjarne-stroustrupinventor-of-c">(6)Bjarne Stroustrup(Inventor of C++)</h4>
+<p><code class="highlighter-rouge">$ git add *.php</code></p>
 
 <ul>
-  <li>
-    <p>“I like my code to be elegant and efficient.”</p>
-  </li>
-  <li>
-    <p>“Clean code does one thing well.”</p>
-  </li>
-  <li>
-    <p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb39.png" alt="image" /></p>
-  </li>
+  <li>克隆分支</li>
 </ul>
 
-<h4 id="grady-boochauthor-of-object-oriented-analysis-and-design-with-applications">(7)Grady Booch(Author of Object Oriented Analysis and Design with Applications)</h4>
+<p><code class="highlighter-rouge">$ git clone git://github.com/schacon/grit.git</code></p>
 
 <ul>
-  <li>
-    <p>“Clean code is simple and direct.”</p>
-  </li>
-  <li>
-    <p>“Clean code reads like well-written prose.”</p>
-  </li>
-  <li>
-    <p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb40.png" alt="image" /></p>
-  </li>
+  <li>检查当前检出分支的文件状态</li>
 </ul>
 
-<h4 id="dave-thomasfounder-of-oti-godfather-of-the-eclipse-strategy">(8)Dave Thomas(”Founder of OTI, godfather of the Eclipse strategy”)</h4>
+<p><code class="highlighter-rouge">$ git status</code></p>
 
 <ul>
-  <li>
-    <p>“Clean code can be read.”</p>
-  </li>
-  <li>
-    <p>“Clean code should be literate”</p>
-  </li>
-  <li>
-    <p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb41.png" alt="image" /></p>
-  </li>
+  <li>忽略指定文件</li>
 </ul>
 
-<h4 id="michael-feathersauthor-of-working-effectively-with-legacy-code">(9)Michael Feathers(”Author of Working Effectively with Legacy Code”)</h4>
+<p><code class="highlighter-rouge">$ cat .gitignore *.[oa] *~</code></p>
 
 <ul>
-  <li>
-    <p>“clean code always looks like it was written by someone who cares.”</p>
-  </li>
-  <li>
-    <p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb42.png" alt="image" /></p>
-  </li>
+  <li>查看提交历史</li>
 </ul>
 
-<h4 id="ron-jeffriesauthor-of-extreme-programming-installed">(10)Ron Jeffries(“Author of Extreme Programming Installed”)</h4>
+<p><code class="highlighter-rouge">$ git log –[option] XXX</code></p>
 
 <ul>
-  <li>
-    <p>“Reduced duplication”</p>
-  </li>
-  <li>
-    <p>“High expressiveness”</p>
-  </li>
-  <li>
-    <p>“Early building of simple abstraction”</p>
-  </li>
-  <li>
-    <p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb43.png" alt="image" /></p>
-  </li>
+  <li>比较已暂存和上次提交快照间的区别</li>
 </ul>
 
-<h4 id="ward-cunninghaminventor-of-wiki">(11)Ward Cunningham(“Inventor of Wiki”)</h4>
+<p><code class="highlighter-rouge">$ git diff –cached</code></p>
+
+<ul>
+  <li>提交更新</li>
+</ul>
+
+<p><code class="highlighter-rouge">$ git commit -m “XXX“</code></p>
+
+<p>例外，暂存步骤可以跳过，如下</p>
+
+<p><code class="highlighter-rouge">$ git commit -a -m "XXX“  </code></p>
+
+<ul>
+  <li>移除文件</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ rm grit.gemspec
+$ git rm grit.gemspec
+</code></pre>
+</div>
+
+<ul>
+  <li>移动文件</li>
+</ul>
+
+<p><code class="highlighter-rouge">$ git mv file_from file_to</code></p>
+
+<p>等同于</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ mv README.txt README
+$ git rm README.txt
+$ git add README
+</code></pre>
+</div>
+
+<ul>
+  <li>撤销上一次提交并重新提交</li>
+</ul>
+
+<p><code class="highlighter-rouge">$git commit –amend –m ‘XXX’</code></p>
+
+<ul>
+  <li>取消已经暂存的文件</li>
+</ul>
+
+<p><code class="highlighter-rouge">$git reset HEAD benchmarks.rb</code></p>
+
+<ul>
+  <li>取消对文件的修改</li>
+</ul>
+
+<p><code class="highlighter-rouge">$git checkout -- benchmarks.rb</code></p>
 
 <ul>
   <li>
-    <p>“You know you are working on clean code when each routine you reads turns out to be pretty much what you expected.”</p>
+    <p>推送数据到Remotes</p>
+
+    <p><code class="highlighter-rouge">$git push origin master</code></p>
   </li>
   <li>
-    <p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb44.png" alt="image" /></p>
-  </li>
-  <li>
-    <p>“You know you are working on clean code when each routine you reads turns out to be pretty much what you expected.”</p>
+    <p>从Remotes抓取数据</p>
   </li>
 </ul>
 
-<h4 id="the-boy-scout-rule">(12)The boy scout rule</h4>
-
-<ul>
-  <li>
-    <p>It’s not enough to write the code well. The code has to be kept clean over time.</p>
-  </li>
-  <li>
-    <p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-b/image_thumb45.png" alt="image" /></p>
-  </li>
-</ul>
-
-<h4 id="bibliography">(13)Bibliography</h4>
-
-<ul>
-  <li>
-    <p>Clean Code, Robert C. Martin, Prentice-Hall, 2009</p>
-  </li>
-  <li>
-    <p>Clean Code Slides, Herrero, <a href="http://www.slideshare.net/">www.slideshare.net</a>, 2012</p>
-  </li>
-  <li>
-    <p>Better Code Slides, Rafael Dohms, <a href="http://www.slideshare.net/">www.slideshare.net</a>, 2012</p>
-  </li>
-  <li>
-    <p>Clean Code Slides, Emily Bache, <a href="http://www.jsolutions.se/">www.jsolutions.se</a>, 2012</p>
-  </li>
-</ul>
+<div class="highlighter-rouge"><pre class="highlight"><code>$git fetch [remote-name]
+$git pull origin master
+</code></pre>
+</div>
 
 
   </div>

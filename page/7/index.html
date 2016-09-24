@@ -665,6 +665,14 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -687,63 +695,209 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2016/07/06/what-is-architecture/">
-        什么是架构
+      <a href="/2016/07/22/resolve-the-fastjson-problems-about-date/">
+        解决fastjson反序列化日期0000-00-00失败的方案
       </a>
     </h1>
 
-    <span class="post-date">06 Jul 2016</span>
+    <span class="post-date">22 Jul 2016</span>
     
-    <p><img src="/images/2016-07-06-what-is-architecture/14678247250239.jpg" alt="" /></p>
+    <h4 id="section">一、案例场景复原</h4>
+<p>示例场景里涉及两个class：<code class="highlighter-rouge">TestDemo.java</code>, <code class="highlighter-rouge">DateBeanDemo.java</code>。</p>
 
-<p>先来看看老外们对于架构是如何诠释的。</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">// DateBeanDemo.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DateBeanDemo</span> <span class="o">{</span>
+	<span class="cm">/**
+	 * dateStr field with Date.class
+	 */</span>
+    <span class="kd">private</span> <span class="n">Date</span> <span class="n">dateStr</span><span class="o">;</span>
 
-<blockquote>
-  <p><strong>What is Architecture?</strong><br />
-Architecture is the <strong>art</strong>,science, and profession of planning, <strong>designing</strong>, and supervising the construction of new <strong>buildings, landscapes, communities</strong>, and <strong>furnishings</strong> in their totality, examining their environment in accordance with the <strong>principles</strong> of utility, strength, and <strong>aesthetics</strong>.</p>
-</blockquote>
+    <span class="cm">/**
+     * Get dateStr &lt;br&gt;
+     *
+     * @return Returns the dateStr. &lt;br&gt;
+     */</span>
+    <span class="kd">public</span> <span class="n">Date</span> <span class="nf">getDateStr</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">dateStr</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>以上这段话虽然更适合解释建筑架构的含义，但是我们通过对比计算机工程类的架构的理念和要求，以上所提到的要点皆包含在内，不外乎生态不同罢了，其两者核心理念是相同的。</p>
+    <span class="cm">/**
+     * Set dateStr &lt;br&gt;
+     *
+     * @param dateStr The dateStr to set. &lt;br&gt;
+     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateStr</span><span class="o">(</span><span class="n">Date</span> <span class="n">dateStr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">dateStr</span> <span class="o">=</span> <span class="n">dateStr</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
 
-<p>最近日子在工作中遇到的关于“架构”的探讨上，今天来谈谈自己理解的所谓架构，想以此篇文字来端正一下自己。</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">// 示例执行例子</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">jsonStr</span> <span class="o">=</span> <span class="s">"{\"dateStr\":\"0000-00-00\"}"</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">DateBeanDemo</span> <span class="n">resultObject</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">parseObject</span><span class="o">(</span><span class="n">TestDemo</span><span class="o">.</span><span class="na">jsonStr</span><span class="o">,</span> <span class="n">DateBeanDemo</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
 
-<p>架构这词也是神圣不可侵犯的，如果你把一些b格很low的设计细节的东西当作是架构，那么毫无疑问，你正在掩耳盗铃。 
-设计和架构有着鸿沟一般的区别。而跨越这条鸿沟,需要不断学习,不停积攒天赋,同时伴随着需 要量的积累。 设计,首先它是一个架构范畴中的一个很小的子集。处于一个很单元的层次,但它也同时是不可逾 越不可或缺的阶段。</p>
+<p>执行以上的main方法之后，并没有获取预期的结果，而是在fastjson的序列化解析中便发生了异常，如下</p>
 
-<p>而设计绝不等于架构。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Exception in thread "main" com.alibaba.fastjson.JSONException: For input string: "0000-00-00"
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:555)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:251)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:227)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:186)
+	at excel.TestDemo.main(TestDemo.java:23)
+Caused by: java.lang.NumberFormatException: For input string: "0000-00-00"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:48)
+	at java.lang.Long.parseLong(Long.java:419)
+	at java.lang.Long.parseLong(Long.java:468)
+	at com.alibaba.fastjson.parser.deserializer.DateDeserializer.cast(DateDeserializer.java:56)
+	at com.alibaba.fastjson.parser.deserializer.AbstractDateDeserializer.deserialze(AbstractDateDeserializer.java:98)
+	at Fastjson_ASM_DateBeanDemo_1.deserialze(Unknown Source)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:551)
+	... 4 more
+</code></pre>
+</div>
 
-<p>架构，不仅考量技术实现，还需要诸如：</p>
+<p>通过百度查阅了部分网上撰写的方案，可以使用fastjson中的注解<code class="highlighter-rouge">@JSONField(format="")</code>来重新定义<code class="highlighter-rouge">DateBeanDemo.dateStr</code>，如下：</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@JSONField</span><span class="o">(</span><span class="n">format</span> <span class="o">=</span> <span class="s">"yyyy-MM-dd"</span><span class="o">,</span><span class="n">parseFeatures</span><span class="o">={</span><span class="n">Feature</span><span class="o">.</span><span class="na">AllowISO8601DateFormat</span><span class="o">})</span>
+<span class="kd">private</span> <span class="n">Date</span> <span class="n">dateStr</span><span class="o">;</span>
+</code></pre>
+</div>
+
+<p>然而，并没有解决这个exception的问题。同时还怀疑了注解是否在反序列化之时没有被使用到，经过查阅源码，fastjson已将其反序列化的开关定义了<code class="highlighter-rouge">true</code>。</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@Retention</span><span class="o">(</span><span class="n">RetentionPolicy</span><span class="o">.</span><span class="na">RUNTIME</span><span class="o">)</span>
+<span class="nd">@Target</span><span class="o">({</span><span class="n">ElementType</span><span class="o">.</span><span class="na">METHOD</span><span class="o">,</span> <span class="n">ElementType</span><span class="o">.</span><span class="na">FIELD</span><span class="o">,</span> <span class="n">ElementType</span><span class="o">.</span><span class="na">PARAMETER</span><span class="o">})</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="n">JSONField</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">ordinal</span><span class="o">()</span> <span class="k">default</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="n">String</span> <span class="nf">name</span><span class="o">()</span> <span class="k">default</span> <span class="s">""</span><span class="o">;</span>
+    <span class="n">String</span> <span class="nf">format</span><span class="o">()</span> <span class="k">default</span> <span class="s">""</span><span class="o">;</span>
+    <span class="kt">boolean</span> <span class="nf">serialize</span><span class="o">()</span> <span class="k">default</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="kt">boolean</span> <span class="nf">deserialize</span><span class="o">()</span> <span class="k">default</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// 默认定义了true，反序列化之时也使用该注解</span>
+    <span class="n">SerializerFeature</span><span class="o">[]</span> <span class="nf">serialzeFeatures</span><span class="o">()</span> <span class="k">default</span> <span class="o">{};</span>
+    <span class="n">Feature</span><span class="o">[]</span> <span class="nf">parseFeatures</span><span class="o">()</span> <span class="k">default</span> <span class="o">{};</span>
+    <span class="n">String</span> <span class="nf">label</span><span class="o">()</span> <span class="k">default</span> <span class="s">""</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="section-1">二、原因剖析</h4>
+
+<p>经查找fastjson中相关代码发现，当代码执行到<code class="highlighter-rouge">com.alibaba.fastjson.parser.deserializer.DateDeserializer.class</code>的执行方法<code class="highlighter-rouge">cast()</code>中之时，所使用的JSONParser中所含带的dateFormat依旧是默认的<code class="highlighter-rouge">yyyy-MM-dd HH:mm:ss</code>，而并非注解@JSONField中所定义的<code class="highlighter-rouge">yyyy-MM-dd</code>。
+所以发生了转换字段失败。</p>
+
+<p><img src="/images/2016-07-22-resolve-the-fastjson-problems-about-date/14691655278897.jpg" alt="" /></p>
+
+<p>再深究一层，为什么不是@JSONField中所定义的<code class="highlighter-rouge">yyyy-MM-dd</code>作为JSONParser中的dateFormat呢？其实仔细阅读一遍<code class="highlighter-rouge">cast()</code>代码逻辑就会发现，并不是fastjson丢弃了JSONField的扫描，而是在方法中有这么一段：</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">// 检查格式是否符合ISO8601的DateFormat规范</span>
+<span class="k">if</span><span class="o">(!</span><span class="n">dateLexer</span><span class="o">.</span><span class="na">scanISO8601DateIfMatch</span><span class="o">(</span><span class="kc">false</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">break</span> <span class="n">label122</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>当执行到以上代码段之时，由于字符串<code class="highlighter-rouge">0000-00-00</code>并不是ISO8601的DateFormat规范之内，故而代码便会<code class="highlighter-rouge">break label122</code>执行跳出逻辑。紧接着执行的就是<code class="highlighter-rouge">DateFormat dateFormat1 = parser.getDateFormat();</code>，此时，parser依然是global定义的parser，DateFormat并没有使用<code class="highlighter-rouge">@JSONField</code>中所定义的。</p>
+
+<h4 id="date">三、解决方案：新增date反序列化解析器</h4>
+
+<p>解决方案并非只有一种，在众多解决方案中自己选择了”新增date反序列化解析器”的办法。除此之外还有诸如设置<code class="highlighter-rouge">JSON.DEFFAULT_DATE_FORMAT</code>属性的办法，也同样可以解决这一问题。下面作两种办法的对比和阐述。</p>
 
 <ul>
-  <li>客户关键业务点的理解</li>
-  <li>如何将概念具体化</li>
-  <li>项目目标和周期的估算</li>
-  <li>如何多元化团队沟通协作</li>
+  <li>方案1：设置属性<code class="highlighter-rouge">JSON.DEFFAULT_DATE_FORMAT</code></li>
 </ul>
 
-<p>层次高的还有：</p>
+<p>这一方案只涉及修改<code class="highlighter-rouge">main()</code>方法代码即可实现，</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">// 示例执行例子</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">jsonStr</span> <span class="o">=</span> <span class="s">"{\"dateStr\":\"0000-00-00\"}"</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">JSON</span><span class="o">.</span><span class="na">DEFFAULT_DATE_FORMAT</span> <span class="o">=</span> <span class="s">"yyyy-MM-dd"</span><span class="o">;</span>
+        <span class="n">DateBeanDemo</span> <span class="n">resultObject</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">parseObject</span><span class="o">(</span><span class="n">TestDemo</span><span class="o">.</span><span class="na">jsonStr</span><span class="o">,</span> <span class="n">DateBeanDemo</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>但是翻阅fastjson中对于<code class="highlighter-rouge">JSON.DEFFAULT_DATE_FORMAT</code>可知，该属性属于静态属性，一旦设置影响全局。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// com.alibaba.fastjson.JSON.class
+public abstract class JSON implements JSONStreamAware, JSONAware {
+    public static String DEFFAULT_DATE_FORMAT;
+    // ...
+</code></pre>
+</div>
 
 <ul>
-  <li>关乎项目战略目标的敲定</li>
-  <li>如何在企业执行中追求更高roi</li>
+  <li>方案2：新增date反序列化解析器</li>
 </ul>
 
-<p>而技术实现方面也不仅仅是说项目如何搭建如何设计db，如何实现分包分模块，还不可或缺的需要包括：</p>
+<p>主要思路是以fastjson原生的<code class="highlighter-rouge">DateDeserializer.class</code>为基础，定制化一个可以解析<code class="highlighter-rouge">0000-00-00</code>的日期反序列化解析器。<br />
+该方式是fastjson函数<code class="highlighter-rouge">JSON.parseObject()</code>的一个应用场景，通过定制化<code class="highlighter-rouge">ParserConfig</code>参数，达到局部改变JSON解析逻辑的目的。<br />
+如下：</p>
 
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">package</span> <span class="n">jeromechan</span><span class="o">.</span><span class="na">fixbug</span><span class="o">.</span><span class="na">fastjson</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.alibaba.fastjson.parser.DefaultJSONParser</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.fastjson.parser.deserializer.DateDeserializer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Type</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Copyright © 2016 Jerome Chan. All rights reserved.
+ * An extended DateDeseializer for parsing '0000-00-00'.
+ * 
+ * @author chenjinlong
+ * @CreateDate 7/20/16 5:55 PM
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JCDateDeserializer</span> <span class="kd">extends</span> <span class="n">DateDeserializer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">JCDateDeserializer</span> <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JCDateDeserializer</span><span class="o">();</span>
+
+    <span class="kd">public</span> <span class="nf">JCDateDeserializer</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">cast</span><span class="o">(</span><span class="n">DefaultJSONParser</span> <span class="n">parser</span><span class="o">,</span> <span class="n">Type</span> <span class="n">clazz</span><span class="o">,</span> <span class="n">Object</span> <span class="n">fieldName</span><span class="o">,</span> <span class="n">Object</span> <span class="n">val</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">val</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">val</span> <span class="k">instanceof</span> <span class="n">String</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">strVal</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">val</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">strVal</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">strVal</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"0000-00-00"</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">parser</span><span class="o">.</span><span class="na">setDateFormat</span><span class="o">(</span><span class="s">"yyyy-MM-dd"</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">cast</span><span class="o">(</span><span class="n">parser</span><span class="o">,</span> <span class="n">clazz</span><span class="o">,</span> <span class="n">fieldName</span><span class="o">,</span> <span class="n">val</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">// 示例执行例子</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">jsonStr</span> <span class="o">=</span> <span class="s">"{\"dateStr\":\"0000-00-00\"}"</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>        
+        <span class="n">ParserConfig</span> <span class="n">jcParserConfig</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParserConfig</span><span class="o">();</span>
+        <span class="n">jcParserConfig</span><span class="o">.</span><span class="na">putDeserializer</span><span class="o">(</span><span class="n">Date</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">JCDateDeserializer</span><span class="o">.</span><span class="na">instance</span><span class="o">);</span>
+        <span class="n">DateBeanDemo</span> <span class="n">resultObject</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">parseObject</span><span class="o">(</span><span class="n">TestDemo</span><span class="o">.</span><span class="na">jsonStr</span><span class="o">,</span> <span class="n">DateBeanDemo</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">jcParserConfig</span><span class="o">,</span> <span class="n">JSON</span><span class="o">.</span><span class="na">DEFAULT_PARSER_FEATURE</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>假设觉得这种解析办法可以作为整个项目内的全局特性，感兴趣的话可以将定制好的<code class="highlighter-rouge">JCDateDeserializer</code>利用spring框架注入到项目容器中。这同样是对于方案2很不错的延伸。</p>
+
+<h4 id="section-2">四、参考资料</h4>
 <ul>
-  <li>如何将项目平台化</li>
-  <li>如何作冗余和可用架构而同时避免缠绕和蔓延</li>
-  <li>如何用专业手段作架构沟通和透视</li>
+  <li>fastjson在github上的issues：<a href="https://github.com/alibaba/fastjson/issues/414">https://github.com/alibaba/fastjson/issues/414</a></li>
 </ul>
-
-<p>对于稳定系统的方面,如何去执行可持续治理也是所谓架构的关键点。</p>
-
-<p>所以，只是挂在嘴边念叨“架构架构”而从不事先勘探落地,这种“理论架构”毫无用处，能体现项目 生产力、技术价值、团队骄傲的，才是我们所需要的真正架构。</p>
-
-<blockquote>
-  <p><strong>真正懂架构的人，并不会把架构挂在嘴边</strong><br />
-<strong>真正牛逼的架构师，从来都是拿实力和实例说话</strong></p>
-</blockquote>
 
 
   </div>
