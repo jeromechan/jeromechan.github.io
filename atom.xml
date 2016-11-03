@@ -4,7 +4,7 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-11-03T10:34:28+08:00</updated>
+ <updated>2016-11-03T10:37:45+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
@@ -1817,13 +1817,13 @@ liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得�
   &lt;li&gt;Version 1: 该版本适合于团队成员较小，各个泳道分支规范制定严格的项目。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/jerome-git-flow1.jpg&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/jerome-git-flow1.jpg&quot; alt=&quot;jerome-git-flow-1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/jerome-git-flow1.jpg&quot; alt=&quot;jerome-git-flow-1&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Version 2：适合于多环境分支、多团队协作的项目，没有太多的规范约束，将最大的自由度释放给开发者们。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/14781398459686.jpg&quot; alt=&quot;jerome-git-flow-2&quot; /&gt;](/images/2015-11-16-work-in-git/14781398459686.jpg)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/14781398459686.jpg&quot; alt=&quot;jerome-git-flow-2&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;section-3&quot;&gt;&lt;em&gt;参考资料&lt;/em&gt;&lt;/h4&gt;
 
