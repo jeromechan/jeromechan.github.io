@@ -334,11 +334,11 @@ tags:
 
 * Version 1: 该版本适合于团队成员较小，各个泳道分支规范制定严格的项目。
 
-[![jerome-git-flow-1](/images/2015-11-16-work-in-git/jerome-git-flow1.jpg)](/images/2015-11-16-work-in-git/jerome-git-flow1.jpg)
+![jerome-git-flow-1](/images/2015-11-16-work-in-git/jerome-git-flow1.jpg)
 
 * Version 2：适合于多环境分支、多团队协作的项目，没有太多的规范约束，将最大的自由度释放给开发者们。
 
-![jerome-git-flow-2](/images/2015-11-16-work-in-git/14781398459686.jpg)](/images/2015-11-16-work-in-git/14781398459686.jpg)
+![jerome-git-flow-2](/images/2015-11-16-work-in-git/14781398459686.jpg)
 
 
 #### _参考资料_
