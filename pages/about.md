@@ -92,8 +92,6 @@ WebDevTools is a useful online tools which can help web developers to finish the
 
 Reference: [https://github.com/jeromechan/webdevtools](https://github.com/jeromechan/webdevtools)
 
-See more here: [https://github.com/jeromechan](https://github.com/jeromechan)
-
 ***
 
 ### <font color="#999999">Programming Skills</font>
