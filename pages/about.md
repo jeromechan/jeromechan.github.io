@@ -72,13 +72,13 @@ Metro Payment System Development
 
 URL: It is an inner system of Tuniu Corp.   
 Date: 2016, currently    
-Skills: Java, MySQL, SpringMVC, Spring, MyBatis, Maven, FastJson, FasterXML Jackson, ActiveMQ, Memcache, Sonar, Apache POI framework, Redis, Jedis, Alibaba Druid, Togglz, Guava, Concurrency Future
+Skills: Java, MySQL, JS/HTML/CSS, SpringMVC, Spring, MyBatis, Maven, FastJson, FasterXML Jackson, ActiveMQ, Memcache, Sonar, Apache POI framework, Redis, Jedis, Alibaba Druid, Togglz, Guava, Concurrency Future
 
 **[2] N-Booking Agency Platform**
 
 URL: http://www.tuniu.cn    
 Date: 2013, 2014, 2015    
-Skills: Java, MySQL, SpringMVC, Spring, MyBatis, Maven, FastJson, FasterXML Jackson, ActiveMQ, Memcache, Sonar, Apache POI framework, Nginx
+Skills: Java, MySQL, JS/HTML/CSS, SpringMVC, Spring, MyBatis, Maven, FastJson, FasterXML Jackson, ActiveMQ, Memcache, Sonar, Apache POI framework, Nginx
 
 **[3] N-Booking Android App**
 
@@ -90,13 +90,13 @@ Skills: Java, Sqlite, AndroidSDK, Gradle, JPush, PullToRefresh, FinalHttp, Googl
 
 URL: http://www.tuniu.com    
 Date: 2011, 2012, 2013   
-Skills: PHP, Yii, Smarty, MySQL, Memcache, Apache, Composer
+Skills: PHP, Yii, Smarty, MySQL, JS/HTML/CSS, Memcache, Apache, Composer
 
 **[5] Tuniu Promotion System**
 
 URL: It is an inner system of Tuniu Corp.   
 Date: 2011, 2012   
-Skills: PHP, Yii, MySQL, Memcache, Apache
+Skills: PHP, Yii, MySQL, JS/HTML/CSS, Memcache, Apache
 
 ***
 
