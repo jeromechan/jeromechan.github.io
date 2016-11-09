@@ -4,7 +4,7 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-11-10T01:25:03+08:00</updated>
+ <updated>2016-11-10T01:26:34+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
@@ -132,7 +132,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/2016-09-20-db-master-slave-pattern-rules/14787121481232.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;section-4&quot;&gt;四、参考文章&lt;/h4&gt;
+&lt;h4 id=&quot;section-4&quot;&gt;五、参考文章&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://my.oschina.net/candiesyangyang/blog/203425&quot;&gt;为什么数据库读写分离可以提高性能&lt;/a&gt;&lt;/li&gt;
