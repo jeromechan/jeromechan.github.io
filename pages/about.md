@@ -26,6 +26,24 @@ Fourth-year student in Software Engineering
 
 ***
 
+### **<font color="#999999">Honors</font>**
+
+***
+
+**[1] Honors of Tuniu Corporation**
+
+* Employee of the Seasons Q3-Q4 of 2015
+* Employee of the Seasons Q1-Q2 of 2014
+* Employee of the Year 2013
+* Employee of the Season Q3 of 2012
+
+**[2] Duties of Tuniu Corporation**
+
+* Java/PHP/Android interviewer
+* Former member to the Tuniu Technical Committe
+
+***
+
 ### **<font color="#999999">Work History</font>**
 
 ***
@@ -43,6 +61,42 @@ Project: TTYFund
 **Hyron Inc.** *<font color="#999999">(Jun 2010–Sep 2010)</font>*  
 Software Engineering Intern  
 Metro Payment System Development  
+
+***
+
+### **<font color="#999999">Work Projects</font>**
+
+***
+
+**[1] Tuniu Agency Management System**
+
+URL: It is an inner system of Tuniu Corp.   
+Date: 2016, currently    
+Skills: Java, MySQL, SpringMVC, Spring, MyBatis, Maven, FastJson, FasterXML Jackson, ActiveMQ, Memcache, Sonar, Apache POI framework, Redis, Jedis, Alibaba Druid, Togglz, Guava, Concurrency Future
+
+**[2] N-Booking Agency Platform**
+
+URL: http://www.tuniu.cn    
+Date: 2013, 2014, 2015    
+Skills: Java, MySQL, SpringMVC, Spring, MyBatis, Maven, FastJson, FasterXML Jackson, ActiveMQ, Memcache, Sonar, Apache POI framework, Nginx
+
+**[3] N-Booking Android App**
+
+URL: It could be found on the domestic Android App markets.   
+Date: 2014, 2015   
+Skills: Java, Sqlite, AndroidSDK, Gradle, JPush, PullToRefresh, FinalHttp, Google Volley, FastJson, Gson, Dagger, EventBus, BroadcastReceiver, Fragment, Openfire framework
+
+**[4] Tuniu Website**
+
+URL: http://www.tuniu.com    
+Date: 2011, 2012, 2013   
+Skills: PHP, Yii, Smarty, MySQL, Memcache, Apache, Composer
+
+**[5] Tuniu Promotion System**
+
+URL: It is an inner system of Tuniu Corp.   
+Date: 2011, 2012   
+Skills: PHP, Yii, MySQL, Memcache, Apache
 
 ***
 
