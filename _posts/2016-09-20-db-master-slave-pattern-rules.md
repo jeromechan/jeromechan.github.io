@@ -39,6 +39,11 @@ tags:
 2. 框架特性，例如spring-aop
 3. 自定义组件，例如在dal层的prepare过程，增加拦截代码，以执行数据源的路由逻辑。
 
+#### 四、读写分离简单原则
+
+![](/images/2016-09-20-db-master-slave-pattern-rules/14787121481232.jpg)
+
+
 #### 四、参考文章
 
 * [为什么数据库读写分离可以提高性能](https://my.oschina.net/candiesyangyang/blog/203425)
