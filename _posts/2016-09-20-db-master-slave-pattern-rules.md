@@ -44,7 +44,7 @@ tags:
 ![](/images/2016-09-20-db-master-slave-pattern-rules/14787121481232.jpg)
 
 
-#### 四、参考文章
+#### 五、参考文章
 
 * [为什么数据库读写分离可以提高性能](https://my.oschina.net/candiesyangyang/blog/203425)
 
