@@ -82,7 +82,7 @@ Skills: Java, MySQL, JS/HTML/CSS, SpringMVC, Spring, MyBatis, Maven, FastJson, F
 
 **[3] N-Booking Android App**
 
-URL: It could be found on the domestic Android App markets.   
+URL: It could be found on the domestic Android App markets.       
 Date: 2014, 2015   
 Skills: Java, Sqlite, AndroidSDK, Gradle, JPush, PullToRefresh, FinalHttp, Google Volley, FastJson, Gson, Dagger, EventBus, BroadcastReceiver, Fragment, Openfire framework
 
