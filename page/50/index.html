@@ -673,6 +673,22 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -695,121 +711,136 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/06/29/uml-modeling-3/">
-        UML基础建模知识小结（三）
+      <a href="/2014/06/29/head-first-java-basic/">
+        入门JAVA，你需要知道的一些简单的不能再简单了的知识点
       </a>
     </h1>
 
     <span class="post-date">29 Jun 2014</span>
     
-    <h4 id="uml">3. UML行为建模图</h4>
+    <h4 id="java">编程离不开参考物，Java的强大正在于它的海纳百川</h4>
 
-<h5 id="use-case-diagram">3.1 用例图(Use Case Diagram)</h5>
-
-<p>（1）参与者(Actor)</p>
-
-<p>在寻找用例图中的参与者时候，先要确定系统的边界，然后确定系统的涉众，从中确认出驱动用例的动作来源，从而确定参与者。参与者是位于边界之外的。参与者并非只能是人，也可以非人，因为有些需求是没有人参与的。如果没有人参与，这是就需要去找到指令或者计算机动作的来源。</p>
-
-<p>（2）用例(Use Case)</p>
-
-<p>判断用例是否准确的依据有：</p>
-
+<h4 id="java-1">一、Java的参考文档形式：</h4>
 <ol>
+  <li>原生HTML形式</li>
+  <li>排版CHM形式</li>
+  <li>其它…</li>
+</ol>
+
+<h4 id="java-docooad">二、从Java doc里看ooad世界</h4>
+<ol>
+  <li>包-接口-类-异常-错误的阐述，应有尽有</li>
+  <li>类的方法和属性的说明和使用说明，让你一如既往都感觉是在书写hello world</li>
+</ol>
+
+<h4 id="package">三、package的分类</h4>
+<ol>
+  <li>java.*：基础语言包</li>
+  <li>javax.*：jdk扩展包</li>
+  <li>org.*：第三方功能包</li>
+  <li>com.sun.*：sun公司提供的功能包，因其不具备兼容性，变更大，并不在std-api-doc内公开<!-- more --></li>
+</ol>
+
+<h4 id="javalang">四、java.lang包</h4>
+<ol>
+  <li>默认自动引入</li>
+  <li>包含了Java语言所需要的基本功能类和接口的信息，是进行Java编程的基础</li>
   <li>
-    <p>用例是相对独立的：这意味着它不需要与其他用例交互而独自完成参与者的目的，即用例从功能上说是完备的。</p>
+    <p>Object类</p>
+
+    <p>&lt;1&gt; Object类是Java语言的灵魂，所有的Java类（除了Object类）都是Object类的儿子，它的所有方法将出现在所有类的内部，这就是Java继承树的唯一根，这就是独具Java语言特色的单根继承体系</p>
+
+    <p>&lt;2&gt; equals方法<br />
+ 判断两个对象内容是否相同。Object.equals()实现如下：</p>
+
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0024_thumb.jpg" alt="clip_image002" /></p>
+
+    <p>&lt;3&gt; finalize方法
+ 概念与构造函数相反，如同C++中的析构函数一般，该方法会被JVM自动调用执行垃圾回收。</p>
+
+    <p>&lt;4&gt; hashcode方法
+ 获取一个散列码数值，使用这个散列码可以快速判断对象是否<strong>不相同</strong>。
+ 两个内容相同的对象，hashcode返回值必须相同，而对于两个不相同的对象，返回的hashcode也有可能相同。</p>
+
+    <p>&lt;5&gt; toString方法<br />
+ 显示对象内容时会被系统自动调用的方法</p>
+
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0044_thumb.jpg" alt="clip_image004" /></p>
   </li>
   <li>
-    <p>用例的执行结果对参与者来说是可观测的和有意义的。
-<img src="/images/2014-06-29-uml-modeling-3/image_thumb10.png" alt="image" />
-<img src="/images/2014-06-29-uml-modeling-3/image_thumb11.png" alt="image" /></p>
+    <p>Math类
+ &lt;1&gt; 放置常用的数学常数和方法
+ &lt;2&gt; 类的常数和方法皆是静态类型的</p>
   </li>
   <li>
-    <p>用例必须由一个参与者发起，不存在没有参与者的用例，用例不应该自动启动，也不应该主动启动另一个用例。
-<img src="/images/2014-06-29-uml-modeling-3/image_thumb12.png" alt="image" /></p>
-  </li>
-  <li>
-    <p>用例必然是以动宾短语形式出现的。
-<img src="/images/2014-06-29-uml-modeling-3/image_thumb13.png" alt="image" /></p>
-  </li>
-  <li>
-    <p>参与者是用例驱动的来源，然而，用例的粒度大小则由需求的要求而定，最适合需求的用例和用例描述才是最适合的。
-但是，容易步入一些分析中的误区。</p>
+    <p>String和StringBuffer
+ 都是代表任意多个字符串组成的序列，两者实现的区别，一般把String看成固定的字符串，而StringBuffer看成可变的字符串。并不是说前者不能变更，而是因为前者变更如同品牌笔记本维修主板一般，直接取新替换，浪费机器资源；而后者则是维修自身。
+ String类的声明</p>
 
-    <p>（1）目标和步骤的误区</p>
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0054_thumb.png" alt="clip_image005" /></p>
 
-    <p><img src="/images/2014-06-29-uml-modeling-3/image_thumb14.png" alt="image" /></p>
+    <p>其实String类还有好多方法，例如charAt()，compareTo()，compareToIgnoreCase()，concat()，equals()，length()等等
+ StringBuffer类的声明</p>
 
-    <p>应该以完整目标为用例，而不应该以步骤作为用例。</p>
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0064_thumb.png" alt="clip_image006" /></p>
 
-    <p>（2）边界的超越</p>
+    <p>String与StringBuffer间的转换关系</p>
 
-    <p>参与者对于用例的操作都应该位于合法系统边界之内，不可以越界驱动用例。
- <a href="/images/2014-06-29-uml-modeling-3/image15.png"><img src="/images/2014-06-29-uml-modeling-3/image_thumb15.png" alt="image" /></a>
- 右图中的“应征立减活动”用例并非属于“促销产品部管理员”职权范围之内，此处为越界的用例，是不正确的。</p>
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0084_thumb.jpg" alt="clip_image008" /></p>
+
+    <p>诸如此类的方法多如绵绵春雨，还是等待大家慢慢深入研究吧:D</p>
   </li>
 </ol>
 
-<h5 id="section">3.2 活动图</h5>
-<p>（1）用例活动图</p>
-
-<p>用例活动图是最经常使用的。用例表达了参与者的一个目标，用例场景则描述了如何来达到这个目标。活动图用来描述用例场景，也就是通常所说的业务流程。</p>
-
-<p>（2）对象活动图</p>
-
-<p>详见图示与解说。</p>
-
-<p>（3）泳道</p>
-
-<p>详见图示与解说。
-下图是根据业务场景所进行的建模。
-<img src="/images/2014-06-29-uml-modeling-3/image_thumb16.png" alt="image" /></p>
-
-<p>3.3 时序图</p>
-
-<p><img src="/images/2014-06-29-uml-modeling-3/image_thumb17.png" alt="image" /></p>
-
-<p>3.4 状态图</p>
-
-<p>状态图显示一个状态机，状态机主要用于描述对象的状态变化以确定何种行为改变了对象状态，以及对象状态变化对系统的影响。通常，状态机用于描述实体类对象的整个生命周期内的状态变迁以获得对这个实体对象的理解，同时获得系统和实体对象互相影响的关系。</p>
-
-<p>需要注意的是，状态图通常只用于描述单个对象的行为，如果要描述对象间的交互，最好采用时序图或者协作图。</p>
-
-<p>状态图包含的元素有：</p>
-
+<h4 id="javautil">五、java.util包</h4>
 <ol>
-  <li>
-    <p>初始状态</p>
+  <li>时间日期类
+    <ul>
+      <li>Date类（deprecated）</li>
+    </ul>
+
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0094_thumb.png" alt="clip_image009" /></p>
+
+    <p>以下是绝对时间与相对时间的互转
+ 绝对时间-&gt;相对时间：</p>
+
+    <p><code class="highlighter-rouge">getTime()</code></p>
+
+    <p>相对时间-&gt;绝对时间：</p>
+
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0104_thumb.png" alt="clip_image010" /></p>
+
+    <ul>
+      <li>Calendar类（recommend）</li>
+    </ul>
+
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0124_thumb.jpg" alt="clip_image012" /></p>
+
+    <p>要提一下的是，它家的add(Calendar.YEAR, 1)方法可以实现计算某字段之后添加或减少一定的数值</p>
   </li>
-  <li>
-    <p>状态：</p>
+  <li>集成框架（CF）
+    <ul>
+      <li>List系列类：按索引值操作数据，允许存放重复元素</li>
+      <li>Set系列类：按索引值操作数据，不允许存放重复数据</li>
+      <li>Map系列类：按照名称操作数据，名称不允许重复，值可以重复，一个名称对应唯一的值
+ 简而言之，CF类的复杂性在于它们使用了数据结构类型进行存储和实现，具备了该种数据结构的特点。
+ 示例1：LIST</li>
+    </ul>
+
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0134_thumb.png" alt="clip_image013" /></p>
+
+    <p>示例2：SET</p>
+
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0144_thumb.png" alt="clip_image014" /></p>
+
+    <p>示例3：MAP</p>
+
+    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0154_thumb.png" alt="clip_image015" /></p>
   </li>
 </ol>
 
-<p>包含entry/入口行为，do/执行的行为，event/事件-事件行为，exit/退出行为。</p>
-
-<ol>
-  <li>
-    <p>复合状态</p>
-  </li>
-  <li>
-    <p>转移</p>
-  </li>
-  <li>
-    <p>事件</p>
-  </li>
-  <li>
-    <p>条件：常常是一个布尔表达式</p>
-  </li>
-  <li>
-    <p>最终状态</p>
-  </li>
-</ol>
-
-<p>如下例子详述：
-<img src="/images/2014-06-29-uml-modeling-3/image_thumb18.png" alt="image" /></p>
-
-<p>当然，UML的知识不止于以上所述，正所谓“路漫漫其修远兮，吾将上下而求索，不断努力地去求索…”
-Thank you very much!</p>
+<p>其实大家也都会发现，以上谈到的都只是些边边角角的JAVA最基本的知识。
+所谓学海无涯苦作舟，大家就乘着风，扬起帆，继续前进吧。</p>
 
 
   </div>

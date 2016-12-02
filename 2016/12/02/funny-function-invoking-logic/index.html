@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      几种方法调用思路的比较 &middot; Jerome Chan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+                                 <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08 layout-reverse">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Jerome Chan
+        </a>
+      </h1>
+      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+<!-- 
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About Me</a>
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pages/bibliography.html">读过的书目</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/categories/">Categories</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/slides/">Slides</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags/">Tags</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/timeline/">Timeline</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+
+      <a class="sidebar-nav-item" href="/about/">About Me</a>
+      <a class="sidebar-nav-item" href="/bibliography/" target="_blank">Bibliography</a>
+      <a class="sidebar-nav-item" href="/slides/">Slides</a>
+      <a class="sidebar-nav-item" href="/tags/">Tags</a>
+      <a class="sidebar-nav-item" href="/categories/">Category</a>
+      <a class="sidebar-nav-item" href="/timeline/">Timeline</a>
+      <!-- <a class="sidebar-nav-item" href="https://github.com/jeromechan">GitHub</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
+    </nav>
+
+    <p><small>Copyright &copy; 2013-2016</small></p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">几种方法调用思路的比较</h1>
+  <span class="post-date">02 Dec 2016</span>
+  <p>编码过程中，每天都在实现的事情，不是对象就是方法。那么如何去封装一个方法的入参呢？如果入参很多，是否有比较不一样的思路可以提高代码的复用性和可读性呢？下面谈谈在这一方面，近期学习到的一点知识。</p>
+
+<h4 id="section">一、参数逐个罗列</h4>
+
+<p>假设有这么一个方法，方法参数很多，但都类似，我们可能需要把所有参数逐个逐个传入方法体内，就像这样：</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * A common style of implementing a function.
+ *
+ * @param type1
+ * @param type2
+ * @param type3
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">(</span><span class="n">Byte</span> <span class="n">type1</span><span class="o">,</span> <span class="n">Byte</span> <span class="n">type2</span><span class="o">,</span> <span class="n">Byte</span> <span class="n">type3</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">type1</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// do some conditional processes.</span>
+        <span class="c1">//</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">type2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// do some conditional processes.</span>
+        <span class="c1">//</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">type3</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// do some conditional processes.</span>
+        <span class="c1">//</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Test cases for explaining how to invoke a function.
+ *
+ * @author chenjinlong 20161202
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">invokerMethod</span><span class="o">()</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Initial parameters
+     */</span>
+    <span class="kd">final</span> <span class="n">Byte</span> <span class="n">type1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">type2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">type3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+    <span class="cm">/**
+     * Call with separated parameters
+     */</span>
+    <span class="n">doSomething</span><span class="o">(</span><span class="n">type1</span><span class="o">,</span> <span class="n">type2</span><span class="o">,</span> <span class="n">type3</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="section-1">二、列表形式批量传入</h4>
+
+<p>可能有的工程师觉得上面这种办法，会使得方法参数过多，不便于阅读和归类，列表的办法可能会更好，所以上面的逻辑也可以写成这样：</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Another common style of implementing a function.
+ *
+ * @param typeList
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Byte</span><span class="o">&gt;</span> <span class="n">typeList</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">Byte</span> <span class="n">type</span> <span class="o">:</span> <span class="n">typeList</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+                <span class="c1">//</span>
+                <span class="c1">// do some conditional processes.</span>
+                <span class="c1">//</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+                <span class="c1">//</span>
+                <span class="c1">// do some conditional processes.</span>
+                <span class="c1">//</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Test cases for explaining how to invoke a function.
+ *
+ * @author chenjinlong 20161202
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">invokerMethod</span><span class="o">()</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Initial parameters
+     */</span>
+    <span class="kd">final</span> <span class="n">Byte</span> <span class="n">type1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">type2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">type3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    
+    <span class="cm">/**
+     * Call with parameter list
+     */</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Byte</span><span class="o">&gt;</span> <span class="n">typeList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Byte</span><span class="o">&gt;();</span>
+    <span class="n">doSomething</span><span class="o">(</span><span class="n">typeList</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="vo">三、对象VO的形式传入参数</h4>
+
+<p>可能还有的工程师觉得，塞个列表进来，其实也并不能将释义阐述清楚，每个列表值虽说都是byte，但是每个byte的含义都代表着不通的分支不通的含义。所以，对象的办法就引入进来了：</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * An POJO-bean style of implementing a function.
+ *
+ * @param typeList
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">(</span><span class="n">TypeExplains</span> <span class="n">typeExplains</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">typeExplains</span><span class="o">.</span><span class="na">getTypeOne</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// do some conditional processes.</span>
+        <span class="c1">//</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">typeExplains</span><span class="o">.</span><span class="na">getTypeTwo</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// do some conditional processes.</span>
+        <span class="c1">//</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">typeExplains</span><span class="o">.</span><span class="na">getTypeThree</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// do some conditional processes.</span>
+        <span class="c1">//</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Test cases for explaining how to invoke a function.
+ *
+ * @author chenjinlong 20161202
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">invokerMethod</span><span class="o">()</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Initial parameters
+     */</span>
+    <span class="kd">final</span> <span class="n">Byte</span> <span class="n">type1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">type2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">type3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    
+    <span class="cm">/**
+     * Call with parameter bean
+     */</span>
+    <span class="n">TypeExplains</span> <span class="n">typeExplains</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TypeExplains</span><span class="o">();</span>
+    <span class="n">typeExplains</span><span class="o">.</span><span class="na">setTypeOne</span><span class="o">(</span><span class="n">type1</span><span class="o">);</span>
+    <span class="n">typeExplains</span><span class="o">.</span><span class="na">setTypeTwo</span><span class="o">(</span><span class="n">type2</span><span class="o">);</span>
+    <span class="n">typeExplains</span><span class="o">.</span><span class="na">setTypeThree</span><span class="o">(</span><span class="n">type3</span><span class="o">);</span>
+    <span class="n">doSomething</span><span class="o">(</span><span class="n">typeExplains</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="section-2">四、按位与&amp;按位或 的方式传入参数</h4>
+
+<p>以上方式其实都可以达到相同的函数想要实现的目标，但是是否考虑过其他更为便捷的办法呢？最近就遇到这么一种比较创新的、特殊的、异类、不一样的、充分展现计算机知识学以致用的调用的模式：</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Each of Keys must be strictly defined.
+ */</span>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">TypeEnum</span> <span class="o">{</span>
+    <span class="n">TYPE_1</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="c1">// equals to "0001"</span>
+    <span class="n">TYPE_2</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="c1">// equals to "0010"</span>
+    <span class="n">TYPE_3</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span>  <span class="c1">// equals to "0100"</span>
+    <span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">key</span><span class="o">;</span>
+
+    <span class="n">TypeEnum</span><span class="o">(</span><span class="n">Integer</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">key</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setKey</span><span class="o">(</span><span class="n">Integer</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Using &amp; and | features.
+ *
+ * @param type
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">(</span><span class="n">Byte</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">((</span><span class="n">type</span> <span class="o">&amp;</span> <span class="n">TypeEnum</span><span class="o">.</span><span class="na">TYPE_1</span><span class="o">.</span><span class="na">getKey</span><span class="o">())</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// do some conditional processes.</span>
+        <span class="c1">//</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">((</span><span class="n">type</span> <span class="o">&amp;</span> <span class="n">TypeEnum</span><span class="o">.</span><span class="na">TYPE_2</span><span class="o">.</span><span class="na">getKey</span><span class="o">())</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// do some conditional processes.</span>
+        <span class="c1">//</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">((</span><span class="n">type</span> <span class="o">&amp;</span> <span class="n">TypeEnum</span><span class="o">.</span><span class="na">TYPE_3</span><span class="o">.</span><span class="na">getKey</span><span class="o">())</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// do some conditional processes.</span>
+        <span class="c1">//</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Test cases for explaining how to invoke a function.
+ *
+ * @author chenjinlong 20161202
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">invokerMethod</span><span class="o">()</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Initial parameters
+     */</span>
+    <span class="kd">final</span> <span class="n">Byte</span> <span class="n">type1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">type2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">type3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+    <span class="cm">/**
+     * Call with &amp; and |
+     */</span>
+    <span class="n">doSomething</span><span class="o">((</span><span class="kt">byte</span><span class="o">)(</span><span class="n">type1</span> <span class="o">|</span> <span class="n">type2</span> <span class="o">|</span> <span class="n">type3</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>这种按位或传入，按位与判断获取的办法，着实为传入参数提供了截然不同的参考。当然，这种办法也不是适用于所有场景的。
+按位与按位或的办法，使用于需要传入参数很多的，方法体内针对每个参数会包含着不一样分支逻辑的场景。该方式简化了方法体外“或关系”判断的逻辑，但另一方面也确实降低了代码的易读性。</p>
+
+<h4 id="section-3">五、总结</h4>
+
+<p>其实以上谈到的四种模式中，没有哪一种是最好的。符合实践场景的、符合团队技术水平现实的、具备高内聚低耦合特点的，那就一定是最适合的。  <br />
+后续日子里，会就代码内部模式的实践上，发散开来谈谈如何编写可读性强的代码，然后再多po几篇文章分享出来。</p>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+          <a href="/2016/09/23/feature-toggle-translation/">
+            [译]Feature Toggle - Martin Fowler
+            <small>23 Sep 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/09/06/db-master-slave-pattern-rules/">
+            读写分离的原则
+            <small>20 Sep 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/09/01/integrate-phpstorm-mamp-xdebug/">
+            关于PhpStorm+MAMP+xdebug集成失败的处理办法
+            <small>01 Sep 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/08/27/git-protocol/">
+            Git使用规范
+            <small>27 Aug 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/08/26/xrebel-tutorial/">
+            XRebel入门与实践
+            <small>26 Aug 2016</small>
+          </a>
+      </li>
+    
+      <li>
+          <a href="/2016/07/22/easy-chosing-opensource-license/">
+            如何快速选择开源软件协议
+            <small>22 Jul 2016</small>
+          </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//aboutcoder.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+  </body>
+
+  <div style="display:none;">
+	<script src="http://s23.cnzz.com/z_stat.php?id=1252898702&web_id=1252898702" language="JavaScript"></script>
+</div>
+  
+</html>

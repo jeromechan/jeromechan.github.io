@@ -673,6 +673,22 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -695,172 +711,139 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/07/29/talking-about-sitemap/">
-        浅谈sitemap协议及其应用
+      <a href="/2014/08/16/talking-about-linux-user-management/">
+        谈谈Linux用户管理
       </a>
     </h1>
 
-    <span class="post-date">29 Jul 2014</span>
+    <span class="post-date">16 Aug 2014</span>
     
-    <p>很多人都知道，一个站点建立起来之后，不仅内容要丰富，还有另外一点非常重要，那就是搜索引擎的爬取与收录。</p>
+    <p>谈起Linux，没有接触过的童鞋们可能会望而却步，其实不然。今天恰好遇到好些童鞋询问相关于Linux的一些终端命令操作的问题，自己正好有一想法，接下来会陆续写一些关于Linux的日常应用的博客文章。使用Linux系统，首先你一定要是Linux的用户。今天咱们就先来谈谈Linux关于用户的一些事情。</p>
 
-<p>众所周知的著名搜索引擎，国际上有Google，Yahoo!，Bing，国内通用的有百度，搜狗，360搜索等。当前国情决定，国际上著名的在国内发展地都不怎么样，要么发展路线左倾，与方针精神不相符合然后各种关键词词库过滤，要么特例独行直接放弃陪你们这么玩。这其中著名的产物应该当属伟大的墙无疑。不知道伟大的墙是什么？<a href="http://baike.baidu.com/link?url=K8sYMHBU2GewuCXIkD6YbhymvsQCMWKb-BNs5iZoiYAbpOV4LWR64iwKC_K_Ed7PYBF-G3Vp34j60USGwduISOOnFzFhxVNQ619NE_4GLAS">点击这里</a> 进一步了解。</p>
+<p>Linux的用户管理有两个很重要的概念，一个是用户，一个是组。用户与组是一对多的关系。当你创建用户之时，会自然产生一个与你用户名相同的一个组，是新增用户所建立的默认组关系。</p>
 
-<p>前面分析了国际著名Search Engine的国内发展情况，“革命尚未成功，仍需更加努力”。接着我们来聊聊国内的引擎。在作者高中刚接触计算机的时候，听闻的是“百谷虎”是身边最多人使用的，因为他是三个引擎的结果集合。直到高三之后才发现，原来那是一个山寨的网站，呵呵。</p>
+<p>在用户的权限管理上，一个用户可以独立具备多项权限，一个组也可以具备多项权限，当一个用户属于一个组之时，它便自然地拥有了整个组的权限，因为它成为了这个组的成员。</p>
 
-<p>百度，当属目前互联网最大的中文搜索引擎无疑，在Google“回家”之后，更是肆无忌惮地称霸中原了，搜狗，搜搜啥的，只能喝喝菜汤啥的就觉得相比往年已是N*100%的增长，啥狗啥更懂你的，其实等你真正用起来的时候就会发现，其实他们更多的是其合作方提供的外卖。</p>
+<p>下面来逐一解释用户和组的常用操作：</p>
 
-<p>360搜索算是异军突起，凭借着安全领域揽到的N亿群体，直接进军百度帝国的搜索领域，其初期不遵循robots协议的做法为同行业所谴责，但与此同时也为其快速发展提供了很大的帮助，这是否能说是不择手段呢？这或许每个人都会有不同的看法。</p>
+<h5 id="group">组（group）：</h5>
+<p>1.查看系统的组信息
+Linux中的信息都以文件形式存储，权限配置文件当然也不例外。</p>
 
-<p>360搜索的强势也带来了很高的回报，发布1年之后，保守估计，确实快速蚕食了百度的超2-3成左右的份额。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>more /etc/group
+</code></pre>
+</div>
 
-<p>好了，好像已经偏题了，其实前面说那么多也无非是让大家都了解了解我们身边的搜索引擎的发展态势。继续今天的主题，就是sitemap。</p>
+<p>2.查看当前用户所属的组</p>
 
-<p>那么什么是sitemap？我们来看下wikipedia的定义：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>groups
+</code></pre>
+</div>
+
+<p>3.新增组</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>groupadd [GROUP_NAME]
+</code></pre>
+</div>
+
+<p>4.删除组</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>groupdel [GROUP_NAME]
+</code></pre>
+</div>
+
+<p>5.修改组信息
+看到这里，可能大家会自然地联想到，groupmod这样子的一个命令，当然，linux是强大的，这个命令不出意料地存在着，但groupmod并不能修改所有的group信息，只能修改GID、重命名、修改组密码和unique属性</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>groupmod -g [NEW_GID] #修改GID
+groupmod -n [NEW_GROUP_NAME] #重命名
+groupmod -o #unique属性，-o全称为--non-unique
+groupmod -p [NEW_PASSWORD] #修改组密码
+</code></pre>
+</div>
+
+<p>如果需要修改组所包含的用户列表，可以打开文件/etc/group文件，找到相应的组名进行编辑，/etc/group文件内容格式说明如下，可供参考和阅读：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[GROUP_NAME] : [GROUP_PASSWORD] : [GID] : [GROUP_USER_LIST]
+示例：root:x:511:user1,user2,user3
+</code></pre>
+</div>
 
 <blockquote>
-  <p>A site map (or sitemap) is a list of pages of a web site accessible to crawlers or users. It can be either a document in any form used as a planning tool for Web design, or a Web page that lists the pages on a Web site, typically organized in hierarchical fashion.</p>
+  <p>Tips：密码段的“x”（或者“*”）是特殊的字符，表示没有设置密码（或者是设定了但是被shadow技术隐藏了，口令被加密后实际存放到了/etc/shadow，只有超级用户才能读取该文件），同时，修改/etc/group或者/etc/passwd文件，都需要root权限，请确保su - 切换到root下，再作该类操作。</p>
 </blockquote>
 
-<p>简单了说，就是一个站点的树形层级结构，站点的脑图，根据它可以遍历整个站点的角角落落。</p>
+<p>6.其他
+现在的linux/mac的UI功能界面都发展地非常完善，可以找找自己的发行版OS是否有用户管理的界面操作功能（普遍都会存在的），界面操作和windows操作习惯是相似地，那样子可以更容易让人理解和入门，也不失为一种便捷的linux用户管理的方式。</p>
 
-<p>那么，我们为什么需要它呢？因为sitemap可以提供给搜索引擎，提供给spider一个内容爬取的大道入口。搜索引擎如何知道你上线了一个站点，如何知道你发布了一篇博客，如何知道你的站点里含了哪些其他存档的文章等等。</p>
+<h5 id="user">用户（user）：</h5>
 
-<p>如果你的站点有了sitemap，spider会在它的周期内很快收录你站点中的所有文章，按照权重提供到用户的搜索结果中。</p>
+<p>1.新增用户</p>
 
-<p>以上只是说明了sitemap的好处和作用，不要误解sitemap是引擎收录文章的唯一入口。当然不是，只是说，如果你有了sitemap，符合指定搜索引擎所适配的sitemap，那么会收录地更快更好。具体可以抽空学习SEO知识，你会收获更多。</p>
-
-<p>接下来介绍一下sitemap协议。</p>
-
-<blockquote>
-  <p>sitemap通用的做法是使用XML Schema书写的文档形式，必须包含XML tags，同时文档中包含的内容必须是被处理（Entity escaping）过的，同时文档必须符合UTF-8编码。</p>
-
-  <p>其中，sitemap必须满足以下条件：</p>
-
-  <ul>
-    <li>以<urlset></urlset>包含所有其他XML节点；</li>
-    <li>在urlset中参照协议标准定义相应的命名空间；</li>
-    <li>至少包含一个以父节点存在的有效的<url>；</url></li>
-    <li>在<url>节点中至少包含一个<loc>节点，以说明需要被爬取内容的链接；</loc></url></li>
-    <li>sitemap中仅允许包含相同域名的站点，如果是多个域名，则需要书写多个sitemap；</li>
-  </ul>
-</blockquote>
-
-<p>前面谈到了Entity escaping是什么呢？给大家一张图相信大家就知道了，简单说就是把一些特殊字符用其他的形式表示起来。如下图所示：</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Character</th>
-      <th style="text-align: left">Escape Code</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Ampersand    &amp;  </td>
-      <td style="text-align: left">      &amp; amp;</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td>Single Quote   ‘  </td>
-      <td style="text-align: left">       &amp; apos;</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td>Double Quote “  </td>
-      <td style="text-align: left">       &amp; quot;</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td>Greater Than &gt;  </td>
-      <td style="text-align: left">       &amp; gt;</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td>Less Than      &lt;  </td>
-      <td style="text-align: left">       &amp; lt;</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>以下提供一个简单的sitemap.xml示例供大家参考：</p>
-
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;url&gt;</span>
-      <span class="nt">&lt;loc&gt;</span>http://www.example.com/<span class="nt">&lt;/loc&gt;</span>
-      <span class="nt">&lt;lastmod&gt;</span>2005-01-01<span class="nt">&lt;/lastmod&gt;</span>
-      <span class="nt">&lt;changefreq&gt;</span>monthly<span class="nt">&lt;/changefreq&gt;</span>
-      <span class="nt">&lt;priority&gt;</span>0.8<span class="nt">&lt;/priority&gt;</span>
-   <span class="nt">&lt;/url&gt;</span>
-<span class="nt">&lt;/urlset&gt;</span> 
+<div class="highlighter-rouge"><pre class="highlight"><code>useradd [USER_NAME] #新增用户，默认在/home下生成与用户名同名的用户主目录
+useradd -d /home/[USER_HOME_DIR_NAME] [USER_NAME] #新增用户，同时指定自定义的用户主目录
+useradd -g [EXIST_GROUP_NAME] [USER_NAME] #新增用户，同时关联一个已存在的组
+useradd -G [EXIST_GROUP_NAME] [USER_NAME] #新增用户，同时增量关联一个已存在的组
+useradd -s /bin/false [USER_NAME] #新增用户，同时禁用其默认登录的shell权限
 </code></pre>
 </div>
 
-<p>如果需要在同一个站点中维护不同subdomain的sitemap，那么可以参考如下做法：</p>
+<p>2.修改用户信息</p>
 
-<p>http://www.sitemaphost.com/sitemap-host1.xml
-http://www.sitemaphost.com/sitemap-host2.xml
-http://www.sitemaphost.com/sitemap-host3.xml</p>
+<p>方式一：终端命令</p>
 
-<p>以下做一些关于wordpress的sitemap的介绍。</p>
-
-<p>wordpress制作sitemap，最为简单的途径，就是可以借助其平台强大的plugin功能，但是不管你是否相信，wordpress的plugin开启地越多，对wp系统的运行效率的影响越大。</p>
-
-<p>所以，能手工添加还是尽量走手工添加定期更新为佳，毕竟搜索引擎也不会每天日以继夜地抓取你的小站点，你也不会日以继夜分秒必争地更新着你的博客文章。所以个人小博客站点类，建议手工添加sitemap文件。</p>
-
-<p>在手工添加这条道路上，Google和Baidu提供了许许多多地做法，都可以达到不错的效果。我这里只简单介绍本站博客的做法。</p>
-
-<p>1.在wp根目录下新增sitemap.php文件，填充以下代码：</p>
-
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;url&gt;</span>
-        <span class="nt">&lt;loc&gt;&lt;/loc&gt;</span>
-        <span class="nt">&lt;lastmod&gt;&lt;/lastmod&gt;</span>
-        <span class="nt">&lt;changefreq&gt;</span>always<span class="nt">&lt;/changefreq&gt;</span>
-        <span class="nt">&lt;priority&gt;</span>1.0<span class="nt">&lt;/priority&gt;</span>
-    <span class="nt">&lt;/url&gt;</span>
-    get_results("SELECT * FROM $wpdb-&gt;posts WHERE post_status = 'publish' ORDER by post_modified DESC"); ?&gt;
-        <span class="nt">&lt;url&gt;</span>
-            <span class="nt">&lt;loc&gt;</span>ID); ?&gt;<span class="nt">&lt;/loc&gt;</span>
-            <span class="nt">&lt;lastmod&gt;</span>post_modified, false); ?&gt;<span class="nt">&lt;/lastmod&gt;</span>
-            <span class="nt">&lt;changefreq&gt;</span>daily<span class="nt">&lt;/changefreq&gt;</span>
-            <span class="nt">&lt;priority&gt;</span>0.8<span class="nt">&lt;/priority&gt;</span>
-        <span class="nt">&lt;/url&gt;</span>
-<span class="nt">&lt;/urlset&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>usermod -d /home/[USER_HOME_DIR_NAME] [USER_NAME] #指定自定义的用户主目录
+usermod -g [EXIST_GROUP_NAME] [USER_NAME] #强制关联一个已存在的组为默认组
+usermod -G [EXIST_GROUP_NAME] [USER_NAME] #增量关联一个已存在的组
+usermod -s /bin/false [USER_NAME] #禁用用户默认登录的shell权限
 </code></pre>
 </div>
 
-<p>2.新增sitemap_gen.php，填充以下代码，用以生成XML文件：</p>
+<p>方式二：编辑/etc/passwd配置</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>   
-<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"http://DOMAIN:PORT/sitemap.php"</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="nv">$output</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-<span class="nb">file_put_contents</span><span class="p">(</span><span class="s1">'./sitemap.xml'</span><span class="p">,</span> <span class="nv">$output</span><span class="p">);</span>
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<p>先说说/etc/passwd文件内容格式说明：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[USER_NAME] : [USER_PASSWORD] : [UID] : [GID] : [USER_FULL_NAME] : [USER_HOME_DIR] : [USER_LOGIN_SHELL]
+示例：root:x:0:0:root:/root:/bin/bash
 </code></pre>
 </div>
 
-<ol>
-  <li>
-    <p>上传到站点根目录，浏览器执行“http://DOMAIN:PORT/sitemap_gen.php，就这样sitemap.xml就在站点根目录生成成功了。</p>
-  </li>
-  <li>
-    <p>剩下的步骤，就是向Google和Baidu等各大搜索引擎提交sitemap.xml访问地址。</p>
-  </li>
-</ol>
+<p>3.修改密码</p>
 
-<p>参考资料：  <br />
-- Sitemap Protocol：<a href="http://www.sitemaps.org%20">http://www.sitemaps.org</a>  <br />
-- Simply Making Sitemap：<a href="http://www.xml-sitemaps.com">http://www.xml-sitemaps.com</a>  <br />
-- Google Sitemap Generator WP Plugin：<a href="http://wordpress.org/plugins/google-sitemap-generator/">http://wordpress.org/plugins/google-sitemap-generator/</a>  <br />
-- Sitemap Formats And Guidelines：<a href="https://support.google.com/webmasters/answer/183668">https://support.google.com/webmasters/answer/183668</a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>passwd [USER_NAME] 
+</code></pre>
+</div>
+
+<p>若只是修改当前登录用户的密码，直接</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>passwd 
+</code></pre>
+</div>
+
+<p>即可。</p>
+
+<p>4.增加sudoer权限</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>su -
+visudo
+</code></pre>
+</div>
+
+<p>此时切换到了sudo配置文件的编辑页面，在文件底，增加一行配置：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[USER_NAME]   ALL=(ALL)   ALL #切换sudo需要输入当前登录的具备root权限用户的密码
+或者
+[USER_NAME]   ALL=(ALL)   NOPASSWD:ALL #切换sudo不需要重新输入密码
+</code></pre>
+</div>
+
+<p>，编辑完后 :wq 即可。
+备注：以上格式做一些说明吧，避免有的童鞋不知所以然哈</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[USER_NAME]    [MACHINE_NAME]=([SWITCH_IDENTITY/USER_NAME])   [COMMAND]
+示例：%wheel    ALL=(ALL)   NOPASSWD: ALL #允许wheel用户组中的用户在不输入该用户的密码的情况下使用所有命令 
+</code></pre>
+</div>
 
 
   </div>
