@@ -689,6 +689,14 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -711,134 +719,211 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2016/07/01/how-to-make-a-project-plan/">
-        学习笔记：项目管理之规划项目
+      <a href="/2016/07/02/talk-about-middleman/">
+        说说使用middleman的那些事情
       </a>
     </h1>
 
-    <span class="post-date">30 Jun 2016</span>
+    <span class="post-date">02 Jul 2016</span>
     
-    <h3 id="section">一、回顾基础知识</h3>
-<ul>
-  <li>项目经理：把控“完成”的含义，并带领团队完成项目的人；</li>
-  <li>项目的关键驱动因素、约束和浮动因素；</li>
-  <li>传统铁三角：成本 + 时间 + 质量/范围；</li>
-  <li>通过沟通发掘决定项目的关键驱动因素；</li>
-  <li>少用“为什么”，避免“怎么做”，项目如何才算成功；</li>
-  <li>探讨制定项目章程，有助于凝聚团队；</li>
-  <li>从“摩尔鸿沟”表象，看项目、团队发展历程。</li>
-</ul>
+    <p><img src="/images/2016-07-02-talk-about-middleman/DraggedImage.png" alt="" /></p>
 
-<h3 id="section-1">二、引导语</h3>
-<blockquote>
-  <p>“项目规划是在不断进行的，这只是开始。”</p>
-</blockquote>
+<h4 id="section">一、什么是静态网站</h4>
 
-<h3 id="section-2">三、纲要</h3>
-<ul>
-  <li>如何踏上项目征程</li>
-  <li>讲解开发项目规划模版条目</li>
-  <li>项目如何才适合发布上线</li>
-  <li>发布条件的管理</li>
-  <li>最后的几句总结</li>
-</ul>
+<p>随着互联网发展的脚步，现在的个人博客网站已经不再局限于国内几大门户网站所提供的博客撰写服务。
+记得上大学那会儿，为了阅读一些名人诸如国民岳父韩寒、李承鹏、徐静蕾等博主的文章和思想，每天必定会上博客上转上两遍，翻阅近十篇进行阅读。那个时候的博客页面加载速度，在寝室512k的带宽状况下，简直令人没有了脾气。</p>
 
-<h3 id="section-3">四、辨析两句短语</h3>
+<p>那个时候并没有太多纯静态网站的做法，有的是一些根据脚本生成指定的某些html页面，用于解决一些高流量访问的问题，例如门户站点的首页，其中只需要保持少量的动态加载元素，对付高流量高并发并不是困难的。</p>
 
-<p><img src="/images/2016-06-30-how-to-make-a-project-plan/14673084562094.jpg" alt="" /></p>
-
-<h3 id="section-4">五、使项目踏上征程</h3>
-<ul>
-  <li>规划不必完美无缺，实际上这也是做不到的；</li>
-  <li>采用时间盒子的方式启动项目的规划；</li>
-  <li>要根据经验而不是预言来规划项目。</li>
-</ul>
+<p>而个人博客、企业宣传页面不同于上文的需求场景，其更新频率定期，没有过多的注册用户信息的管理，不涉及复杂的交互实现，只需要满足查看和评论的功能即可。</p>
 
 <blockquote>
-  <p>“规划毫无用处，但是制定规划必不可少。”
-——艾森 · 豪威尔
-<img src="/images/2016-06-30-how-to-make-a-project-plan/14673086699212.jpg" alt="" /></p>
+  <p>评论功能自然是需要实现r+w操作的，但是现在已经存在了很多第三方协助托管评论信息的平台，例如国内的多说，国外的disqus。只需要开发者简单地嵌入少量html+js代码即可完成评论功能的实现。</p>
 </blockquote>
 
-<h3 id="section-5">六、开发项目规划模版</h3>
-<p><em>下面介绍一些常用的模版条目 …</em></p>
+<p>故而，纯静态网站应运而生，各类纯静态网站生成工具也出现了较大的发展前景。下面说道的middleman就是一个静态网站的generator工具。</p>
+
+<h4 id="jekyllmiddleman">二、放弃jekyll转投middleman</h4>
+
+<p><img src="/images/2016-07-02-talk-about-middleman/DraggedImage-1.png" alt="" /></p>
+
+<p>这部分并不是说jekyll技术已经落后，而是从自身角度来看为什么自己会转投middleman。
+自己是从2014年开始使用jekyll的，源于阅读了较多的大神yuguo对于前端栈的技术篇章，也就两年的光景，但是自己经历了从2.X版本变迁到3.X版本的过程。
+对于为什么自己放弃jekyll转投middleman，下面分2点作出阐述。</p>
+
+<p>第一点，我们先来说说2.X到3.X版本的更迭细节。
+<img src="/images/2016-07-02-talk-about-middleman/DraggedImage-2.png" alt="" />
+以上变迁的情况说明，大家都知道，jekyll 2.X里包含了ruby和python两门技术，而以上的更迭看来，一方面减少了非必需包的依赖，留出了定制空间，移除了python的依赖。或许jekyll作者更喜欢ruby only吧。</p>
+
+<p>这些变更并不是向前兼容的，如果你的jekyll是2.X版本，请留意升级后带来的源代码修改的成本。虽然它不是向前兼容，但是升级过程并不会引入更多的包依赖，而恰恰是因为这点，_config.yml需要作出的变更会较多，例如coderay的highlighter引擎建议要更换为rouge；需要分页插件，则需要增加gems:[jekyll-paginate]作出依赖声明，等等。</p>
+
+<p>而这里包含了一点自己无法接受的变更，看官方声明：</p>
+
+<blockquote>
+  <p><strong>!! Don’t set a permalink</strong> <br />
+Setting a permalink in the front matter of your blog page will cause pagination to break. Just omit the permalink.</p>
+</blockquote>
+
+<p>以上意思是说，如果你使用了pagination，那么permalink的使用会阻断pagination的执行。也就是说，如果你有一个分页列表的页面，因为你在该页面中使用了permalink改写路径，那么页面中的paginator.posts将会失效，页面内容也将加载失败。</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+<span class="c">&lt;!-- This loops through the paginated posts，if you had used permalink settings, the paginator parsing job will fail. --&gt;</span>
+{% for post in paginator.posts %}
+  <span class="nt">&lt;h1&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ post.url }}"</span><span class="nt">&gt;</span>{{ post.title }}<span class="nt">&lt;/a&gt;&lt;/h1&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"author"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"date"</span><span class="nt">&gt;</span>{{ post.date }}<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+    {{ post.content }}
+  <span class="nt">&lt;/div&gt;</span>
+{% endfor %}
+	
+</code></pre>
+</div>
+
+<p>第二点，就要说到liquid的语法。
+我们来假设这么个场景，在一个列表加载的页面中，我们需要在循环内判断到达指定加载条目预设上限之时，循环执行break跳出。
+这个场景使用liquid引擎是这么写的：</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>site.posts<span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">plus</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">break</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre>
+</div>
+
+<p>也可以这么写：</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">%}</span> // 这句话可有可无，因为increment会将var初始化为0
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>site.posts<span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>var<span class="w"> </span><span class="p">%}</span>  // 这句话会自动执行一个print语句，将var打印出来
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">break</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre>
+</div>
+
+<p>前者的写法让人觉得做一个简单的运算都需要去背记liquid的各种filters，让人觉得麻烦不已。
+后者的写法会凭空多出一个默认的print效果，这个也是UI界面编写之时无法接受的。</p>
+
+<h4 id="wordpresslamp">三、为什么不选用WordPress等LAMP架构的博客框架</h4>
+
+<p><img src="/images/2016-07-02-talk-about-middleman/DraggedImage-3.png" alt="" /></p>
+
+<p>作为一名php开发者，wordpress是必须鼓捣的框架之一，但是为什么最终放弃了选用wp作为个人博客首选呢？
+原因其实不复杂，主要有以下五个方面： <br />
+1. 涉及数据库技术，数据的灾备流程过于复杂，维护时间成本高； <br />
+2. wp框架体量重，适合开发较大型的cms内容管理站点，对于个人博客有点大材小用，如同杀鸡用了牛刀； <br />
+3. 扩展插件多是其亮点，同时也是拖慢wp站点的一大坑点，php的通用单线程处理机制决定了其瓶颈，就算升级了鸟哥的php7估计也根治不了多扩展插件wp站点的加载时长的问题； <br />
+4. 需要关注的安全问题较多，可定制化有限，如果不合适的定制会引发无法升级的问题； <br />
+5. 需要一台VPS或者Web Host主机，也就是将多出一份硬件方面的开销，如果要求访问稳定、连接速度可接受的主机，购买价格也会逐级上升。</p>
+
+<h4 id="middleman">四、简明middleman实践之路</h4>
+<p>##### 4.1 由于middleman是ruby语言的作品，先了解以下关于ruby语言的关键概念。</p>
+
+<p><img src="/images/2016-07-02-talk-about-middleman/DraggedImage-4.png" alt="" /></p>
 
 <ol>
-  <li>产品意图</li>
-  <li>发布历史记录</li>
-  <li>发布条件</li>
-  <li>项目目标、时间盒子目标</li>
-  <li>团队职责、项目运作的组织</li>
-  <li>
-    <p>项目日程总览</p>
-
-    <ul>
-      <li>样式1</li>
-    </ul>
-
-    <p><img src="/images/2016-06-30-how-to-make-a-project-plan/14673089688628.jpg" alt="" /></p>
-
-    <ul>
-      <li>样式2</li>
-    </ul>
-
-    <p><img src="/images/2016-06-30-how-to-make-a-project-plan/14673090092803.jpg" alt="" /></p>
-
-    <ul>
-      <li>样式3</li>
-    </ul>
-
-    <p><img src="/images/2016-06-30-how-to-make-a-project-plan/14673090209493.jpg" alt="" /></p>
-  </li>
-  <li>人员配备</li>
-  <li>建议日程
-    <ul>
-      <li>样式1</li>
-    </ul>
-
-    <p><img src="/images/2016-06-30-how-to-make-a-project-plan/14673090942241.jpg" alt="" />
- - 样式2</p>
-
-    <p><img src="/images/2016-06-30-how-to-make-a-project-plan/14673091056258.jpg" alt="" /></p>
-  </li>
+  <li>ruby：顾名思义，指的就是ruby语言。</li>
+  <li>rvm：全名ruby version manager，注意它和jvm不是一个含义哦。rvm是管理ruby本身，也包含了ruby插件的管理。</li>
+  <li>rails：指的是ruby著名开发框架，认识ruby的人都认识它。</li>
+  <li>rubygems：ruby程序包管理器，可以将ruby程序打包成gem，作为一个独立安装单元安装到计算机中。</li>
+  <li>gem：指的是封装起来的ruby应用程序，或者代码库。终端中使用的gem命令，是指使用rubygems安装程序应用。</li>
+  <li>gemfile：配置文件，用于定义指定应用所依赖的包，然后可以提供给bundle命令执行，类似于shell命令中的.sh脚本。</li>
+  <li>rake：该程序包是ruby所需要安装的包中最为关键的一个。rake是一个ruby的构建工具，类似于Make、ant、maven、gradle不等。rakefile便是其执行的构建任务配置文件，其中涉及特定的DSL撰写方式，类似于groovy在gradle中的应用一样。</li>
+  <li>rakefile：rake构建任务中所涉及的任务配置文件。</li>
+  <li>bundle：等同于批量执行gem命令，配置好gemfile之后，使用bundle install可以实现包，及其依赖包的自动下载与安装。</li>
 </ol>
 
-<blockquote>
-  <p>温馨提示：小心过早细化日程
-<img src="/images/2016-06-30-how-to-make-a-project-plan/14673091416870.jpg" alt="" /></p>
-</blockquote>
+<h5 id="middleman-1">4.2 middleman的安装疑问</h5>
 
-<p>9.制定项目风险列表 
-<img src="/images/2016-06-30-how-to-make-a-project-plan/14673092036240.jpg" alt="" /></p>
+<p>middleman依赖于rubygems、bundle、gemfile、rake等工具或框架。在安装一系列ruby依赖库的过程中，会遇到connection fail，error loading，can’t be found等问题，这些问题的原因是因为<a href="https://www.rubygems.org">rubygems.org</a>在国内访问不稳定的缘故。</p>
 
-<h3 id="section-6">七、制定发布条件</h3>
-<blockquote>
-  <p>发布条件可以告诉我们项目“完成”的含义。</p>
-</blockquote>
+<p>正所谓兵来将挡，水来土掩，方法总是比困难要多得多。<br />
+国内的大淘宝，还有ruby-china官方，都给大家做了一个同步频率为15mins的ruby gems的镜像，我们可以将自己本地的ruby gems、bundle源配置切换到国内。 <br />
+参见这里： <br />
+- ruby-china官方源：http://ruby-china.org <br />
+- 大淘宝的镜像源：http://ruby.taobao.org</p>
 
-<h3 id="section-7">八、拟定步骤</h3>
-<ol>
-  <li>确定当前发布的最重要的因素（包含关键驱动因素）</li>
-  <li>草拟发布条件</li>
-  <li>修订发布条件，使其符合SMART原则</li>
-  <li>达成多方共识</li>
-</ol>
+<p>在安装各项依赖之时，建议先配置好gemfile，然后使用命令bundle install自动实现下载和安装，而不是使用middleman server逐项发现缺失库，因为从操作效率上是得不偿失的。</p>
 
-<h3 id="smart">九、SMART原则</h3>
-<p><img src="/images/2016-06-30-how-to-make-a-project-plan/14673093012558.jpg" alt="" /></p>
+<h5 id="slim-vs-liquid">4.3 slim VS liquid</h5>
 
-<h3 id="section-8">十、使用发布条件</h3>
-<p><img src="/images/2016-06-30-how-to-make-a-project-plan/14673093575826.jpg" alt="" /></p>
+<p><img src="/images/2016-07-02-talk-about-middleman/14674858884718.png" alt="" /></p>
 
-<h3 id="section-9">十一、关键知识点</h3>
+<p>关于liquid的一些用法和自己不感冒之处，前面已经提及了部分，这里不再大施笔墨赘述。
+这里说说slim的情况。</p>
+
+<p>liquid是jekyll默认配置的官方模板引擎，而slim也是middleman首推的前端引擎。
+liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得优雅了许多。</p>
+
+<p>slim所倡导的是，一切页面元素、样式、js均可结构化。使用slim可以大大简化前端页面渲染的逻辑实现结构，没有了liquid般的html+js+liquid+css混合搭配在.html文件里使用的尴尬，映入眼帘的均是层次分明，结构清晰的模板语法。</p>
+
+<p>下面作一下两者的对比，孰好各位看官心中自有结论。</p>
+
 <ul>
-  <li>项目规划实在不断进行的，这只是开始；</li>
-  <li>为项目团队、出资人和项目经理自己制定发布条件，以明确定义“完成”的含义；</li>
-  <li>项目规划不必完美无瑕，但是它必须存在。</li>
+  <li>html+js+css+liquid混合应用</li>
 </ul>
 
-<h3 id="section-10">十二、结束语</h3>
-<p><img src="/images/2016-06-30-how-to-make-a-project-plan/14673094267010.jpg" alt="" /></p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+<span class="c">&lt;!-- html+js+css+liquid混合应用 --&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"theme-color"</span> <span class="na">content=</span><span class="s">"{{ page.color }}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">assets</span><span class="err">/</span><span class="na">css</span><span class="err">/</span><span class="na">main</span><span class="err">.</span><span class="na">css</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"canonical"</span> <span class="na">href=</span><span class="s">"{{ page.url | replace:'index.html','' | prepend:site.baseurl | prepend: 	site.url }}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"alternate"</span> <span class="na">type=</span><span class="s">"application/rss+xml"</span> <span class="na">title=</span><span class="s">"{{ site.title }}"</span> <span class="na">href=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">feed</span><span class="err">.</span><span class="na">xml</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">url</span> <span class="err">}}"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+</code></pre>
+</div>
+
+<ul>
+  <li>slim的前端结构</li>
+</ul>
+
+<div class="language-slim highlighter-rouge"><pre class="highlight"><code><span class="err">&lt;!</span><span class="p">-</span><span class="o">-</span> <span class="n">html</span><span class="o">+</span><span class="n">js</span><span class="o">+</span><span class="n">css</span><span class="o">+</span><span class="n">slim</span><span class="err">混合应用</span> <span class="o">--&gt;</span>
+<span class="nn">doctype</span><span class="w"> </span>html
+<span class="nt">html</span><span class="w"> </span><span class="na">lang</span><span class="p">=</span><span class="s">"ja"</span>
+  <span class="nt">head</span>
+    <span class="nt">meta</span><span class="w"> </span><span class="na">charset</span><span class="p">=</span><span class="s">"utf-8"</span>
+    <span class="nt">title</span><span class="w"> </span>The<span class="w"> </span>Elevatorpitch
+    <span class="nt">meta</span><span class="w"> </span><span class="na">name</span><span class="p">=</span><span class="s">"viewport"</span><span class="w"> </span><span class="na">content</span><span class="p">=</span><span class="s">"width=device-width, initial-scale=1.0"</span>
+    <span class="nd">css:
+</span>      <span class="nt">body</span> <span class="p">{</span>
+        <span class="nl">padding-top</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+        <span class="nl">padding-bottom</span><span class="p">:</span> <span class="m">40px</span><span class="p">;</span>
+      <span class="p">}</span>
+  <span class="nt">body</span>
+    <span class="nt">div</span><span class="w"> </span><span class="na">class</span><span class="p">=</span><span class="s">"container-narrow"</span>
+      <span class="nt">div</span><span class="w"> </span><span class="na">class</span><span class="p">=</span><span class="s">"masthead visible-desktop"</span>
+<span class="nt">script</span><span class="w"> </span><span class="na">src</span><span class="p">=</span><span class="s">"/js/theelevatorpitch.js"</span>
+</code></pre>
+</div>
+
+<p>更多slim应用可以关注我的gist：<a href="https://gist.github.com/jeromechan/0432a89f3e9810e9ba26052606e56f38">Use slim engine for building html tags</a></p>
+
+<h4 id="try-the-way-you-like">五、Try the way you like</h4>
+
+<p>前端技术的不断发展，纯静态网站的性能问题也逐步被放大，在我们使用静态网站生成工具的同时，性能问题也一定需要着重考虑。
+例如，gzip压缩、js+css压缩、单次加载批量样式文件和js文件、html页面布局层次简化、js依赖关系处理、css继承关系的整理、前端cache/data等缓冲区域技术的应用、异步ajax请求时长的监控、sass/less的样式结构简化和预处理，等等方面。</p>
+
+<p>只要始终坚持用户至上，读者至上的原则，一定能够找到最适合自己预想的方案。</p>
+
+<p>前面所涉及的参考资料有如下，感兴趣可以自己翻翻看看： <br />
+- <a href="https://shopify.github.io/liquid/">Liquid官方文档</a> <br />
+- <a href="http://jekyllrb.com/docs/pagination/">Jekyll关于pagination说明</a> <br />
+- <a href="https://middlemanapp.com/basics/install/">Middleman官方文档</a> <br />
+- <a href="https://www.reddit.com/r/Jekyll/comments/3uhk2j/cant_get_pagination_working_with_jekyll_301/">Jekyll中paginate与permalink的冲突</a> <br />
+- <a href="http://blog.virtuacreative.com.br/upgrade-jekyll-2-to-3-gh-pages.html">Upgrading Jekyll 2 to 3 on GitHub Pages</a> <br />
+- <a href="https://gist.github.com/jeromechan/0432a89f3e9810e9ba26052606e56f38">How to use slim engine for building html tags？</a></p>
 
 
   </div>
