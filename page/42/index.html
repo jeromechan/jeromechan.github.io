@@ -697,6 +697,18 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -719,139 +731,106 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/08/16/talking-about-linux-user-management/">
-        谈谈Linux用户管理
+      <a href="/2014/08/16/linux-apache-install/">
+        Linux下的Apache安装
       </a>
     </h1>
 
     <span class="post-date">16 Aug 2014</span>
     
-    <p>谈起Linux，没有接触过的童鞋们可能会望而却步，其实不然。今天恰好遇到好些童鞋询问相关于Linux的一些终端命令操作的问题，自己正好有一想法，接下来会陆续写一些关于Linux的日常应用的博客文章。使用Linux系统，首先你一定要是Linux的用户。今天咱们就先来谈谈Linux关于用户的一些事情。</p>
+    <p>说到LAMP/WAMP服务器环境的搭建，相信PHPer都无一不会，但是对于Freshman来说，这一块的内容还是需要认真学习，从中可以学习到许多环境配置上的基础常识，自己动手捣腾过的东西才印象深刻，犹如“好记性不如烂笔头”的说法一般。</p>
 
-<p>Linux的用户管理有两个很重要的概念，一个是用户，一个是组。用户与组是一对多的关系。当你创建用户之时，会自然产生一个与你用户名相同的一个组，是新增用户所建立的默认组关系。</p>
+<p>关于LAMP/WAMP环境的搭建，准备细分为几篇文章进行讲解，希望能为更多需要该项知识的人提供更为全面的配置流程规范。</p>
 
-<p>在用户的权限管理上，一个用户可以独立具备多项权限，一个组也可以具备多项权限，当一个用户属于一个组之时，它便自然地拥有了整个组的权限，因为它成为了这个组的成员。</p>
-
-<p>下面来逐一解释用户和组的常用操作：</p>
-
-<h5 id="group">组（group）：</h5>
-<p>1.查看系统的组信息
-Linux中的信息都以文件形式存储，权限配置文件当然也不例外。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>more /etc/group
-</code></pre>
-</div>
-
-<p>2.查看当前用户所属的组</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>groups
-</code></pre>
-</div>
-
-<p>3.新增组</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>groupadd [GROUP_NAME]
-</code></pre>
-</div>
-
-<p>4.删除组</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>groupdel [GROUP_NAME]
-</code></pre>
-</div>
-
-<p>5.修改组信息
-看到这里，可能大家会自然地联想到，groupmod这样子的一个命令，当然，linux是强大的，这个命令不出意料地存在着，但groupmod并不能修改所有的group信息，只能修改GID、重命名、修改组密码和unique属性</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>groupmod -g [NEW_GID] #修改GID
-groupmod -n [NEW_GROUP_NAME] #重命名
-groupmod -o #unique属性，-o全称为--non-unique
-groupmod -p [NEW_PASSWORD] #修改组密码
-</code></pre>
-</div>
-
-<p>如果需要修改组所包含的用户列表，可以打开文件/etc/group文件，找到相应的组名进行编辑，/etc/group文件内容格式说明如下，可供参考和阅读：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>[GROUP_NAME] : [GROUP_PASSWORD] : [GID] : [GROUP_USER_LIST]
-示例：root:x:511:user1,user2,user3
-</code></pre>
-</div>
+<p>本篇文章，我们先Apache在Linux服务器环境下的搭建。</p>
 
 <blockquote>
-  <p>Tips：密码段的“x”（或者“*”）是特殊的字符，表示没有设置密码（或者是设定了但是被shadow技术隐藏了，口令被加密后实际存放到了/etc/shadow，只有超级用户才能读取该文件），同时，修改/etc/group或者/etc/passwd文件，都需要root权限，请确保su - 切换到root下，再作该类操作。</p>
+  <p>Tips：在搭建PHP之前，一定要先安装搭建好Apache/Nginx的容器环境。</p>
 </blockquote>
 
-<p>6.其他
-现在的linux/mac的UI功能界面都发展地非常完善，可以找找自己的发行版OS是否有用户管理的界面操作功能（普遍都会存在的），界面操作和windows操作习惯是相似地，那样子可以更容易让人理解和入门，也不失为一种便捷的linux用户管理的方式。</p>
+<p>1.检查环境中Apache的依赖包是否已经安装齐全</p>
 
-<h5 id="user">用户（user）：</h5>
+<p>（a）APR(Apache Portable Runtime) Project：apr, apr-util, apr-iconv(optional)
+    Download：<a href="http://apr.apache.org/">http://apr.apache.org/</a></p>
 
-<p>1.新增用户</p>
+<p>（b）PERL Language Support
+	Download：<a href="http://www.perl.org/">http://www.perl.org/</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>useradd [USER_NAME] #新增用户，默认在/home下生成与用户名同名的用户主目录
-useradd -d /home/[USER_HOME_DIR_NAME] [USER_NAME] #新增用户，同时指定自定义的用户主目录
-useradd -g [EXIST_GROUP_NAME] [USER_NAME] #新增用户，同时关联一个已存在的组
-useradd -G [EXIST_GROUP_NAME] [USER_NAME] #新增用户，同时增量关联一个已存在的组
-useradd -s /bin/false [USER_NAME] #新增用户，同时禁用其默认登录的shell权限
+<p>（c）PCRE Library：A set of functions that implement regular expression pattern matching using the same syntax and semantics as Perl 5.
+	Download：<a href="http://sourceforge.net/projects/pcre/">http://sourceforge.net/projects/pcre/</a></p>
+
+<p>2.安装APR
+（a）解压下载的tar包</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>tar zxvf apr.tar.gz -C <span class="o">[</span>TARGET_DIR]
+tar zxvf apr-util.tar.gz -C <span class="o">[</span>TARGET_DIR]
 </code></pre>
 </div>
 
-<p>2.修改用户信息</p>
+<p>（b）安装</p>
 
-<p>方式一：终端命令</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#先安装apr.tar.gz    </span>
+./configure —prefix<span class="o">=[</span>INSTALL_DIR]
+make
+make install
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usermod -d /home/[USER_HOME_DIR_NAME] [USER_NAME] #指定自定义的用户主目录
-usermod -g [EXIST_GROUP_NAME] [USER_NAME] #强制关联一个已存在的组为默认组
-usermod -G [EXIST_GROUP_NAME] [USER_NAME] #增量关联一个已存在的组
-usermod -s /bin/false [USER_NAME] #禁用用户默认登录的shell权限
+<span class="c">#再安装apr-util.tar.gz</span>
+./configure —prefix<span class="o">=[</span>INSTALL_DIR] —with-apr<span class="o">=[</span>APR_INSTALL_DIR]
+make
+make install
 </code></pre>
 </div>
 
-<p>方式二：编辑/etc/passwd配置</p>
+<p>备注：若需要规划安装目录和系统/usr/local目录之间的关系，可以参考软链接（symbolic link）的创建，语法如</p>
 
-<p>先说说/etc/passwd文件内容格式说明：</p>
+<p><code class="highlighter-rouge">ln -s [SOURCE_FILE_OR_FOLDER] [TARGET_REF_SYMBOLIC_LINK_DIR]</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[USER_NAME] : [USER_PASSWORD] : [UID] : [GID] : [USER_FULL_NAME] : [USER_HOME_DIR] : [USER_LOGIN_SHELL]
-示例：root:x:0:0:root:/root:/bin/bash
+<p>3.安装PERL与PCRE
+PERL的安装参照官方网站教程进行安装即可，关于PCRE的安装简单如下：</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR]
+make
+make install
 </code></pre>
 </div>
 
-<p>3.修改密码</p>
+<p>4.安装Apache HTTP Server
+（a）解压缩httpd.tar.gz
+（b）进入解压后的目录，定制需要开启的httpd模块，类似：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>passwd [USER_NAME] 
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR] —enable-so —enable-rewrite<span class="o">=</span>shared —with-mpm<span class="o">=</span>prefork —with-apr<span class="o">=[</span>APR_INSTALL_DIR] —with-apr-util<span class="o">=[</span>APR_UTIL_INSTALL_DIR] —with-pcre<span class="o">=[</span>PCRE_INSTALL_DIR] 
+make 
+make install
 </code></pre>
 </div>
 
-<p>若只是修改当前登录用户的密码，直接</p>
+<p>5.启动httpd服务</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>passwd 
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl -k start 
+ps -ef | grep httpd （或者ps aux | grep httpd）#查看是否启动httpd成功
 </code></pre>
 </div>
 
-<p>即可。</p>
+<p>备注：可以拷贝apachectl到服务目录（/etc/init.d）中，作为服务项（service命令）启动，例如</p>
 
-<p>4.增加sudoer权限</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>su -
-visudo
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>cp <span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
+service https start
 </code></pre>
 </div>
 
-<p>此时切换到了sudo配置文件的编辑页面，在文件底，增加一行配置：</p>
+<p>6.操作快捷Tips</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[USER_NAME]   ALL=(ALL)   ALL #切换sudo需要输入当前登录的具备root权限用户的密码
-或者
-[USER_NAME]   ALL=(ALL)   NOPASSWD:ALL #切换sudo不需要重新输入密码
+<p>（a）Apache .configure命令范例</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>./configure --prefix<span class="o">=</span>/opt/tuniu/apache2 --with-apr<span class="o">=</span>/usr/local/apr/bin/apr-1-config --with-apr-util<span class="o">=</span>/usr/local/apr/bin/apu-1-config --enable-so --enable-rewrite --enable-ssl --enable-cgi --enable-mods-shared<span class="o">=</span>all --with-ssl<span class="o">=</span>/usr/lib64/openssl --enable-proxy --enable-proxy-http
 </code></pre>
 </div>
 
-<p>，编辑完后 :wq 即可。
-备注：以上格式做一些说明吧，避免有的童鞋不知所以然哈</p>
+<p>（b）安装mod_ssl依赖</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[USER_NAME]    [MACHINE_NAME]=([SWITCH_IDENTITY/USER_NAME])   [COMMAND]
-示例：%wheel    ALL=(ALL)   NOPASSWD: ALL #允许wheel用户组中的用户在不输入该用户的密码的情况下使用所有命令 
-</code></pre>
-</div>
+<p>在安装mod_ssl过程中需要依赖<a href="http://httpd.apache.org/docs/2.2/ssl/">SSL/TLS Encryption库</a>，建议使用开源的OpenSSL。下载官方见这里：<a href="https://www.openssl.org/">https://www.openssl.org/</a></p>
+
+<p>资料提示：许多童鞋们会被搜索引擎导向<a href="http://www.modssl.org/">ModSSL.COM</a>，其实不然，ModSSL的扩展tar包安装不支持Apache Http Server 2.</p>
 
 
   </div>
