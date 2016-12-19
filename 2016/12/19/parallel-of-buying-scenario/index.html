@@ -826,7 +826,7 @@
   <li>1.系统Redis的连接池配置，最大可用连接<code class="highlighter-rouge">maxTotal</code>要小于Redis服务配置<code class="highlighter-rouge">redis.conf</code>中<code class="highlighter-rouge">maxclients</code>数值；</li>
   <li>2.系统Redis的连接超时时长<code class="highlighter-rouge">maxWaitMillis</code>要尽可能地根据系统可承载压力进行设置，一般不可超过5s，高并发的场景下建议在2s以下；</li>
   <li>3.为保障系统Redis客户端从池子中获取的连接不是broken的，参数<code class="highlighter-rouge">testOnBorrow =&gt; true</code>一定要加上;</li>
-  <li>4.Redis连接池的空闲释放算法，在高并发场景下，选用<code class="highlighter-rouge">LIFO</code>可以更快地将空闲无占用连接释放掉，而避免默认所采用的<code class="highlighter-rouge">FIFO</code>致使部分idle连接处在<code class="highlighter-rouge">starvation</code>状态下久久得不到释放；</li>
+  <li>4.Jedis连接池的空闲释放算法采用的是apache common pool作的实现，GenericObjectPool是通过“驱逐者线程Evictor”管理“空闲池对象”的。在高并发场景下，选用<code class="highlighter-rouge">LIFO</code>可以更快地通过Evictor驱逐者任务将空闲无占用连接及时释放掉，而避免采用<code class="highlighter-rouge">FIFO</code>致使部分idle连接处在<code class="highlighter-rouge">starvation</code>状态下久久得不到释放，从而造成leaks of redis resources；</li>
   <li>5.如果你使用的不是Spring框架对Redis客户端进行<code class="highlighter-rouge">scope="singleton"</code>的集成，那么在创建连接池之时，也需要避免瞬间并发而导致的池子被多建的场景发生，因为每一个池子都会由于配置<code class="highlighter-rouge">minIdle</code>而固定占用着redis的连接数量；</li>
   <li>6.如果你使用的是分布式集群Redis，那么可以对连接池配置多机，如此可有效提高连接数和Redis服务性能；</li>
   <li>7.如果你使用的是Spring+Jedis（注：最受欢迎的Redis Client之一）的Redis编码方案，请留意<code class="highlighter-rouge">ShardedJedisPool</code>和<code class="highlighter-rouge">JedisPool</code>的区别，后者所取得的连接可以执行事务、多key批量等操作，而前者是为Redis分布式集群而生，每一次所获取的连接并不保证相同和唯一来源；</li>
