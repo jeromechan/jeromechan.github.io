@@ -16,11 +16,11 @@ tags:
 
 以下将分为五个方面来回顾下本次高并发的实践经历。
 
-* 1. 抢购场景特点
-* 2. 技术选型
-* 3. 方案思路
-* 4. 优劣势辨析
-* 5. 小结一下
+* 1.抢购场景特点
+* 2.技术选型
+* 3.方案思路
+* 4.优劣势辨析
+* 5.小结一下
 
 #### 一、抢购场景的特点
 
@@ -86,13 +86,13 @@ tags:
 
 > Redis使用方面
 
-* 1. 系统Redis的连接池配置，最大可用连接`maxTotal`要小于Redis服务配置`redis.conf`中`maxclients`数值；
-* 2. 系统Redis的连接超时时长`maxWaitMillis`要尽可能地根据系统可承载压力进行设置，一般不可超过5s，高并发的场景下建议在2s以下；
-* 3. 为保障系统Redis客户端从池子中获取的连接不是broken的，参数`testOnBorrow => true`一定要加上;
-* 4. Redis连接池的空闲释放算法，在高并发场景下，选用`LIFO`可以更快地将空闲无占用连接释放掉，而避免默认所采用的`FIFO`致使部分idle连接处在`starvation`状态下久久得不到释放；
-* 5. 如果你使用的不是Spring框架对Redis客户端进行`scope="singleton"`的集成，那么在创建连接池之时，也需要避免瞬间并发而导致的池子被多建的场景发生，因为每一个池子都会由于配置`minIdle`而固定占用着redis的连接数量；
-* 6. 如果你使用的是分布式集群Redis，那么可以对连接池配置多机，如此可有效提高连接数和Redis服务性能；
-* 7. 如果你使用的是Spring+Jedis（注：最受欢迎的Redis Client之一）的Redis编码方案，请留意`ShardedJedisPool`和`JedisPool`的区别，后者所取得的连接可以执行事务、多key批量等操作，而前者是为Redis分布式集群而生，每一次所获取的连接并不保证相同和唯一来源；
+* 1.系统Redis的连接池配置，最大可用连接`maxTotal`要小于Redis服务配置`redis.conf`中`maxclients`数值；
+* 2.系统Redis的连接超时时长`maxWaitMillis`要尽可能地根据系统可承载压力进行设置，一般不可超过5s，高并发的场景下建议在2s以下；
+* 3.为保障系统Redis客户端从池子中获取的连接不是broken的，参数`testOnBorrow => true`一定要加上;
+* 4.Redis连接池的空闲释放算法，在高并发场景下，选用`LIFO`可以更快地将空闲无占用连接释放掉，而避免默认所采用的`FIFO`致使部分idle连接处在`starvation`状态下久久得不到释放；
+* 5.如果你使用的不是Spring框架对Redis客户端进行`scope="singleton"`的集成，那么在创建连接池之时，也需要避免瞬间并发而导致的池子被多建的场景发生，因为每一个池子都会由于配置`minIdle`而固定占用着redis的连接数量；
+* 6.如果你使用的是分布式集群Redis，那么可以对连接池配置多机，如此可有效提高连接数和Redis服务性能；
+* 7.如果你使用的是Spring+Jedis（注：最受欢迎的Redis Client之一）的Redis编码方案，请留意`ShardedJedisPool`和`JedisPool`的区别，后者所取得的连接可以执行事务、多key批量等操作，而前者是为Redis分布式集群而生，每一次所获取的连接并不保证相同和唯一来源；
 
 这里给出一个简单的Spring+Jedis的连接池配置例子：
 
