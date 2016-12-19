@@ -80,7 +80,7 @@ tags:
 
 ##### 3.2 逻辑流程图
 
-![](/images/2016-12-19-parallel-of-buying-scenario/14821328103721.jpg)
+![1](/images/2016-12-19-parallel-of-buying-scenario/14821328103721.jpg)
 
 ##### 3.3 实现过程中可能需要额外关注的部分
 
