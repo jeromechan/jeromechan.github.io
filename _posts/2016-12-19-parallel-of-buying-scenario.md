@@ -106,6 +106,7 @@ tags:
 	<property name="testOnBorrow" value="true" />
 	<property name="TestOnReturn" value="true" />
 	<property name="maxWaitMillis" value="300" />
+	<property name="testWhileIdle" value="true" />
 	<property name="timeBetweenEvictionRunsMillis" value="20000" />
 	<property name="minEvictableIdleTimeMillis" value="10000" />
 	<property name="lifo" value="true" />
