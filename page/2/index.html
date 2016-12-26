@@ -742,6 +742,10 @@
 
 <h4 id="section">一、前言</h4>
 
+<ul>
+  <li><strong>Git知识回顾</strong></li>
+</ul>
+
 <p>在开始之前，如果你对于GIT的基础知识已经有些遗忘了，可以参考以下这几篇文章，知识都比较基础：</p>
 
 <ul>
@@ -756,6 +760,53 @@
 </ul>
 
 <p>希望上面几篇文章可以帮助到你学习和回顾GIT应用知识。</p>
+
+<ul>
+  <li><strong>冲突产生的原因以及合并操作的原则</strong></li>
+</ul>
+
+<p>如果你对Git有了以上方面的了解，那么在学习如何进行冲突解决之前，可以先了解为什么会产生冲突？ <br />
+冲突产生一般可分为如下四个方面：</p>
+
+<ol>
+  <li>workdirectory的修改</li>
+  <li>index的修改</li>
+  <li>merge来源的修改</li>
+  <li>merge之前的修改(Been committed)</li>
+</ol>
+
+<p>在merge manual中已经给出了一条合并操作的原则：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// Command: git merge --help
+Warning: Running git merge with non-trivial uncommitted changes is discouraged: while possible, it may leave you in a state that is hard to back out of in the case of a conflict.
+// 简而言之，有未提交修改情况下，不要执行可能会冲突的操作！
+</code></pre>
+</div>
+
+<p>在执行合并操作之前，保持workdirectory、index区域的clean特性，是非常必要的。当然，满足了这一前提，也并不代表就可以杜绝了冲突的可能。遵循该原则之后，解决的是1、2两点所产生的冲突可能，而前面所提及的3、4两点，是由于合并的操作所引入的冲突。  <br />
+其实很多操作都可能会产生冲突，但最根本原因都是因为<code class="highlighter-rouge">merge</code>和<code class="highlighter-rouge">patch</code>，这两者是冲突的直接来源。例如如下操作都可能产生冲突，它们过程中也都包含了合并的性质：</p>
+
+<ul>
+  <li>rebase：重新设置基准，然后应用补丁</li>
+  <li>pull：会自动merge</li>
+  <li>repo sync：会自动rebase</li>
+  <li>cherry-pick：会应用补丁</li>
+  <li>…</li>
+</ul>
+
+<p>如何保持workdirectory、index区域的clean特性，可以参考上文文章已经阐述到的<code class="highlighter-rouge">stash</code>操作。在<code class="highlighter-rouge">merge</code>过程中一旦发生冲突，往往会停滞在merging状态中，这个时候，我们可以使用：</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>// 中止merge过程，该命令会尽可能恢复到merge操作之前的状态，但也可能恢复失败。
+git merge --abort
+
+// merge manual原文是这么解释的：
+--abort
+	Abort the current conflict resolution process, and try to reconstruct the pre-merge state.
+	If there were uncommitted worktree changes present when the merge started, git merge --abort will <span class="k">in </span>some cases be unable to reconstruct these changes.
+	It is therefore recommended to always commit or stash your changes before running git merge.
+	git merge --abort is equivalent to git reset --merge when MERGE_HEAD is present.
+</code></pre>
+</div>
 
 <h4 id="section-1">二、合并代码之前，需要理解的概念</h4>
 

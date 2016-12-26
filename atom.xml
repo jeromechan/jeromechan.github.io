@@ -4,7 +4,7 @@
  <title>Jerome Chan</title>
  <link href="http://aboutcoder.com/atom.xml" rel="self"/>
  <link href="http://aboutcoder.com/"/>
- <updated>2016-12-19T23:47:24+08:00</updated>
+ <updated>2016-12-26T11:14:51+08:00</updated>
  <id>http://aboutcoder.com</id>
  <author>
    <name>Jerome Chan</name>
@@ -316,6 +316,10 @@
 
 &lt;h4 id=&quot;section&quot;&gt;一、前言&lt;/h4&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Git知识回顾&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;在开始之前，如果你对于GIT的基础知识已经有些遗忘了，可以参考以下这几篇文章，知识都比较基础：&lt;/p&gt;
 
 &lt;ul&gt;
@@ -330,6 +334,53 @@
 &lt;/ul&gt;
 
 &lt;p&gt;希望上面几篇文章可以帮助到你学习和回顾GIT应用知识。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;冲突产生的原因以及合并操作的原则&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果你对Git有了以上方面的了解，那么在学习如何进行冲突解决之前，可以先了解为什么会产生冲突？ &lt;br /&gt;
+冲突产生一般可分为如下四个方面：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;workdirectory的修改&lt;/li&gt;
+  &lt;li&gt;index的修改&lt;/li&gt;
+  &lt;li&gt;merge来源的修改&lt;/li&gt;
+  &lt;li&gt;merge之前的修改(Been committed)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在merge manual中已经给出了一条合并操作的原则：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Command: git merge --help
+Warning: Running git merge with non-trivial uncommitted changes is discouraged: while possible, it may leave you in a state that is hard to back out of in the case of a conflict.
+// 简而言之，有未提交修改情况下，不要执行可能会冲突的操作！
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在执行合并操作之前，保持workdirectory、index区域的clean特性，是非常必要的。当然，满足了这一前提，也并不代表就可以杜绝了冲突的可能。遵循该原则之后，解决的是1、2两点所产生的冲突可能，而前面所提及的3、4两点，是由于合并的操作所引入的冲突。  &lt;br /&gt;
+其实很多操作都可能会产生冲突，但最根本原因都是因为&lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;patch&lt;/code&gt;，这两者是冲突的直接来源。例如如下操作都可能产生冲突，它们过程中也都包含了合并的性质：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;rebase：重新设置基准，然后应用补丁&lt;/li&gt;
+  &lt;li&gt;pull：会自动merge&lt;/li&gt;
+  &lt;li&gt;repo sync：会自动rebase&lt;/li&gt;
+  &lt;li&gt;cherry-pick：会应用补丁&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如何保持workdirectory、index区域的clean特性，可以参考上文文章已经阐述到的&lt;code class=&quot;highlighter-rouge&quot;&gt;stash&lt;/code&gt;操作。在&lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt;过程中一旦发生冲突，往往会停滞在merging状态中，这个时候，我们可以使用：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 中止merge过程，该命令会尽可能恢复到merge操作之前的状态，但也可能恢复失败。
+git merge --abort
+
+// merge manual原文是这么解释的：
+--abort
+	Abort the current conflict resolution process, and try to reconstruct the pre-merge state.
+	If there were uncommitted worktree changes present when the merge started, git merge --abort will &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;some cases be unable to reconstruct these changes.
+	It is therefore recommended to always commit or stash your changes before running git merge.
+	git merge --abort is equivalent to git reset --merge when MERGE_HEAD is present.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h4 id=&quot;section-1&quot;&gt;二、合并代码之前，需要理解的概念&lt;/h4&gt;
 
