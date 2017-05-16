@@ -709,6 +709,18 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -731,299 +743,905 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2016/12/19/parallel-of-buying-scenario/">
-        并发场景实践方案优劣评析
+      <a href="/2017/05/16/programming-principles/">
+        Programming Principles(编程准则)
       </a>
     </h1>
 
-    <span class="post-date">19 Dec 2016</span>
+    <span class="post-date">16 May 2017</span>
     
-    <p>近期实践了高并发场景下，如何去实现抢购系统的研究。虽然方案并不算成功，但是本次能将以往只在资料中学习过的知识付诸于现实，也让自己畅快淋漓了一番。本篇文章所阐述的内容都比较基础，重在于将实践过程中所得到的经验和教训分享出来给大家。</p>
-
-<p>以下将分为五个方面来回顾下本次高并发的实践经历。</p>
-
-<ul>
-  <li>1.抢购场景特点</li>
-  <li>2.技术选型</li>
-  <li>3.方案思路</li>
-  <li>4.优劣势辨析</li>
-  <li>5.小结一下</li>
-</ul>
-
-<h4 id="section">一、抢购场景的特点</h4>
-
-<p>在日常生活中，电子商务营销手段中，抢购、促销是最为常用的提高销售的手段。最熟悉不过的当然就是天猫“双十一”购物节了。既然是“抢购”，用通俗的话来概括，那就是<strong>手快有手慢无</strong>。以下我们做了一些细分：</p>
-
-<p><strong>1.1 限时限量</strong></p>
-
-<ul>
-  <li>限用户样本</li>
-  <li>限用户可购买量</li>
-  <li>限商品总量</li>
-  <li>限抢购时间</li>
-</ul>
-
-<p><strong>1.2 防伪防恶意</strong></p>
-
-<ul>
-  <li>防虚假用户购买</li>
-  <li>防恶意系统攻击</li>
-</ul>
-
-<p>而广大群众并不一定都跟着你的步伐走，可能他们会跟抢12306火车票的手段一样，在你的抢购活动中付诸于实践，往往这个会给系统带来四面楚歌般的无形压力，轻者响应延迟，重者宕机。</p>
-
-<p>写到这里，复杂度已经可见一斑，内容涉及了各个方面，例如并发编程、安全、缓存、关系型数据存储、网络流量、防火墙、服务容器、连接池、IO通信。虽说内容很多，但是我们可以从中根据自己所面临的场景，选择其中一些合适的技术手段即可，不必面面俱到追求完美，它们都只是你实现目标的工具。</p>
-
-<h4 id="section-1">二、技术选型</h4>
-
-<p>了解基本的抢购场景知识之后，就是考虑怎么去解决场景中所遇到的实际问题了。对于抢购场景的特点，我们给每个特点归归类：</p>
-
-<ul>
-  <li><strong>限用户样本、限抢购时间，这2项可以算是参加抢购的前置条件，不满足则拒绝请求。</strong></li>
-</ul>
-
-<p>对于用户样本的限定，普通的条件性编码可以满足这项需要，因为这项属于前置条件，条件数据的属性当确定活动用户样本之后，它们就成为了静态数据，没有并发的意外风险。<br />
-对于抢购时间，这项条件可以借鉴业界对这方面的设计思路，将静态代码（html等静态页面内容）部署到CDN节点上，而仅保留一项js文件（该文件中包含了判断抢购开始的请求编码，当然里面可以包含一项随机token来保障代码所发出的请求的有效性）执行动态加载，以保障抢购可以准时开始。 <br />
-对于抢购页面CDN静态之后所出现的无效点击、提前知道抢购页面等问题，这部分可以使用包含随机token串的页面url，用以保证抢购页面的有效性和请求的合法性。</p>
-
-<ul>
-  <li><strong>限用户可购买量、限商品总量，这2项是整个抢购场景中的核心前提，即“不可超售”的业务特点。</strong></li>
-</ul>
-
-<p>对于用户可购买量、商品总量的限制，这部分可以考虑使用编程锁的实现，如果考虑到多机部署的分布式需要，可以考虑使用分布式锁，同时加以“分而治之”的思路，可以提高请求的并发量。 <br />
-关于锁的知识，我们常见的锁有悲观锁和乐观锁，而锁的实现方式可以是中间件、缓存、JDK自带同步锁、关系型数据库等方式。</p>
-
-<ul>
-  <li><strong>防虚假用户购买，这一特点旨在于系统如何去辨析真正的消费用户，而非临时创建的僵尸用户。</strong></li>
-</ul>
-
-<p>这部分比较难以实现，并不是简单的判别某个单位时间同一来源请求上限值、验证码校验这么一些常见的指标。如果要根本性解决这方面，可能需要使用一些机器学习方面的知识，分析出那类请求可以判别为“疑似攻击”，同时还需要准确率，这是一门深奥的学问，目前自己还没有太多的涉及就不深入谈论了。</p>
-
-<ul>
-  <li><strong>防恶意系统攻击，这项属于系统部署层面上需要考量的架构问题。如若不能及时识别出这是一次攻击而非正常消费请求，那么系统会面临宕机的风险。</strong></li>
-</ul>
-
-<p>关于恶意系统攻击，与前面谈及的“防虚假用户购买”有相同之处，“虚假用户购买”的量达到了一定的阈值，那么就可以归类为“恶意系统攻击”了。在WEB安全领域上，有许多常见的网络攻击都是需要去规避和解决的，无论是编码上还是运维部署层面上，例如DDoS、SQL注入、信息伪造等手段。</p>
-
-<p>本次实践过程中，对于这一块并没有太多的涉及，只是通过一些流量设置上的控制，避免了服务容器由于请求压力过高而产生的宕机风险。这一块待日后自己的知识库成熟之后，再po文分享下自己的实践感触。</p>
-
-<h4 id="section-2">三、方案思路</h4>
-
-<h5 id="section-3">3.1 基本思路和考量点</h5>
-
-<ul>
-  <li>不可超售，需要使用到线程安全、线程锁、本地线程、事务性、原子CAS特性、阻塞/非阻塞队列等知识；</li>
-  <li>分而治之，将商品可销售总量分为多条管道同时进行销售，由负载均衡算法代理路由的逻辑；</li>
-  <li>存储介质上，考量可持久化缓存、关系型数据库；</li>
-  <li>在组件的配置方面，考量服务容器的并行连接池配置、缓存的连接池配置、关系型数据库连接池配置、编码线程池配置、JVM启动参数（例如JVM PermSize、Xms、Xmx内存项配置）；</li>
-  <li>在流程实现上，将一些有效判断节点分布在真实消费商品的逻辑之前，提高核心逻辑的有效执行占比，提高访问效率；</li>
-  <li>在消费数据的持久化措施上，采用“生产者-消费者”的队列实现模式，异步的策略将消费数据尽可能快地持久化到日常使用的关系型数据库中，便于查看和其他业务系统的接口读取；</li>
-</ul>
-
-<h5 id="section-4">3.2 逻辑流程图</h5>
-
-<p><img src="/images/2016-12-19-parallel-of-buying-scenario/14821328103721.jpg" alt="1" /></p>
-
-<h5 id="section-5">3.3 实现过程中可能需要额外关注的部分</h5>
-
-<blockquote>
-  <p>Redis使用方面</p>
+    <blockquote>
+  <p>本文已开源发布在这里<a href="https://github.com/jeromechan/programming-principles-cn">“Programming Priciples-中文版”</a><br />
+如果觉得还不错，可以在<a href="https://github.com/jeromechan/programming-principles-cn">GitHub</a>给本文章标星☆鼓励</p>
 </blockquote>
 
-<ul>
-  <li>1.系统Redis的连接池配置，最大可用连接<code class="highlighter-rouge">maxTotal</code>要小于Redis服务配置<code class="highlighter-rouge">redis.conf</code>中<code class="highlighter-rouge">maxclients</code>数值；</li>
-  <li>2.系统Redis的连接超时时长<code class="highlighter-rouge">maxWaitMillis</code>要尽可能地根据系统可承载压力进行设置，一般不可超过5s，高并发的场景下建议在2s以下；</li>
-  <li>3.为保障系统Redis客户端从池子中获取的连接不是broken的，参数<code class="highlighter-rouge">testOnBorrow =&gt; true</code>一定要加上;</li>
-  <li>4.Jedis连接池的空闲释放算法采用的是apache common pool作的实现，GenericObjectPool是通过“驱逐者线程Evictor”管理“空闲池对象”的。在高并发场景下，选用<code class="highlighter-rouge">LIFO</code>可以更快地通过Evictor驱逐者任务将空闲无占用连接及时释放掉，而避免采用<code class="highlighter-rouge">FIFO</code>致使部分idle连接处在<code class="highlighter-rouge">starvation</code>状态下久久得不到释放，从而造成leaks of redis resources；</li>
-  <li>5.如果你使用的不是Spring框架对Redis客户端进行<code class="highlighter-rouge">scope="singleton"</code>的集成，那么在创建连接池之时，也需要避免瞬间并发而导致的池子被多建的场景发生，因为每一个池子都会由于配置<code class="highlighter-rouge">minIdle</code>而固定占用着redis的连接数量；</li>
-  <li>6.如果你使用的是分布式集群Redis，那么可以对连接池配置多机，如此可有效提高连接数和Redis服务性能；</li>
-  <li>7.如果你使用的是Spring+Jedis（注：最受欢迎的Redis Client之一）的Redis编码方案，请留意<code class="highlighter-rouge">ShardedJedisPool</code>和<code class="highlighter-rouge">JedisPool</code>的区别，后者所取得的连接可以执行事务、多key批量等操作，而前者是为Redis分布式集群而生，每一次所获取的连接并不保证相同和唯一来源；</li>
-</ul>
+<p>Every programmer benefits from understanding programming principles and patterns. This overview is a reference for myself, and I’ve just put it here. Maybe it is of help to you during design, discussion, or review. Please note that it’s far from complete, and that you often need to make trade-offs between conflicting principles.</p>
 
-<p>这里给出一个简单的Spring+Jedis的连接池配置例子：</p>
+<p>每一位开发者都可以从编程准则和模式的学习上获益。这一篇概览性质的参考资料是为自己总结的，现在把它分享在这里。或许它可以在设计、探讨、评审的过程中给予你帮助。不过也请您知晓，它距离完整还差很多，所以在平时使用的过程中，你需要自己去分辨这些编程准则之间的冲突与不同，以便更好地应用于实践当中。</p>
 
-<ul>
-  <li>Jedis连接池基础参数配置</li>
-</ul>
+<p>The list was inspired by <a href="http://www.artima.com/weblogs/viewpost.jsp?thread=331531">The Principles of Good Programming</a>. I felt that the list closely, but not completely matches what I would personally put into something similar. Additionally, I wanted a bit more reasoning, details, and links to further resources. <a href="https://github.com/webpro/programming-principles/issues">Let me know</a> if you have any feedback or suggestions for improvement.</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"jedisConfig"</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.JedisPoolConfig"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"maxTotal"</span> <span class="na">value=</span><span class="s">"10000"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"maxIdle"</span> <span class="na">value=</span><span class="s">"10000"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"minIdle"</span> <span class="na">value=</span><span class="s">"200"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"testOnBorrow"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"TestOnReturn"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"maxWaitMillis"</span> <span class="na">value=</span><span class="s">"300"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"testWhileIdle"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"timeBetweenEvictionRunsMillis"</span> <span class="na">value=</span><span class="s">"20000"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"minEvictableIdleTimeMillis"</span> <span class="na">value=</span><span class="s">"10000"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"lifo"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/bean&gt;</span>
-</code></pre>
-</div>
+<p>这份列表的灵感来源于这篇文章<a href="http://www.artima.com/weblogs/viewpost.jsp?thread=331531">The Principles of Good Programming</a>。我感觉到这篇文章描述的内容与本篇非常地相似，但是和我想要阐述的却是相近而不相同。所以额外的，我希望在这些准则的阐述过程中，包含更多的关于应用原因、细节的描述以及深入解读的资料超链接。如果你有建议或者有问题需要反馈，可以提issues给我<a href="https://github.com/webpro/programming-principles/issues">Let me know</a>。</p>
+
+<h3 id="generic">Generic</h3>
+
+<h3 id="section">通用</h3>
 
 <ul>
-  <li>ShardedJedisPool连接池</li>
+  <li><a href="#kiss">KISS (Keep It Simple Stupid)</a></li>
+  <li><a href="#KISS准则">KISS准则 (保持简单和傻瓜式)</a></li>
+  <li><a href="#yagni">YAGNI (You aren’t gonna need it)</a></li>
+  <li><a href="#YAGNI准则">YAGNI准则 (直到你使用之前都不要实现它)</a></li>
+  <li><a href="#do-the-simplest-thing-that-could-possibly-work">Do The Simplest Thing That Could Possibly Work</a></li>
+  <li><a href="#做最简单最可能实现的事情">做最简单最可能实现的事情</a></li>
+  <li><a href="#separation-of-concerns">Separation of Concerns</a></li>
+  <li><a href="#关注点分离">关注点分离</a></li>
+  <li><a href="#keep-things-dry">Keep Things DRY</a></li>
+  <li><a href="#DRY原则">DRY原则 (不要重复你所做过的事情)</a></li>
+  <li><a href="#code-for-the-maintainer">Code For The Maintainer</a></li>
+  <li><a href="#编写可维护的代码">编写可维护的代码</a></li>
+  <li><a href="#avoid-premature-optimization">Avoid Premature Optimization</a></li>
+  <li><a href="#避免过度过早优化">避免过度过早优化</a></li>
+  <li><a href="#boy-scout-rule">Boy-Scout Rule</a></li>
+  <li><a href="#美国童子军准则">美国童子军准则</a></li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"shardedJedisPool"</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.ShardedJedisPool"</span> <span class="na">scope=</span><span class="s">"singleton"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"0"</span> <span class="na">ref=</span><span class="s">"jedisConfig"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"1"</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;list&gt;</span>
-			<span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.JedisShardInfo"</span><span class="nt">&gt;</span>
-				<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"0"</span> <span class="na">value=</span><span class="s">"127.0.0.1"</span> <span class="nt">/&gt;</span>
-				<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"1"</span> <span class="na">value=</span><span class="s">"6379"</span> <span class="nt">/&gt;</span>
-				<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"2"</span> <span class="na">value=</span><span class="s">"300"</span> <span class="nt">/&gt;</span>
-			<span class="nt">&lt;/bean&gt;</span>
-		<span class="nt">&lt;/list&gt;</span>
-	<span class="nt">&lt;/constructor-arg&gt;</span>
-<span class="nt">&lt;/bean&gt;</span>
-</code></pre>
-</div>
+<h3 id="inter-moduleclass">Inter-Module/Class</h3>
+
+<h3 id="section-1">内部模块/类</h3>
 
 <ul>
-  <li>JedisPool连接池</li>
+  <li><a href="#minimise-coupling">Minimise Coupling</a></li>
+  <li><a href="#低耦合">低耦合</a></li>
+  <li><a href="#law-of-demeter">Law of Demeter</a></li>
+  <li><a href="#迪米特法则">迪米特法则</a></li>
+  <li><a href="#composition-over-inheritance">Composition Over Inheritance</a></li>
+  <li><a href="#组合优于继承">组合优于继承</a></li>
+  <li><a href="#orthogonality">Orthogonality</a></li>
+  <li><a href="#正交性">正交性</a></li>
+  <li><a href="#Robustness Principle">Robustness Principle</a></li>
+  <li><a href="#健壮性原则">健壮性原则</a></li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"jedisPool"</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.JedisPool"</span> <span class="na">scope=</span><span class="s">"singleton"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"0"</span> <span class="na">ref=</span><span class="s">"jedisConfig"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"1"</span> <span class="na">value=</span><span class="s">"127.0.0.1"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"2"</span> <span class="na">value=</span><span class="s">"6379"</span> <span class="nt">/&gt;</span>
-	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"3"</span> <span class="na">value=</span><span class="s">"300"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/bean&gt;</span>
-</code></pre>
-</div>
+<h3 id="moduleclass">Module/Class</h3>
+
+<h3 id="section-2">模块/类</h3>
+
+<ul>
+  <li><a href="#maximise-cohesion">Maximise Cohesion</a></li>
+  <li><a href="#高内聚">高内聚</a></li>
+  <li><a href="#liskov-substitution-principle">Liskov Substitution Principle</a></li>
+  <li><a href="#里氏替换原则">里氏替换原则</a></li>
+  <li><a href="#openclosed-principle">Open/Closed Principle</a></li>
+  <li><a href="#开闭原则">开闭原则</a></li>
+  <li><a href="#single-responsibility-principle">Single Responsibility Principle</a></li>
+  <li><a href="#单一职责原则">单一职责原则</a></li>
+  <li><a href="#hide-implementation-details">Hide Implementation Details</a></li>
+  <li><a href="#隐藏实现细节">隐藏实现细节</a></li>
+  <li><a href="#curlys-law">Curly’s Law</a></li>
+  <li><a href="#科里定律">科里定律</a></li>
+  <li><a href="#encapsulate-what-changes">Encapsulate What Changes</a></li>
+  <li><a href="#封装性">封装性</a></li>
+  <li><a href="#interface-segregation-principle">Interface Segregation Principle</a></li>
+  <li><a href="#接口隔离原则">接口隔离原则</a></li>
+  <li><a href="#command-query-separation">Command Query Separation</a></li>
+  <li><a href="#命令查询职责分离">命令查询职责分离</a></li>
+</ul>
+
+<h2 id="kiss">KISS</h2>
+
+<h2 id="kiss-1">KISS准则</h2>
+
+<p>Most systems work best if they are kept simple rather than made complex.</p>
+
+<p>如果能够保持系统简单复杂性低，那么大多数的系统都可以运行的很好。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>Less code takes less time to write, has less bugs, and is easier to modify.</li>
+  <li>更少的代码可以花费更少的编码时间、更少的bugs、更容易去修改。</li>
+  <li>Simplicity is the ultimate sophistication.</li>
+  <li>简洁的就是最好最复杂的。</li>
+  <li>It seems that perfection is reached not when there is nothing left to add, but when there is nothing left to take away.</li>
+  <li>完美度不仅表示已经没有什么需要新增，而且也表示着没有什么需要剔除。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/KISS_principle">KISS principle</a></li>
+  <li><a href="http://principles-wiki.net/principles:keep_it_simple_stupid">Keep It Simple Stupid (KISS)</a></li>
+</ul>
+
+<h2 id="yagni">YAGNI</h2>
+
+<h2 id="yagni-1">YAGNI准则</h2>
+
+<p>YAGNI stands for “you aren’t gonna need it”: don’t implement something until it is necessary.</p>
+
+<p>YAGNI英文描述为 “you aren’t gonna need it”：直到使用之前都不要去实现它。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>Any work that’s only used for a feature that’s needed tomorrow, means losing effort from features that need to be done for the current iteration.</li>
+  <li>任何只用于明天所需要的功能的工作，意味着从当前所需要的功能中减去相应的工作量。</li>
+  <li>It leads to code bloat; the software becomes larger and more complicated.</li>
+  <li>意味着代码变得臃肿，软件变得更大更复杂。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Always implement things when you actually need them, never when you just foresee that you need them.</li>
+  <li>只有在你真正需要的时候才去实现它，而不是根据你对于未来的估算和预测。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://c2.com/xp/YouArentGonnaNeedIt.html">You Arent Gonna Need It</a></li>
+  <li><a href="http://www.xprogramming.com/Practices/PracNotNeed.html">You’re NOT gonna need it!</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/You_ain't_gonna_need_it">You ain’t gonna need it</a></li>
+</ul>
+
+<h2 id="do-the-simplest-thing-that-could-possibly-work">Do The Simplest Thing That Could Possibly Work</h2>
+
+<h2 id="section-3">做最简单最可能实现的事情</h2>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>Real progress against the real problem is maximized if we just work on what the problem really is.</li>
+  <li>如果我们努力解决问题的真正原因，那么对真正问题的积极进展就会被最大化。</li>
+</ul>
+
+<p>How
+怎么办？</p>
+
+<ul>
+  <li>Ask yourself: “What is the simplest thing that could possibly work?”</li>
+  <li>常常询问自己：“最简单最根本的事情是什么？”</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html">Do The Simplest Thing That Could Possibly Work</a></li>
+</ul>
+
+<h2 id="separation-of-concerns">Separation of Concerns</h2>
+
+<h2 id="section-4">关注点分离</h2>
+
+<p>Separation of concerns is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. For example the business logic of the application is a concern and the user interface is another concern. Changing the user interface should not require changes to business logic and vice versa.</p>
+
+<p>关注点分离，是将计算机程序分成不同部分的设计原则，使每个部分都涉及到单独的问题。 例如，应用程序的业务逻辑是一个问题，用户界面是另一个问题。 更改用户界面不应要求对业务逻辑进行更改，反之亦然。</p>
+
+<p>Quoting <a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger W. Dijkstra</a> (1974):</p>
+
+<p>引证 <a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger W. Dijkstra</a> (1974):</p>
 
 <blockquote>
-  <p>服务容器的运行保障方面（本次所使用到的是Tomcat）</p>
+  <p>It is what I sometimes have called “the separation of concerns”, which, even if not perfectly possible, is yet the only available technique for effective ordering of one’s thoughts, that I know of. This is what I mean by “focusing one’s attention upon some aspect”: it does not mean ignoring the other aspects, it is just doing justice to the fact that from this aspect’s point of view, the other is irrelevant.
+通常意义上所谈到的“关注点分离”，或许不是完全可能，我所知道的是它依然更多地依赖于个人对于事情场景的观点和想法。其实我所更想提及的是“把一个人的焦点放在某一个方面”：这并不意味着要忽略其他的方面，只是更多地期望能在关注的方面或者说角度上，找到根本的原因和事实，而不是其它不相关的部分。</p>
 </blockquote>
 
-<p>为了降低服务容器因为过载而造成的请求堵塞、容器停滞、宕机等风险，针对Tomcat的连接数方面做了些配置上的调整，以确保可控可监听：</p>
+<p>Why</p>
+
+<p>为什么？</p>
 
 <ul>
-  <li>Tomcat Executor连接线程池</li>
+  <li>Simplify development and maintenance of software applications.</li>
+  <li>简化软件应用的开发和维护工作。</li>
+  <li>When concerns are well-separated, individual sections can be reused, as well as developed and updated independently.</li>
+  <li>当关注点得到很好的分离，单独的部分可以被重用，那么开发和更新工作也将是相互独立的。</li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;Executor</span> <span class="na">name=</span><span class="s">"tomcatThreadPool"</span>  <span class="err">//</span> <span class="err">线程池名称</span>
-	<span class="na">namePrefix=</span><span class="s">"catalina-exec-"</span>  <span class="err">//</span> <span class="err">线程名称前缀</span>
-    <span class="na">maxThreads=</span><span class="s">"3000"</span>  <span class="err">//</span> <span class="err">最大连接线程数</span>
-    <span class="na">minSpareThreads=</span><span class="s">"500"</span> <span class="err">//</span> <span class="err">最小空闲线程数，初始化会达到该数值</span>
-    <span class="na">maxIdleTime=</span><span class="s">"30000"</span>  <span class="err">//</span> <span class="err">最大线程空闲时长</span>
-  <span class="nt">/&gt;</span>
-</code></pre>
-</div>
+<p>How</p>
+
+<p>怎么办？</p>
 
 <ul>
-  <li>Tomcat Connector连接配置</li>
+  <li>Break program functionality into separate modules that overlap as little as possible.</li>
+  <li>将程序按照功能拆分为不同的模块，使之具备更低的重复率。</li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;Connector</span> <span class="na">executor=</span><span class="s">"tomcatThreadPool"</span>  <span class="err">//</span> <span class="err">线程池引用</span>
-           <span class="na">port=</span><span class="s">"8080"</span> <span class="err">//</span> <span class="err">请求访问端口</span>
-           <span class="na">protocol=</span><span class="s">"org.apache.coyote.http11.Http11NioProtocol"</span> <span class="err">//</span> <span class="err">启用NIO协议</span>
-           <span class="na">connectionTimeout=</span><span class="s">"5000"</span>  <span class="err">//</span> <span class="err">创建连接时长</span>
-           <span class="na">keepAliveTimeout=</span><span class="s">"10000"</span>  <span class="err">//</span> <span class="err">连接活跃保持时长</span>
-           <span class="na">redirectPort=</span><span class="s">"8443"</span> <span class="err">//</span> <span class="err">SSL转发端口</span>
-           <span class="na">acceptCount=</span><span class="s">"2000"</span>  <span class="err">//</span> <span class="err">额外的线程队列</span>
-           <span class="na">maxConnections=</span><span class="s">"3000"</span> <span class="err">//</span> <span class="err">最大连接线程数</span>
+<p>Resources</p>
 
-           <span class="na">compression=</span><span class="s">"on"</span> <span class="na">compressionMinSize=</span><span class="s">"2048"</span> <span class="na">compressableMimeType=</span><span class="s">"text/html,text/xml,text/plain,application/octet-stream"</span>  <span class="err">//</span> <span class="err">启用响应报文压缩gzip</span>
-           <span class="nt">/&gt;</span>
-</code></pre>
-</div>
-
-<p>与此同时，我们还对服务容器所占用的内存空间进行了分配和调整：</p>
+<p>更多资料</p>
 
 <ul>
-  <li>Tomcat Startup Properties启动参数</li>
+  <li><a href="https://en.wikipedia.org/wiki/Separation_of_concerns">Separation of Concerns</a></li>
 </ul>
 
-<div class="language-properties highlighter-rouge"><pre class="highlight"><code><span class="c"># Configurations of JVM properties.
-# In order to increase JVM heap memory.
-# 
-# Edited by chenjinlong 20161216
-# 
-</span><span class="py">JAVA_OPTS</span><span class="p">=</span><span class="s">"
--Xms512m             // Java Heap堆初始大小，默认是物理内存的1/64
--Xmx1024m            // Java Heap堆初始大小，建议可设为物理内存的一半，不可超过物理内存
--XX:MaxNewSize=128m  // 新生成的池的最大大小，默认32M
--XX:NewSize=64m      // 新生成的池的初始大小，默认2M
--XX:MaxPermSize=256m // 内存的永久保存区最大大小，默认64M
--XX:PermSize=128m    // 内存的永久保存区初始大小，默认64M
+<h2 id="keep-things-dry">Keep things DRY</h2>
 
--Djava.rmi.server.hostname=127.0.0.1        // JMX监听主机设置
--Dcom.sun.management.jmxremote.port=32123   // JMX监听主机端口
--Dcom.sun.management.jmxremote.ssl=false    // 是否开启SSL开关
--Dcom.sun.management.jmxremote.authenticate=false"</span>  <span class="s">// 是否需要认证的开关</span>
-</code></pre>
-</div>
+<h2 id="dry">DRY原则</h2>
 
-<p>在实践过程中发现，单个Tomcat实例在并行负载线程达到&gt;3000之时，会使用到<code class="highlighter-rouge">acceptCount</code>所设置的数值创建队列，将后进的线程排队到该队列内。 <br />
-但是同时也发现，当并行负载线程&gt;3000之后，CPU和Head占用会大幅升高，响应时长也在爬高并超过实践过程中预设的1s（注：低负载情况下请求响应总时长为200-300ms）； <br />
-当并行负载线程&gt;5000之后，Tocmat发生了假死状况（注：这里所说的假死，是处于一种Tomcat进程仍然存活，但是请求已不再执行和处理），Heap内存下降，CPU下降，此时的Tomcat其实已经和宕机无异。这些情况所发生的原因，其中有一点毋庸置疑的那就是，你增加Tomcat准入线程数的同时，也在增加CPU对于容器上下文切换频率，就会增加CPU的资源消耗，自然地，请求的响应时间也就越来越慢。所以一个合理的线程连接数是如此的关键。</p>
+<p>Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</p>
 
-<p>根据网络查询资料，许多IT从业者给出了近似的一些结论：如果需要考虑Tomcat在支撑并发数&gt;1000以上，则可以引入分布式方案了。确实，系统稳定性是非常重要的。</p>
+<p>在一个系统内，每一项知识点的表现必须是单一的，明确无歧义的，具备权威性的。</p>
 
-<h4 id="section-6">四、优劣势辨析</h4>
+<p>Each significant piece of functionality in a program should be implemented in just one place in the source code. Where similar functions are carried out by distinct pieces of code, it is generally beneficial to combine them into one by abstracting out the varying parts.</p>
 
-<p>本次实践过程中采用的是“分布式事务 + CAS原子性操作函数”所实现的乐观锁解决方案。在阐述其中优劣势之前，我们先来了解下关于抢购系统的外观设计办法有哪些。</p>
+<p>源代码中的每一项重要的程序功能只应该出现在一个地方。当我们遇到不同的代码段实现了相类似的功能，通常地，我们把不同的部分抽象出来，然后把相同的部分放在公共层，以实现更高的复用性。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
 
 <ul>
-  <li>方案一：抢购结果滞后反馈</li>
+  <li>Duplication (inadvertent or purposeful duplication) can lead to maintenance nightmares, poor factoring, and logical contradictions.</li>
+  <li>重复代码（有意或无意的重复）会引发维护上的噩梦、较差的因果关系、逻辑矛盾。</li>
+  <li>A modification of any single element of a system does not require a change in other logically unrelated elements.</li>
+  <li>一个系统内单一元素的修改不涉及其他逻辑关联的元素的变更。</li>
+  <li>Additionally, elements that are logically related all change predictably and uniformly, and are thus kept in sync.</li>
+  <li>另，逻辑相关的元素的变化需要具有可预见性和一致性的，即需要保持同步性。</li>
 </ul>
 
-<p>这一方案很典型地采用了异步处理的机制，虽然可以很大层面上解决访问压力的问题，但是会给人一种“暗箱操作”、“用户体验极其不好”的感觉。如下图所示：</p>
+<p>How</p>
 
-<p><img src="/images/2016-12-19-parallel-of-buying-scenario/14821468543527.jpg" alt="" />
-* 方案二：抢购结果即刻响应</p>
-
-<p>如方案标题所阐述的那样，即刻给用户反馈抢购操作的结果。该方案有很好的用户体验，但是对于系统也同样有着很高的考验。例如如何杜绝商品超售超发等问题的发生，因为一旦发生了超售超发，也就意味着系统的问题正在引发经济上的亏损。</p>
-
-<p><img src="/images/2016-12-19-parallel-of-buying-scenario/14821477756314.jpg" alt="" /></p>
-
-<p>本次实践中采用的是方案二的做法，如文章前面所述的流程图一样，采用的是乐观锁的实现思路。那么相对应的是否还有其他的实现思路，同样可以实现方案二呢？毋庸置疑，当然是有的。</p>
+<p>怎么办？</p>
 
 <ul>
-  <li>思路一：悲观锁思路</li>
+  <li>Put business rules, long expressions, if statements, math formulas, metadata, etc. in only one place.</li>
+  <li>将业务规则、长表达式、条件语句、数学公式、元数据等放置到同一个地方。</li>
+  <li>Identify the single, definitive source of every piece of knowledge used in your system, and then use that source to generate applicable instances of that knowledge (code, documentation, tests, etc).</li>
+  <li>在系统的识别出每个知识点的单一来源，然后将这些知识点并应用于相同场景的实例当中（代码、文档、测试用例等）。</li>
+  <li>Apply the <a href="http://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)">Rule of three</a>.</li>
+  <li>遵循规则<a href="http://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)">Rule of three</a>。</li>
 </ul>
 
-<p>这里无论你采用的是分布式锁（Distributed lock）还是监视器锁（Monitor lock），他们有一个共通的特点，那就是Mutex（互斥性）。在同一时间只允许一个访问者可以访问共享资源，其他访问者必须等到加锁的访问者释放锁之后才可进入临界区进行资源访问。</p>
+<p>Resources</p>
 
-<p><img src="/images/2016-12-19-parallel-of-buying-scenario/14821488683883.jpg" alt="" />
-在上图形势下，当并发请求上升之时，每个请求都需要请求锁，而线程之间也存在着线程调度的情况，自然也会出现starvation的现象发生，驻留了很多优先级低的线程资源未能及时处理和释放。随着并发时间的流逝，服务容器一定会出现请求阻塞，响应时间延迟，容器资源占用率高，Heap内存溢出等问题的发生。</p>
+<p>更多资料</p>
 
 <ul>
-  <li>思路二：队列的思路</li>
+  <li><a href="http://c2.com/cgi/wiki?DontRepeatYourself">Dont Repeat Yourself</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">Don’t repeat yourself</a></li>
+  <li><a href="http://programmer.97things.oreilly.com/wiki/index.php/Don't_Repeat_Yourself">Don’t Repeat Yourself</a></li>
 </ul>
 
-<p>如果你对JDK中并发包有一定了解，这一思路一定非常熟悉，就是在阻塞性队列实现过程中，常常所需要用到的“生产者-消费者”的并发设计模式。</p>
+<p>Related</p>
 
-<p><img src="/images/2016-12-19-parallel-of-buying-scenario/14821495463736.jpg" alt="" /></p>
-
-<p>如图，这一思路优势是可以很快地处理并响应用户的抢购请求，只需要执行一些必要的过滤逻辑即可，舍去了关系型存储和其他存储的连接资源的请求和读写。劣势当然是有的，它过度依赖队列驻留在内存中的数据，一旦tomcat发生阻塞或者宕机，那么数据将永久丢失，这是灾难性的结果。另外，我们所应对的是并发的场景，队列的长度虽然可以设置为无上限，但是服务容器的资源是有限的，当消费速度小于请求速度之时，系统就逐渐迈向queue内存溢出的悬崖。</p>
+<p>引用</p>
 
 <ul>
-  <li>思路三：乐观锁思路</li>
+  <li><a href="http://en.wikipedia.org/wiki/Abstraction_principle_(computer_programming)">Abstraction principle</a></li>
+  <li><a href="http://c2.com/cgi/wiki?OnceAndOnlyOnce">Once And Only Once</a> is a subset of DRY (also referred to as the goal of refactoring).</li>
+  <li><a href="http://en.wikipedia.org/wiki/Single_Source_of_Truth">Single Source of Truth</a></li>
+  <li>A violation of DRY is <a href="http://thedailywtf.com/articles/The-WET-Cart">WET</a> (Write Everything Twice)</li>
 </ul>
 
-<p>本次实践的正是乐观锁思路。所谓乐观，自然与悲观的理念是相反的。悲观的思路会将访问线程用锁这一介质的作用，使得线程进入阻塞和等待。乐观的思路，就是临界区的共享资源不需要锁的介入就可以随意访问和修改，没有任何阻塞性质的限定。在并发级别的分类当中，有一种并发的级别叫做“无等待”，这是终极乐观锁的一种体现。 <br />
-基本实现流程如下图所示：</p>
+<h2 id="code-for-the-maintainer">Code For The Maintainer</h2>
 
-<p><img src="/images/2016-12-19-parallel-of-buying-scenario/14821559358332.jpg" alt="" /></p>
+<h2 id="section-5">编写可维护的代码</h2>
 
-<p>很显然，乐观锁的思路，是一种无锁无等待的一种并发实现方式。可以使用事务CAS原子的特性来保障数据的准确性，避免了“超售超发”的问题发生。可以在请求线程并发过程中，无阻塞地进行抢购逻辑的处理。但是，与此同时引入了另外一个问题，它不可避免的会出现操作被事务性回退的现象，放在抢购场景下解释，就是一个请求进入事务之时，数据的无误可占用和消费的，但是当线程执行到提交事务一步时，数据版本出现了不一致（也就是其他的线程将商品占用并成功提交了事务），从而被定性为该请求抢购失败，即无效抢购。</p>
+<p>Why</p>
 
-<p>和前面所提及的队列的思路比较起来，乐观锁的思路所实现的结果是无序的。假设你需要去保证按时序进行分配抢购的产品，那么乐观锁并不适合这一诉求，有序队列的实现思路可能更为合适。</p>
+<p>为什么？</p>
 
-<h4 id="section-7">五、小结一下</h4>
+<ul>
+  <li>Maintenance is by far the most expensive phase of any project.</li>
+  <li>维护阶段是一个项目生命周期当中最为昂贵的阶段。</li>
+</ul>
 
-<p>似乎也不需要总结太多，上文已经把整个方案过程中所涉及的考量和技术点都一一覆盖到了，可能会有些片面，或者有些阐述地比较粗糙，但毕竟这是一篇分享实现思路的文章而并非技术方案细节的文档，所以可以根据上述思路自行发散，有所参考，有所改进。</p>
+<p>How</p>
 
-<p>如果你有更好的建议、方案或者是优化策略，不妨在留言板上写下你的想法。</p>
+<p>怎么办？</p>
 
-<h4 id="section-8">六、参考资料</h4>
+<ul>
+  <li><em>Be</em> the maintainer.</li>
+  <li><em>成为</em>一个维护者。</li>
+  <li>Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.</li>
+  <li>常常作出假设，假设你的代码维护者是一个有精神暴力倾向的并且知道你住处的人。</li>
+  <li>Always code and comment in such a way that if someone a few notches junior picks up the code, they will take pleasure in reading and learning from it.</li>
+  <li>在编码和注释的时候，时长以阅读者的角度去考虑，考虑他们是否会爱上阅读和学习你的成果。</li>
+  <li><a href="http://www.sensible.com/dmmt.html">Don’t make me think</a>.</li>
+  <li>以常识和简洁的角度去说明事情关键，不要让读者去想太多。<a href="http://www.sensible.com/dmmt.html">Don’t make me think</a>.</li>
+  <li>Use the <a href="http://en.wikipedia.org/wiki/Principle_of_least_astonishment">Principle of Least Astonishment</a>.</li>
+  <li>遵循准则<a href="http://en.wikipedia.org/wiki/Principle_of_least_astonishment">Principle of Least Astonishment</a>.</li>
+</ul>
 
-<p>本篇文章有原创体会，也有网络资料参考，国内外均涉及，这里就不一一罗列了，可以自行根据“抢购”、“分布式锁(distributed lock)”、“高并发(concurrency/parallel computing)”、“阻塞队列(blocking queue)”等关键词进行检索和进一步学习。</p>
+<p>Resources</p>
 
-<p>在此感谢伟大的Tim Berners-Lee、RMS(Richard Matthew Stallman)等业界大神，给世界带来了互联网，创造了开源的氛围和精神，让我们的信息得以共享。</p>
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://c2.com/cgi/wiki?CodeForTheMaintainer">Code For The Maintainer</a></li>
+  <li><a href="http://blog.codinghorror.com/the-noble-art-of-maintenance-programming/">The Noble Art of Maintenance Programming</a></li>
+</ul>
+
+<h2 id="avoid-premature-optimization">Avoid Premature Optimization</h2>
+
+<h2 id="section-6">避免过度过早优化</h2>
+
+<p>Quoting <a href="http://en.wikiquote.org/wiki/Donald_Knuth">Donald Knuth</a>:</p>
+
+<p>引用 <a href="http://en.wikiquote.org/wiki/Donald_Knuth">唐纳德·克努斯</a>:</p>
+
+<blockquote>
+  <p>Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.
+程序员花费极大的时间去思考、担心哪些程序里非关键部位的运行速度，而这种种在调试、维护上的工作效能方面常常引发了负面的影响。我们应该摒弃那些花费了97%时间去做的低效能的事情。过早的优化是所有邪恶的根源。不管怎样，我们不能放弃那3%关键部分的机会。</p>
+</blockquote>
+
+<p>Understanding what is and isn’t “premature” is critical of course.</p>
+
+<p>对于是否属于“过早的优化”，这是一项关键的课程。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>It is unknown upfront where the bottlenecks will be.</li>
+  <li>过早优化会引发未来不可知的瓶颈的发生。</li>
+  <li>After optimization, it might be harder to read and thus maintain.</li>
+  <li>优化之后，它或许变得更加难以阅读和维护。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li><a href="http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast">Make It Work Make It Right Make It Fast</a></li>
+  <li><a href="http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast">使之具备可行性、正确性、快速性</a></li>
+  <li>Don’t optimize until you need to, and only after profiling you discover a bottleneck optimise that.</li>
+  <li>只有在你需要的时候才去优化，只有在做了瓶颈分析之后再去做实际的优化。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Program_optimization">Program optimization</a></li>
+  <li><a href="http://c2.com/cgi/wiki?PrematureOptimization">Premature Optimization</a></li>
+</ul>
+
+<h2 id="boy-scout-rule">Boy-Scout Rule</h2>
+
+<h2 id="section-7">美国童子军准则</h2>
+
+<p>The Boy Scouts of America have a simple rule that we can apply to our profession: “Leave the campground cleaner than you found it”. The boy-scout rule states that we should always leave the code cleaner than we found it.</p>
+
+<p>美国童子军有一项简单的准则：“离开野营区之时保证要比自己来的时候更加干净”。我们可以将这一准则应用在计算机方面：“时常迫使代码比我们发现它的时候更整洁更清晰”。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>When making changes to an existing codebase the code quality tends to degrade, accumulating technical debt. Following the boyscout rule, we should mind the quality with each commit. Technical debt is resisted by continuous refactoring, no matter how small.</li>
+  <li>当我们对现有代码库作修改之时，现有代码库质量低并且积累了许多的技术债务。根据美国童子军准则，我们理应关心每一次提交的代码质量，而技术债务也应该在持续的重构过程中逐渐变少。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>With each commit make sure it does not degrade the codebase quality.</li>
+  <li>保证每一次的提交不会造成代码库的代码质量的降级。</li>
+  <li>Any time someone sees some code that isn’t as clear as it should be, they should take the opportunity to fix it right there and then.</li>
+  <li>任何时间，任何人，只要发现了代码可以变得更为清晰和整洁，那么他就应该寻找机会去实现它。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://martinfowler.com/bliki/OpportunisticRefactoring.html">Opportunistic Refactoring</a></li>
+</ul>
+
+<h2 id="minimise-coupling">Minimise Coupling</h2>
+
+<h2 id="section-8">低耦合</h2>
+
+<p>Coupling between modules/components is their degree of mutual interdependence; lower coupling is better. In other words, coupling is the probability that code unit “B” will “break” after an unknown change to code unit “A”.</p>
+
+<p>耦合度指的是模块/组件之间的相互依赖程度。耦合度越低则越好。换句话说，耦合度高会导致代码单元“B”因为代码单元“A”的一个未知变更而被打断。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>A change in one module usually forces a ripple effect of changes in other modules.</li>
+  <li>一个模块的变更会迫使和波及其他的模块也需要发生相应的变更。</li>
+  <li>Assembly of modules might require more effort and/or time due to the increased inter-module dependency.</li>
+  <li>模块集成过程中会涉及更多的修改、更多的时间，正是因为模块内的相互依赖复杂度的升高。</li>
+  <li>A particular module might be harder to reuse and/or test because dependent modules must be included.</li>
+  <li>一个指定的模块将变得难以重用和测试，正是因为其依赖的其他模块也必须被包含进来。</li>
+  <li>Developers might be afraid to change code because they aren’t sure what might be affected.</li>
+  <li>开发者会害怕修改代码，因为他们不确定具体有多少方面会被涉及。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Eliminate, minimise, and reduce complexity of necessary relationships.</li>
+  <li>尽可能多地，甚至消除复杂必须的关联关系。</li>
+  <li>By hiding implementation details, coupling is reduced.</li>
+  <li>隐藏了实现的细节之后，耦合性往往会被降低。</li>
+  <li>Apply the <a href="#law-of-demeter">Law of Demeter</a>.</li>
+  <li>遵循迪米特法则<a href="#law-of-demeter">Law of Demeter</a>.</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Coupling_(computer_programming)">Coupling</a></li>
+  <li><a href="http://c2.com/cgi/wiki?CouplingAndCohesion">Coupling And Cohesion</a></li>
+</ul>
+
+<h2 id="law-of-demeter">Law of Demeter</h2>
+
+<h2 id="section-9">迪米特法则</h2>
+
+<p>Don’t talk to strangers.</p>
+
+<p>不要告诉陌生人。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>It usually tightens coupling</li>
+  <li>依赖往往会增加耦合度。</li>
+  <li>It might reveal too much implementation details</li>
+  <li>依赖会露出过多的实现细节。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<p>A method of an object may only call methods of:</p>
+
+<p>一个对象的一个方法，只能调用如下内容：</p>
+
+<ol>
+  <li>The object itself.</li>
+  <li>对象本身。</li>
+  <li>An argument of the method.</li>
+  <li>方法参数。</li>
+  <li>Any object created within the method.</li>
+  <li>方法内所创建的对象。</li>
+  <li>Any direct properties/fields of the object.</li>
+  <li>对象内直接包含的属性、字段。</li>
+</ol>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a></li>
+  <li><a href="http://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/">The Law of Demeter Is Not A Dot Counting Exercise</a></li>
+</ul>
+
+<h2 id="composition-over-inheritance">Composition Over Inheritance</h2>
+
+<h2 id="section-10">组合优于继承</h2>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>Less coupling between classes.</li>
+  <li>降低类之间的耦合。</li>
+  <li>Using inheritance, subclasses easily make assumptions, and break LSP.</li>
+  <li>使用继承、子类会易于出现断言，并且打破里氏替换原则。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Test for LSP (substitutability) to decide when to inherit.</li>
+  <li>根据里氏替换原则，判断什么时候使用继承。</li>
+  <li>Compose when there is a “has a” (or “uses a”) relationship, inherit when “is a”.</li>
+  <li>若是”has a” (或者”uses a”)关系的时候使用组合，若是”is a”关系则使用继承。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://blogs.msdn.com/b/thalesc/archive/2012/09/05/favor-composition-over-inheritance.aspx">Favor Composition Over Inheritance</a></li>
+</ul>
+
+<h2 id="orthogonality">Orthogonality</h2>
+
+<h2 id="section-11">正交性</h2>
+
+<blockquote>
+  <p>The basic idea of orthogonality is that things that are not related conceptually should not be related in the system.
+正交性的基本定义是，系统内概念不相同的部分，不应该形成关联和依赖。</p>
+</blockquote>
+
+<p>Source: <a href="http://www.artima.com/intv/dry3.html">Be Orthogonal</a></p>
+
+<p>引用: <a href="http://www.artima.com/intv/dry3.html">Be Orthogonal</a></p>
+
+<blockquote>
+  <p>It is associated with simplicity; the more orthogonal the design, the fewer exceptions. This makes it easier to learn, read and write programs in a programming language. The meaning of an orthogonal feature is independent of context; the key parameters are symmetry and consistency.
+它与简单性有关，设计的时候正交性越高，则异常发生地越少。这通常会使得代码变得更加容易学习、阅读和编写，无论你使用的是哪一种编程语言。正交性的一个典型特征是上下文之间互相没有依赖，核心参数之间会保持对称性和一致性。</p>
+</blockquote>
+
+<p>Source: <a href="http://en.wikipedia.org/wiki/Orthogonality_(programming)">Orthogonality</a></p>
+
+<p>引用: <a href="http://en.wikipedia.org/wiki/Orthogonality_(programming)">Orthogonality</a></p>
+
+<h2 id="robustness-principle">Robustness Principle</h2>
+
+<h2 id="section-12">健壮性原则</h2>
+
+<blockquote>
+  <p>Be conservative in what you do, be liberal in what you accept from others
+对内保持保守，对外保持自由。</p>
+</blockquote>
+
+<p>Collaborating services depend on each others interfaces. Often the interfaces need to evolve causing the other end to receive unspecified data. A naive implementation refuses to collaborate if the received data does not strictly follow the specification. A more sophisticated implementation will still work ignoring the data it does not recognize.</p>
+
+<p>协作服务依赖于各式各样的接口。通常地，接口的演变会致使另外一端接收到未指定的数据。倘若数据结构没有遵循规范，那么一个简单的不健壮的实现会遭到拒绝。一个健壮的实现会主动忽略不可识别的数据，继而持续工作。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>In order to be able to evolve services you need to ensure that a provider can make changes to support new demands while causing minimal breakage to their existing clients.</li>
+  <li>为了使得程序服务得以演进，你需要确保提供者程序可以支持新的指令，尽管这些指令可能会对现有的客户端所导致的小面积破坏。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Code that sends commands or data to other machines (or to other programs on the same machine) should conform completely to the specifications, but code that receives input should accept non-conformant input as long as the meaning is clear.</li>
+  <li>发送给其他机器（或者相同机器的其他程序）的指令或者数据的代码理应完全遵循指定的规范，但是接收方需要能够接收和处理不符合规范，但含义清晰的数据或指令。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Robustness_principle">Robustness Principle in Wikipedia</a></li>
+  <li><a href="http://martinfowler.com/bliki/TolerantReader.html">Tolerant Reader</a></li>
+</ul>
+
+<h2 id="maximise-cohesion">Maximise Cohesion</h2>
+
+<h2 id="section-13">高内聚</h2>
+
+<p>Cohesion of a single module/component is the degree to which its responsibilities form a meaningful unit; higher cohesion is better.</p>
+
+<p>一个单一模块/组件的内聚性指的是它的职责形成了有具体含义的独立单元。内聚性自然越高也好。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>Increased difficulty in understanding modules.</li>
+  <li>增加了模块理解的难度。</li>
+  <li>Increased difficulty in maintaining a system, because logical changes in the domain affect multiple modules, and because changes in one module require changes in related modules.</li>
+  <li>增加了维护系统的成本消耗。因为一个方面的逻辑变更会引发其它多个关联模块需要同时发生变更。</li>
+  <li>Increased difficulty in reusing a module because most applications won’t need the random set of operations provided by a module.</li>
+  <li>增加了程序重用的难度。因为大多数的程序不需要模块所提供的随机操作。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Group related functionalities sharing a single responsibility (e.g. in a class).</li>
+  <li>一组相似的功能共享使用一个单一的职责（例如在一个类里）。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Cohesion_(computer_science)">Cohesion</a></li>
+  <li><a href="http://c2.com/cgi/wiki?CouplingAndCohesion">Coupling And Cohesion</a></li>
+</ul>
+
+<h2 id="liskov-substitution-principle">Liskov Substitution Principle</h2>
+
+<h2 id="section-14">里氏替换原则</h2>
+
+<p>The LSP is all about expected behavior of objects:</p>
+
+<p>里氏替换原则是关于对象预期行为方面的描述：</p>
+
+<blockquote>
+  <p>Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
+程序内的对象理应可以被它的子类所无缝替换，此间不需要作任何的程序订正操作。</p>
+</blockquote>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a></li>
+  <li><a href="http://freshbrewedcode.com/derekgreer/2011/12/31/solid-javascript-the-liskov-substitution-principle/">The Liskov Substitution Principle</a></li>
+</ul>
+
+<h2 id="openclosed-principle">Open/Closed Principle</h2>
+
+<h2 id="section-15">开闭原则</h2>
+
+<p>Software entities (e.g. classes) should be open for extension, but closed for modification. I.e. such an entity can allow its behavior to be modified without altering its source code.</p>
+
+<p>软件实体（例如类）理应对扩展开放，对修改关闭。例如一个实体可以允许它的动作不需要经过修改源码而发生的演变。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>Improve maintainability and stability by minimizing changes to existing code.</li>
+  <li>在现有代码发生最小化改变的前提下，改善和提高可维护性和稳定性。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Write classes that can be extended (as opposed to classes that can be modified).</li>
+  <li>编写可以被扩展的类（而不是类文件被修改）。</li>
+  <li>Expose only the moving parts that need to change, hide everything else.</li>
+  <li>只暴露那些需要修改以支持扩展的部分，其余的部分都隐藏。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Open/closed_principle">Open Closed Principle</a></li>
+  <li><a href="http://freshbrewedcode.com/derekgreer/2011/12/19/solid-javascript-the-openclosed-principle/">SOLID JavaScript: The Open/Closed Principle</a></li>
+</ul>
+
+<h2 id="single-responsibility-principle">Single Responsibility Principle</h2>
+
+<h2 id="section-16">单一职责原则</h2>
+
+<p>A class should never have more than one reason to change.</p>
+
+<p>一个类不应该包含多于一个职责。</p>
+
+<p>Long version: Every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. Responsibility can be defined as a reason to change, so a class or module should have one, and only one, reason to change.</p>
+
+<p>长文字版本：每一个类都应该有一个职责，而这个职责应该被这个类所内聚。职责被定义为发生改变的一个原因，即一个类或者模块有且仅有一个原因会致使其发生演变。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>Maintainability: changes should be necessary only in one module or class.</li>
+  <li>可维护性：变更只应该出现在一个模块或者一个类当中。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Apply <a href="#Curly-s-Law">Curly’s Law</a>.</li>
+  <li>遵循<a href="#科里定律">科里定律</a>.</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">Single responsibility principle</a></li>
+</ul>
+
+<h2 id="hide-implementation-details">Hide Implementation Details</h2>
+
+<h2 id="section-17">隐藏实现细节</h2>
+
+<p>A software module hides information (i.e. implementation details) by providing an interface, and not leak any unnecessary information.</p>
+
+<p>一个软件模块应该隐藏一些信息（例如实现细节），仅提供一个接口即可，以确保不泄露任何不必要的信息。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>When the implementation changes, the interface clients are using does not have to change.</li>
+  <li>当实现细节需要发生变更之时，接口消费方可以无缝使用而不需要作出任何变更。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Minimize accessibility of classes and members.</li>
+  <li>最小化类及其成员的可访问性。</li>
+  <li>Don’t expose member data in public.</li>
+  <li>不要暴露成员数据在public域。</li>
+  <li>Avoid putting private implementation details into a class’s interface.</li>
+  <li>杜绝将私有的实现细节放置到类的接口层上。</li>
+  <li>Decrease coupling to hide more implementation details.</li>
+  <li>降低模块间耦合性，隐藏更多的不必要的实现细节。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Information_hiding">Information hiding</a></li>
+</ul>
+
+<h2 id="curlys-law">Curly’s Law</h2>
+
+<h2 id="section-18">科里定律</h2>
+
+<p>Curly’s Law is about choosing a single, clearly defined goal for any particular bit of code: Do One Thing.</p>
+
+<p>科里定律是关于如何为任一特定代码段选择一项单一的、定义明确的目标的一项法则：只作一件事。</p>
+
+<ul>
+  <li><a href="http://blog.codinghorror.com/curlys-law-do-one-thing/">Curly’s Law: Do One Thing</a></li>
+  <li><a href="http://fortyplustwo.com/2008/09/06/the-rule-of-one-or-curlys-law/">The Rule of One or Curly’s Law</a></li>
+</ul>
+
+<h2 id="encapsulate-what-changes">Encapsulate What Changes</h2>
+
+<h2 id="section-19">封装性</h2>
+
+<p>A good design identifies the hotspots that are most likely to change and encapsulates them behind an API. When an anticipated change then occurs, the modifications are kept local.</p>
+
+<p>一项好的设计意味着某些很有可能被修改和内聚的热点部分被隐藏在API的后方。当预期的变更出现时，这些变更也只需要在内部作出调整即可。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>To minimize required modifications when a change occurs</li>
+  <li>当变更发生时，可以最小化变更的涉及面。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Encapsulate the concept that varies behind an API</li>
+  <li>在API内部封装多样化的概念。</li>
+  <li>Possibly separate the varying concept into its own module</li>
+  <li>尽可能地从多样化的概念中，分隔出独立的单一模块。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="http://principles-wiki.net/principles:encapsulate_the_concept_that_varies">Encapsulate the Concept that Varies</a></li>
+  <li><a href="http://blogs.msdn.com/b/steverowe/archive/2007/12/26/encapsulate-what-varies.aspx">Encapsulate What Varies</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Information_hiding">Information Hiding</a></li>
+</ul>
+
+<h2 id="interface-segregation-principle">Interface Segregation Principle</h2>
+
+<h2 id="section-20">接口隔离原则</h2>
+
+<p>Reduce fat interfaces into multiple smaller and more specific client specific interfaces. An interface should be more dependent on the code that calls it than the code that implements it.</p>
+
+<p>降低接口的粒度，使得接口更小更具体，更接近调用方的现实需要。一个接口的定义更多地应该依赖于调用方的代码，而不是实现方可以实现的细节。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>If a class implements methods that are not needed the caller needs to know about the method implementation of that class. For example if a class implements a method but simply throws then the caller will need to know that this method shouldn’t actually be called.</li>
+  <li>如果一个类的实现方法已经被废弃，那么调用方理应需要知晓这个类的实现方法的具体实现细节。例如，假设一个类的实现方法仅仅是抛出了一个异常，那么调用方需要知道这个方法不应该再被调用。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Avoid fat interfaces. Classes should never have to implement methods that violate the <a href="#single-responsibility-principle">Single responsibility principle</a>.</li>
+  <li>杜绝肥胖的接口存在。一个类的实现方法的设计不应该违背<a href="#single-responsibility-principle">单一职责原则</a>.</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation principle</a></li>
+</ul>
+
+<h2 id="command-query-separation">Command Query Separation</h2>
+
+<h2 id="command-query-responsibility-segregationcqrs">命令查询职责分离（也称Command Query Responsibility Segregation，CQRS）</h2>
+
+<p>The Command Query Separation principle states that each method should be either a command that performs an action or a query that returns data to the caller but not both. Asking a question should not modify the answer.</p>
+
+<p>命令查询职责分离准则的具体阐述可以参见资料所引述到的Martin Fowler的文章。命令查询职责分离原则指出，每个方法应该是执行一个操作的命令（命令是void的，不返回任何结果，但会改变对象的状态）或者一个查询（返回结果，但是不会改变对象的状态，对系统没有副作用），它将数据返回给调用者，而不是两者。提出问题不应该修改答案。</p>
+
+<p>With this principle applied the programmer can code with much more confidence. The query methods can be used anywhere and in any order since they do not mutate the state. With commands one has to be more careful.</p>
+
+<p>使用这条准则，程序员在编码之时可以更加自信，查询方法可以在任何地方以任意次序使用，因为它不会影响到对象状态。而命令则需要更加小心谨慎。</p>
+
+<p>Why</p>
+
+<p>为什么？</p>
+
+<ul>
+  <li>By clearly separating methods into queries and commands the programmer can code with additional confidence without knowing each method’s implementation details.</li>
+  <li>基于清晰地将方法分隔为查询和命令两大阵营之后，程序员在编码方面更加自信了，因为他们可以不需要去了解每个方法的实现具体细节。</li>
+</ul>
+
+<p>How</p>
+
+<p>怎么办？</p>
+
+<ul>
+  <li>Implement each method as either a query or a command</li>
+  <li>方法设计之时，要么是查询，要么是命令，不可二者兼备。</li>
+  <li>Apply naming convention to method names that implies whether the method is a query or a command</li>
+  <li>针对方法名的命名上作约定和规范，使得方法名上可以直接表露出它具体是查询还是命令。</li>
+</ul>
+
+<p>Resources</p>
+
+<p>更多资料</p>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Command%E2%80%93query_separation">Command Query Separation in Wikipedia</a></li>
+  <li><a href="http://martinfowler.com/bliki/CommandQuerySeparation.html">Command Query Separation by Martin Fowler</a></li>
+  <li><a href="http://www.cnblogs.com/yangecnu/p/Introduction-CQRS.html">Introduction CQRS</a></li>
+</ul>
 
 
   </div>

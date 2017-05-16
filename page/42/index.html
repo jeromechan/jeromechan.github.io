@@ -709,6 +709,18 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -731,106 +743,91 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/08/16/linux-apache-install/">
-        Linux下的Apache安装
+      <a href="/2014/08/21/how-to-install-php-apache-on-windows/">
+        windows下的PHP与Apache安装
       </a>
     </h1>
 
-    <span class="post-date">16 Aug 2014</span>
+    <span class="post-date">21 Aug 2014</span>
     
-    <p>说到LAMP/WAMP服务器环境的搭建，相信PHPer都无一不会，但是对于Freshman来说，这一块的内容还是需要认真学习，从中可以学习到许多环境配置上的基础常识，自己动手捣腾过的东西才印象深刻，犹如“好记性不如烂笔头”的说法一般。</p>
+    <p>站内的关联的其他几篇文章讲述了<a href="http://aboutcoder.com/2014/08/16/linux%e4%b8%8b%e7%9a%84apache%e5%ae%89%e8%a3%85/">LAMP环境搭建</a>的过程与建议Tips。今天要来讲讲的是关于WAMP，毕竟环境是Windows的童鞋们还是居多的。</p>
 
-<p>关于LAMP/WAMP环境的搭建，准备细分为几篇文章进行讲解，希望能为更多需要该项知识的人提供更为全面的配置流程规范。</p>
+<p>1.安装Apache HTTP SERVER + PHP</p>
 
-<p>本篇文章，我们先Apache在Linux服务器环境下的搭建。</p>
+<p>关于如何安装Apache HTTP SERVER和PHP的过程，这一步在Windows环境下可以简单点到略过，官方都提供了.exe安装包或portable的zip包，双击按提示安装好，然后将PHP-Install-DIR/bin配置到环境变量Path中即可。</p>
 
 <blockquote>
-  <p>Tips：在搭建PHP之前，一定要先安装搭建好Apache/Nginx的容器环境。</p>
+  <p>Tips：先安装Apache，再安装PHP，再作二者关联。</p>
 </blockquote>
 
-<p>1.检查环境中Apache的依赖包是否已经安装齐全</p>
+<p>2.PHP配置</p>
 
-<p>（a）APR(Apache Portable Runtime) Project：apr, apr-util, apr-iconv(optional)
-    Download：<a href="http://apr.apache.org/">http://apr.apache.org/</a></p>
+<p>说到PHP配置，首先要知道PHP的配置文件是php.ini，再安装好的PHP目录内，会包含几个不同用途的php.ini文件，不同的php版本之间会有所差异，大致的文件如：php.ini-development, php.ini-production, php.ini-test, php.ini，而php.ini是默认读取的配置文件。</p>
 
-<p>（b）PERL Language Support
-	Download：<a href="http://www.perl.org/">http://www.perl.org/</a></p>
+<blockquote>
+  <p>php.ini-development：开发环境常用的属性配置概况  <br />
+php.ini-test：测试环境常用的属性配置概况  <br />
+php.ini-production：生产环境常用的属性配置概况</p>
+</blockquote>
 
-<p>（c）PCRE Library：A set of functions that implement regular expression pattern matching using the same syntax and semantics as Perl 5.
-	Download：<a href="http://sourceforge.net/projects/pcre/">http://sourceforge.net/projects/pcre/</a></p>
+<p>读者可以根据需要，学习其中的配置含义，配置出自己系统最合适的配置项目。</p>
 
-<p>2.安装APR
-（a）解压下载的tar包</p>
+<p>开发者最常用到的配置，便是扩展配置了，没有扩展，php无法实现curl远程调用，无法实现mysql，pgsql连接，更无法实现gd开发。</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>tar zxvf apr.tar.gz -C <span class="o">[</span>TARGET_DIR]
-tar zxvf apr-util.tar.gz -C <span class="o">[</span>TARGET_DIR]
+<p>在扩展配置中，我们必须认识“extension_dir”和“extension=”配置项目，前者指向扩展链接库文件所在的目录，后者配置所需要的扩展链接库文件。
+例如，我们配置pdo_mysql的扩展：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>extension_dir=“D:/php/ext”
+extension=pdo_mysql.dll
 </code></pre>
 </div>
 
-<p>（b）安装</p>
+<blockquote>
+  <p>Tips：Windows下的PHP安装好之后很友好，都为大家根据相应的vc版本编译好了dll扩展文件，可以为大家省下不少时间。找不到的扩展可以到官方的pecl上找：<a href="http://pecl.php.net/packages.php">http://pecl.php.net/packages.php</a>&lt;/blockquote&gt;</p>
+</blockquote>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#先安装apr.tar.gz    </span>
-./configure —prefix<span class="o">=[</span>INSTALL_DIR]
-make
-make install
+<p>配置好了php，此时apache容器仍然不能解析运行php文件，因为我们还差将两者关联起来的其他一些简单配置，下面我们来讲讲这一块。</p>
 
-<span class="c">#再安装apr-util.tar.gz</span>
-./configure —prefix<span class="o">=[</span>INSTALL_DIR] —with-apr<span class="o">=[</span>APR_INSTALL_DIR]
-make
-make install
+<p>3.在Apache HTTP Server中配置关联php语言解析模块</p>
+
+<p>php是以module的方式与apache关联起来的。</p>
+
+<blockquote>
+  <p>Tips：Apache HTTP Server主配置文件是httpd.conf。</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// 在httpd.conf文件中，新增module加载项：
+LoadModule php5_module D:/php/php5apache2_2.dll //关联并加载php解析模块
+PHPIniDir “D:/php”//关联PHP安装目录及其php.ini，该项配置后，可以在phpinfo()中的属性“Loaded Configuration File”检查是否关联php.ini成功
 </code></pre>
 </div>
 
-<p>备注：若需要规划安装目录和系统/usr/local目录之间的关系，可以参考软链接（symbolic link）的创建，语法如</p>
+<p>然后，告诉apache它现在可以执行.php文件了：</p>
 
-<p><code class="highlighter-rouge">ln -s [SOURCE_FILE_OR_FOLDER] [TARGET_REF_SYMBOLIC_LINK_DIR]</code></p>
-
-<p>3.安装PERL与PCRE
-PERL的安装参照官方网站教程进行安装即可，关于PCRE的安装简单如下：</p>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR]
-make
-make install
+<div class="highlighter-rouge"><pre class="highlight"><code>AddType application/x-httpd-php .php //让.php格式文件存储php代码并可以被执行
+AddType application/x-httpd-php .html //让.html格式文件存储php代码并可以被执行
+AddType application/x-httpd-php .txt //让.txt格式文件存储php代码并可以被执行
 </code></pre>
 </div>
 
-<p>4.安装Apache HTTP Server
-（a）解压缩httpd.tar.gz
-（b）进入解压后的目录，定制需要开启的httpd模块，类似：</p>
+<p>到这里，Apache与php之间的关联关系就建立起来了。</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR] —enable-so —enable-rewrite<span class="o">=</span>shared —with-mpm<span class="o">=</span>prefork —with-apr<span class="o">=[</span>APR_INSTALL_DIR] —with-apr-util<span class="o">=[</span>APR_UTIL_INSTALL_DIR] —with-pcre<span class="o">=[</span>PCRE_INSTALL_DIR] 
-make 
-make install
-</code></pre>
-</div>
+<p>4.启动Apache，准备执行php文件，你可能会遇到如下情况：</p>
 
-<p>5.启动httpd服务</p>
+<p>1）php扩展配置没有生效，在phpinfo()中没有发现新增的扩展
+答：a. 检查扩展配置项目按上文要求正确；
+b. 是否按官方要求将libeay32.dll, ssleay32.dl拷贝到C:/windows/system32/下；</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl -k start 
-ps -ef | grep httpd （或者ps aux | grep httpd）#查看是否启动httpd成功
-</code></pre>
-</div>
+<p>官方原文如下：</p>
 
-<p>备注：可以拷贝apachectl到服务目录（/etc/init.d）中，作为服务项（service命令）启动，例如</p>
+<blockquote>
+  <p>vatozana at yahoo dot com 3 years ago
+I had problems registering Curl extentions and it was cause by the old dll of libeay32.dll and  ssleay32.dll  which were already in my c:\windows\system32 I replaced them and all is now fine!!</p>
+</blockquote>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>cp <span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
-service https start
-</code></pre>
-</div>
+<p>5.其他参考：</p>
 
-<p>6.操作快捷Tips</p>
-
-<p>（a）Apache .configure命令范例</p>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>./configure --prefix<span class="o">=</span>/opt/tuniu/apache2 --with-apr<span class="o">=</span>/usr/local/apr/bin/apr-1-config --with-apr-util<span class="o">=</span>/usr/local/apr/bin/apu-1-config --enable-so --enable-rewrite --enable-ssl --enable-cgi --enable-mods-shared<span class="o">=</span>all --with-ssl<span class="o">=</span>/usr/lib64/openssl --enable-proxy --enable-proxy-http
-</code></pre>
-</div>
-
-<p>（b）安装mod_ssl依赖</p>
-
-<p>在安装mod_ssl过程中需要依赖<a href="http://httpd.apache.org/docs/2.2/ssl/">SSL/TLS Encryption库</a>，建议使用开源的OpenSSL。下载官方见这里：<a href="https://www.openssl.org/">https://www.openssl.org/</a></p>
-
-<p>资料提示：许多童鞋们会被搜索引擎导向<a href="http://www.modssl.org/">ModSSL.COM</a>，其实不然，ModSSL的扩展tar包安装不支持Apache Http Server 2.</p>
+<p>最官方的莫过于php.net，该站旗下有关联的许多对php很有好处的二级站点，这里可以找到：<a href="http://cn2.php.net/sites.php">http://cn2.php.net/sites.php</a></p>
 
 
   </div>

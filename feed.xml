@@ -6,6 +6,907 @@
 		<atom:link href="http://aboutcoder.com/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Programming Principles(编程准则)</title>
+				<description>&lt;blockquote&gt;
+  &lt;p&gt;本文已开源发布在这里&lt;a href=&quot;https://github.com/jeromechan/programming-principles-cn&quot;&gt;“Programming Priciples-中文版”&lt;/a&gt;&lt;br /&gt;
+如果觉得还不错，可以在&lt;a href=&quot;https://github.com/jeromechan/programming-principles-cn&quot;&gt;GitHub&lt;/a&gt;给本文章标星☆鼓励&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Every programmer benefits from understanding programming principles and patterns. This overview is a reference for myself, and I’ve just put it here. Maybe it is of help to you during design, discussion, or review. Please note that it’s far from complete, and that you often need to make trade-offs between conflicting principles.&lt;/p&gt;
+
+&lt;p&gt;每一位开发者都可以从编程准则和模式的学习上获益。这一篇概览性质的参考资料是为自己总结的，现在把它分享在这里。或许它可以在设计、探讨、评审的过程中给予你帮助。不过也请您知晓，它距离完整还差很多，所以在平时使用的过程中，你需要自己去分辨这些编程准则之间的冲突与不同，以便更好地应用于实践当中。&lt;/p&gt;
+
+&lt;p&gt;The list was inspired by &lt;a href=&quot;http://www.artima.com/weblogs/viewpost.jsp?thread=331531&quot;&gt;The Principles of Good Programming&lt;/a&gt;. I felt that the list closely, but not completely matches what I would personally put into something similar. Additionally, I wanted a bit more reasoning, details, and links to further resources. &lt;a href=&quot;https://github.com/webpro/programming-principles/issues&quot;&gt;Let me know&lt;/a&gt; if you have any feedback or suggestions for improvement.&lt;/p&gt;
+
+&lt;p&gt;这份列表的灵感来源于这篇文章&lt;a href=&quot;http://www.artima.com/weblogs/viewpost.jsp?thread=331531&quot;&gt;The Principles of Good Programming&lt;/a&gt;。我感觉到这篇文章描述的内容与本篇非常地相似，但是和我想要阐述的却是相近而不相同。所以额外的，我希望在这些准则的阐述过程中，包含更多的关于应用原因、细节的描述以及深入解读的资料超链接。如果你有建议或者有问题需要反馈，可以提issues给我&lt;a href=&quot;https://github.com/webpro/programming-principles/issues&quot;&gt;Let me know&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;generic&quot;&gt;Generic&lt;/h3&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;通用&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#kiss&quot;&gt;KISS (Keep It Simple Stupid)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#KISS准则&quot;&gt;KISS准则 (保持简单和傻瓜式)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#yagni&quot;&gt;YAGNI (You aren’t gonna need it)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#YAGNI准则&quot;&gt;YAGNI准则 (直到你使用之前都不要实现它)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#do-the-simplest-thing-that-could-possibly-work&quot;&gt;Do The Simplest Thing That Could Possibly Work&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#做最简单最可能实现的事情&quot;&gt;做最简单最可能实现的事情&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#separation-of-concerns&quot;&gt;Separation of Concerns&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#关注点分离&quot;&gt;关注点分离&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#keep-things-dry&quot;&gt;Keep Things DRY&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#DRY原则&quot;&gt;DRY原则 (不要重复你所做过的事情)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#code-for-the-maintainer&quot;&gt;Code For The Maintainer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#编写可维护的代码&quot;&gt;编写可维护的代码&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#avoid-premature-optimization&quot;&gt;Avoid Premature Optimization&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#避免过度过早优化&quot;&gt;避免过度过早优化&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#boy-scout-rule&quot;&gt;Boy-Scout Rule&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#美国童子军准则&quot;&gt;美国童子军准则&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;inter-moduleclass&quot;&gt;Inter-Module/Class&lt;/h3&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;内部模块/类&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#minimise-coupling&quot;&gt;Minimise Coupling&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#低耦合&quot;&gt;低耦合&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#law-of-demeter&quot;&gt;Law of Demeter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#迪米特法则&quot;&gt;迪米特法则&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#composition-over-inheritance&quot;&gt;Composition Over Inheritance&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#组合优于继承&quot;&gt;组合优于继承&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#orthogonality&quot;&gt;Orthogonality&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#正交性&quot;&gt;正交性&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#Robustness Principle&quot;&gt;Robustness Principle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#健壮性原则&quot;&gt;健壮性原则&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;moduleclass&quot;&gt;Module/Class&lt;/h3&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;模块/类&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#maximise-cohesion&quot;&gt;Maximise Cohesion&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#高内聚&quot;&gt;高内聚&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#liskov-substitution-principle&quot;&gt;Liskov Substitution Principle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#里氏替换原则&quot;&gt;里氏替换原则&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#openclosed-principle&quot;&gt;Open/Closed Principle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#开闭原则&quot;&gt;开闭原则&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#single-responsibility-principle&quot;&gt;Single Responsibility Principle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#单一职责原则&quot;&gt;单一职责原则&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#hide-implementation-details&quot;&gt;Hide Implementation Details&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#隐藏实现细节&quot;&gt;隐藏实现细节&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#curlys-law&quot;&gt;Curly’s Law&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#科里定律&quot;&gt;科里定律&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#encapsulate-what-changes&quot;&gt;Encapsulate What Changes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#封装性&quot;&gt;封装性&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#interface-segregation-principle&quot;&gt;Interface Segregation Principle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#接口隔离原则&quot;&gt;接口隔离原则&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#command-query-separation&quot;&gt;Command Query Separation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#命令查询职责分离&quot;&gt;命令查询职责分离&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;kiss&quot;&gt;KISS&lt;/h2&gt;
+
+&lt;h2 id=&quot;kiss-1&quot;&gt;KISS准则&lt;/h2&gt;
+
+&lt;p&gt;Most systems work best if they are kept simple rather than made complex.&lt;/p&gt;
+
+&lt;p&gt;如果能够保持系统简单复杂性低，那么大多数的系统都可以运行的很好。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Less code takes less time to write, has less bugs, and is easier to modify.&lt;/li&gt;
+  &lt;li&gt;更少的代码可以花费更少的编码时间、更少的bugs、更容易去修改。&lt;/li&gt;
+  &lt;li&gt;Simplicity is the ultimate sophistication.&lt;/li&gt;
+  &lt;li&gt;简洁的就是最好最复杂的。&lt;/li&gt;
+  &lt;li&gt;It seems that perfection is reached not when there is nothing left to add, but when there is nothing left to take away.&lt;/li&gt;
+  &lt;li&gt;完美度不仅表示已经没有什么需要新增，而且也表示着没有什么需要剔除。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/KISS_principle&quot;&gt;KISS principle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://principles-wiki.net/principles:keep_it_simple_stupid&quot;&gt;Keep It Simple Stupid (KISS)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;yagni&quot;&gt;YAGNI&lt;/h2&gt;
+
+&lt;h2 id=&quot;yagni-1&quot;&gt;YAGNI准则&lt;/h2&gt;
+
+&lt;p&gt;YAGNI stands for “you aren’t gonna need it”: don’t implement something until it is necessary.&lt;/p&gt;
+
+&lt;p&gt;YAGNI英文描述为 “you aren’t gonna need it”：直到使用之前都不要去实现它。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Any work that’s only used for a feature that’s needed tomorrow, means losing effort from features that need to be done for the current iteration.&lt;/li&gt;
+  &lt;li&gt;任何只用于明天所需要的功能的工作，意味着从当前所需要的功能中减去相应的工作量。&lt;/li&gt;
+  &lt;li&gt;It leads to code bloat; the software becomes larger and more complicated.&lt;/li&gt;
+  &lt;li&gt;意味着代码变得臃肿，软件变得更大更复杂。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Always implement things when you actually need them, never when you just foresee that you need them.&lt;/li&gt;
+  &lt;li&gt;只有在你真正需要的时候才去实现它，而不是根据你对于未来的估算和预测。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/xp/YouArentGonnaNeedIt.html&quot;&gt;You Arent Gonna Need It&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.xprogramming.com/Practices/PracNotNeed.html&quot;&gt;You’re NOT gonna need it!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/You_ain&#39;t_gonna_need_it&quot;&gt;You ain’t gonna need it&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;do-the-simplest-thing-that-could-possibly-work&quot;&gt;Do The Simplest Thing That Could Possibly Work&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;做最简单最可能实现的事情&lt;/h2&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Real progress against the real problem is maximized if we just work on what the problem really is.&lt;/li&gt;
+  &lt;li&gt;如果我们努力解决问题的真正原因，那么对真正问题的积极进展就会被最大化。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How
+怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ask yourself: “What is the simplest thing that could possibly work?”&lt;/li&gt;
+  &lt;li&gt;常常询问自己：“最简单最根本的事情是什么？”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html&quot;&gt;Do The Simplest Thing That Could Possibly Work&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;separation-of-concerns&quot;&gt;Separation of Concerns&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;关注点分离&lt;/h2&gt;
+
+&lt;p&gt;Separation of concerns is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. For example the business logic of the application is a concern and the user interface is another concern. Changing the user interface should not require changes to business logic and vice versa.&lt;/p&gt;
+
+&lt;p&gt;关注点分离，是将计算机程序分成不同部分的设计原则，使每个部分都涉及到单独的问题。 例如，应用程序的业务逻辑是一个问题，用户界面是另一个问题。 更改用户界面不应要求对业务逻辑进行更改，反之亦然。&lt;/p&gt;
+
+&lt;p&gt;Quoting &lt;a href=&quot;https://en.wikipedia.org/wiki/Edsger_W._Dijkstra&quot;&gt;Edsger W. Dijkstra&lt;/a&gt; (1974):&lt;/p&gt;
+
+&lt;p&gt;引证 &lt;a href=&quot;https://en.wikipedia.org/wiki/Edsger_W._Dijkstra&quot;&gt;Edsger W. Dijkstra&lt;/a&gt; (1974):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It is what I sometimes have called “the separation of concerns”, which, even if not perfectly possible, is yet the only available technique for effective ordering of one’s thoughts, that I know of. This is what I mean by “focusing one’s attention upon some aspect”: it does not mean ignoring the other aspects, it is just doing justice to the fact that from this aspect’s point of view, the other is irrelevant.
+通常意义上所谈到的“关注点分离”，或许不是完全可能，我所知道的是它依然更多地依赖于个人对于事情场景的观点和想法。其实我所更想提及的是“把一个人的焦点放在某一个方面”：这并不意味着要忽略其他的方面，只是更多地期望能在关注的方面或者说角度上，找到根本的原因和事实，而不是其它不相关的部分。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Simplify development and maintenance of software applications.&lt;/li&gt;
+  &lt;li&gt;简化软件应用的开发和维护工作。&lt;/li&gt;
+  &lt;li&gt;When concerns are well-separated, individual sections can be reused, as well as developed and updated independently.&lt;/li&gt;
+  &lt;li&gt;当关注点得到很好的分离，单独的部分可以被重用，那么开发和更新工作也将是相互独立的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Break program functionality into separate modules that overlap as little as possible.&lt;/li&gt;
+  &lt;li&gt;将程序按照功能拆分为不同的模块，使之具备更低的重复率。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Separation_of_concerns&quot;&gt;Separation of Concerns&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;keep-things-dry&quot;&gt;Keep things DRY&lt;/h2&gt;
+
+&lt;h2 id=&quot;dry&quot;&gt;DRY原则&lt;/h2&gt;
+
+&lt;p&gt;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&lt;/p&gt;
+
+&lt;p&gt;在一个系统内，每一项知识点的表现必须是单一的，明确无歧义的，具备权威性的。&lt;/p&gt;
+
+&lt;p&gt;Each significant piece of functionality in a program should be implemented in just one place in the source code. Where similar functions are carried out by distinct pieces of code, it is generally beneficial to combine them into one by abstracting out the varying parts.&lt;/p&gt;
+
+&lt;p&gt;源代码中的每一项重要的程序功能只应该出现在一个地方。当我们遇到不同的代码段实现了相类似的功能，通常地，我们把不同的部分抽象出来，然后把相同的部分放在公共层，以实现更高的复用性。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Duplication (inadvertent or purposeful duplication) can lead to maintenance nightmares, poor factoring, and logical contradictions.&lt;/li&gt;
+  &lt;li&gt;重复代码（有意或无意的重复）会引发维护上的噩梦、较差的因果关系、逻辑矛盾。&lt;/li&gt;
+  &lt;li&gt;A modification of any single element of a system does not require a change in other logically unrelated elements.&lt;/li&gt;
+  &lt;li&gt;一个系统内单一元素的修改不涉及其他逻辑关联的元素的变更。&lt;/li&gt;
+  &lt;li&gt;Additionally, elements that are logically related all change predictably and uniformly, and are thus kept in sync.&lt;/li&gt;
+  &lt;li&gt;另，逻辑相关的元素的变化需要具有可预见性和一致性的，即需要保持同步性。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Put business rules, long expressions, if statements, math formulas, metadata, etc. in only one place.&lt;/li&gt;
+  &lt;li&gt;将业务规则、长表达式、条件语句、数学公式、元数据等放置到同一个地方。&lt;/li&gt;
+  &lt;li&gt;Identify the single, definitive source of every piece of knowledge used in your system, and then use that source to generate applicable instances of that knowledge (code, documentation, tests, etc).&lt;/li&gt;
+  &lt;li&gt;在系统的识别出每个知识点的单一来源，然后将这些知识点并应用于相同场景的实例当中（代码、文档、测试用例等）。&lt;/li&gt;
+  &lt;li&gt;Apply the &lt;a href=&quot;http://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)&quot;&gt;Rule of three&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;遵循规则&lt;a href=&quot;http://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)&quot;&gt;Rule of three&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?DontRepeatYourself&quot;&gt;Dont Repeat Yourself&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Don&#39;t_repeat_yourself&quot;&gt;Don’t repeat yourself&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://programmer.97things.oreilly.com/wiki/index.php/Don&#39;t_Repeat_Yourself&quot;&gt;Don’t Repeat Yourself&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Related&lt;/p&gt;
+
+&lt;p&gt;引用&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Abstraction_principle_(computer_programming)&quot;&gt;Abstraction principle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?OnceAndOnlyOnce&quot;&gt;Once And Only Once&lt;/a&gt; is a subset of DRY (also referred to as the goal of refactoring).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Single_Source_of_Truth&quot;&gt;Single Source of Truth&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;A violation of DRY is &lt;a href=&quot;http://thedailywtf.com/articles/The-WET-Cart&quot;&gt;WET&lt;/a&gt; (Write Everything Twice)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;code-for-the-maintainer&quot;&gt;Code For The Maintainer&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;编写可维护的代码&lt;/h2&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Maintenance is by far the most expensive phase of any project.&lt;/li&gt;
+  &lt;li&gt;维护阶段是一个项目生命周期当中最为昂贵的阶段。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Be&lt;/em&gt; the maintainer.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;成为&lt;/em&gt;一个维护者。&lt;/li&gt;
+  &lt;li&gt;Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.&lt;/li&gt;
+  &lt;li&gt;常常作出假设，假设你的代码维护者是一个有精神暴力倾向的并且知道你住处的人。&lt;/li&gt;
+  &lt;li&gt;Always code and comment in such a way that if someone a few notches junior picks up the code, they will take pleasure in reading and learning from it.&lt;/li&gt;
+  &lt;li&gt;在编码和注释的时候，时长以阅读者的角度去考虑，考虑他们是否会爱上阅读和学习你的成果。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.sensible.com/dmmt.html&quot;&gt;Don’t make me think&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;以常识和简洁的角度去说明事情关键，不要让读者去想太多。&lt;a href=&quot;http://www.sensible.com/dmmt.html&quot;&gt;Don’t make me think&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Use the &lt;a href=&quot;http://en.wikipedia.org/wiki/Principle_of_least_astonishment&quot;&gt;Principle of Least Astonishment&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;遵循准则&lt;a href=&quot;http://en.wikipedia.org/wiki/Principle_of_least_astonishment&quot;&gt;Principle of Least Astonishment&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?CodeForTheMaintainer&quot;&gt;Code For The Maintainer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.codinghorror.com/the-noble-art-of-maintenance-programming/&quot;&gt;The Noble Art of Maintenance Programming&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;avoid-premature-optimization&quot;&gt;Avoid Premature Optimization&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-6&quot;&gt;避免过度过早优化&lt;/h2&gt;
+
+&lt;p&gt;Quoting &lt;a href=&quot;http://en.wikiquote.org/wiki/Donald_Knuth&quot;&gt;Donald Knuth&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;引用 &lt;a href=&quot;http://en.wikiquote.org/wiki/Donald_Knuth&quot;&gt;唐纳德·克努斯&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.
+程序员花费极大的时间去思考、担心哪些程序里非关键部位的运行速度，而这种种在调试、维护上的工作效能方面常常引发了负面的影响。我们应该摒弃那些花费了97%时间去做的低效能的事情。过早的优化是所有邪恶的根源。不管怎样，我们不能放弃那3%关键部分的机会。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Understanding what is and isn’t “premature” is critical of course.&lt;/p&gt;
+
+&lt;p&gt;对于是否属于“过早的优化”，这是一项关键的课程。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It is unknown upfront where the bottlenecks will be.&lt;/li&gt;
+  &lt;li&gt;过早优化会引发未来不可知的瓶颈的发生。&lt;/li&gt;
+  &lt;li&gt;After optimization, it might be harder to read and thus maintain.&lt;/li&gt;
+  &lt;li&gt;优化之后，它或许变得更加难以阅读和维护。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast&quot;&gt;Make It Work Make It Right Make It Fast&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast&quot;&gt;使之具备可行性、正确性、快速性&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Don’t optimize until you need to, and only after profiling you discover a bottleneck optimise that.&lt;/li&gt;
+  &lt;li&gt;只有在你需要的时候才去优化，只有在做了瓶颈分析之后再去做实际的优化。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Program_optimization&quot;&gt;Program optimization&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?PrematureOptimization&quot;&gt;Premature Optimization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;boy-scout-rule&quot;&gt;Boy-Scout Rule&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;美国童子军准则&lt;/h2&gt;
+
+&lt;p&gt;The Boy Scouts of America have a simple rule that we can apply to our profession: “Leave the campground cleaner than you found it”. The boy-scout rule states that we should always leave the code cleaner than we found it.&lt;/p&gt;
+
+&lt;p&gt;美国童子军有一项简单的准则：“离开野营区之时保证要比自己来的时候更加干净”。我们可以将这一准则应用在计算机方面：“时常迫使代码比我们发现它的时候更整洁更清晰”。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;When making changes to an existing codebase the code quality tends to degrade, accumulating technical debt. Following the boyscout rule, we should mind the quality with each commit. Technical debt is resisted by continuous refactoring, no matter how small.&lt;/li&gt;
+  &lt;li&gt;当我们对现有代码库作修改之时，现有代码库质量低并且积累了许多的技术债务。根据美国童子军准则，我们理应关心每一次提交的代码质量，而技术债务也应该在持续的重构过程中逐渐变少。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;With each commit make sure it does not degrade the codebase quality.&lt;/li&gt;
+  &lt;li&gt;保证每一次的提交不会造成代码库的代码质量的降级。&lt;/li&gt;
+  &lt;li&gt;Any time someone sees some code that isn’t as clear as it should be, they should take the opportunity to fix it right there and then.&lt;/li&gt;
+  &lt;li&gt;任何时间，任何人，只要发现了代码可以变得更为清晰和整洁，那么他就应该寻找机会去实现它。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://martinfowler.com/bliki/OpportunisticRefactoring.html&quot;&gt;Opportunistic Refactoring&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;minimise-coupling&quot;&gt;Minimise Coupling&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;低耦合&lt;/h2&gt;
+
+&lt;p&gt;Coupling between modules/components is their degree of mutual interdependence; lower coupling is better. In other words, coupling is the probability that code unit “B” will “break” after an unknown change to code unit “A”.&lt;/p&gt;
+
+&lt;p&gt;耦合度指的是模块/组件之间的相互依赖程度。耦合度越低则越好。换句话说，耦合度高会导致代码单元“B”因为代码单元“A”的一个未知变更而被打断。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A change in one module usually forces a ripple effect of changes in other modules.&lt;/li&gt;
+  &lt;li&gt;一个模块的变更会迫使和波及其他的模块也需要发生相应的变更。&lt;/li&gt;
+  &lt;li&gt;Assembly of modules might require more effort and/or time due to the increased inter-module dependency.&lt;/li&gt;
+  &lt;li&gt;模块集成过程中会涉及更多的修改、更多的时间，正是因为模块内的相互依赖复杂度的升高。&lt;/li&gt;
+  &lt;li&gt;A particular module might be harder to reuse and/or test because dependent modules must be included.&lt;/li&gt;
+  &lt;li&gt;一个指定的模块将变得难以重用和测试，正是因为其依赖的其他模块也必须被包含进来。&lt;/li&gt;
+  &lt;li&gt;Developers might be afraid to change code because they aren’t sure what might be affected.&lt;/li&gt;
+  &lt;li&gt;开发者会害怕修改代码，因为他们不确定具体有多少方面会被涉及。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Eliminate, minimise, and reduce complexity of necessary relationships.&lt;/li&gt;
+  &lt;li&gt;尽可能多地，甚至消除复杂必须的关联关系。&lt;/li&gt;
+  &lt;li&gt;By hiding implementation details, coupling is reduced.&lt;/li&gt;
+  &lt;li&gt;隐藏了实现的细节之后，耦合性往往会被降低。&lt;/li&gt;
+  &lt;li&gt;Apply the &lt;a href=&quot;#law-of-demeter&quot;&gt;Law of Demeter&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;遵循迪米特法则&lt;a href=&quot;#law-of-demeter&quot;&gt;Law of Demeter&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Coupling_(computer_programming)&quot;&gt;Coupling&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?CouplingAndCohesion&quot;&gt;Coupling And Cohesion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;law-of-demeter&quot;&gt;Law of Demeter&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-9&quot;&gt;迪米特法则&lt;/h2&gt;
+
+&lt;p&gt;Don’t talk to strangers.&lt;/p&gt;
+
+&lt;p&gt;不要告诉陌生人。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It usually tightens coupling&lt;/li&gt;
+  &lt;li&gt;依赖往往会增加耦合度。&lt;/li&gt;
+  &lt;li&gt;It might reveal too much implementation details&lt;/li&gt;
+  &lt;li&gt;依赖会露出过多的实现细节。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;p&gt;A method of an object may only call methods of:&lt;/p&gt;
+
+&lt;p&gt;一个对象的一个方法，只能调用如下内容：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The object itself.&lt;/li&gt;
+  &lt;li&gt;对象本身。&lt;/li&gt;
+  &lt;li&gt;An argument of the method.&lt;/li&gt;
+  &lt;li&gt;方法参数。&lt;/li&gt;
+  &lt;li&gt;Any object created within the method.&lt;/li&gt;
+  &lt;li&gt;方法内所创建的对象。&lt;/li&gt;
+  &lt;li&gt;Any direct properties/fields of the object.&lt;/li&gt;
+  &lt;li&gt;对象内直接包含的属性、字段。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Law_of_Demeter&quot;&gt;Law of Demeter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/&quot;&gt;The Law of Demeter Is Not A Dot Counting Exercise&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;composition-over-inheritance&quot;&gt;Composition Over Inheritance&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-10&quot;&gt;组合优于继承&lt;/h2&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Less coupling between classes.&lt;/li&gt;
+  &lt;li&gt;降低类之间的耦合。&lt;/li&gt;
+  &lt;li&gt;Using inheritance, subclasses easily make assumptions, and break LSP.&lt;/li&gt;
+  &lt;li&gt;使用继承、子类会易于出现断言，并且打破里氏替换原则。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Test for LSP (substitutability) to decide when to inherit.&lt;/li&gt;
+  &lt;li&gt;根据里氏替换原则，判断什么时候使用继承。&lt;/li&gt;
+  &lt;li&gt;Compose when there is a “has a” (or “uses a”) relationship, inherit when “is a”.&lt;/li&gt;
+  &lt;li&gt;若是”has a” (或者”uses a”)关系的时候使用组合，若是”is a”关系则使用继承。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blogs.msdn.com/b/thalesc/archive/2012/09/05/favor-composition-over-inheritance.aspx&quot;&gt;Favor Composition Over Inheritance&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;orthogonality&quot;&gt;Orthogonality&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-11&quot;&gt;正交性&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The basic idea of orthogonality is that things that are not related conceptually should not be related in the system.
+正交性的基本定义是，系统内概念不相同的部分，不应该形成关联和依赖。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;http://www.artima.com/intv/dry3.html&quot;&gt;Be Orthogonal&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;引用: &lt;a href=&quot;http://www.artima.com/intv/dry3.html&quot;&gt;Be Orthogonal&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It is associated with simplicity; the more orthogonal the design, the fewer exceptions. This makes it easier to learn, read and write programs in a programming language. The meaning of an orthogonal feature is independent of context; the key parameters are symmetry and consistency.
+它与简单性有关，设计的时候正交性越高，则异常发生地越少。这通常会使得代码变得更加容易学习、阅读和编写，无论你使用的是哪一种编程语言。正交性的一个典型特征是上下文之间互相没有依赖，核心参数之间会保持对称性和一致性。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;http://en.wikipedia.org/wiki/Orthogonality_(programming)&quot;&gt;Orthogonality&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;引用: &lt;a href=&quot;http://en.wikipedia.org/wiki/Orthogonality_(programming)&quot;&gt;Orthogonality&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;robustness-principle&quot;&gt;Robustness Principle&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-12&quot;&gt;健壮性原则&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Be conservative in what you do, be liberal in what you accept from others
+对内保持保守，对外保持自由。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Collaborating services depend on each others interfaces. Often the interfaces need to evolve causing the other end to receive unspecified data. A naive implementation refuses to collaborate if the received data does not strictly follow the specification. A more sophisticated implementation will still work ignoring the data it does not recognize.&lt;/p&gt;
+
+&lt;p&gt;协作服务依赖于各式各样的接口。通常地，接口的演变会致使另外一端接收到未指定的数据。倘若数据结构没有遵循规范，那么一个简单的不健壮的实现会遭到拒绝。一个健壮的实现会主动忽略不可识别的数据，继而持续工作。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In order to be able to evolve services you need to ensure that a provider can make changes to support new demands while causing minimal breakage to their existing clients.&lt;/li&gt;
+  &lt;li&gt;为了使得程序服务得以演进，你需要确保提供者程序可以支持新的指令，尽管这些指令可能会对现有的客户端所导致的小面积破坏。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Code that sends commands or data to other machines (or to other programs on the same machine) should conform completely to the specifications, but code that receives input should accept non-conformant input as long as the meaning is clear.&lt;/li&gt;
+  &lt;li&gt;发送给其他机器（或者相同机器的其他程序）的指令或者数据的代码理应完全遵循指定的规范，但是接收方需要能够接收和处理不符合规范，但含义清晰的数据或指令。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Robustness_principle&quot;&gt;Robustness Principle in Wikipedia&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://martinfowler.com/bliki/TolerantReader.html&quot;&gt;Tolerant Reader&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;maximise-cohesion&quot;&gt;Maximise Cohesion&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-13&quot;&gt;高内聚&lt;/h2&gt;
+
+&lt;p&gt;Cohesion of a single module/component is the degree to which its responsibilities form a meaningful unit; higher cohesion is better.&lt;/p&gt;
+
+&lt;p&gt;一个单一模块/组件的内聚性指的是它的职责形成了有具体含义的独立单元。内聚性自然越高也好。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Increased difficulty in understanding modules.&lt;/li&gt;
+  &lt;li&gt;增加了模块理解的难度。&lt;/li&gt;
+  &lt;li&gt;Increased difficulty in maintaining a system, because logical changes in the domain affect multiple modules, and because changes in one module require changes in related modules.&lt;/li&gt;
+  &lt;li&gt;增加了维护系统的成本消耗。因为一个方面的逻辑变更会引发其它多个关联模块需要同时发生变更。&lt;/li&gt;
+  &lt;li&gt;Increased difficulty in reusing a module because most applications won’t need the random set of operations provided by a module.&lt;/li&gt;
+  &lt;li&gt;增加了程序重用的难度。因为大多数的程序不需要模块所提供的随机操作。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Group related functionalities sharing a single responsibility (e.g. in a class).&lt;/li&gt;
+  &lt;li&gt;一组相似的功能共享使用一个单一的职责（例如在一个类里）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Cohesion_(computer_science)&quot;&gt;Cohesion&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?CouplingAndCohesion&quot;&gt;Coupling And Cohesion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;liskov-substitution-principle&quot;&gt;Liskov Substitution Principle&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-14&quot;&gt;里氏替换原则&lt;/h2&gt;
+
+&lt;p&gt;The LSP is all about expected behavior of objects:&lt;/p&gt;
+
+&lt;p&gt;里氏替换原则是关于对象预期行为方面的描述：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
+程序内的对象理应可以被它的子类所无缝替换，此间不需要作任何的程序订正操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Liskov_substitution_principle&quot;&gt;Liskov substitution principle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://freshbrewedcode.com/derekgreer/2011/12/31/solid-javascript-the-liskov-substitution-principle/&quot;&gt;The Liskov Substitution Principle&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;openclosed-principle&quot;&gt;Open/Closed Principle&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-15&quot;&gt;开闭原则&lt;/h2&gt;
+
+&lt;p&gt;Software entities (e.g. classes) should be open for extension, but closed for modification. I.e. such an entity can allow its behavior to be modified without altering its source code.&lt;/p&gt;
+
+&lt;p&gt;软件实体（例如类）理应对扩展开放，对修改关闭。例如一个实体可以允许它的动作不需要经过修改源码而发生的演变。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improve maintainability and stability by minimizing changes to existing code.&lt;/li&gt;
+  &lt;li&gt;在现有代码发生最小化改变的前提下，改善和提高可维护性和稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Write classes that can be extended (as opposed to classes that can be modified).&lt;/li&gt;
+  &lt;li&gt;编写可以被扩展的类（而不是类文件被修改）。&lt;/li&gt;
+  &lt;li&gt;Expose only the moving parts that need to change, hide everything else.&lt;/li&gt;
+  &lt;li&gt;只暴露那些需要修改以支持扩展的部分，其余的部分都隐藏。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Open/closed_principle&quot;&gt;Open Closed Principle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://freshbrewedcode.com/derekgreer/2011/12/19/solid-javascript-the-openclosed-principle/&quot;&gt;SOLID JavaScript: The Open/Closed Principle&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;single-responsibility-principle&quot;&gt;Single Responsibility Principle&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-16&quot;&gt;单一职责原则&lt;/h2&gt;
+
+&lt;p&gt;A class should never have more than one reason to change.&lt;/p&gt;
+
+&lt;p&gt;一个类不应该包含多于一个职责。&lt;/p&gt;
+
+&lt;p&gt;Long version: Every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. Responsibility can be defined as a reason to change, so a class or module should have one, and only one, reason to change.&lt;/p&gt;
+
+&lt;p&gt;长文字版本：每一个类都应该有一个职责，而这个职责应该被这个类所内聚。职责被定义为发生改变的一个原因，即一个类或者模块有且仅有一个原因会致使其发生演变。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Maintainability: changes should be necessary only in one module or class.&lt;/li&gt;
+  &lt;li&gt;可维护性：变更只应该出现在一个模块或者一个类当中。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Apply &lt;a href=&quot;#Curly-s-Law&quot;&gt;Curly’s Law&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;遵循&lt;a href=&quot;#科里定律&quot;&gt;科里定律&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Single_responsibility_principle&quot;&gt;Single responsibility principle&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;hide-implementation-details&quot;&gt;Hide Implementation Details&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-17&quot;&gt;隐藏实现细节&lt;/h2&gt;
+
+&lt;p&gt;A software module hides information (i.e. implementation details) by providing an interface, and not leak any unnecessary information.&lt;/p&gt;
+
+&lt;p&gt;一个软件模块应该隐藏一些信息（例如实现细节），仅提供一个接口即可，以确保不泄露任何不必要的信息。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;When the implementation changes, the interface clients are using does not have to change.&lt;/li&gt;
+  &lt;li&gt;当实现细节需要发生变更之时，接口消费方可以无缝使用而不需要作出任何变更。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Minimize accessibility of classes and members.&lt;/li&gt;
+  &lt;li&gt;最小化类及其成员的可访问性。&lt;/li&gt;
+  &lt;li&gt;Don’t expose member data in public.&lt;/li&gt;
+  &lt;li&gt;不要暴露成员数据在public域。&lt;/li&gt;
+  &lt;li&gt;Avoid putting private implementation details into a class’s interface.&lt;/li&gt;
+  &lt;li&gt;杜绝将私有的实现细节放置到类的接口层上。&lt;/li&gt;
+  &lt;li&gt;Decrease coupling to hide more implementation details.&lt;/li&gt;
+  &lt;li&gt;降低模块间耦合性，隐藏更多的不必要的实现细节。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Information_hiding&quot;&gt;Information hiding&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;curlys-law&quot;&gt;Curly’s Law&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-18&quot;&gt;科里定律&lt;/h2&gt;
+
+&lt;p&gt;Curly’s Law is about choosing a single, clearly defined goal for any particular bit of code: Do One Thing.&lt;/p&gt;
+
+&lt;p&gt;科里定律是关于如何为任一特定代码段选择一项单一的、定义明确的目标的一项法则：只作一件事。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.codinghorror.com/curlys-law-do-one-thing/&quot;&gt;Curly’s Law: Do One Thing&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://fortyplustwo.com/2008/09/06/the-rule-of-one-or-curlys-law/&quot;&gt;The Rule of One or Curly’s Law&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;encapsulate-what-changes&quot;&gt;Encapsulate What Changes&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-19&quot;&gt;封装性&lt;/h2&gt;
+
+&lt;p&gt;A good design identifies the hotspots that are most likely to change and encapsulates them behind an API. When an anticipated change then occurs, the modifications are kept local.&lt;/p&gt;
+
+&lt;p&gt;一项好的设计意味着某些很有可能被修改和内聚的热点部分被隐藏在API的后方。当预期的变更出现时，这些变更也只需要在内部作出调整即可。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To minimize required modifications when a change occurs&lt;/li&gt;
+  &lt;li&gt;当变更发生时，可以最小化变更的涉及面。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Encapsulate the concept that varies behind an API&lt;/li&gt;
+  &lt;li&gt;在API内部封装多样化的概念。&lt;/li&gt;
+  &lt;li&gt;Possibly separate the varying concept into its own module&lt;/li&gt;
+  &lt;li&gt;尽可能地从多样化的概念中，分隔出独立的单一模块。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://principles-wiki.net/principles:encapsulate_the_concept_that_varies&quot;&gt;Encapsulate the Concept that Varies&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blogs.msdn.com/b/steverowe/archive/2007/12/26/encapsulate-what-varies.aspx&quot;&gt;Encapsulate What Varies&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Information_hiding&quot;&gt;Information Hiding&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;interface-segregation-principle&quot;&gt;Interface Segregation Principle&lt;/h2&gt;
+
+&lt;h2 id=&quot;section-20&quot;&gt;接口隔离原则&lt;/h2&gt;
+
+&lt;p&gt;Reduce fat interfaces into multiple smaller and more specific client specific interfaces. An interface should be more dependent on the code that calls it than the code that implements it.&lt;/p&gt;
+
+&lt;p&gt;降低接口的粒度，使得接口更小更具体，更接近调用方的现实需要。一个接口的定义更多地应该依赖于调用方的代码，而不是实现方可以实现的细节。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If a class implements methods that are not needed the caller needs to know about the method implementation of that class. For example if a class implements a method but simply throws then the caller will need to know that this method shouldn’t actually be called.&lt;/li&gt;
+  &lt;li&gt;如果一个类的实现方法已经被废弃，那么调用方理应需要知晓这个类的实现方法的具体实现细节。例如，假设一个类的实现方法仅仅是抛出了一个异常，那么调用方需要知道这个方法不应该再被调用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Avoid fat interfaces. Classes should never have to implement methods that violate the &lt;a href=&quot;#single-responsibility-principle&quot;&gt;Single responsibility principle&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;杜绝肥胖的接口存在。一个类的实现方法的设计不应该违背&lt;a href=&quot;#single-responsibility-principle&quot;&gt;单一职责原则&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Interface_segregation_principle&quot;&gt;Interface segregation principle&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;command-query-separation&quot;&gt;Command Query Separation&lt;/h2&gt;
+
+&lt;h2 id=&quot;command-query-responsibility-segregationcqrs&quot;&gt;命令查询职责分离（也称Command Query Responsibility Segregation，CQRS）&lt;/h2&gt;
+
+&lt;p&gt;The Command Query Separation principle states that each method should be either a command that performs an action or a query that returns data to the caller but not both. Asking a question should not modify the answer.&lt;/p&gt;
+
+&lt;p&gt;命令查询职责分离准则的具体阐述可以参见资料所引述到的Martin Fowler的文章。命令查询职责分离原则指出，每个方法应该是执行一个操作的命令（命令是void的，不返回任何结果，但会改变对象的状态）或者一个查询（返回结果，但是不会改变对象的状态，对系统没有副作用），它将数据返回给调用者，而不是两者。提出问题不应该修改答案。&lt;/p&gt;
+
+&lt;p&gt;With this principle applied the programmer can code with much more confidence. The query methods can be used anywhere and in any order since they do not mutate the state. With commands one has to be more careful.&lt;/p&gt;
+
+&lt;p&gt;使用这条准则，程序员在编码之时可以更加自信，查询方法可以在任何地方以任意次序使用，因为它不会影响到对象状态。而命令则需要更加小心谨慎。&lt;/p&gt;
+
+&lt;p&gt;Why&lt;/p&gt;
+
+&lt;p&gt;为什么？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;By clearly separating methods into queries and commands the programmer can code with additional confidence without knowing each method’s implementation details.&lt;/li&gt;
+  &lt;li&gt;基于清晰地将方法分隔为查询和命令两大阵营之后，程序员在编码方面更加自信了，因为他们可以不需要去了解每个方法的实现具体细节。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How&lt;/p&gt;
+
+&lt;p&gt;怎么办？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Implement each method as either a query or a command&lt;/li&gt;
+  &lt;li&gt;方法设计之时，要么是查询，要么是命令，不可二者兼备。&lt;/li&gt;
+  &lt;li&gt;Apply naming convention to method names that implies whether the method is a query or a command&lt;/li&gt;
+  &lt;li&gt;针对方法名的命名上作约定和规范，使得方法名上可以直接表露出它具体是查询还是命令。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resources&lt;/p&gt;
+
+&lt;p&gt;更多资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Command%E2%80%93query_separation&quot;&gt;Command Query Separation in Wikipedia&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://martinfowler.com/bliki/CommandQuerySeparation.html&quot;&gt;Command Query Separation by Martin Fowler&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/yangecnu/p/Introduction-CQRS.html&quot;&gt;Introduction CQRS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Tue, 16 May 2017 17:00:00 +0800</pubDate>
+				<link>http://aboutcoder.com/2017/05/16/programming-principles/</link>
+				<guid isPermaLink="true">http://aboutcoder.com/2017/05/16/programming-principles/</guid>
+			</item>
+		
+			<item>
 				<title>并发场景实践方案优劣评析</title>
 				<description>&lt;p&gt;近期实践了高并发场景下，如何去实现抢购系统的研究。虽然方案并不算成功，但是本次能将以往只在资料中学习过的知识付诸于现实，也让自己畅快淋漓了一番。本篇文章所阐述的内容都比较基础，重在于将实践过程中所得到的经验和教训分享出来给大家。&lt;/p&gt;
 
@@ -1647,211 +2548,6 @@ along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;g
 				<pubDate>Fri, 22 Jul 2016 18:00:00 +0800</pubDate>
 				<link>http://aboutcoder.com/2016/07/22/easy-chosing-opensource-license/</link>
 				<guid isPermaLink="true">http://aboutcoder.com/2016/07/22/easy-chosing-opensource-license/</guid>
-			</item>
-		
-			<item>
-				<title>解决fastjson反序列化日期0000-00-00失败的方案</title>
-				<description>&lt;h4 id=&quot;section&quot;&gt;一、案例场景复原&lt;/h4&gt;
-&lt;p&gt;示例场景里涉及两个class：&lt;code class=&quot;highlighter-rouge&quot;&gt;TestDemo.java&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;DateBeanDemo.java&lt;/code&gt;。&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// DateBeanDemo.java&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DateBeanDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;cm&quot;&gt;/**
-	 * dateStr field with Date.class
-	 */&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;cm&quot;&gt;/**
-     * Get dateStr &amp;lt;br&amp;gt;
-     *
-     * @return Returns the dateStr. &amp;lt;br&amp;gt;
-     */&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getDateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;cm&quot;&gt;/**
-     * Set dateStr &amp;lt;br&amp;gt;
-     *
-     * @param dateStr The dateStr to set. &amp;lt;br&amp;gt;
-     */&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setDateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;dateStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 示例执行例子&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jsonStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{\&quot;dateStr\&quot;:\&quot;0000-00-00\&quot;}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jsonStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;执行以上的main方法之后，并没有获取预期的结果，而是在fastjson的序列化解析中便发生了异常，如下&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Exception in thread &quot;main&quot; com.alibaba.fastjson.JSONException: For input string: &quot;0000-00-00&quot;
-	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:555)
-	at com.alibaba.fastjson.JSON.parseObject(JSON.java:251)
-	at com.alibaba.fastjson.JSON.parseObject(JSON.java:227)
-	at com.alibaba.fastjson.JSON.parseObject(JSON.java:186)
-	at excel.TestDemo.main(TestDemo.java:23)
-Caused by: java.lang.NumberFormatException: For input string: &quot;0000-00-00&quot;
-	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:48)
-	at java.lang.Long.parseLong(Long.java:419)
-	at java.lang.Long.parseLong(Long.java:468)
-	at com.alibaba.fastjson.parser.deserializer.DateDeserializer.cast(DateDeserializer.java:56)
-	at com.alibaba.fastjson.parser.deserializer.AbstractDateDeserializer.deserialze(AbstractDateDeserializer.java:98)
-	at Fastjson_ASM_DateBeanDemo_1.deserialze(Unknown Source)
-	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:551)
-	... 4 more
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;通过百度查阅了部分网上撰写的方案，可以使用fastjson中的注解&lt;code class=&quot;highlighter-rouge&quot;&gt;@JSONField(format=&quot;&quot;)&lt;/code&gt;来重新定义&lt;code class=&quot;highlighter-rouge&quot;&gt;DateBeanDemo.dateStr&lt;/code&gt;，如下：&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@JSONField&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;yyyy-MM-dd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parseFeatures&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;={&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Feature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;AllowISO8601DateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;然而，并没有解决这个exception的问题。同时还怀疑了注解是否在反序列化之时没有被使用到，经过查阅源码，fastjson已将其反序列化的开关定义了&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;。&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RetentionPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;METHOD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;FIELD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;PARAMETER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONField&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ordinal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deserialize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 默认定义了true，反序列化之时也使用该注解&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;SerializerFeature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;serialzeFeatures&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{};&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Feature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parseFeatures&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{};&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;二、原因剖析&lt;/h4&gt;
-
-&lt;p&gt;经查找fastjson中相关代码发现，当代码执行到&lt;code class=&quot;highlighter-rouge&quot;&gt;com.alibaba.fastjson.parser.deserializer.DateDeserializer.class&lt;/code&gt;的执行方法&lt;code class=&quot;highlighter-rouge&quot;&gt;cast()&lt;/code&gt;中之时，所使用的JSONParser中所含带的dateFormat依旧是默认的&lt;code class=&quot;highlighter-rouge&quot;&gt;yyyy-MM-dd HH:mm:ss&lt;/code&gt;，而并非注解@JSONField中所定义的&lt;code class=&quot;highlighter-rouge&quot;&gt;yyyy-MM-dd&lt;/code&gt;。
-所以发生了转换字段失败。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2016-07-22-resolve-the-fastjson-problems-about-date/14691655278897.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;再深究一层，为什么不是@JSONField中所定义的&lt;code class=&quot;highlighter-rouge&quot;&gt;yyyy-MM-dd&lt;/code&gt;作为JSONParser中的dateFormat呢？其实仔细阅读一遍&lt;code class=&quot;highlighter-rouge&quot;&gt;cast()&lt;/code&gt;代码逻辑就会发现，并不是fastjson丢弃了JSONField的扫描，而是在方法中有这么一段：&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 检查格式是否符合ISO8601的DateFormat规范&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dateLexer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;scanISO8601DateIfMatch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;label122&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;当执行到以上代码段之时，由于字符串&lt;code class=&quot;highlighter-rouge&quot;&gt;0000-00-00&lt;/code&gt;并不是ISO8601的DateFormat规范之内，故而代码便会&lt;code class=&quot;highlighter-rouge&quot;&gt;break label122&lt;/code&gt;执行跳出逻辑。紧接着执行的就是&lt;code class=&quot;highlighter-rouge&quot;&gt;DateFormat dateFormat1 = parser.getDateFormat();&lt;/code&gt;，此时，parser依然是global定义的parser，DateFormat并没有使用&lt;code class=&quot;highlighter-rouge&quot;&gt;@JSONField&lt;/code&gt;中所定义的。&lt;/p&gt;
-
-&lt;h4 id=&quot;date&quot;&gt;三、解决方案：新增date反序列化解析器&lt;/h4&gt;
-
-&lt;p&gt;解决方案并非只有一种，在众多解决方案中自己选择了”新增date反序列化解析器”的办法。除此之外还有诸如设置&lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.DEFFAULT_DATE_FORMAT&lt;/code&gt;属性的办法，也同样可以解决这一问题。下面作两种办法的对比和阐述。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;方案1：设置属性&lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.DEFFAULT_DATE_FORMAT&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这一方案只涉及修改&lt;code class=&quot;highlighter-rouge&quot;&gt;main()&lt;/code&gt;方法代码即可实现，&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 示例执行例子&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jsonStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{\&quot;dateStr\&quot;:\&quot;0000-00-00\&quot;}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DEFFAULT_DATE_FORMAT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;yyyy-MM-dd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jsonStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;但是翻阅fastjson中对于&lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.DEFFAULT_DATE_FORMAT&lt;/code&gt;可知，该属性属于静态属性，一旦设置影响全局。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// com.alibaba.fastjson.JSON.class
-public abstract class JSON implements JSONStreamAware, JSONAware {
-    public static String DEFFAULT_DATE_FORMAT;
-    // ...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;方案2：新增date反序列化解析器&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;主要思路是以fastjson原生的&lt;code class=&quot;highlighter-rouge&quot;&gt;DateDeserializer.class&lt;/code&gt;为基础，定制化一个可以解析&lt;code class=&quot;highlighter-rouge&quot;&gt;0000-00-00&lt;/code&gt;的日期反序列化解析器。&lt;br /&gt;
-该方式是fastjson函数&lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.parseObject()&lt;/code&gt;的一个应用场景，通过定制化&lt;code class=&quot;highlighter-rouge&quot;&gt;ParserConfig&lt;/code&gt;参数，达到局部改变JSON解析逻辑的目的。&lt;br /&gt;
-如下：&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jeromechan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fixbug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fastjson&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.alibaba.fastjson.parser.DefaultJSONParser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.alibaba.fastjson.parser.deserializer.DateDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.lang.reflect.Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;cm&quot;&gt;/**
- * Copyright © 2016 Jerome Chan. All rights reserved.
- * An extended DateDeseializer for parsing &#39;0000-00-00&#39;.
- * 
- * @author chenjinlong
- * @CreateDate 7/20/16 5:55 PM
- */&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;JCDateDeserializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateDeserializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JCDateDeserializer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JCDateDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;JCDateDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DefaultJSONParser&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clazz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fieldName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strVal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strVal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strVal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0000-00-00&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;yyyy-MM-dd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clazz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fieldName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 示例执行例子&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jsonStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{\&quot;dateStr\&quot;:\&quot;0000-00-00\&quot;}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;        
-        &lt;span class=&quot;n&quot;&gt;ParserConfig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jcParserConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ParserConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;jcParserConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;putDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JCDateDeserializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jsonStr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateBeanDemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jcParserConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DEFAULT_PARSER_FEATURE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;假设觉得这种解析办法可以作为整个项目内的全局特性，感兴趣的话可以将定制好的&lt;code class=&quot;highlighter-rouge&quot;&gt;JCDateDeserializer&lt;/code&gt;利用spring框架注入到项目容器中。这同样是对于方案2很不错的延伸。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;四、参考资料&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;fastjson在github上的issues：&lt;a href=&quot;https://github.com/alibaba/fastjson/issues/414&quot;&gt;https://github.com/alibaba/fastjson/issues/414&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-				<pubDate>Fri, 22 Jul 2016 17:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/07/22/resolve-the-fastjson-problems-about-date/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/07/22/resolve-the-fastjson-problems-about-date/</guid>
 			</item>
 		
 	</channel>

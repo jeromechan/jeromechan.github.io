@@ -709,6 +709,18 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -731,181 +743,240 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2016/08/27/git-protocol/">
-        Git使用规范
+      <a href="/2016/09/01/integrate-phpstorm-mamp-xdebug/">
+        关于PhpStorm+MAMP+xdebug集成失败的处理办法
       </a>
     </h1>
 
-    <span class="post-date">27 Aug 2016</span>
+    <span class="post-date">01 Sep 2016</span>
     
-    <blockquote>
-  <p>以下是关于源代码版本控制的一些共通的约定、协议。</p>
+    <p>首先，阐述一下我的开发环境配置：</p>
+
+<ul>
+  <li>MacOS v10.11.6</li>
+  <li>MAMP PRO v3.5</li>
+  <li>PHP v5.3.29</li>
+  <li>Xdebug v2.2.7</li>
+  <li>PhpStorm 2016.1</li>
+</ul>
+
+<p>近期对mamp作了次重装升级，之后遇到了xdebug无法正常启用的问题，在phpstorm中反馈的Event Log信息如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Cannot accept external Xdebug connection: Cannot evaluate expression 'isset($_SERVER['PHP_IDE_CONFIG'])'
+</code></pre>
+</div>
+
+<p>看以上描述可以知道，是因为在建立Xdebug connection之时，无法找到变量<code class="highlighter-rouge">PHP_IDE_CONFIG</code>的定义。<br />
+谈到这里，大家来看看php.ini中Xdebug的参数配置先：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[xdebug]
+extension=xdebug.so
+
+[xdebug]
+MAMP_Xdebug_MAMP
+ xdebug.remote_enable=1
+ xdebug.remote_host=localhost
+ xdebug.remote_port=9000
+ xdebug.remote_autostart=1
+ ;xdebug.profiler_enable=0
+ ;xdebug.profiler_output_dir="/Applications/MAMP/tmp"
+</code></pre>
+</div>
+
+<h4 id="xdebugphpstorm">一、核实xdebug与phpstorm已建立关联关系</h4>
+
+<p>打开phpinfo()信息页面，xdebug扩展部分如下：</p>
+
+<p><img src="/images/2016-09-01-integrate-phpstorm-mamp-xdebug/14727184774765.jpg" alt="" /></p>
+
+<p>也可以正常进行加载。但是问题来了，为什么phpstorm不能使用其进行debug过程呢？<br />
+不难发现，<code class="highlighter-rouge">IDE Key</code>上显示的是<code class="highlighter-rouge">no value</code>，这一方面说明了xdebug并没有正确地与phpstorm建立关联，即phpstorm即时发起xdebug connections，也无法正常连接并使用xdebug扩展。</p>
+
+<p>修正这个问题比较简单，增加xdebug扩展参数配置即可：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>xdebug.idekey="PHPSTORM"
+</code></pre>
+</div>
+
+<h4 id="xdebugzendextension">二、确认xdebug使用的是zend_extension引入方式</h4>
+
+<p>php的扩展库有很多，主要分为两大类：php extension和zend extension。</p>
+
+<p>有的基于php module开发而成，有的基于zend engine开发而成（xdebug基于的就是zend引擎进行开发的），当然，也有的可以兼容两种引擎（memcache就是一个很好的兼容两种引擎的例子）。而这里要提到一个概念，php内核是基于zend engine的，zend engine从php3开始就在服务php内核的最后一道岗了。</p>
+
+<blockquote>
+  <p>通常我们称php extension为“modules”，称zend extension为“extensions”。</p>
 </blockquote>
 
-<h4 id="section">一、管理仓库</h4>
+<p>以下为大家扩展一下，php extension和zend extension的基本数据结构上的区别：</p>
 
 <ul>
-  <li>避免将自己开发环境中的内容添加到版本控制系统中；</li>
-  <li>每当merge完成之后，删除本地以及远程的相应的特性分支；</li>
-  <li>只在特性分支中完成编码工作；</li>
-  <li>经常性的执行Rebase，使得upstream的变更及时合并到本地内容中；</li>
-  <li>发起pull request，使得代码得以他人评审。</li>
+  <li>php extension(modules)</li>
 </ul>
 
-<h4 id="section-1">二、在特性分支工作</h4>
-
-<p>基于master，在本地创建特性分支。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git checkout master
-git pull
-git checkout -b &lt;branch-name&gt;
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// php extension structures
+</span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_module_entry</span> <span class="n">zend_module_entry</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_module_dep</span> <span class="n">zend_module_dep</span><span class="p">;</span>
+ 
+<span class="k">struct</span> <span class="n">_zend_module_entry</span> <span class="p">{</span>
+	<span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">size</span><span class="p">;</span>
+	<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">zend_api</span><span class="p">;</span>
+	<span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">zend_debug</span><span class="p">;</span>
+	<span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">zts</span><span class="p">;</span>
+	<span class="k">const</span> <span class="k">struct</span> <span class="n">_zend_ini_entry</span> <span class="o">*</span><span class="n">ini_entry</span><span class="p">;</span>
+	<span class="k">const</span> <span class="k">struct</span> <span class="n">_zend_module_dep</span> <span class="o">*</span><span class="n">deps</span><span class="p">;</span>
+	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+	<span class="k">const</span> <span class="k">struct</span> <span class="n">_zend_function_entry</span> <span class="o">*</span><span class="n">functions</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">module_startup_func</span><span class="p">)(</span><span class="n">INIT_FUNC_ARGS</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">module_shutdown_func</span><span class="p">)(</span><span class="n">SHUTDOWN_FUNC_ARGS</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">request_startup_func</span><span class="p">)(</span><span class="n">INIT_FUNC_ARGS</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">request_shutdown_func</span><span class="p">)(</span><span class="n">SHUTDOWN_FUNC_ARGS</span><span class="p">);</span>
+	<span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">info_func</span><span class="p">)(</span><span class="n">ZEND_MODULE_INFO_FUNC_ARGS</span><span class="p">);</span>
+	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">version</span><span class="p">;</span>
+	<span class="kt">size_t</span> <span class="n">globals_size</span><span class="p">;</span>
+<span class="cp">#ifdef ZTS
+</span>	<span class="n">ts_rsrc_id</span><span class="o">*</span> <span class="n">globals_id_ptr</span><span class="p">;</span>
+<span class="cp">#else
+</span>	<span class="kt">void</span><span class="o">*</span> <span class="n">globals_ptr</span><span class="p">;</span>
+<span class="cp">#endif
+</span>	<span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">globals_ctor</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">global</span> <span class="n">TSRMLS_DC</span><span class="p">);</span>
+	<span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">globals_dtor</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">global</span> <span class="n">TSRMLS_DC</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">post_deactivate_func</span><span class="p">)(</span><span class="kt">void</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="n">module_started</span><span class="p">;</span>
+	<span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">type</span><span class="p">;</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">handle</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">module_number</span><span class="p">;</span>
+	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">build_id</span><span class="p">;</span>
+<span class="p">};</span>
+ 
+<span class="k">struct</span> <span class="n">_zend_module_dep</span> <span class="p">{</span>
+	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>		<span class="cm">/* module name */</span>
+	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">rel</span><span class="p">;</span>		<span class="cm">/* version relationship: NULL (exists), lt|le|eq|ge|gt (to given version) */</span>
+	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">version</span><span class="p">;</span>	<span class="cm">/* version */</span>
+	<span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">type</span><span class="p">;</span>		<span class="cm">/* dependency type */</span>
+<span class="p">};</span>
 </code></pre>
 </div>
-
-<p>经常性的执行Rebase，使得upstream的变更及时合并到本地内容中。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git fetch origin
-git rebase origin/master
-</code></pre>
-</div>
-
-<p>如果出现冲突，应在Rebase过程中及时解决。<br />
-当特性分支编码完成、通过测试之后，这个时候，需要将内容提交到index storage，即index暂存区。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git add --all
-</code></pre>
-</div>
-
-<p>当你完成了内容的暂存，即以上的add操作，这个时候你便可以提交它了。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git status
-git commit --verbose
-</code></pre>
-</div>
-
-<p>这里有一个Tips，对阅读者友好的commit注释是非常必要的，例如以下，就是一则好的提交注释。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Present-tense summary under 50 characters
-
-* More information about commit (under 72 characters).
-* More information about commit (under 72 characters).
-
-http://project.management-system.com/ticket/123
-</code></pre>
-</div>
-
-<p>如果你之前创建了多个commit，那么你应该使用交互式的Rebase操作，以更好地进行代码的合并，并且生成更为友好的提交注释。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git rebase -i origin/master
-</code></pre>
-</div>
-
-<p>代码提交完成之后，便是要将你提交的内容share给大家。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git push origin &lt;branch-name&gt;
-</code></pre>
-</div>
-
-<p>这个时候，便是向你的团队小伙伴们提交pull request的时候了，请团队成员们帮忙评审自己所编写的代码。</p>
-
-<h4 id="section-2">三、评审代码</h4>
-
-<p>邀请一个团队成员来评审自己的代码，是一个很好的发现缺陷issues的良策，还可以避免沟通上的遗漏和错误的传达。</p>
-
-<p>通过pull request的评审，可以使得评审的工作不仅限于项目组的讨论会议。</p>
-
-<p>另外，评审人员也可以自行作出代码变更和修改，只需要将变更内容检出到自己本地的分支。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git checkout &lt;branch-name&gt;
-./bin/setup
-git diff staging/master..HEAD
-</code></pre>
-</div>
-
-<p>当评审人员在自己的branch上修改完毕，测试通过，提交commit并且push到远程origin分支中。<br />
-对所有变更满意之后，就可以在pull request中备注注释：<code class="highlighter-rouge">Ready to merge</code>。</p>
-
-<h4 id="section-3">四、代码合并</h4>
-
-<p>使用交互式的Rebase进行代码的衍合，在每一项衍合所产生的提交中，必要的时候将注释丰富，例如增加message<code class="highlighter-rouge">Fix whitespace</code>的备注。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git fetch origin
-git rebase -i origin/master
-</code></pre>
-</div>
-
-<p>倘若你force push你的commit(s)到master，倘若你所使用的平台是GitHub，那么GitHub将自动地关闭你的pull request，同时标记该pull request为”Merged”状态。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git push --force-with-lease origin &lt;branch-name&gt;
-</code></pre>
-</div>
-
-<p>说到这里，可能各位看官会疑惑，为什么这里引用了<code class="highlighter-rouge">--force-with-lease</code>这么一个git push的option呢？</p>
-
-<p>下面介绍下这个参数是什么用途：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>--[no-]force-with-lease
---force-with-lease=&lt;refname&gt;
---force-with-lease=&lt;refname&gt;:&lt;expect&gt;
-Usually, "git push" refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it.
-
-This option overrides this restriction if the current value of the remote ref is the expected value. "git push" fails otherwise.
-
-Imagine that you have to rebase what you have already published. You will have to bypass the "must fast-forward" rule in order to replace the history you originally published with the rebased history. If somebody else built on top of your original history while you are rebasing, the tip of the branch at the remote may advance with her commit, and blindly pushing with --force will lose her work.
-
-This option allows you to say that you expect the history you are updating is what you rebased and want to replace. If the remote ref still points at the commit you specified, you can be sure that no other people did anything to the ref. It is like taking a "lease" on the ref without explicitly locking it, and the remote ref is updated only if the "lease" is still valid.
-
---force-with-lease alone, without specifying the details, will protect all remote refs that are going to be updated by requiring their current value to be the same as the remote-tracking branch we have for them.
-
---force-with-lease=&lt;refname&gt;, without specifying the expected value, will protect the named ref (alone), if it is going to be updated, by requiring its current value to be the same as the remote-tracking branch we have for it.
-
---force-with-lease=&lt;refname&gt;:&lt;expect&gt; will protect the named ref (alone), if it is going to be updated, by requiring its current value to be the same as the specified value &lt;expect&gt; (which is allowed to be different from the remote-tracking branch we have for the refname, or we do not even have to have such a remote-tracking branch when this form is used).
-
-Note that all forms other than --force-with-lease=&lt;refname&gt;:&lt;expect&gt; that specifies the expected current value of the ref explicitly are still experimental and their semantics may change as we gain experience with this feature.
-
-"--no-force-with-lease" will cancel all the previous --force-with-lease on the command line.
-
--f
---force
-Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it. Also, when --force-with-lease option is used, the command refuses to update a remote ref whose current value does not match what is expected.
-
-This flag disables these checks, and can cause the remote repository to lose commits; use it with care.
-
-Note that --force applies to all the refs that are pushed, hence using it with push.default set to matching or with multiple push destinations configured with remote.*.push may overwrite refs other than the current branch (including local refs that are strictly behind their remote counterpart). To force a push to only one branch, use a + in front of the refspec to push (e.g git push origin +master to force a push to the master branch). See the &lt;refspec&gt;... section above for details.
-</code></pre>
-</div>
-
-<p>以上大致的意思是指，在执行git push之时，增加<code class="highlighter-rouge">--force-with-lease</code>参数，可以避免覆盖其他开发者在你fetch了之后，对目标分支做了其他的更新，然后你简单的<code class="highlighter-rouge">git push -f</code>的操作强制覆盖了他人的commits内容。<br />
-如果想要了解<code class="highlighter-rouge">--force-with-lease</code>参数更多的相关知识，可以查看这里Stack Overflow的例子: <a href="http://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push">How do I properly force a Git push?</a></p>
-
-<p>想要查看新提交的commit(s)列表，想要查看变更的文件列表，以及合并开发分支代码到master，以下命令可以实现这些目的：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git log origin/master..&lt;branch-name&gt;
-
-git diff --stat origin/master
-
-git checkout master
-git merge &lt;branch-name&gt; --ff-only
-git push
-</code></pre>
-</div>
-
-<p>特性分支代码既然都已然成功合并到master上，这个时候我们需要去删除特性分支，无论是本地工程目录，还是远程仓库。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code># Delete your remote feature branch.
-git push origin --delete &lt;branch-name&gt;
-
-# Delete your local feature branch.
-git branch --delete &lt;branch-name&gt;
-</code></pre>
-</div>
-
-<h4 id="section-4">五、参考资料</h4>
 
 <ul>
-  <li><a href="https://github.com/thoughtbot/guides/tree/master/protocol/git">Git Protocol</a></li>
-  <li><a href="http://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push">How do I properly force a Git push?</a></li>
+  <li>zend extension(extensions)</li>
 </ul>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="c1">// zend extension structures
+</span><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">message_handler_func_t</span><span class="p">)(</span><span class="kt">int</span> <span class="n">message</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+ 
+<span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">op_array_handler_func_t</span><span class="p">)(</span><span class="n">zend_op_array</span> <span class="o">*</span><span class="n">op_array</span><span class="p">);</span>
+ 
+<span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">statement_handler_func_t</span><span class="p">)(</span><span class="n">zend_op_array</span> <span class="o">*</span><span class="n">op_array</span><span class="p">);</span>
+<span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">fcall_begin_handler_func_t</span><span class="p">)(</span><span class="n">zend_op_array</span> <span class="o">*</span><span class="n">op_array</span><span class="p">);</span>
+<span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">fcall_end_handler_func_t</span><span class="p">)(</span><span class="n">zend_op_array</span> <span class="o">*</span><span class="n">op_array</span><span class="p">);</span>
+ 
+<span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">op_array_ctor_func_t</span><span class="p">)(</span><span class="n">zend_op_array</span> <span class="o">*</span><span class="n">op_array</span><span class="p">);</span>
+<span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">op_array_dtor_func_t</span><span class="p">)(</span><span class="n">zend_op_array</span> <span class="o">*</span><span class="n">op_array</span><span class="p">);</span>
+ 
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_extension</span> <span class="p">{</span>
+	<span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+	<span class="kt">char</span> <span class="o">*</span><span class="n">version</span><span class="p">;</span>
+	<span class="kt">char</span> <span class="o">*</span><span class="n">author</span><span class="p">;</span>
+	<span class="kt">char</span> <span class="o">*</span><span class="n">URL</span><span class="p">;</span>
+	<span class="kt">char</span> <span class="o">*</span><span class="n">copyright</span><span class="p">;</span>
+ 
+	<span class="n">startup_func_t</span> <span class="n">startup</span><span class="p">;</span>
+	<span class="n">shutdown_func_t</span> <span class="n">shutdown</span><span class="p">;</span>
+	<span class="n">activate_func_t</span> <span class="n">activate</span><span class="p">;</span>
+	<span class="n">deactivate_func_t</span> <span class="n">deactivate</span><span class="p">;</span>
+ 
+	<span class="n">message_handler_func_t</span> <span class="n">message_handler</span><span class="p">;</span>
+ 
+	<span class="n">op_array_handler_func_t</span> <span class="n">op_array_handler</span><span class="p">;</span>
+ 
+	<span class="n">statement_handler_func_t</span> <span class="n">statement_handler</span><span class="p">;</span>
+	<span class="n">fcall_begin_handler_func_t</span> <span class="n">fcall_begin_handler</span><span class="p">;</span>
+	<span class="n">fcall_end_handler_func_t</span> <span class="n">fcall_end_handler</span><span class="p">;</span>
+ 
+	<span class="n">op_array_ctor_func_t</span> <span class="n">op_array_ctor</span><span class="p">;</span>
+	<span class="n">op_array_dtor_func_t</span> <span class="n">op_array_dtor</span><span class="p">;</span>
+ 
+	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">api_no_check</span><span class="p">)(</span><span class="kt">int</span> <span class="n">api_no</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">build_id_check</span><span class="p">)(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">build_id</span><span class="p">);</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">reserved3</span><span class="p">;</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">reserved4</span><span class="p">;</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">reserved5</span><span class="p">;</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">reserved6</span><span class="p">;</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">reserved7</span><span class="p">;</span>
+	<span class="kt">void</span> <span class="o">*</span><span class="n">reserved8</span><span class="p">;</span>
+ 
+	<span class="n">DL_HANDLE</span> <span class="n">handle</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">resource_number</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">zend_extension</span><span class="p">;</span>
+ 
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_extension_version_info</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">zend_extension_api_no</span><span class="p">;</span>
+	<span class="kt">char</span> <span class="o">*</span><span class="n">build_id</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">zend_extension_version_info</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>从加载顺序上分析，zend extension要早于php extension进行注册(register)，然而在激活(activate)阶段，却是php extension要早于zend extension被激活。<br />
+在两者的激活顺序上，有如下区别可以额外了解一下：</p>
+
+<blockquote>
+  <p><strong>PHP extensions</strong> in an order that make the dependencies be activated in a specific order. But remember that <strong>Zend extensions</strong> are never sorted in any way. You must then declare them in the FIFO order in php.ini. The engine wont touch your declaration order.</p>
+</blockquote>
+
+<p>zend_extension注册是调用的函数<code class="highlighter-rouge">zend_register_extension()</code>，而php extension注册是调用的函数<code class="highlighter-rouge">zend_register_module_ex(zend_module_entry *module)</code>进行注册。</p>
+
+<p>以下是两类扩展的生命周期图：</p>
+
+<p><img src="/images/2016-09-01-integrate-phpstorm-mamp-xdebug/14727201625932.jpg" alt="" /></p>
+
+<p>前面谈及了许多的关于php两类扩展的一些内部实现问题，其实对于这部分仅仅为了让开发者们更加深刻记得一点：“确认xdebug使用的是zend_extension引入方式”。</p>
+
+<p>这个时候，我们需要继续修改php.ini关于xdebug的引入配置：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>;1.移除默认引入xdebug.so的php extension的方式
+[xdebug]
+;extension=xdebug.so
+
+;2.更改为zend extension的方式对xdebug.so进行引入
+[xdebug]
+MAMP_Xdebug_MAMP
+ zend_extension="/Applications/MAMP/bin/php/php5.3.29/lib/php/extensions/no-debug-non-zts-20090626/xdebug.so"
+</code></pre>
+</div>
+
+<p>以上可能你会疑惑，为什么一个写的是绝对路径，而一个写的是相对路径？<br />
+其实原因很简单，php extension约定了在加载之时可以使用相对于php.ini公共配置项目 <code class="highlighter-rouge">extension_dir</code>的路径作为扩展路径；而zend extension则约定了使用全路径进行引入和加载。</p>
+
+<h4 id="phpstormphp-web-application">三、配置PhpStorm项目PHP Web Application</h4>
+
+<p>这部分不在赘述，正如title中所提到的，配置好PhpStorm项目PHP Web Application，就可以进行debug调试你的php脚本代码了。以下就简单的附上几张图示吧，供各位参考。</p>
+
+<ul>
+  <li>配置：Run/Debug Configuration</li>
+</ul>
+
+<p><img src="/images/2016-09-01-integrate-phpstorm-mamp-xdebug/14727221950526.jpg" alt="" /></p>
+
+<ul>
+  <li>配置：Servers</li>
+</ul>
+
+<p><img src="/images/2016-09-01-integrate-phpstorm-mamp-xdebug/14727223290574.jpg" alt="" /></p>
+
+<ul>
+  <li>操作：Start Listening Xdebug Connections</li>
+</ul>
+
+<p><img src="/images/2016-09-01-integrate-phpstorm-mamp-xdebug/14727235899205.jpg" alt="" /></p>
+
+<ul>
+  <li>Debug界面一览</li>
+</ul>
+
+<p><img src="/images/2016-09-01-integrate-phpstorm-mamp-xdebug/14727237053026.jpg" alt="" /></p>
+
+<p><em>备注：若各位看官有疑问或者建议，可以在文章末端的disqus留言，本人看到后会及时回复。感谢读者们阅读本篇文章。</em></p>
 
 
   </div>

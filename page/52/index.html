@@ -709,6 +709,18 @@
         
           
         
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
        -->
 
       <a class="sidebar-nav-item" href="/about/">About Me</a>
@@ -731,136 +743,77 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/06/29/head-first-java-basic/">
-        入门JAVA，你需要知道的一些简单的不能再简单了的知识点
+      <a href="/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-a/">
+        Clean Code: A Handbook of Agile Software Craftsmanship (a)
       </a>
     </h1>
 
     <span class="post-date">29 Jun 2014</span>
     
-    <h4 id="java">编程离不开参考物，Java的强大正在于它的海纳百川</h4>
+    <blockquote>
+  <p>Wrote by Robert C. Martin</p>
+</blockquote>
 
-<h4 id="java-1">一、Java的参考文档形式：</h4>
-<ol>
-  <li>原生HTML形式</li>
-  <li>排版CHM形式</li>
-  <li>其它…</li>
-</ol>
+<h4 id="can-you-spot-the-differences">(1) Can you Spot the Differences?</h4>
+<p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb28.png" alt="image" /></p>
 
-<h4 id="java-docooad">二、从Java doc里看ooad世界</h4>
-<ol>
-  <li>包-接口-类-异常-错误的阐述，应有尽有</li>
-  <li>类的方法和属性的说明和使用说明，让你一如既往都感觉是在书写hello world</li>
-</ol>
+<h4 id="a-tale-of-two-apps-below">(2) A tale of two apps below</h4>
+<ul>
+  <li>One enormous class. =&gt; 1300 lines</li>
+  <li>26 data members</li>
+  <li>40 public methods named “setFlagsForLaterProcessing”</li>
+  <li>Long functions</li>
+  <li>Badly named variables</li>
+  <li>Tens of classes</li>
+  <li>Several packages</li>
+  <li>“Board”, “Game”, “Strategy” classes</li>
+  <li>Small functions</li>
+  <li>Comprehensive unit tests</li>
+</ul>
 
-<h4 id="package">三、package的分类</h4>
-<ol>
-  <li>java.*：基础语言包</li>
-  <li>javax.*：jdk扩展包</li>
-  <li>org.*：第三方功能包</li>
-  <li>com.sun.*：sun公司提供的功能包，因其不具备兼容性，变更大，并不在std-api-doc内公开<!-- more --></li>
-</ol>
+<h4 id="the-user-cant-tell">(3) The User can’t tell</h4>
+<p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb29.png" alt="image" /></p>
 
-<h4 id="javalang">四、java.lang包</h4>
-<ol>
-  <li>默认自动引入</li>
-  <li>包含了Java语言所需要的基本功能类和接口的信息，是进行Java编程的基础</li>
-  <li>
-    <p>Object类</p>
+<h4 id="clean-code--happy-coding-jobs">(4) Clean code == happy coding jobs</h4>
+<ul>
+  <li>”If by life you were deceived, Don’t be dismal, don’t be wild!”
+–Pushkin</li>
+  <li>If horrible code sucks the life out of you, what would you do?</li>
+  <li><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb30.png" alt="image" /></li>
+</ul>
 
-    <p>&lt;1&gt; Object类是Java语言的灵魂，所有的Java类（除了Object类）都是Object类的儿子，它的所有方法将出现在所有类的内部，这就是Java继承树的唯一根，这就是独具Java语言特色的单根继承体系</p>
+<h4 id="remember-it">(5) Remember it!</h4>
+<p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb31.png" alt="image" /></p>
 
-    <p>&lt;2&gt; equals方法<br />
- 判断两个对象内容是否相同。Object.equals()实现如下：</p>
+<h4 id="two-reasons-for-you">(6) Two reasons for you</h4>
+<p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb32.png" alt="image" /></p>
 
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0024_thumb.jpg" alt="clip_image002" /></p>
+<h4 id="foreword">(7) Foreword</h4>
+<p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb33.png" alt="image" /></p>
 
-    <p>&lt;3&gt; finalize方法
- 概念与构造函数相反，如同C++中的析构函数一般，该方法会被JVM自动调用执行垃圾回收。</p>
+<h4 id="there-will-be-code">(8) There will be code</h4>
+<p><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb34.png" alt="image" /><br />
+“Nonsense! We will never be rid of code, because code represents the details of the requirements.”</p>
 
-    <p>&lt;4&gt; hashcode方法
- 获取一个散列码数值，使用这个散列码可以快速判断对象是否<strong>不相同</strong>。
- 两个内容相同的对象，hashcode返回值必须相同，而对于两个不相同的对象，返回的hashcode也有可能相同。</p>
+<h4 id="bad-code">(9) Bad code</h4>
+<ul>
+  <li>Kent Beck’s book Implementation Patterns. He says, “…this book is based on a rather fragile premise: that good code matters….”</li>
+  <li><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb35.png" alt="image" /></li>
+  <li>1.“It was the bad code that brought the company down.”</li>
+  <li>2.“Of course you have been impeded by bad code. So then—why did you write it?”</li>
+  <li>3.“LeBlanc’s law: Later equals never.”</li>
+</ul>
 
-    <p>&lt;5&gt; toString方法<br />
- 显示对象内容时会被系统自动调用的方法</p>
+<h4 id="the-total-cost-of-owning-a-mess">(10) The total cost of owning a mess</h4>
+<ul>
+  <li>No change is trivial</li>
+  <li>The productivity of the team continues to decrease</li>
+  <li>Add more new staff to the project in hopes of increasing productivity</li>
+  <li>There is no way at all in the end</li>
+  <li><img src="/images/2014-06-29-clean-code-a-handbook-of-agile-software-craftsmanship-a/image_thumb36.png" alt="image" /></li>
+</ul>
 
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0044_thumb.jpg" alt="clip_image004" /></p>
-  </li>
-  <li>
-    <p>Math类
- &lt;1&gt; 放置常用的数学常数和方法
- &lt;2&gt; 类的常数和方法皆是静态类型的</p>
-  </li>
-  <li>
-    <p>String和StringBuffer
- 都是代表任意多个字符串组成的序列，两者实现的区别，一般把String看成固定的字符串，而StringBuffer看成可变的字符串。并不是说前者不能变更，而是因为前者变更如同品牌笔记本维修主板一般，直接取新替换，浪费机器资源；而后者则是维修自身。
- String类的声明</p>
-
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0054_thumb.png" alt="clip_image005" /></p>
-
-    <p>其实String类还有好多方法，例如charAt()，compareTo()，compareToIgnoreCase()，concat()，equals()，length()等等
- StringBuffer类的声明</p>
-
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0064_thumb.png" alt="clip_image006" /></p>
-
-    <p>String与StringBuffer间的转换关系</p>
-
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0084_thumb.jpg" alt="clip_image008" /></p>
-
-    <p>诸如此类的方法多如绵绵春雨，还是等待大家慢慢深入研究吧:D</p>
-  </li>
-</ol>
-
-<h4 id="javautil">五、java.util包</h4>
-<ol>
-  <li>时间日期类
-    <ul>
-      <li>Date类（deprecated）</li>
-    </ul>
-
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0094_thumb.png" alt="clip_image009" /></p>
-
-    <p>以下是绝对时间与相对时间的互转
- 绝对时间-&gt;相对时间：</p>
-
-    <p><code class="highlighter-rouge">getTime()</code></p>
-
-    <p>相对时间-&gt;绝对时间：</p>
-
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0104_thumb.png" alt="clip_image010" /></p>
-
-    <ul>
-      <li>Calendar类（recommend）</li>
-    </ul>
-
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0124_thumb.jpg" alt="clip_image012" /></p>
-
-    <p>要提一下的是，它家的add(Calendar.YEAR, 1)方法可以实现计算某字段之后添加或减少一定的数值</p>
-  </li>
-  <li>集成框架（CF）
-    <ul>
-      <li>List系列类：按索引值操作数据，允许存放重复元素</li>
-      <li>Set系列类：按索引值操作数据，不允许存放重复数据</li>
-      <li>Map系列类：按照名称操作数据，名称不允许重复，值可以重复，一个名称对应唯一的值
- 简而言之，CF类的复杂性在于它们使用了数据结构类型进行存储和实现，具备了该种数据结构的特点。
- 示例1：LIST</li>
-    </ul>
-
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0134_thumb.png" alt="clip_image013" /></p>
-
-    <p>示例2：SET</p>
-
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0144_thumb.png" alt="clip_image014" /></p>
-
-    <p>示例3：MAP</p>
-
-    <p><img src="/images/2014-06-29-head-first-java-basic/clip_image0154_thumb.png" alt="clip_image015" /></p>
-  </li>
-</ol>
-
-<p>其实大家也都会发现，以上谈到的都只是些边边角角的JAVA最基本的知识。
-所谓学海无涯苦作舟，大家就乘着风，扬起帆，继续前进吧。</p>
+<p> </p>
 
 
   </div>
