@@ -7,7 +7,7 @@ title: About Me
 ***
 
 Software Engineer   
-Work for Tuniu Corporation currently
+Work for Alibaba Group currently
 
 Email: [jerome.chan369@gmail.com](mailto:jerome.chan369@gmail.com)      
 Twitter: [@jeromechan369](https://twitter.com/jeromechan369)   
@@ -48,8 +48,11 @@ Fourth-year student in Software Engineering
 
 ***
 
-**Tuniu Corporation** *<font color="#999999">(Jul 2011–Current)</font>*  
-Software Engineer  
+**Alibaba Group** *<font color="#999999">(Nov 2017–Current)</font>*  
+Senior Software Engineer    
+
+**Tuniu Corporation** *<font color="#999999">(Jul 2011–July 2017)</font>*  
+Principal Software Engineer  
 Agency Management System Development  
 Project: Tuniu.COM & Tuniu.CN & N-Booking APP  
 
@@ -71,7 +74,7 @@ Metro Payment System Development
 **[1] Tuniu Agency Management System**
 
 URL: It is an inner system of Tuniu Corp.   
-Date: 2016, currently    
+Date: 2016, 2017    
 Skills: Java, MySQL, JS/HTML/CSS, SpringMVC, Spring, MyBatis, Maven, FastJson, FasterXML Jackson, ActiveMQ, Memcache, Sonar, Apache POI framework, Redis, Jedis, Alibaba Druid, Togglz, Guava, Concurrency Future
 
 **[2] N-Booking Agency Platform**
