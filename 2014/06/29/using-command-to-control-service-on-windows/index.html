@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -752,10 +752,12 @@
 
 <p><code class="highlighter-rouge">sc &lt;server&gt; create [service name] [binPath= ] &lt;option1&gt; &lt;option2&gt;...</code></p>
 
-<p>选项:  <br />
-&gt; 注意: 选项名称包括等号。等号和值之间需要一个空格。</p>
+<p>选项:</p>
+<blockquote>
+  <p>注意: 选项名称包括等号。等号和值之间需要一个空格。</p>
+</blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>type= &lt;own|share|interact|kernel|filesys|rec&gt; (默认 = own)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>type= &lt;own|share|interact|kernel|filesys|rec&gt; (默认 = own)
 
 start= &lt;boot|system|auto|demand|disabled|delayed-auto&gt; (默认 = demand)
 
@@ -774,15 +776,13 @@ obj= &lt;AccountName|ObjectName&gt; (默认 = LocalSystem)
 DisplayName= &lt;显示名称&gt;
 
 password= &lt;密码&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>1.2 使用示例</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sc create <span class="s2">"Memcached Master"</span> <span class="nv">start</span><span class="o">=</span>auto <span class="nv">binPath</span><span class="o">=</span><span class="s2">"D:</span><span class="se">\m</span><span class="s2">emcached</span><span class="se">\m</span><span class="s2">emcached.exe -d install -m 32 -p 11211"</span> <span class="nv">DisplayName</span><span class="o">=</span> <span class="s2">"Memcached Master"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sc create <span class="s2">"Memcached Master"</span> <span class="nv">start</span><span class="o">=</span>auto <span class="nv">binPath</span><span class="o">=</span><span class="s2">"D:</span><span class="se">\m</span><span class="s2">emcached</span><span class="se">\m</span><span class="s2">emcached.exe -d install -m 32 -p 11211"</span> <span class="nv">DisplayName</span><span class="o">=</span> <span class="s2">"Memcached Master"</span>
 （图示：添加指定目录的memcache服务）<span class="sb">`</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>二、删除服务
 2.1 命令”sc delete”官方说明</p>
@@ -794,10 +794,9 @@ password= &lt;密码&gt;
 
 <p>2.2 使用示例</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sc delete “Memcached Master”
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sc delete “Memcached Master”
 （图示：添加指定目录的Memcached Master服务）
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>三、手工操作简述</p>
 

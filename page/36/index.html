@@ -11,7 +11,7 @@
 
   <title>
     
-      Jerome Chan &middot; A Web developer, talking about development
+      Jerome Chan &middot; A software designer, talking about codes and design
     
   </title>
 
@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -758,7 +758,7 @@
 
 <p>以下这个例子SwitchDemo，声明了一个int类型的month变量，使用了switch语句，根据月份的数值，输出月份的英文单词。</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwitchDemo</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwitchDemo</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
         <span class="n">String</span> <span class="n">monthString</span><span class="o">;</span>
@@ -793,29 +793,26 @@
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">monthString</span><span class="o">);</span>
     <span class="o">}</span>
     <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>在以上的例子当中，结果输出了</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    August
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    August
+</code></pre></div></div>
 
 <p>一个switch的case主体被称为switch block，一个switch block可以包含多个case，或者仅仅是default分支。
 Switch语句将验证它的表达式，验证通过后，将执行验证通过的case分支之后的所有语句。</p>
 
 <p>类似地，你也可以使用if-then-else语句实现SwitchDemo效果：</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">month</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"January"</span><span class="o">);</span>
     <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">month</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"February"</span><span class="o">);</span>
     <span class="o">}</span>
     <span class="o">...</span>  <span class="c1">// and so on</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>关于到底是使用if-then-else语句，还是switch语句，需要根据实际的可读性和测试程序的表达式情况而定。if-then-else适用于数值范围的判断条件，而switch则适用于单数值，枚举数值和简单对象的判断。</p>
 
@@ -826,7 +823,7 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
 
 <p>以下程序SwitchDemoFallThrough展示了在没有书写break语句的时候，代码的执行结果：</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwitchDemoFallThrough</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwitchDemoFallThrough</span> <span class="o">{</span>
     
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">futureMonths</span> <span class="o">=</span>
@@ -860,18 +857,16 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
         <span class="o">}</span>
     <span class="o">}</span>
     <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>以上程序输出结果为：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    August
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    August
     September
     October
     November
     December
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>对于以上例子，从技术上分析，代码最后的一个break语句是多余的，因为此时，尽管没有break语句，程序依然会跳出switch循环。这里推荐童鞋们善于使用break语句，如此一来，可以使得我们的代码结构可读性更高，更容易维护，更少的异常错误的发生。</p>
 
@@ -880,7 +875,7 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
 <p>以下示例代码SwitchDemp2，给我们呈现了一个statement可以拥有多个case标签。
 （示例代码实现了计算指定月份所拥有的自然天数）</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kd">class</span> <span class="nc">SwitchDemo2</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">class</span> <span class="nc">SwitchDemo2</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
     
         <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
@@ -913,20 +908,18 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
                            <span class="o">+</span> <span class="n">numDays</span><span class="o">);</span>
     <span class="o">}</span>
     <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>以上程序输出结果为：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    Number of Days = 29
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Number of Days = 29
+</code></pre></div></div>
 
 <p><strong>在Switch中使用String</strong></p>
 
 <p>从Java SE 7版本开始，我们就可以在switch循环中使用String Object作为判断的表达式了。接下来的代码片段StringSwitchDemo，实现了根据String对象类型的month变量，输出指定月份的序号。</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringSwitchDemo</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringSwitchDemo</span> <span class="o">{</span>
     
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getMonthNumber</span><span class="o">(</span><span class="n">String</span> <span class="n">month</span><span class="o">)</span> <span class="o">{</span>
     
@@ -995,14 +988,12 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
         <span class="o">}</span>
     <span class="o">}</span>
     <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>以上程序输出结果为：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    8
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    8
+</code></pre></div></div>
 
 <p>关于以上例子的编写，在每一个switch block中的case判断，等同于执行了在每一次匹配判断之时，使用了String.equals方法。以上的例子也正是使用了String.toLowerCase方法，确保了在每一次case的判断中，都是以小写形式的字符串进行匹配。</p>
 
@@ -1011,7 +1002,7 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
 <p><strong>以下作一些本人对switch使用基础的理解</strong>
 含带break语句的switch block</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="k">switch</span><span class="o">(</span><span class="n">X</span><span class="o">)</span>  
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">switch</span><span class="o">(</span><span class="n">X</span><span class="o">)</span>  
     <span class="o">{</span>  
       <span class="k">case</span> <span class="nl">A:</span>  
           <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
@@ -1026,12 +1017,11 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
           <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Default"</span><span class="o">);</span>
           <span class="k">break</span><span class="o">;</span>
     <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>等同于</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">A</span><span class="o">){</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">A</span><span class="o">){</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
     <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">B</span><span class="o">){</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"B"</span><span class="o">);</span>
@@ -1040,12 +1030,11 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
     <span class="o">}</span><span class="k">else</span><span class="o">{</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Default"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>未含带break语句的switch block</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="k">switch</span><span class="o">(</span><span class="n">X</span><span class="o">)</span>  
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">switch</span><span class="o">(</span><span class="n">X</span><span class="o">)</span>  
     <span class="o">{</span>  
       <span class="k">case</span> <span class="nl">A:</span>  
           <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
@@ -1059,12 +1048,11 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
           <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Default"</span><span class="o">);</span>
           <span class="k">break</span><span class="o">;</span>
     <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>等同于</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">A</span><span class="o">){</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">A</span><span class="o">){</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
     <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">X</span> <span class="o">==</span> <span class="n">B</span> <span class="o">||</span> <span class="n">X</span> <span class="o">==</span> <span class="n">C</span><span class="o">){</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"B"</span><span class="o">);</span>
@@ -1072,8 +1060,7 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
     <span class="o">}</span><span class="k">else</span><span class="o">{</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Default"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>阅读完以上，童鞋们应该已经明白了switch的使用方法了。哈哈，如果对你有用，可以分享给更多身边的朋友（可以使用右侧板块的文章分享功能）。</p>
 

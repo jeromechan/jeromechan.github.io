@@ -22,7 +22,7 @@
 
 &lt;h3 id=&quot;generic&quot;&gt;Generic&lt;/h3&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;通用&lt;/h3&gt;
+&lt;h3 id=&quot;通用&quot;&gt;通用&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#kiss&quot;&gt;KISS (Keep It Simple Stupid)&lt;/a&gt;&lt;/li&gt;
@@ -45,7 +45,7 @@
 
 &lt;h3 id=&quot;inter-moduleclass&quot;&gt;Inter-Module/Class&lt;/h3&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;内部模块/类&lt;/h3&gt;
+&lt;h3 id=&quot;内部模块类&quot;&gt;内部模块/类&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#minimise-coupling&quot;&gt;Minimise Coupling&lt;/a&gt;&lt;/li&gt;
@@ -62,7 +62,7 @@
 
 &lt;h3 id=&quot;moduleclass&quot;&gt;Module/Class&lt;/h3&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;模块/类&lt;/h3&gt;
+&lt;h3 id=&quot;模块类&quot;&gt;模块/类&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#maximise-cohesion&quot;&gt;Maximise Cohesion&lt;/a&gt;&lt;/li&gt;
@@ -87,7 +87,7 @@
 
 &lt;h2 id=&quot;kiss&quot;&gt;KISS&lt;/h2&gt;
 
-&lt;h2 id=&quot;kiss-1&quot;&gt;KISS准则&lt;/h2&gt;
+&lt;h2 id=&quot;kiss准则&quot;&gt;KISS准则&lt;/h2&gt;
 
 &lt;p&gt;Most systems work best if they are kept simple rather than made complex.&lt;/p&gt;
 
@@ -117,7 +117,7 @@
 
 &lt;h2 id=&quot;yagni&quot;&gt;YAGNI&lt;/h2&gt;
 
-&lt;h2 id=&quot;yagni-1&quot;&gt;YAGNI准则&lt;/h2&gt;
+&lt;h2 id=&quot;yagni准则&quot;&gt;YAGNI准则&lt;/h2&gt;
 
 &lt;p&gt;YAGNI stands for “you aren’t gonna need it”: don’t implement something until it is necessary.&lt;/p&gt;
 
@@ -150,12 +150,12 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://c2.com/xp/YouArentGonnaNeedIt.html&quot;&gt;You Arent Gonna Need It&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.xprogramming.com/Practices/PracNotNeed.html&quot;&gt;You’re NOT gonna need it!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/You_ain&#39;t_gonna_need_it&quot;&gt;You ain’t gonna need it&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/You_ain't_gonna_need_it&quot;&gt;You ain’t gonna need it&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;do-the-simplest-thing-that-could-possibly-work&quot;&gt;Do The Simplest Thing That Could Possibly Work&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-3&quot;&gt;做最简单最可能实现的事情&lt;/h2&gt;
+&lt;h2 id=&quot;做最简单最可能实现的事情&quot;&gt;做最简单最可能实现的事情&lt;/h2&gt;
 
 &lt;p&gt;Why&lt;/p&gt;
 
@@ -184,7 +184,7 @@
 
 &lt;h2 id=&quot;separation-of-concerns&quot;&gt;Separation of Concerns&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;关注点分离&lt;/h2&gt;
+&lt;h2 id=&quot;关注点分离&quot;&gt;关注点分离&lt;/h2&gt;
 
 &lt;p&gt;Separation of concerns is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. For example the business logic of the application is a concern and the user interface is another concern. Changing the user interface should not require changes to business logic and vice versa.&lt;/p&gt;
 
@@ -229,7 +229,7 @@
 
 &lt;h2 id=&quot;keep-things-dry&quot;&gt;Keep things DRY&lt;/h2&gt;
 
-&lt;h2 id=&quot;dry&quot;&gt;DRY原则&lt;/h2&gt;
+&lt;h2 id=&quot;dry原则&quot;&gt;DRY原则&lt;/h2&gt;
 
 &lt;p&gt;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&lt;/p&gt;
 
@@ -271,8 +271,8 @@
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://c2.com/cgi/wiki?DontRepeatYourself&quot;&gt;Dont Repeat Yourself&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Don&#39;t_repeat_yourself&quot;&gt;Don’t repeat yourself&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://programmer.97things.oreilly.com/wiki/index.php/Don&#39;t_Repeat_Yourself&quot;&gt;Don’t Repeat Yourself&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Don't_repeat_yourself&quot;&gt;Don’t repeat yourself&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://programmer.97things.oreilly.com/wiki/index.php/Don't_Repeat_Yourself&quot;&gt;Don’t Repeat Yourself&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Related&lt;/p&gt;
@@ -288,7 +288,7 @@
 
 &lt;h2 id=&quot;code-for-the-maintainer&quot;&gt;Code For The Maintainer&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-5&quot;&gt;编写可维护的代码&lt;/h2&gt;
+&lt;h2 id=&quot;编写可维护的代码&quot;&gt;编写可维护的代码&lt;/h2&gt;
 
 &lt;p&gt;Why&lt;/p&gt;
 
@@ -327,7 +327,7 @@
 
 &lt;h2 id=&quot;avoid-premature-optimization&quot;&gt;Avoid Premature Optimization&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-6&quot;&gt;避免过度过早优化&lt;/h2&gt;
+&lt;h2 id=&quot;避免过度过早优化&quot;&gt;避免过度过早优化&lt;/h2&gt;
 
 &lt;p&gt;Quoting &lt;a href=&quot;http://en.wikiquote.org/wiki/Donald_Knuth&quot;&gt;Donald Knuth&lt;/a&gt;:&lt;/p&gt;
 
@@ -375,7 +375,7 @@
 
 &lt;h2 id=&quot;boy-scout-rule&quot;&gt;Boy-Scout Rule&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-7&quot;&gt;美国童子军准则&lt;/h2&gt;
+&lt;h2 id=&quot;美国童子军准则&quot;&gt;美国童子军准则&lt;/h2&gt;
 
 &lt;p&gt;The Boy Scouts of America have a simple rule that we can apply to our profession: “Leave the campground cleaner than you found it”. The boy-scout rule states that we should always leave the code cleaner than we found it.&lt;/p&gt;
 
@@ -411,7 +411,7 @@
 
 &lt;h2 id=&quot;minimise-coupling&quot;&gt;Minimise Coupling&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-8&quot;&gt;低耦合&lt;/h2&gt;
+&lt;h2 id=&quot;低耦合&quot;&gt;低耦合&lt;/h2&gt;
 
 &lt;p&gt;Coupling between modules/components is their degree of mutual interdependence; lower coupling is better. In other words, coupling is the probability that code unit “B” will “break” after an unknown change to code unit “A”.&lt;/p&gt;
 
@@ -456,7 +456,7 @@
 
 &lt;h2 id=&quot;law-of-demeter&quot;&gt;Law of Demeter&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-9&quot;&gt;迪米特法则&lt;/h2&gt;
+&lt;h2 id=&quot;迪米特法则&quot;&gt;迪米特法则&lt;/h2&gt;
 
 &lt;p&gt;Don’t talk to strangers.&lt;/p&gt;
 
@@ -503,7 +503,7 @@
 
 &lt;h2 id=&quot;composition-over-inheritance&quot;&gt;Composition Over Inheritance&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-10&quot;&gt;组合优于继承&lt;/h2&gt;
+&lt;h2 id=&quot;组合优于继承&quot;&gt;组合优于继承&lt;/h2&gt;
 
 &lt;p&gt;Why&lt;/p&gt;
 
@@ -537,7 +537,7 @@
 
 &lt;h2 id=&quot;orthogonality&quot;&gt;Orthogonality&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-11&quot;&gt;正交性&lt;/h2&gt;
+&lt;h2 id=&quot;正交性&quot;&gt;正交性&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;The basic idea of orthogonality is that things that are not related conceptually should not be related in the system.
@@ -559,7 +559,7 @@
 
 &lt;h2 id=&quot;robustness-principle&quot;&gt;Robustness Principle&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-12&quot;&gt;健壮性原则&lt;/h2&gt;
+&lt;h2 id=&quot;健壮性原则&quot;&gt;健壮性原则&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Be conservative in what you do, be liberal in what you accept from others
@@ -599,7 +599,7 @@
 
 &lt;h2 id=&quot;maximise-cohesion&quot;&gt;Maximise Cohesion&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-13&quot;&gt;高内聚&lt;/h2&gt;
+&lt;h2 id=&quot;高内聚&quot;&gt;高内聚&lt;/h2&gt;
 
 &lt;p&gt;Cohesion of a single module/component is the degree to which its responsibilities form a meaningful unit; higher cohesion is better.&lt;/p&gt;
 
@@ -638,7 +638,7 @@
 
 &lt;h2 id=&quot;liskov-substitution-principle&quot;&gt;Liskov Substitution Principle&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-14&quot;&gt;里氏替换原则&lt;/h2&gt;
+&lt;h2 id=&quot;里氏替换原则&quot;&gt;里氏替换原则&lt;/h2&gt;
 
 &lt;p&gt;The LSP is all about expected behavior of objects:&lt;/p&gt;
 
@@ -660,7 +660,7 @@
 
 &lt;h2 id=&quot;openclosed-principle&quot;&gt;Open/Closed Principle&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-15&quot;&gt;开闭原则&lt;/h2&gt;
+&lt;h2 id=&quot;开闭原则&quot;&gt;开闭原则&lt;/h2&gt;
 
 &lt;p&gt;Software entities (e.g. classes) should be open for extension, but closed for modification. I.e. such an entity can allow its behavior to be modified without altering its source code.&lt;/p&gt;
 
@@ -697,7 +697,7 @@
 
 &lt;h2 id=&quot;single-responsibility-principle&quot;&gt;Single Responsibility Principle&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-16&quot;&gt;单一职责原则&lt;/h2&gt;
+&lt;h2 id=&quot;单一职责原则&quot;&gt;单一职责原则&lt;/h2&gt;
 
 &lt;p&gt;A class should never have more than one reason to change.&lt;/p&gt;
 
@@ -735,7 +735,7 @@
 
 &lt;h2 id=&quot;hide-implementation-details&quot;&gt;Hide Implementation Details&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-17&quot;&gt;隐藏实现细节&lt;/h2&gt;
+&lt;h2 id=&quot;隐藏实现细节&quot;&gt;隐藏实现细节&lt;/h2&gt;
 
 &lt;p&gt;A software module hides information (i.e. implementation details) by providing an interface, and not leak any unnecessary information.&lt;/p&gt;
 
@@ -775,7 +775,7 @@
 
 &lt;h2 id=&quot;curlys-law&quot;&gt;Curly’s Law&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-18&quot;&gt;科里定律&lt;/h2&gt;
+&lt;h2 id=&quot;科里定律&quot;&gt;科里定律&lt;/h2&gt;
 
 &lt;p&gt;Curly’s Law is about choosing a single, clearly defined goal for any particular bit of code: Do One Thing.&lt;/p&gt;
 
@@ -788,7 +788,7 @@
 
 &lt;h2 id=&quot;encapsulate-what-changes&quot;&gt;Encapsulate What Changes&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-19&quot;&gt;封装性&lt;/h2&gt;
+&lt;h2 id=&quot;封装性&quot;&gt;封装性&lt;/h2&gt;
 
 &lt;p&gt;A good design identifies the hotspots that are most likely to change and encapsulates them behind an API. When an anticipated change then occurs, the modifications are kept local.&lt;/p&gt;
 
@@ -826,7 +826,7 @@
 
 &lt;h2 id=&quot;interface-segregation-principle&quot;&gt;Interface Segregation Principle&lt;/h2&gt;
 
-&lt;h2 id=&quot;section-20&quot;&gt;接口隔离原则&lt;/h2&gt;
+&lt;h2 id=&quot;接口隔离原则&quot;&gt;接口隔离原则&lt;/h2&gt;
 
 &lt;p&gt;Reduce fat interfaces into multiple smaller and more specific client specific interfaces. An interface should be more dependent on the code that calls it than the code that implements it.&lt;/p&gt;
 
@@ -860,7 +860,7 @@
 
 &lt;h2 id=&quot;command-query-separation&quot;&gt;Command Query Separation&lt;/h2&gt;
 
-&lt;h2 id=&quot;command-query-responsibility-segregationcqrs&quot;&gt;命令查询职责分离（也称Command Query Responsibility Segregation，CQRS）&lt;/h2&gt;
+&lt;h2 id=&quot;命令查询职责分离也称command-query-responsibility-segregationcqrs&quot;&gt;命令查询职责分离（也称Command Query Responsibility Segregation，CQRS）&lt;/h2&gt;
 
 &lt;p&gt;The Command Query Separation principle states that each method should be either a command that performs an action or a query that returns data to the caller but not both. Asking a question should not modify the answer.&lt;/p&gt;
 
@@ -920,7 +920,7 @@
   &lt;li&gt;5.小结一下&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section&quot;&gt;一、抢购场景的特点&lt;/h4&gt;
+&lt;h4 id=&quot;一抢购场景的特点&quot;&gt;一、抢购场景的特点&lt;/h4&gt;
 
 &lt;p&gt;在日常生活中，电子商务营销手段中，抢购、促销是最为常用的提高销售的手段。最熟悉不过的当然就是天猫“双十一”购物节了。既然是“抢购”，用通俗的话来概括，那就是&lt;strong&gt;手快有手慢无&lt;/strong&gt;。以下我们做了一些细分：&lt;/p&gt;
 
@@ -944,7 +944,7 @@
 
 &lt;p&gt;写到这里，复杂度已经可见一斑，内容涉及了各个方面，例如并发编程、安全、缓存、关系型数据存储、网络流量、防火墙、服务容器、连接池、IO通信。虽说内容很多，但是我们可以从中根据自己所面临的场景，选择其中一些合适的技术手段即可，不必面面俱到追求完美，它们都只是你实现目标的工具。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;二、技术选型&lt;/h4&gt;
+&lt;h4 id=&quot;二技术选型&quot;&gt;二、技术选型&lt;/h4&gt;
 
 &lt;p&gt;了解基本的抢购场景知识之后，就是考虑怎么去解决场景中所遇到的实际问题了。对于抢购场景的特点，我们给每个特点归归类：&lt;/p&gt;
 
@@ -977,9 +977,9 @@
 
 &lt;p&gt;本次实践过程中，对于这一块并没有太多的涉及，只是通过一些流量设置上的控制，避免了服务容器由于请求压力过高而产生的宕机风险。这一块待日后自己的知识库成熟之后，再po文分享下自己的实践感触。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;三、方案思路&lt;/h4&gt;
+&lt;h4 id=&quot;三方案思路&quot;&gt;三、方案思路&lt;/h4&gt;
 
-&lt;h5 id=&quot;section-3&quot;&gt;3.1 基本思路和考量点&lt;/h5&gt;
+&lt;h5 id=&quot;31-基本思路和考量点&quot;&gt;3.1 基本思路和考量点&lt;/h5&gt;
 
 &lt;ul&gt;
   &lt;li&gt;不可超售，需要使用到线程安全、线程锁、本地线程、事务性、原子CAS特性、阻塞/非阻塞队列等知识；&lt;/li&gt;
@@ -990,11 +990,11 @@
   &lt;li&gt;在消费数据的持久化措施上，采用“生产者-消费者”的队列实现模式，异步的策略将消费数据尽可能快地持久化到日常使用的关系型数据库中，便于查看和其他业务系统的接口读取；&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;section-4&quot;&gt;3.2 逻辑流程图&lt;/h5&gt;
+&lt;h5 id=&quot;32-逻辑流程图&quot;&gt;3.2 逻辑流程图&lt;/h5&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2016-12-19-parallel-of-buying-scenario/14821328103721.jpg&quot; alt=&quot;1&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;section-5&quot;&gt;3.3 实现过程中可能需要额外关注的部分&lt;/h5&gt;
+&lt;h5 id=&quot;33-实现过程中可能需要额外关注的部分&quot;&gt;3.3 实现过程中可能需要额外关注的部分&lt;/h5&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Redis使用方面&lt;/p&gt;
@@ -1016,7 +1016,7 @@
   &lt;li&gt;Jedis连接池基础参数配置&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jedisConfig&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;redis.clients.jedis.JedisPoolConfig&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jedisConfig&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;redis.clients.jedis.JedisPoolConfig&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;maxTotal&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;10000&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;maxIdle&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;10000&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;minIdle&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;200&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
@@ -1028,14 +1028,13 @@
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;minEvictableIdleTimeMillis&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;10000&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;lifo&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;ShardedJedisPool连接池&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;shardedJedisPool&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;redis.clients.jedis.ShardedJedisPool&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scope=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;singleton&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;shardedJedisPool&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;redis.clients.jedis.ShardedJedisPool&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scope=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;singleton&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;constructor-arg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;index=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jedisConfig&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;constructor-arg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;index=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;list&amp;gt;&lt;/span&gt;
@@ -1047,21 +1046,19 @@
 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/list&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/constructor-arg&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;JedisPool连接池&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jedisPool&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;redis.clients.jedis.JedisPool&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scope=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;singleton&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jedisPool&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;redis.clients.jedis.JedisPool&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scope=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;singleton&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;constructor-arg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;index=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jedisConfig&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;constructor-arg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;index=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;127.0.0.1&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;constructor-arg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;index=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;6379&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;constructor-arg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;index=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;3&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;300&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;服务容器的运行保障方面（本次所使用到的是Tomcat）&lt;/p&gt;
@@ -1073,20 +1070,19 @@
   &lt;li&gt;Tomcat Executor连接线程池&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;Executor&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tomcatThreadPool&quot;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;线程池名称&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;Executor&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tomcatThreadPool&quot;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;线程池名称&lt;/span&gt;
 	&lt;span class=&quot;na&quot;&gt;namePrefix=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;catalina-exec-&quot;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;线程名称前缀&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;maxThreads=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;3000&quot;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最大连接线程数&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;minSpareThreads=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;500&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最小空闲线程数，初始化会达到该数值&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;maxIdleTime=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;30000&quot;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最大线程空闲时长&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Tomcat Connector连接配置&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;Connector&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;executor=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tomcatThreadPool&quot;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;线程池引用&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;Connector&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;executor=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tomcatThreadPool&quot;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;线程池引用&lt;/span&gt;
            &lt;span class=&quot;na&quot;&gt;port=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;8080&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;请求访问端口&lt;/span&gt;
            &lt;span class=&quot;na&quot;&gt;protocol=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.apache.coyote.http11.Http11NioProtocol&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;启用NIO协议&lt;/span&gt;
            &lt;span class=&quot;na&quot;&gt;connectionTimeout=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5000&quot;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建连接时长&lt;/span&gt;
@@ -1097,8 +1093,7 @@
 
            &lt;span class=&quot;na&quot;&gt;compression=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;on&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;compressionMinSize=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2048&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;compressableMimeType=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/html,text/xml,text/plain,application/octet-stream&quot;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;启用响应报文压缩gzip&lt;/span&gt;
            &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;与此同时，我们还对服务容器所占用的内存空间进行了分配和调整：&lt;/p&gt;
 
@@ -1106,7 +1101,7 @@
   &lt;li&gt;Tomcat Startup Properties启动参数&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-properties highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Configurations of JVM properties.
+&lt;div class=&quot;language-properties highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Configurations of JVM properties.
 # In order to increase JVM heap memory.
 # 
 # Edited by chenjinlong 20161216
@@ -1123,8 +1118,7 @@
 -Dcom.sun.management.jmxremote.port=32123   // JMX监听主机端口
 -Dcom.sun.management.jmxremote.ssl=false    // 是否开启SSL开关
 -Dcom.sun.management.jmxremote.authenticate=false&quot;&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;// 是否需要认证的开关&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;在实践过程中发现，单个Tomcat实例在并行负载线程达到&amp;gt;3000之时，会使用到&lt;code class=&quot;highlighter-rouge&quot;&gt;acceptCount&lt;/code&gt;所设置的数值创建队列，将后进的线程排队到该队列内。 &lt;br /&gt;
 但是同时也发现，当并行负载线程&amp;gt;3000之后，CPU和Head占用会大幅升高，响应时长也在爬高并超过实践过程中预设的1s（注：低负载情况下请求响应总时长为200-300ms）； &lt;br /&gt;
@@ -1132,7 +1126,7 @@
 
 &lt;p&gt;根据网络查询资料，许多IT从业者给出了近似的一些结论：如果需要考虑Tomcat在支撑并发数&amp;gt;1000以上，则可以引入分布式方案了。确实，系统稳定性是非常重要的。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-6&quot;&gt;四、优劣势辨析&lt;/h4&gt;
+&lt;h4 id=&quot;四优劣势辨析&quot;&gt;四、优劣势辨析&lt;/h4&gt;
 
 &lt;p&gt;本次实践过程中采用的是“分布式事务 + CAS原子性操作函数”所实现的乐观锁解决方案。在阐述其中优劣势之前，我们先来了解下关于抢购系统的外观设计办法有哪些。&lt;/p&gt;
 
@@ -1142,8 +1136,10 @@
 
 &lt;p&gt;这一方案很典型地采用了异步处理的机制，虽然可以很大层面上解决访问压力的问题，但是会给人一种“暗箱操作”、“用户体验极其不好”的感觉。如下图所示：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2016-12-19-parallel-of-buying-scenario/14821468543527.jpg&quot; alt=&quot;&quot; /&gt;
-* 方案二：抢购结果即刻响应&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2016-12-19-parallel-of-buying-scenario/14821468543527.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;方案二：抢购结果即刻响应&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;如方案标题所阐述的那样，即刻给用户反馈抢购操作的结果。该方案有很好的用户体验，但是对于系统也同样有着很高的考验。例如如何杜绝商品超售超发等问题的发生，因为一旦发生了超售超发，也就意味着系统的问题正在引发经济上的亏损。&lt;/p&gt;
 
@@ -1183,13 +1179,13 @@
 
 &lt;p&gt;和前面所提及的队列的思路比较起来，乐观锁的思路所实现的结果是无序的。假设你需要去保证按时序进行分配抢购的产品，那么乐观锁并不适合这一诉求，有序队列的实现思路可能更为合适。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-7&quot;&gt;五、小结一下&lt;/h4&gt;
+&lt;h4 id=&quot;五小结一下&quot;&gt;五、小结一下&lt;/h4&gt;
 
 &lt;p&gt;似乎也不需要总结太多，上文已经把整个方案过程中所涉及的考量和技术点都一一覆盖到了，可能会有些片面，或者有些阐述地比较粗糙，但毕竟这是一篇分享实现思路的文章而并非技术方案细节的文档，所以可以根据上述思路自行发散，有所参考，有所改进。&lt;/p&gt;
 
 &lt;p&gt;如果你有更好的建议、方案或者是优化策略，不妨在留言板上写下你的想法。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-8&quot;&gt;六、参考资料&lt;/h4&gt;
+&lt;h4 id=&quot;六参考资料&quot;&gt;六、参考资料&lt;/h4&gt;
 
 &lt;p&gt;本篇文章有原创体会，也有网络资料参考，国内外均涉及，这里就不一一罗列了，可以自行根据“抢购”、“分布式锁(distributed lock)”、“高并发(concurrency/parallel computing)”、“阻塞队列(blocking queue)”等关键词进行检索和进一步学习。&lt;/p&gt;
 
@@ -1205,7 +1201,7 @@
 				<title>Git协作之合并代码</title>
 				<description>&lt;p&gt;继上一次撰写GIT相关文章已经数月有余，半年来在团队内实践GIT的过程中，遇到了很多个人项目所不会接触到的疑问和问题，最为典型的无异于分支、代码之间的合并操作。本篇我们来讲一讲如何在本地仓库中做好多人协作过程中的分支代码合并。&lt;/p&gt;
 
-&lt;h4 id=&quot;section&quot;&gt;一、前言&lt;/h4&gt;
+&lt;h4 id=&quot;一前言&quot;&gt;一、前言&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Git知识回顾&lt;/strong&gt;&lt;/li&gt;
@@ -1242,11 +1238,10 @@
 
 &lt;p&gt;在merge manual中已经给出了一条合并操作的原则：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Command: git merge --help
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Command: git merge --help
 Warning: Running git merge with non-trivial uncommitted changes is discouraged: while possible, it may leave you in a state that is hard to back out of in the case of a conflict.
 // 简而言之，有未提交修改情况下，不要执行可能会冲突的操作！
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;在执行合并操作之前，保持workdirectory、index区域的clean特性，是非常必要的。当然，满足了这一前提，也并不代表就可以杜绝了冲突的可能。遵循该原则之后，解决的是1、2两点所产生的冲突可能，而前面所提及的3、4两点，是由于合并的操作所引入的冲突。  &lt;br /&gt;
 其实很多操作都可能会产生冲突，但最根本原因都是因为&lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;patch&lt;/code&gt;，这两者是冲突的直接来源。例如如下操作都可能产生冲突，它们过程中也都包含了合并的性质：&lt;/p&gt;
@@ -1261,45 +1256,42 @@ Warning: Running git merge with non-trivial uncommitted changes is discouraged: 
 
 &lt;p&gt;如何保持workdirectory、index区域的clean特性，可以参考上文文章已经阐述到的&lt;code class=&quot;highlighter-rouge&quot;&gt;stash&lt;/code&gt;操作。在&lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt;过程中一旦发生冲突，往往会停滞在merging状态中，这个时候，我们可以使用：&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 中止merge过程，该命令会尽可能恢复到merge操作之前的状态，但也可能恢复失败。
-git merge --abort
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 中止merge过程，该命令会尽可能恢复到merge操作之前的状态，但也可能恢复失败。
+git merge &lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt;
 
 // merge manual原文是这么解释的：
---abort
+&lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt;
 	Abort the current conflict resolution process, and try to reconstruct the pre-merge state.
-	If there were uncommitted worktree changes present when the merge started, git merge --abort will &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;some cases be unable to reconstruct these changes.
+	If there were uncommitted worktree changes present when the merge started, git merge &lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt; will &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;some cases be unable to reconstruct these changes.
 	It is therefore recommended to always commit or stash your changes before running git merge.
-	git merge --abort is equivalent to git reset --merge when MERGE_HEAD is present.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+	git merge &lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt; is equivalent to git reset &lt;span class=&quot;nt&quot;&gt;--merge&lt;/span&gt; when MERGE_HEAD is present.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;二、合并代码之前，需要理解的概念&lt;/h4&gt;
+&lt;h4 id=&quot;二合并代码之前需要理解的概念&quot;&gt;二、合并代码之前，需要理解的概念&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;1. FETCH_HEAD&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FETCH_HEAD&lt;/code&gt;可以视为一个版本链接，或者说是版本commit-id的履历文件，该文件的路径在Git项目下的&lt;code class=&quot;highlighter-rouge&quot;&gt;.git/FETCH_HEAD&lt;/code&gt;文件中。 &lt;br /&gt;
 当运行&lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch remote_repo src_branch&lt;/code&gt;类似的命令之时，将从远程repo获取分支的末端版本信息，记录到&lt;code class=&quot;highlighter-rouge&quot;&gt;.git/FETCH_HEAD&lt;/code&gt;文件中：&lt;/p&gt;
 
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜ /jeromechan/project git:&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;project&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ✗&amp;gt;git fetch origin &lt;span class=&quot;nb&quot;&gt;test
-&lt;/span&gt;remote: Counting objects: 334, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;.
-remote: Compressing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;211/211&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;.
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜ /jeromechan/project git:&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;project&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ✗&amp;gt;git fetch origin &lt;span class=&quot;nb&quot;&gt;test
+&lt;/span&gt;remote: Counting objects: 334, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+remote: Compressing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;211/211&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
 remote: Total 334 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 177&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, reused 167 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 51&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Receiving objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;334/334&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, 96.42 KiB | 0 bytes/s, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;.
+Receiving objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;334/334&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, 96.42 KiB | 0 bytes/s, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
 Resolving deltas: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;177/177&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, completed with 70 &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;objects.
 From https://github.com/jeromechan/project
  &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; branch            &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;       -&amp;gt; FETCH_HEAD
    f5a095a..18b49aa  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;       -&amp;gt; origin/test
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;然后，我们看下&lt;code class=&quot;highlighter-rouge&quot;&gt;.git/FETCH_HEAD&lt;/code&gt;文件内容：&lt;/p&gt;
 
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜ /jeromechan/project git:&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;project&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ✗&amp;gt;vim .git/FETCH_HEAD
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜ /jeromechan/project git:&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;project&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ✗&amp;gt;vim .git/FETCH_HEAD
 
 &lt;span class=&quot;c&quot;&gt;## 文件内容如下&lt;/span&gt;
-18b49aaa008731ff17768d6b18905fc5865b3aa7  branch &lt;span class=&quot;s1&quot;&gt;&#39;test&#39;&lt;/span&gt; of https://github.com/jeromechan/project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+18b49aaa008731ff17768d6b18905fc5865b3aa7  branch &lt;span class=&quot;s1&quot;&gt;'test'&lt;/span&gt; of https://github.com/jeromechan/project
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;2. git fetch&lt;/strong&gt;&lt;/p&gt;
 
@@ -1313,7 +1305,7 @@ From https://github.com/jeromechan/project
 
 &lt;p&gt;commit-id指的是每一次&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit&lt;/code&gt;操作所生成的每一个版本号，是一个能唯一标识一个版本的序列号。在使用git push后，这个序列号还会同步到远程repo。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;三、如何执行合并操作&lt;/h4&gt;
+&lt;h4 id=&quot;三如何执行合并操作&quot;&gt;三、如何执行合并操作&lt;/h4&gt;
 
 &lt;p&gt;这里举例两个常见的场景对合并操作进行解释。&lt;/p&gt;
 
@@ -1361,11 +1353,11 @@ From https://github.com/jeromechan/project
 				<title>几种方法调用思路的比较</title>
 				<description>&lt;p&gt;编码过程中，每天都在实现的事情，不是对象就是方法。那么如何去封装一个方法的入参呢？如果入参很多，是否有比较不一样的思路可以提高代码的复用性和可读性呢？下面谈谈在这一方面，近期学习到的一点知识。&lt;/p&gt;
 
-&lt;h4 id=&quot;section&quot;&gt;一、参数逐个罗列&lt;/h4&gt;
+&lt;h4 id=&quot;一参数逐个罗列&quot;&gt;一、参数逐个罗列&lt;/h4&gt;
 
 &lt;p&gt;假设有这么一个方法，方法参数很多，但都类似，我们可能需要把所有参数逐个逐个传入方法体内，就像这样：&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * A common style of implementing a function.
  *
  * @param type1
@@ -1389,10 +1381,9 @@ From https://github.com/jeromechan/project
         &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * Test cases for explaining how to invoke a function.
  *
  * @author chenjinlong 20161202
@@ -1408,14 +1399,13 @@ From https://github.com/jeromechan/project
      */&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;二、列表形式批量传入&lt;/h4&gt;
+&lt;h4 id=&quot;二列表形式批量传入&quot;&gt;二、列表形式批量传入&lt;/h4&gt;
 
 &lt;p&gt;可能有的工程师觉得上面这种办法，会使得方法参数过多，不便于阅读和归类，列表的办法可能会更好，所以上面的逻辑也可以写成这样：&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * Another common style of implementing a function.
  *
  * @param typeList
@@ -1438,10 +1428,9 @@ From https://github.com/jeromechan/project
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * Test cases for explaining how to invoke a function.
  *
  * @author chenjinlong 20161202
@@ -1458,14 +1447,13 @@ From https://github.com/jeromechan/project
     &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;typeList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;typeList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;vo&quot;&gt;三、对象VO的形式传入参数&lt;/h4&gt;
+&lt;h4 id=&quot;三对象vo的形式传入参数&quot;&gt;三、对象VO的形式传入参数&lt;/h4&gt;
 
 &lt;p&gt;可能还有的工程师觉得，塞个列表进来，其实也并不能将释义阐述清楚，每个列表值虽说都是byte，但是每个byte的含义都代表着不通的分支不通的含义。所以，对象的办法就引入进来了：&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * An POJO-bean style of implementing a function.
  *
  * @param typeList
@@ -1487,10 +1475,9 @@ From https://github.com/jeromechan/project
         &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * Test cases for explaining how to invoke a function.
  *
  * @author chenjinlong 20161202
@@ -1510,14 +1497,13 @@ From https://github.com/jeromechan/project
     &lt;span class=&quot;n&quot;&gt;typeExplains&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setTypeThree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;typeExplains&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;四、按位与&amp;amp;按位或 的方式传入参数&lt;/h4&gt;
+&lt;h4 id=&quot;四按位与按位或-的方式传入参数&quot;&gt;四、按位与&amp;amp;按位或 的方式传入参数&lt;/h4&gt;
 
 &lt;p&gt;以上方式其实都可以达到相同的函数想要实现的目标，但是是否考虑过其他更为便捷的办法呢？最近就遇到这么一种比较创新的、特殊的、异类、不一样的、充分展现计算机知识学以致用的调用的模式：&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * Each of Keys must be strictly defined.
  */&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TypeEnum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -1540,10 +1526,9 @@ From https://github.com/jeromechan/project
         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * Using &amp;amp; and | features.
  *
  * @param type
@@ -1565,10 +1550,9 @@ From https://github.com/jeromechan/project
         &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * Test cases for explaining how to invoke a function.
  *
  * @author chenjinlong 20161202
@@ -1584,13 +1568,12 @@ From https://github.com/jeromechan/project
      */&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;这种按位或传入，按位与判断获取的办法，着实为传入参数提供了截然不同的参考。当然，这种办法也不是适用于所有场景的。
 按位与按位或的办法，使用于需要传入参数很多的，方法体内针对每个参数会包含着不一样分支逻辑的场景。该方式简化了方法体外“或关系”判断的逻辑，但另一方面也确实降低了代码的易读性。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;五、总结&lt;/h4&gt;
+&lt;h4 id=&quot;五总结&quot;&gt;五、总结&lt;/h4&gt;
 
 &lt;p&gt;其实以上谈到的四种模式中，没有哪一种是最好的。符合实践场景的、符合团队技术水平现实的、具备高内聚低耦合特点的，那就一定是最适合的。  &lt;br /&gt;
 后续日子里，会就代码内部模式的实践上，发散开来谈谈如何编写可读性强的代码，然后再多po几篇文章分享出来。&lt;/p&gt;
@@ -1613,11 +1596,10 @@ From https://github.com/jeromechan/project
 
 &lt;p&gt;这其中许多的toggle大多数都会应用在拥有用户界面的应用上，假设你构建一个网站，其中使用了jsp，你可能会使用一些jsp标签包围在需要待发布的特性功能代码前后。&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;toggle&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;petSurvey&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Take our new &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href =&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;petSurvey&#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;pet survey&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;toggle&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;petSurvey&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Take our new &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href =&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'petSurvey'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;pet survey&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/toggle&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;类似以上的代码，当你将配置toggle的开关打开之时，features的功能将会随之打开，否则将会继续忽略features功能代码。虽然不一样的UI技术实现上会存在差异，但是基础的原理都是一样的。&lt;/p&gt;
 
@@ -1649,7 +1631,7 @@ From https://github.com/jeromechan/project
 
 &lt;p&gt;还有一点非常重要的，已经正式投产的toggle功能，一定要今早将toggle代码从生产环境中移除，其中不仅仅包括toggle的配置文件，还包括所有相涉及的系统toggle代码。如若不今早移除，会出现一种情况类似于，某些时候无人可以识别出某toggle是何种用途何时添加的细节情况了。一个较为清晰的案例就是，有一个需要二次编译linux内核的特殊场景，以使得可以获得更多的命令行开关的处理能力，恰巧当时就忘了这一场景，这是非常让人揪心的。&lt;/p&gt;
 
-&lt;h5 id=&quot;toggles&quot;&gt;发布型toggles是你最后需要去做的事情&lt;/h5&gt;
+&lt;h5 id=&quot;发布型toggles是你最后需要去做的事情&quot;&gt;发布型toggles是你最后需要去做的事情&lt;/h5&gt;
 
 &lt;p&gt;发布型toggles是一个非常有用的技术手段，许多研发团队都在使用它。当你要将特性功能发布到生产之时，它可能是你最后需要去做的事情。&lt;/p&gt;
 
@@ -1683,7 +1665,7 @@ From https://github.com/jeromechan/project
 				<title>读写分离的原则</title>
 				<description>&lt;p&gt;&lt;img src=&quot;/images/2016-09-20-db-master-slave-pattern-rules/14743556033765.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;section&quot;&gt;一、读写分离是什么？&lt;/h4&gt;
+&lt;h4 id=&quot;一读写分离是什么&quot;&gt;一、读写分离是什么？&lt;/h4&gt;
 
 &lt;p&gt;简单了说，就是数据库一主一从/一主多从/多主多从的部署方式。先简单介绍下mysql的原生同步机制，其是将master的binlog期间的执行日志根据顺序，拷贝至slave的relaylog中，然后逐一解析和执行。&lt;/p&gt;
 
@@ -1696,7 +1678,7 @@ From https://github.com/jeromechan/project
   &lt;li&gt;系统运行性能得到间接的提升&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;二、如何判别是否需要读写分离？&lt;/h4&gt;
+&lt;h4 id=&quot;二如何判别是否需要读写分离&quot;&gt;二、如何判别是否需要读写分离？&lt;/h4&gt;
 
 &lt;p&gt;谈及读写分离，必定要先了解怎样的应用层场景才需要使用到读写分离模式。以下是几点比较共性的场景特点：&lt;/p&gt;
 
@@ -1706,7 +1688,7 @@ From https://github.com/jeromechan/project
   &lt;li&gt;单一线程内同时涵盖读写操作的，使用主库&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;三、常见的读写分离的方式有哪些？&lt;/h4&gt;
+&lt;h4 id=&quot;三常见的读写分离的方式有哪些&quot;&gt;三、常见的读写分离的方式有哪些？&lt;/h4&gt;
 
 &lt;ol&gt;
   &lt;li&gt;中间件，例如java-amoeba&lt;/li&gt;
@@ -1714,11 +1696,11 @@ From https://github.com/jeromechan/project
   &lt;li&gt;自定义组件，例如在dal层的prepare过程，增加拦截代码，以执行数据源的路由逻辑。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;四、读写分离简单原则&lt;/h4&gt;
+&lt;h4 id=&quot;四读写分离简单原则&quot;&gt;四、读写分离简单原则&lt;/h4&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2016-09-20-db-master-slave-pattern-rules/14787121481232.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;section-4&quot;&gt;五、参考文章&lt;/h4&gt;
+&lt;h4 id=&quot;五参考文章&quot;&gt;五、参考文章&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://my.oschina.net/candiesyangyang/blog/203425&quot;&gt;为什么数据库读写分离可以提高性能&lt;/a&gt;&lt;/li&gt;
@@ -1744,14 +1726,13 @@ From https://github.com/jeromechan/project
 
 &lt;p&gt;近期对mamp作了次重装升级，之后遇到了xdebug无法正常启用的问题，在phpstorm中反馈的Event Log信息如下：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Cannot accept external Xdebug connection: Cannot evaluate expression &#39;isset($_SERVER[&#39;PHP_IDE_CONFIG&#39;])&#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Cannot accept external Xdebug connection: Cannot evaluate expression 'isset($_SERVER['PHP_IDE_CONFIG'])'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;看以上描述可以知道，是因为在建立Xdebug connection之时，无法找到变量&lt;code class=&quot;highlighter-rouge&quot;&gt;PHP_IDE_CONFIG&lt;/code&gt;的定义。&lt;br /&gt;
 谈到这里，大家来看看php.ini中Xdebug的参数配置先：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[xdebug]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[xdebug]
 extension=xdebug.so
 
 [xdebug]
@@ -1762,10 +1743,9 @@ MAMP_Xdebug_MAMP
  xdebug.remote_autostart=1
  ;xdebug.profiler_enable=0
  ;xdebug.profiler_output_dir=&quot;/Applications/MAMP/tmp&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;xdebugphpstorm&quot;&gt;一、核实xdebug与phpstorm已建立关联关系&lt;/h4&gt;
+&lt;h4 id=&quot;一核实xdebug与phpstorm已建立关联关系&quot;&gt;一、核实xdebug与phpstorm已建立关联关系&lt;/h4&gt;
 
 &lt;p&gt;打开phpinfo()信息页面，xdebug扩展部分如下：&lt;/p&gt;
 
@@ -1776,11 +1756,10 @@ MAMP_Xdebug_MAMP
 
 &lt;p&gt;修正这个问题比较简单，增加xdebug扩展参数配置即可：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xdebug.idekey=&quot;PHPSTORM&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xdebug.idekey=&quot;PHPSTORM&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;xdebugzendextension&quot;&gt;二、确认xdebug使用的是zend_extension引入方式&lt;/h4&gt;
+&lt;h4 id=&quot;二确认xdebug使用的是zend_extension引入方式&quot;&gt;二、确认xdebug使用的是zend_extension引入方式&lt;/h4&gt;
 
 &lt;p&gt;php的扩展库有很多，主要分为两大类：php extension和zend extension。&lt;/p&gt;
 
@@ -1796,7 +1775,7 @@ MAMP_Xdebug_MAMP
   &lt;li&gt;php extension(modules)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// php extension structures
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// php extension structures
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_zend_module_entry&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zend_module_entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_zend_module_dep&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zend_module_dep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
  
@@ -1837,14 +1816,13 @@ MAMP_Xdebug_MAMP
 	&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;	&lt;span class=&quot;cm&quot;&gt;/* version */&lt;/span&gt;
 	&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;		&lt;span class=&quot;cm&quot;&gt;/* dependency type */&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;zend extension(extensions)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// zend extension structures
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// zend extension structures
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message_handler_func_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
  
 &lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;op_array_handler_func_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zend_op_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;op_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -1896,8 +1874,7 @@ MAMP_Xdebug_MAMP
 	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zend_extension_api_no&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 	&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;build_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zend_extension_version_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;从加载顺序上分析，zend extension要早于php extension进行注册(register)，然而在激活(activate)阶段，却是php extension要早于zend extension被激活。&lt;br /&gt;
 在两者的激活顺序上，有如下区别可以额外了解一下：&lt;/p&gt;
@@ -1916,7 +1893,7 @@ MAMP_Xdebug_MAMP
 
 &lt;p&gt;这个时候，我们需要继续修改php.ini关于xdebug的引入配置：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;;1.移除默认引入xdebug.so的php extension的方式
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;;1.移除默认引入xdebug.so的php extension的方式
 [xdebug]
 ;extension=xdebug.so
 
@@ -1924,13 +1901,12 @@ MAMP_Xdebug_MAMP
 [xdebug]
 MAMP_Xdebug_MAMP
  zend_extension=&quot;/Applications/MAMP/bin/php/php5.3.29/lib/php/extensions/no-debug-non-zts-20090626/xdebug.so&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;以上可能你会疑惑，为什么一个写的是绝对路径，而一个写的是相对路径？&lt;br /&gt;
 其实原因很简单，php extension约定了在加载之时可以使用相对于php.ini公共配置项目 &lt;code class=&quot;highlighter-rouge&quot;&gt;extension_dir&lt;/code&gt;的路径作为扩展路径；而zend extension则约定了使用全路径进行引入和加载。&lt;/p&gt;
 
-&lt;h4 id=&quot;phpstormphp-web-application&quot;&gt;三、配置PhpStorm项目PHP Web Application&lt;/h4&gt;
+&lt;h4 id=&quot;三配置phpstorm项目php-web-application&quot;&gt;三、配置PhpStorm项目PHP Web Application&lt;/h4&gt;
 
 &lt;p&gt;这部分不在赘述，正如title中所提到的，配置好PhpStorm项目PHP Web Application，就可以进行debug调试你的php脚本代码了。以下就简单的附上几张图示吧，供各位参考。&lt;/p&gt;
 
@@ -1972,7 +1948,7 @@ MAMP_Xdebug_MAMP
   &lt;p&gt;以下是关于源代码版本控制的一些共通的约定、协议。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;section&quot;&gt;一、管理仓库&lt;/h4&gt;
+&lt;h4 id=&quot;一管理仓库&quot;&gt;一、管理仓库&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;避免将自己开发环境中的内容添加到版本控制系统中；&lt;/li&gt;
@@ -1982,63 +1958,56 @@ MAMP_Xdebug_MAMP
   &lt;li&gt;发起pull request，使得代码得以他人评审。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;二、在特性分支工作&lt;/h4&gt;
+&lt;h4 id=&quot;二在特性分支工作&quot;&gt;二、在特性分支工作&lt;/h4&gt;
 
 &lt;p&gt;基于master，在本地创建特性分支。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout master
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout master
 git pull
 git checkout -b &amp;lt;branch-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;经常性的执行Rebase，使得upstream的变更及时合并到本地内容中。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin
 git rebase origin/master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;如果出现冲突，应在Rebase过程中及时解决。&lt;br /&gt;
 当特性分支编码完成、通过测试之后，这个时候，需要将内容提交到index storage，即index暂存区。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add --all
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add --all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;当你完成了内容的暂存，即以上的add操作，这个时候你便可以提交它了。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git status
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git status
 git commit --verbose
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;这里有一个Tips，对阅读者友好的commit注释是非常必要的，例如以下，就是一则好的提交注释。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Present-tense summary under 50 characters
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Present-tense summary under 50 characters
 
 * More information about commit (under 72 characters).
 * More information about commit (under 72 characters).
 
 http://project.management-system.com/ticket/123
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;如果你之前创建了多个commit，那么你应该使用交互式的Rebase操作，以更好地进行代码的合并，并且生成更为友好的提交注释。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase -i origin/master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase -i origin/master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;代码提交完成之后，便是要将你提交的内容share给大家。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin &amp;lt;branch-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin &amp;lt;branch-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;这个时候，便是向你的团队小伙伴们提交pull request的时候了，请团队成员们帮忙评审自己所编写的代码。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;三、评审代码&lt;/h4&gt;
+&lt;h4 id=&quot;三评审代码&quot;&gt;三、评审代码&lt;/h4&gt;
 
 &lt;p&gt;邀请一个团队成员来评审自己的代码，是一个很好的发现缺陷issues的良策，还可以避免沟通上的遗漏和错误的传达。&lt;/p&gt;
 
@@ -2046,35 +2015,32 @@ http://project.management-system.com/ticket/123
 
 &lt;p&gt;另外，评审人员也可以自行作出代码变更和修改，只需要将变更内容检出到自己本地的分支。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout &amp;lt;branch-name&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout &amp;lt;branch-name&amp;gt;
 ./bin/setup
 git diff staging/master..HEAD
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;当评审人员在自己的branch上修改完毕，测试通过，提交commit并且push到远程origin分支中。&lt;br /&gt;
 对所有变更满意之后，就可以在pull request中备注注释：&lt;code class=&quot;highlighter-rouge&quot;&gt;Ready to merge&lt;/code&gt;。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;四、代码合并&lt;/h4&gt;
+&lt;h4 id=&quot;四代码合并&quot;&gt;四、代码合并&lt;/h4&gt;
 
 &lt;p&gt;使用交互式的Rebase进行代码的衍合，在每一项衍合所产生的提交中，必要的时候将注释丰富，例如增加message&lt;code class=&quot;highlighter-rouge&quot;&gt;Fix whitespace&lt;/code&gt;的备注。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin
 git rebase -i origin/master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;倘若你force push你的commit(s)到master，倘若你所使用的平台是GitHub，那么GitHub将自动地关闭你的pull request，同时标记该pull request为”Merged”状态。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push --force-with-lease origin &amp;lt;branch-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push --force-with-lease origin &amp;lt;branch-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;说到这里，可能各位看官会疑惑，为什么这里引用了&lt;code class=&quot;highlighter-rouge&quot;&gt;--force-with-lease&lt;/code&gt;这么一个git push的option呢？&lt;/p&gt;
 
 &lt;p&gt;下面介绍下这个参数是什么用途：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--[no-]force-with-lease
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--[no-]force-with-lease
 --force-with-lease=&amp;lt;refname&amp;gt;
 --force-with-lease=&amp;lt;refname&amp;gt;:&amp;lt;expect&amp;gt;
 Usually, &quot;git push&quot; refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it.
@@ -2102,35 +2068,32 @@ Usually, the command refuses to update a remote ref that is not an ancestor of t
 This flag disables these checks, and can cause the remote repository to lose commits; use it with care.
 
 Note that --force applies to all the refs that are pushed, hence using it with push.default set to matching or with multiple push destinations configured with remote.*.push may overwrite refs other than the current branch (including local refs that are strictly behind their remote counterpart). To force a push to only one branch, use a + in front of the refspec to push (e.g git push origin +master to force a push to the master branch). See the &amp;lt;refspec&amp;gt;... section above for details.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;以上大致的意思是指，在执行git push之时，增加&lt;code class=&quot;highlighter-rouge&quot;&gt;--force-with-lease&lt;/code&gt;参数，可以避免覆盖其他开发者在你fetch了之后，对目标分支做了其他的更新，然后你简单的&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -f&lt;/code&gt;的操作强制覆盖了他人的commits内容。&lt;br /&gt;
 如果想要了解&lt;code class=&quot;highlighter-rouge&quot;&gt;--force-with-lease&lt;/code&gt;参数更多的相关知识，可以查看这里Stack Overflow的例子: &lt;a href=&quot;http://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push&quot;&gt;How do I properly force a Git push?&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;想要查看新提交的commit(s)列表，想要查看变更的文件列表，以及合并开发分支代码到master，以下命令可以实现这些目的：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log origin/master..&amp;lt;branch-name&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log origin/master..&amp;lt;branch-name&amp;gt;
 
 git diff --stat origin/master
 
 git checkout master
 git merge &amp;lt;branch-name&amp;gt; --ff-only
 git push
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;特性分支代码既然都已然成功合并到master上，这个时候我们需要去删除特性分支，无论是本地工程目录，还是远程仓库。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Delete your remote feature branch.
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Delete your remote feature branch.
 git push origin --delete &amp;lt;branch-name&amp;gt;
 
 # Delete your local feature branch.
 git branch --delete &amp;lt;branch-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;section-4&quot;&gt;五、参考资料&lt;/h4&gt;
+&lt;h4 id=&quot;五参考资料&quot;&gt;五、参考资料&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/thoughtbot/guides/tree/master/protocol/git&quot;&gt;Git Protocol&lt;/a&gt;&lt;/li&gt;
@@ -2145,7 +2108,7 @@ git branch --delete &amp;lt;branch-name&amp;gt;
 		
 			<item>
 				<title>XRebel入门与实践</title>
-				<description>&lt;h4 id=&quot;xrebel&quot;&gt;一、XRebel简介&lt;/h4&gt;
+				<description>&lt;h4 id=&quot;一xrebel简介&quot;&gt;一、XRebel简介&lt;/h4&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2016-08-26-xrebel-tutorial/14721890028699.jpg&quot; alt=&quot;&quot; /&gt;
 XRebel是一款轻量级的性能优化器，可以帮助开发者们主动去发现和修复一些通用性的问题。XRebel提供了即时的方式，使得开发者可以针对每一个独立的请求进行分析、定位一些诸如DB查询、session变更细节等。&lt;br /&gt;
@@ -2173,7 +2136,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 
 &lt;p&gt;&lt;img src=&quot;/images/2016-08-26-xrebel-tutorial/14721926122030.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;xrebel-1&quot;&gt;二、XRebel安装使用教程&lt;/h4&gt;
+&lt;h4 id=&quot;二xrebel安装使用教程&quot;&gt;二、XRebel安装使用教程&lt;/h4&gt;
 
 &lt;p&gt;前面介绍了关于XRebel的一些背景和特点，以下介绍XRebel的安装步骤及其Tips。&lt;/p&gt;
 
@@ -2182,7 +2145,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 该工具值得你去购买，如果这笔款项不会影响你的生活质量。关于破解的方法，这里不做介绍，请自行Google。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h5 id=&quot;section&quot;&gt;下载与安装&lt;/h5&gt;
+&lt;h5 id=&quot;下载与安装&quot;&gt;下载与安装&lt;/h5&gt;
 
 &lt;p&gt;1.从官网上下载XRebel压缩包（.zip）&lt;a href=&quot;http://zeroturnaround.com/software/xrebel/download/&quot;&gt;http://zeroturnaround.com/software/xrebel/download/&lt;/a&gt;。&lt;br /&gt;
 如果你提前登陆了zeroturnaround.com，那么你所下载的zip包中就非常便捷地包含了你的帐号信息。&lt;/p&gt;
@@ -2193,14 +2156,13 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 
 &lt;p&gt;3.将&lt;code class=&quot;highlighter-rouge&quot;&gt;xrebel.jar&lt;/code&gt;添加到应用服务容器的JVM参数中，添加时候确认路径是正确无误的。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;4.启动应用服务容器，XRebel就会自动成功启动。&lt;br /&gt;
 启动完成之后，打开浏览器，XRebel toolbar就会显示在你服务页面的左下角。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2016-05-20 16:29:42 XRebel: #####################################################
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2016-05-20 16:29:42 XRebel: #####################################################
 2016-05-20 16:29:42 XRebel:
 2016-05-20 16:29:42 XRebel:  XRebel 3.1.1 (201605131009)
 2016-05-20 16:29:42 XRebel:  (c) Copyright ZeroTurnaround AS, Estonia, Tallinn.
@@ -2209,17 +2171,16 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 2016-05-20 16:29:42 XRebel:  contact xrebel@zeroturnaround.com
 2016-05-20 16:29:42 XRebel:
 2016-05-20 16:29:42 XRebel: #####################################################
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h5 id=&quot;license&quot;&gt;License激活&lt;/h5&gt;
+&lt;h5 id=&quot;license激活&quot;&gt;License激活&lt;/h5&gt;
 
 &lt;p&gt;使用XRebel必须先激活，毕竟是收费工具。当然，在你购买前，你会拥有15天的评估试用期。&lt;br /&gt;
 怎么激活呢？其实很简单，在你安装完XRebel之后，首次打开浏览器，以下窗口便会自动弹跳出来，根据提示进行License注册便是。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2016-08-26-xrebel-tutorial/14721942799287.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;xrebelserver&quot;&gt;将XRebel集成到你的Server中&lt;/h5&gt;
+&lt;h5 id=&quot;将xrebel集成到你的server中&quot;&gt;将XRebel集成到你的Server中&lt;/h5&gt;
 
 &lt;p&gt;这里会有两个方面可以实践。&lt;/p&gt;
 
@@ -2240,9 +2201,8 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 （2）选择Server服务容器，打开Arguments参数设置tab标签；&lt;br /&gt;
 （3）将以下参数填写到VM arguments配置项目中；&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&quot;/images/2016-08-26-xrebel-tutorial/14722183417609.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;（4）点击Apply应用并保存到当前的Run Configuration中。&lt;/p&gt;
@@ -2253,9 +2213,8 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 （2）选择Server服务容器；&lt;br /&gt;
 （3）将以下参数填写到VM arguments配置项目中；&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&quot;/images/2016-08-26-xrebel-tutorial/14722184711430.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;（4）点击Apply应用并保存到当前的Run Configuration中。&lt;/p&gt;
@@ -2266,9 +2225,8 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 （2）选择Server服务容器，打开Platform参数设置tab标签；&lt;br /&gt;
 （3）将以下参数填写到VM arguments配置项目中；&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&quot;/images/2016-08-26-xrebel-tutorial/14722186661015.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;（4）点击Close保存并关闭当前窗口。&lt;/p&gt;
@@ -2284,19 +2242,17 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 （3）新增一个可执行.bat文件，例如命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;catalina-xrebel.bat&lt;/code&gt;；&lt;br /&gt;
 （4）将以下内容增加到第3步所创建好的.bat文件中；&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@echo off
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@echo off
 set JAVA_OPTS=-javaagent:[path/to/]xrebel.jar %JAVA_OPTS%
 call &quot;%~dp0\catalina.bat&quot; %*
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;（5）执行以上.bat文件，启动Tomcat。&lt;/p&gt;
 
 &lt;p&gt;PS: 需要将Tomcat以服务的方式启动着？可以打开tomcat包装器&lt;code class=&quot;highlighter-rouge&quot;&gt;tomcatXw.exe&lt;/code&gt;，在tomcatXw包装器的设置项目Java &amp;gt; Java Options中，新增如下参数：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-javaagent:[path/to/]xrebel.jar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;2.Tomcat on Mac OS and Linux&lt;/strong&gt;&lt;/p&gt;
 
@@ -2305,19 +2261,17 @@ call &quot;%~dp0\catalina.bat&quot; %*
 （3）新增一个可执行.sh文件，例如命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;catalina-xrebel.sh&lt;/code&gt;；&lt;br /&gt;
 （4）将以下内容增加到第3步所创建好的.sh文件中；&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JAVA_OPTS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-javaagent:[path/to/]xrebel.jar &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$JAVA_OPTS&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
 &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;dirname &lt;span class=&quot;nv&quot;&gt;$0&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;/catalina.sh &lt;span class=&quot;nv&quot;&gt;$@&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;（5）按照如下命令，执行以上.sh启动脚本，启动Tomcat。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./catalina-xrebel.sh run
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./catalina-xrebel.sh run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;xrebel-2&quot;&gt;三、XRebel应用&lt;/h4&gt;
+&lt;h4 id=&quot;三xrebel应用&quot;&gt;三、XRebel应用&lt;/h4&gt;
 
 &lt;p&gt;经过前两部分的折腾，你应该已经可以成功启动XRebel了。下面我们来进一步介绍以下，如何去实际使用XRebel？XRebel到底给我们开发者提供了怎样的便捷特性？下面会逐一展开讲道。&lt;/p&gt;
 
@@ -2378,22 +2332,20 @@ call &quot;%~dp0\catalina.bat&quot; %*
 
 &lt;p&gt;将该选项打上勾，便可以查看到操作过程中，开发者们标记了hidden的条目，以及XRebel智能隐藏的其他条目。具体看应用场景的需要。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;四、高级配置选项&lt;/h4&gt;
+&lt;h4 id=&quot;四高级配置选项&quot;&gt;四、高级配置选项&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;1.XRebel过滤名单&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;XRebel允许配置一项黑名单列表，将不需要监测的class路径添加进去，即达到忽略的目的。&lt;br /&gt;
 黑名单配置文件在这里：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.xrebel/traces-blacklist.txt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.xrebel/traces-blacklist.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;XRebel还允许配置一项黑名单，以过滤&lt;code class=&quot;highlighter-rouge&quot;&gt;static&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;transient&lt;/code&gt;属性的大小，使之不影响所在对象Object的大小计算。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.xrebel/session-blacklist.txt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.xrebel/session-blacklist.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;2.XRebel启动参数&lt;/strong&gt;&lt;/p&gt;
 
@@ -2448,7 +2400,7 @@ call &quot;%~dp0\catalina.bat&quot; %*
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;五、参考资料&lt;/h4&gt;
+&lt;h4 id=&quot;五参考资料&quot;&gt;五、参考资料&lt;/h4&gt;
 
 &lt;p&gt;本篇文章基于个人在近期实践XRebel过程中，所用到的知识归纳成文。&lt;br /&gt;
 XRebel实用性极高，对自己在日常的开发中，方便了发现代码缺陷以及存在的性能隐患，所以作此一文推荐一番。&lt;/p&gt;
@@ -2465,16 +2417,16 @@ XRebel实用性极高，对自己在日常的开发中，方便了发现代码�
 				<title>如何快速选择开源软件协议</title>
 				<description>&lt;p&gt;&lt;img src=&quot;/images/2016-07-22-easy-chosing-opensource-license/14691964599348.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;一、背景介绍&lt;/h3&gt;
+&lt;h3 id=&quot;一背景介绍&quot;&gt;一、背景介绍&lt;/h3&gt;
 &lt;p&gt;目前开源协议有很多，同一款协议也衍生出了许多变种。开源世界中，我们可以使用合适的开源协议，保证自己作品的版权。 &lt;br /&gt;
 我们这里不做过多的介绍，只介绍一些自己常用的三个选择及其理由，以供参考。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;二、详细描述&lt;/h3&gt;
+&lt;h3 id=&quot;二详细描述&quot;&gt;二、详细描述&lt;/h3&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;2.1 “我需要一个简单宽松的协议”&lt;/h4&gt;
+&lt;h4 id=&quot;21-我需要一个简单宽松的协议&quot;&gt;2.1 “我需要一个简单宽松的协议”&lt;/h4&gt;
 &lt;p&gt;MIT License是一个简短、宽松、自由的协议。该协议允许人们使用你的代码，但必须要保留你的版权信息。与此同时，并不会给你带来任何责任和风险。&lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;.NET Core&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Rails&lt;/code&gt;使用的均是MIT License。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The MIT License (MIT)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The MIT License (MIT)
 Copyright (c) &amp;lt;year&amp;gt; &amp;lt;copyright holders&amp;gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -2482,14 +2434,13 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;2.2 “我更加关心自己的专利”&lt;/h4&gt;
+&lt;h4 id=&quot;22-我更加关心自己的专利&quot;&gt;2.2 “我更加关心自己的专利”&lt;/h4&gt;
 &lt;p&gt;Apache License 2.0是一项和MIT License相似的协议，但自己希望自己的专利能在开源免费使用的同时，保留自己在开源产品中的专利权益。同样，该协议要求使用者必须保留你的版权信息。&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;Android&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Apache&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Swift&lt;/code&gt;使用的均是Apache License 2.0协议。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Apache License Version 2.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Apache License Version 2.0
 Copyright [yyyy] [name of copyright owner]
 
 Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -2503,14 +2454,13 @@ distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;section-4&quot;&gt;2.3 “我关心代码的分享以及促进”&lt;/h4&gt;
+&lt;h4 id=&quot;23-我关心代码的分享以及促进&quot;&gt;2.3 “我关心代码的分享以及促进”&lt;/h4&gt;
 &lt;p&gt;如果你希望别人在分享的自己的作品之后，也必须遵循相同的协议，也必须是开源和免费。那么GPLv3是你更好的选择。该协议当中也明确地包含了贡献人的专利权益方面的款项。原作品的版权条款也必须延续保留。GPL协议存在非常强的“传染性”
 &lt;code class=&quot;highlighter-rouge&quot;&gt;Bash&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;GIMP&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Privacy Badger&lt;/code&gt;使用的均是GPLv3协议。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GNU GENERAL PUBLIC LICENSE Version 3
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GNU GENERAL PUBLIC LICENSE Version 3
 Copyright (C) {year}  {name of author}
 
 This program is free software: you can redistribute it and/or modify
@@ -2525,19 +2475,17 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;如果你的产品是基于终端的，你还可以加上如下一段，使得使用者知晓如何可以联系到你。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Copyright&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(C)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;fullname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;This&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;program&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;comes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ABSOLUTELY&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;WARRANTY;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`show&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;w&#39;.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;This&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;free&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;software,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;you&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;are&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;welcome&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;redistribute&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;under&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;certain&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;conditions;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`show&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c&#39;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;details.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{project}  Copyright (C) {year}  {fullname}
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type `show c' for details.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;section-5&quot;&gt;三、参考资料&lt;/h3&gt;
+&lt;h3 id=&quot;三参考资料&quot;&gt;三、参考资料&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Opensource License：&lt;a href=&quot;http://choosealicense.com/licenses/&quot;&gt;http://choosealicense.com/licenses/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;各种开源协议介绍：&lt;a href=&quot;http://www.open-open.com/solution/view/1319816219625&quot;&gt;http://www.open-open.com/solution/view/1319816219625&lt;/a&gt;&lt;/li&gt;

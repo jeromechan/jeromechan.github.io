@@ -11,7 +11,7 @@
 
   <title>
     
-      Jerome Chan &middot; A Web developer, talking about development
+      Jerome Chan &middot; A software designer, talking about codes and design
     
   </title>
 
@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -750,16 +750,16 @@
 
     <span class="post-date">09 Sep 2014</span>
     
-    <h5 id="servernameserveralias">第一部分：了解ServerName、ServerAlias区别</h5>
+    <h5 id="第一部分了解servernameserveralias区别">第一部分：了解ServerName、ServerAlias区别</h5>
 
 <p>ServerName：主机域名的解析入口，每一个虚拟主机在配置之时是必须的；  <br />
 ServerAlias：域名别名，在配置了ServerName的基础上，想要集成“一主机多域名”的结构，ServerAlias是不错的选择。</p>
 
-<h5 id="servername">第二部分：如果主机缺省了ServerName的配置会如何发展</h5>
+<h5 id="第二部分如果主机缺省了servername的配置会如何发展">第二部分：如果主机缺省了ServerName的配置会如何发展</h5>
 
 <p>官方是这样解释的：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    # Ensure that Apache listens on port 80
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # Ensure that Apache listens on port 80
     Listen 80
     # Listen for virtual host requests on all IP addresses
     NameVirtualHost *:80
@@ -769,20 +769,19 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
         ServerName www.example.com
         # Other directives here
     &lt; /VirtualHost&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>The asterisks match all addresses, so the main server serves no requests. Due to the fact that www.example.com is first in the configuration file, it has the highest priority and can be seen as the default or primary server. That means that if a request is received that does not match one of the specified ServerName directives, it will be served by this first VirtualHost. [Reference Link](http://httpd.apache.org/docs/2.2/vhosts/examples.html)</blockquote>
 
 <p>最后一句话已经提及，如果缺省了ServerName，则该请求域名会被映射到第一台虚拟主机配置中。 那么，哪一台是第一台呢？难道就是配置过程中，或者Include引入过程中的排在第一位置的吗？</p>
 
-<h5 id="section">第三部分：哪台主机是第一位置</h5>
+<h5 id="第三部分哪台主机是第一位置">第三部分：哪台主机是第一位置</h5>
 
 <p>我们准备以下用例进行分析：</p>
 
-<h6 id="section-1">第一步：重现错误解析现象</h6>
+<h6 id="第一步重现错误解析现象">第一步：重现错误解析现象</h6>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    &gt;&gt;vim /etc/hosts
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &gt;&gt;vim /etc/hosts
     # 当前服务器IP是192.168.1.100
     192.168.1.100 aa.example.com
     192.168.1.100 bb.example.com
@@ -804,12 +803,11 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
          port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
          port 80 namevhost aa.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了aa.example.com
          port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h6 id="hosts">第二步：将hosts解析顺序作部分调整，观察修改后的解析结果</h6>
+<h6 id="第二步将hosts解析顺序作部分调整观察修改后的解析结果">第二步：将hosts解析顺序作部分调整，观察修改后的解析结果</h6>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    &gt;&gt;vim /etc/hosts
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &gt;&gt;vim /etc/hosts
     # 当前服务器IP是192.168.1.100
     192.168.1.100 bb.example.com ## 将该域名修改置于最前面
     192.168.1.100 aa.example.com
@@ -825,10 +823,9 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
          port 80 namevhost ab.example.com (/apache2/conf/extra/ab.example.com-vhosts.conf:1)
          port 80 namevhost bb.example.com (/apache2/conf/extra/none.servername.com-vhosts.conf:1) ## 此行：none.servername.com-vhosts.conf被错误映射到了bb.example.com
          port 80 namevhost bb.example.com (/apache2/conf/extra/bb.example.com-vhosts.conf:1)
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h6 id="section-2">第三步：分析前两步的现象</h6>
+<h6 id="第三步分析前两步的现象">第三步：分析前两步的现象</h6>
 
 <p>从前面两步可以发现，未配置ServerName属性的虚拟主机，会优先根据本服务器的DNS解析机制依次解析，然后会将未配置ServerName的主机配置项，分配给第一条被DNS解析遇到的本服务器虚拟主机域名。</p>
 

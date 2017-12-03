@@ -11,7 +11,7 @@
 
   <title>
     
-      Jerome Chan &middot; A Web developer, talking about development
+      Jerome Chan &middot; A software designer, talking about codes and design
     
   </title>
 
@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -752,7 +752,7 @@
     
     <p><img src="/images/2016-09-20-db-master-slave-pattern-rules/14743556033765.jpg" alt="" /></p>
 
-<h4 id="section">一、读写分离是什么？</h4>
+<h4 id="一读写分离是什么">一、读写分离是什么？</h4>
 
 <p>简单了说，就是数据库一主一从/一主多从/多主多从的部署方式。先简单介绍下mysql的原生同步机制，其是将master的binlog期间的执行日志根据顺序，拷贝至slave的relaylog中，然后逐一解析和执行。</p>
 
@@ -765,7 +765,7 @@
   <li>系统运行性能得到间接的提升</li>
 </ul>
 
-<h4 id="section-1">二、如何判别是否需要读写分离？</h4>
+<h4 id="二如何判别是否需要读写分离">二、如何判别是否需要读写分离？</h4>
 
 <p>谈及读写分离，必定要先了解怎样的应用层场景才需要使用到读写分离模式。以下是几点比较共性的场景特点：</p>
 
@@ -775,7 +775,7 @@
   <li>单一线程内同时涵盖读写操作的，使用主库</li>
 </ul>
 
-<h4 id="section-2">三、常见的读写分离的方式有哪些？</h4>
+<h4 id="三常见的读写分离的方式有哪些">三、常见的读写分离的方式有哪些？</h4>
 
 <ol>
   <li>中间件，例如java-amoeba</li>
@@ -783,11 +783,11 @@
   <li>自定义组件，例如在dal层的prepare过程，增加拦截代码，以执行数据源的路由逻辑。</li>
 </ol>
 
-<h4 id="section-3">四、读写分离简单原则</h4>
+<h4 id="四读写分离简单原则">四、读写分离简单原则</h4>
 
 <p><img src="/images/2016-09-20-db-master-slave-pattern-rules/14787121481232.jpg" alt="" /></p>
 
-<h4 id="section-4">五、参考文章</h4>
+<h4 id="五参考文章">五、参考文章</h4>
 
 <ul>
   <li><a href="https://my.oschina.net/candiesyangyang/blog/203425">为什么数据库读写分离可以提高性能</a></li>

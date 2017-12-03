@@ -11,7 +11,7 @@
 
   <title>
     
-      Jerome Chan &middot; A Web developer, talking about development
+      Jerome Chan &middot; A software designer, talking about codes and design
     
   </title>
 
@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -760,10 +760,9 @@
 
 <p>可以参考的shell命令：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>whereis php #环境变量已配置的php
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whereis php #环境变量已配置的php
 ls /usr/local/php #常用php安装目录（或软链接目录）
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>2.PHP基本安装</p>
 
@@ -772,9 +771,8 @@ ls /usr/local/php #常用php安装目录（或软链接目录）
 
 <p>（b） 解压下载好的php压缩包</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>tar zxvf php-5.3.3.tar.gz
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar zxvf php-5.3.3.tar.gz
+</code></pre></div></div>
 
 <p>（c）生成makefile并编译安装</p>
 
@@ -782,9 +780,8 @@ ls /usr/local/php #常用php安装目录（或软链接目录）
   <p>Tips：./configure —help可以查看到配置选项，如果需要定制，选择适合的选项作为安装配置也未尝不可。</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>./configure —prefix=/usr/local/php5 —with-apxs2=/usr/local/apache2/bin/apxs —with-config-file-path=/usr/local/php5/lib 
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure —prefix=/usr/local/php5 —with-apxs2=/usr/local/apache2/bin/apxs —with-config-file-path=/usr/local/php5/lib 
+</code></pre></div></div>
 
 <p>—prefix=PATH：指定安装目录</p>
 
@@ -802,17 +799,15 @@ ls /usr/local/php #常用php安装目录（或软链接目录）
 
 <p>（a）配置入口文件</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    &lt;ifmodule dir_module=""&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;ifmodule dir_module=""&gt;
     	DirectoryIndex index.html index.php
     &lt;/ifmodule&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>（b）配置php解析模块</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    LoadModule php5_module modules/libphp5.so
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    LoadModule php5_module modules/libphp5.so
+</code></pre></div></div>
 
 <blockquote>
   <p>Tips：这里容易混淆的是，libphp5.so其实是php源码编译安装之时生成的，而非apache自己包含的。&lt;/blockquote&gt;</p>
@@ -820,9 +815,8 @@ ls /usr/local/php #常用php安装目录（或软链接目录）
 
 <p>（c）添加解析文件类型</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> AddType application/x-httpd-php .php
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> AddType application/x-httpd-php .php
+</code></pre></div></div>
 
 <ol>
   <li>PHP扩展安装</li>
@@ -842,14 +836,13 @@ ls /usr/local/php #常用php安装目录（或软链接目录）
 
 <p>以下举例（安装pdo_mysql扩展）说明：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>cd pdo_mysql
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd pdo_mysql
 /usr/local/php5/bin/phpize
 ./configure —prefix=/usr/local/php5/extensions —with-php-config=/usr/local/php5/bin/php-config
 make
 make test
 make install
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>此时，当make install执行完成后，在terminal中会打印出.so扩展文件存放的目录路径。然后再进一步配置php.ini文件中的“extension_dir=”和“extension=pdo_mysql.so”即可。</p>
 
@@ -857,11 +850,10 @@ make install
   <li>启动apache</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    &gt;&gt; /usr/local/apache2/bin/apachectl -k start
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &gt;&gt; /usr/local/apache2/bin/apachectl -k start
     &gt;&gt; /usr/local/apache2/bin/apachectl -k stop
     &gt;&gt; /usr/local/apache2/bin/apachectl -k restart
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>此时，可以通过浏览器访问指定的虚拟主机，通过php函数phpinfo()可以查看到当前php安装的情况，包括php.ini配置文件路径、已安装扩展配置情况和apache http server的关联配置情况等。</p>
 

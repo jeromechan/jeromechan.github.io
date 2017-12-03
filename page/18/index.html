@@ -11,7 +11,7 @@
 
   <title>
     
-      Jerome Chan &middot; A Web developer, talking about development
+      Jerome Chan &middot; A software designer, talking about codes and design
     
   </title>
 
@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -790,35 +790,33 @@
 
 <p>使用”/”定界符的代码如下.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+)\.html$/i';
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+)\.html$/i';
 $str = 'http://www.youku.com/show_page/id_ABCDEFG.html';
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 echo "\n";
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>preg_match中的$matches[0]将包含与整个模式匹配的字符串。<br />
 使用”#”定界符的代码如下.这个时候对”/”就不转义!</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '#^http://([\w.]+)/([\w]+)/([\w]+)\.html$#i';
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '#^http://([\w.]+)/([\w]+)/([\w]+)\.html$#i';
 $str = 'http://www.youku.com/show_page/id_ABCDEFG.html';
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 echo "\n";
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>¤ 修饰符:用于改变正则表达式的行为。</p>
 
 <p>我们看到的<code class="highlighter-rouge">('/^http:\/\/([\w.]+)\/([\w]+)\/([\w]+)\.html/**i**')</code>  中的最后一个”i”就是修饰符,表示忽略大小写，还有一个我们经常用到的是”x”表示忽略空格。<br />
 贡献代码:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/HELLO/';
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/HELLO/';
 $str = 'hello word';
 $matches = array();
 if(preg_match($regex, $str, $matches)){
@@ -827,19 +825,20 @@ echo 'No i:Valid Successful!',"\n";
 if(preg_match($regex.'i', $str, $matches)){
 echo 'YES i:Valid Successful!',"\n";
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>¤ 字符域:[\w]用方括号扩起来的部分就是字符域。<br />
 ¤ 限定符:如[\w]{3,5}或者[\w]*或者[\w]+这些[\w]后面的符号都表示限定符。现介绍具体意义。</p>
 
-<p>{3,5}表示3到5个字符。{3,}超过3个字符，{,5}最多5个，{3}三个字符。<br />
-* 表示0到多个<br />
-+ 表示1到多个<br />
+<p>{3,5}表示3到5个字符。{3,}超过3个字符，{,5}最多5个，{3}三个字符。</p>
+<ul>
+  <li>表示0到多个</li>
+  <li>表示1到多个<br />
 ¤ 脱字符号（^:）<br />
 （1）放在字符域(如:[^\w])中表示否定(不包括的意思)——“反向选择”<br />
 （2）放在表达式之前，表示以当前这个字符开始。(/^n/i,表示以n开头)<br />
-注意，我们经常管”"叫”跳脱字符”。用于转义一些特殊符号，如”.”,”/”</p>
+注意，我们经常管”"叫”跳脱字符”。用于转义一些特殊符号，如”.”,”/”</li>
+</ul>
 
 <p><strong>三、通配符(lookarounds)</strong></p>
 
@@ -848,32 +847,30 @@ echo 'YES i:Valid Successful!',"\n";
 正向预查:(?=) 相对应的 (?!)表示否定意思<br />
 反向预查:(?&lt;=) 相对应的 (?前后紧跟字符</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/(?&lt;=c)d(?=e)/';  /* d 前面紧跟c, d 后面紧跟e*/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/(?&lt;=c)d(?=e)/';  /* d 前面紧跟c, d 后面紧跟e*/
 $str = 'abcdefgk';
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 echo "\n";
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>否定意义:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/(?
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/(?
 $str = 'abcdefgk';
 $matches = array();
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 echo "\n";
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>字符宽度:零<br />
 验证零字符代码</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/HE(?=L)LO/i';
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/HE(?=L)LO/i';
 $str = 'HELLO';
 $matches = array();
 
@@ -891,8 +888,7 @@ if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 echo "\n";
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>能打印出结果!</p>
 
@@ -909,7 +905,7 @@ echo "\n";
 调用格式: \编号(如\1)。</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/^(Chuanshanjia)[\w\s!]+\1$/';
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/^(Chuanshanjia)[\w\s!]+\1$/';
 $str = 'Chuanshanjia thank Chuanshanjia';
 $matches = array();
 
@@ -917,8 +913,7 @@ if(preg_match($regex, $str, $matches)){
 var_dump($matches);
 }
 echo "\n";
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>
   <p>避免捕获数据</p>
@@ -934,7 +929,7 @@ echo "\n";
 
 <p>格式:(?P<组名>) 调用方式 (?P=组名)</组名></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>arrray(3) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arrray(3) {
 
 [0] =&gt;
 string(28) “chuanshanjia Is chuanshanjia”
@@ -943,8 +938,7 @@ string(12) “chuanshanjia”
 [1] =&gt;
 string(12) “chuanshanjia"
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>五、惰性匹配</strong></p>
 
@@ -954,7 +948,7 @@ string(12) “chuanshanjia"
 先看下面的两个代码:
 代码1</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/heL*/i';
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/heL*/i';
 $str = 'heLLLLLLLLLLLLLLLL';
 if(preg_match($regex, $str, $matches)){
 var_dump($matches);
@@ -966,12 +960,11 @@ array(1) {
 [0] =&gt;
 string(8) "heLLLLLLLLLLLLLLLL"
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>代码2</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/heL*?/i';
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/heL*?/i';
 $str = 'heLLLLLLLLLLLLLLLL';
 
 if(preg_match($regex, $str, $matches)){
@@ -983,12 +976,11 @@ array(1) {
 [0] =&gt;
 string(2) "he"
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>代码3,使用“+”</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/heL+?/i';
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/heL+?/i';
 
 $str = 'heLLLLLLLLLLLLLLLL';
 if(preg_match($regex, $str, $matches)){
@@ -1002,12 +994,11 @@ array(1) {
 [0] =
 string(3) "heL"
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>代码4,使用{3,5}</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/heL{3,10}?/i';
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/heL{3,10}?/i';
 $str = 'heLLLLLLLLLLLLLLLL';
 
 if(preg_match($regex, $str, $matches)){
@@ -1020,8 +1011,7 @@ array(1) {
 [0] =&gt;
 string(5) "heLLL"
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>六、正则表达式的注释</strong></p>
 
@@ -1030,7 +1020,7 @@ string(5) "heLLL"
 
 <p>贡献代码:是一个用于连接MYSQL数据库的正则表达式</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$regex = '/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$regex = '/
 ^host=(?&lt;!\.)([\d.]+)(?!\.) (?#主机地址)
 \|
 ([\w!@#$%^&amp;*()_+\-]+) (?#用户名)
@@ -1046,8 +1036,7 @@ var_dump($matches);
 }
 
 echo "\n";
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>七、特殊字符</strong></p>
 

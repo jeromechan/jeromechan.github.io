@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -754,7 +754,7 @@
   <li>5.小结一下</li>
 </ul>
 
-<h4 id="section">一、抢购场景的特点</h4>
+<h4 id="一抢购场景的特点">一、抢购场景的特点</h4>
 
 <p>在日常生活中，电子商务营销手段中，抢购、促销是最为常用的提高销售的手段。最熟悉不过的当然就是天猫“双十一”购物节了。既然是“抢购”，用通俗的话来概括，那就是<strong>手快有手慢无</strong>。以下我们做了一些细分：</p>
 
@@ -778,7 +778,7 @@
 
 <p>写到这里，复杂度已经可见一斑，内容涉及了各个方面，例如并发编程、安全、缓存、关系型数据存储、网络流量、防火墙、服务容器、连接池、IO通信。虽说内容很多，但是我们可以从中根据自己所面临的场景，选择其中一些合适的技术手段即可，不必面面俱到追求完美，它们都只是你实现目标的工具。</p>
 
-<h4 id="section-1">二、技术选型</h4>
+<h4 id="二技术选型">二、技术选型</h4>
 
 <p>了解基本的抢购场景知识之后，就是考虑怎么去解决场景中所遇到的实际问题了。对于抢购场景的特点，我们给每个特点归归类：</p>
 
@@ -811,9 +811,9 @@
 
 <p>本次实践过程中，对于这一块并没有太多的涉及，只是通过一些流量设置上的控制，避免了服务容器由于请求压力过高而产生的宕机风险。这一块待日后自己的知识库成熟之后，再po文分享下自己的实践感触。</p>
 
-<h4 id="section-2">三、方案思路</h4>
+<h4 id="三方案思路">三、方案思路</h4>
 
-<h5 id="section-3">3.1 基本思路和考量点</h5>
+<h5 id="31-基本思路和考量点">3.1 基本思路和考量点</h5>
 
 <ul>
   <li>不可超售，需要使用到线程安全、线程锁、本地线程、事务性、原子CAS特性、阻塞/非阻塞队列等知识；</li>
@@ -824,11 +824,11 @@
   <li>在消费数据的持久化措施上，采用“生产者-消费者”的队列实现模式，异步的策略将消费数据尽可能快地持久化到日常使用的关系型数据库中，便于查看和其他业务系统的接口读取；</li>
 </ul>
 
-<h5 id="section-4">3.2 逻辑流程图</h5>
+<h5 id="32-逻辑流程图">3.2 逻辑流程图</h5>
 
 <p><img src="/images/2016-12-19-parallel-of-buying-scenario/14821328103721.jpg" alt="1" /></p>
 
-<h5 id="section-5">3.3 实现过程中可能需要额外关注的部分</h5>
+<h5 id="33-实现过程中可能需要额外关注的部分">3.3 实现过程中可能需要额外关注的部分</h5>
 
 <blockquote>
   <p>Redis使用方面</p>
@@ -850,7 +850,7 @@
   <li>Jedis连接池基础参数配置</li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"jedisConfig"</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.JedisPoolConfig"</span><span class="nt">&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"jedisConfig"</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.JedisPoolConfig"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"maxTotal"</span> <span class="na">value=</span><span class="s">"10000"</span> <span class="nt">/&gt;</span>
 	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"maxIdle"</span> <span class="na">value=</span><span class="s">"10000"</span> <span class="nt">/&gt;</span>
 	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"minIdle"</span> <span class="na">value=</span><span class="s">"200"</span> <span class="nt">/&gt;</span>
@@ -862,14 +862,13 @@
 	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"minEvictableIdleTimeMillis"</span> <span class="na">value=</span><span class="s">"10000"</span> <span class="nt">/&gt;</span>
 	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"lifo"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/bean&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>ShardedJedisPool连接池</li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"shardedJedisPool"</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.ShardedJedisPool"</span> <span class="na">scope=</span><span class="s">"singleton"</span><span class="nt">&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"shardedJedisPool"</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.ShardedJedisPool"</span> <span class="na">scope=</span><span class="s">"singleton"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"0"</span> <span class="na">ref=</span><span class="s">"jedisConfig"</span> <span class="nt">/&gt;</span>
 	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"1"</span><span class="nt">&gt;</span>
 		<span class="nt">&lt;list&gt;</span>
@@ -881,21 +880,19 @@
 		<span class="nt">&lt;/list&gt;</span>
 	<span class="nt">&lt;/constructor-arg&gt;</span>
 <span class="nt">&lt;/bean&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>JedisPool连接池</li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"jedisPool"</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.JedisPool"</span> <span class="na">scope=</span><span class="s">"singleton"</span><span class="nt">&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"jedisPool"</span> <span class="na">class=</span><span class="s">"redis.clients.jedis.JedisPool"</span> <span class="na">scope=</span><span class="s">"singleton"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"0"</span> <span class="na">ref=</span><span class="s">"jedisConfig"</span> <span class="nt">/&gt;</span>
 	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"1"</span> <span class="na">value=</span><span class="s">"127.0.0.1"</span> <span class="nt">/&gt;</span>
 	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"2"</span> <span class="na">value=</span><span class="s">"6379"</span> <span class="nt">/&gt;</span>
 	<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">"3"</span> <span class="na">value=</span><span class="s">"300"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/bean&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>
   <p>服务容器的运行保障方面（本次所使用到的是Tomcat）</p>
@@ -907,20 +904,19 @@
   <li>Tomcat Executor连接线程池</li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;Executor</span> <span class="na">name=</span><span class="s">"tomcatThreadPool"</span>  <span class="err">//</span> <span class="err">线程池名称</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Executor</span> <span class="na">name=</span><span class="s">"tomcatThreadPool"</span>  <span class="err">//</span> <span class="err">线程池名称</span>
 	<span class="na">namePrefix=</span><span class="s">"catalina-exec-"</span>  <span class="err">//</span> <span class="err">线程名称前缀</span>
     <span class="na">maxThreads=</span><span class="s">"3000"</span>  <span class="err">//</span> <span class="err">最大连接线程数</span>
     <span class="na">minSpareThreads=</span><span class="s">"500"</span> <span class="err">//</span> <span class="err">最小空闲线程数，初始化会达到该数值</span>
     <span class="na">maxIdleTime=</span><span class="s">"30000"</span>  <span class="err">//</span> <span class="err">最大线程空闲时长</span>
   <span class="nt">/&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>Tomcat Connector连接配置</li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;Connector</span> <span class="na">executor=</span><span class="s">"tomcatThreadPool"</span>  <span class="err">//</span> <span class="err">线程池引用</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Connector</span> <span class="na">executor=</span><span class="s">"tomcatThreadPool"</span>  <span class="err">//</span> <span class="err">线程池引用</span>
            <span class="na">port=</span><span class="s">"8080"</span> <span class="err">//</span> <span class="err">请求访问端口</span>
            <span class="na">protocol=</span><span class="s">"org.apache.coyote.http11.Http11NioProtocol"</span> <span class="err">//</span> <span class="err">启用NIO协议</span>
            <span class="na">connectionTimeout=</span><span class="s">"5000"</span>  <span class="err">//</span> <span class="err">创建连接时长</span>
@@ -931,8 +927,7 @@
 
            <span class="na">compression=</span><span class="s">"on"</span> <span class="na">compressionMinSize=</span><span class="s">"2048"</span> <span class="na">compressableMimeType=</span><span class="s">"text/html,text/xml,text/plain,application/octet-stream"</span>  <span class="err">//</span> <span class="err">启用响应报文压缩gzip</span>
            <span class="nt">/&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>与此同时，我们还对服务容器所占用的内存空间进行了分配和调整：</p>
 
@@ -940,7 +935,7 @@
   <li>Tomcat Startup Properties启动参数</li>
 </ul>
 
-<div class="language-properties highlighter-rouge"><pre class="highlight"><code><span class="c"># Configurations of JVM properties.
+<div class="language-properties highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Configurations of JVM properties.
 # In order to increase JVM heap memory.
 # 
 # Edited by chenjinlong 20161216
@@ -957,8 +952,7 @@
 -Dcom.sun.management.jmxremote.port=32123   // JMX监听主机端口
 -Dcom.sun.management.jmxremote.ssl=false    // 是否开启SSL开关
 -Dcom.sun.management.jmxremote.authenticate=false"</span>  <span class="s">// 是否需要认证的开关</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>在实践过程中发现，单个Tomcat实例在并行负载线程达到&gt;3000之时，会使用到<code class="highlighter-rouge">acceptCount</code>所设置的数值创建队列，将后进的线程排队到该队列内。 <br />
 但是同时也发现，当并行负载线程&gt;3000之后，CPU和Head占用会大幅升高，响应时长也在爬高并超过实践过程中预设的1s（注：低负载情况下请求响应总时长为200-300ms）； <br />
@@ -966,7 +960,7 @@
 
 <p>根据网络查询资料，许多IT从业者给出了近似的一些结论：如果需要考虑Tomcat在支撑并发数&gt;1000以上，则可以引入分布式方案了。确实，系统稳定性是非常重要的。</p>
 
-<h4 id="section-6">四、优劣势辨析</h4>
+<h4 id="四优劣势辨析">四、优劣势辨析</h4>
 
 <p>本次实践过程中采用的是“分布式事务 + CAS原子性操作函数”所实现的乐观锁解决方案。在阐述其中优劣势之前，我们先来了解下关于抢购系统的外观设计办法有哪些。</p>
 
@@ -976,8 +970,10 @@
 
 <p>这一方案很典型地采用了异步处理的机制，虽然可以很大层面上解决访问压力的问题，但是会给人一种“暗箱操作”、“用户体验极其不好”的感觉。如下图所示：</p>
 
-<p><img src="/images/2016-12-19-parallel-of-buying-scenario/14821468543527.jpg" alt="" />
-* 方案二：抢购结果即刻响应</p>
+<p><img src="/images/2016-12-19-parallel-of-buying-scenario/14821468543527.jpg" alt="" /></p>
+<ul>
+  <li>方案二：抢购结果即刻响应</li>
+</ul>
 
 <p>如方案标题所阐述的那样，即刻给用户反馈抢购操作的结果。该方案有很好的用户体验，但是对于系统也同样有着很高的考验。例如如何杜绝商品超售超发等问题的发生，因为一旦发生了超售超发，也就意味着系统的问题正在引发经济上的亏损。</p>
 
@@ -1017,13 +1013,13 @@
 
 <p>和前面所提及的队列的思路比较起来，乐观锁的思路所实现的结果是无序的。假设你需要去保证按时序进行分配抢购的产品，那么乐观锁并不适合这一诉求，有序队列的实现思路可能更为合适。</p>
 
-<h4 id="section-7">五、小结一下</h4>
+<h4 id="五小结一下">五、小结一下</h4>
 
 <p>似乎也不需要总结太多，上文已经把整个方案过程中所涉及的考量和技术点都一一覆盖到了，可能会有些片面，或者有些阐述地比较粗糙，但毕竟这是一篇分享实现思路的文章而并非技术方案细节的文档，所以可以根据上述思路自行发散，有所参考，有所改进。</p>
 
 <p>如果你有更好的建议、方案或者是优化策略，不妨在留言板上写下你的想法。</p>
 
-<h4 id="section-8">六、参考资料</h4>
+<h4 id="六参考资料">六、参考资料</h4>
 
 <p>本篇文章有原创体会，也有网络资料参考，国内外均涉及，这里就不一一罗列了，可以自行根据“抢购”、“分布式锁(distributed lock)”、“高并发(concurrency/parallel computing)”、“阻塞队列(blocking queue)”等关键词进行检索和进一步学习。</p>
 

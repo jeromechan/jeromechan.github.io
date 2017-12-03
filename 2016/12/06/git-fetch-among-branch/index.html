@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -744,7 +744,7 @@
   <span class="post-date">06 Dec 2016</span>
   <p>继上一次撰写GIT相关文章已经数月有余，半年来在团队内实践GIT的过程中，遇到了很多个人项目所不会接触到的疑问和问题，最为典型的无异于分支、代码之间的合并操作。本篇我们来讲一讲如何在本地仓库中做好多人协作过程中的分支代码合并。</p>
 
-<h4 id="section">一、前言</h4>
+<h4 id="一前言">一、前言</h4>
 
 <ul>
   <li><strong>Git知识回顾</strong></li>
@@ -781,11 +781,10 @@
 
 <p>在merge manual中已经给出了一条合并操作的原则：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// Command: git merge --help
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Command: git merge --help
 Warning: Running git merge with non-trivial uncommitted changes is discouraged: while possible, it may leave you in a state that is hard to back out of in the case of a conflict.
 // 简而言之，有未提交修改情况下，不要执行可能会冲突的操作！
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>在执行合并操作之前，保持workdirectory、index区域的clean特性，是非常必要的。当然，满足了这一前提，也并不代表就可以杜绝了冲突的可能。遵循该原则之后，解决的是1、2两点所产生的冲突可能，而前面所提及的3、4两点，是由于合并的操作所引入的冲突。  <br />
 其实很多操作都可能会产生冲突，但最根本原因都是因为<code class="highlighter-rouge">merge</code>和<code class="highlighter-rouge">patch</code>，这两者是冲突的直接来源。例如如下操作都可能产生冲突，它们过程中也都包含了合并的性质：</p>
@@ -800,45 +799,42 @@ Warning: Running git merge with non-trivial uncommitted changes is discouraged: 
 
 <p>如何保持workdirectory、index区域的clean特性，可以参考上文文章已经阐述到的<code class="highlighter-rouge">stash</code>操作。在<code class="highlighter-rouge">merge</code>过程中一旦发生冲突，往往会停滞在merging状态中，这个时候，我们可以使用：</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>// 中止merge过程，该命令会尽可能恢复到merge操作之前的状态，但也可能恢复失败。
-git merge --abort
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 中止merge过程，该命令会尽可能恢复到merge操作之前的状态，但也可能恢复失败。
+git merge <span class="nt">--abort</span>
 
 // merge manual原文是这么解释的：
---abort
+<span class="nt">--abort</span>
 	Abort the current conflict resolution process, and try to reconstruct the pre-merge state.
-	If there were uncommitted worktree changes present when the merge started, git merge --abort will <span class="k">in </span>some cases be unable to reconstruct these changes.
+	If there were uncommitted worktree changes present when the merge started, git merge <span class="nt">--abort</span> will <span class="k">in </span>some cases be unable to reconstruct these changes.
 	It is therefore recommended to always commit or stash your changes before running git merge.
-	git merge --abort is equivalent to git reset --merge when MERGE_HEAD is present.
-</code></pre>
-</div>
+	git merge <span class="nt">--abort</span> is equivalent to git reset <span class="nt">--merge</span> when MERGE_HEAD is present.
+</code></pre></div></div>
 
-<h4 id="section-1">二、合并代码之前，需要理解的概念</h4>
+<h4 id="二合并代码之前需要理解的概念">二、合并代码之前，需要理解的概念</h4>
 
 <p><strong>1. FETCH_HEAD</strong></p>
 
 <p><code class="highlighter-rouge">FETCH_HEAD</code>可以视为一个版本链接，或者说是版本commit-id的履历文件，该文件的路径在Git项目下的<code class="highlighter-rouge">.git/FETCH_HEAD</code>文件中。 <br />
 当运行<code class="highlighter-rouge">git fetch remote_repo src_branch</code>类似的命令之时，将从远程repo获取分支的末端版本信息，记录到<code class="highlighter-rouge">.git/FETCH_HEAD</code>文件中：</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>➜ /jeromechan/project git:<span class="o">(</span>project<span class="o">)</span> ✗&gt;git fetch origin <span class="nb">test
-</span>remote: Counting objects: 334, <span class="k">done</span>.
-remote: Compressing objects: 100% <span class="o">(</span>211/211<span class="o">)</span>, <span class="k">done</span>.
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜ /jeromechan/project git:<span class="o">(</span>project<span class="o">)</span> ✗&gt;git fetch origin <span class="nb">test
+</span>remote: Counting objects: 334, <span class="k">done</span><span class="nb">.</span>
+remote: Compressing objects: 100% <span class="o">(</span>211/211<span class="o">)</span>, <span class="k">done</span><span class="nb">.</span>
 remote: Total 334 <span class="o">(</span>delta 177<span class="o">)</span>, reused 167 <span class="o">(</span>delta 51<span class="o">)</span>
-Receiving objects: 100% <span class="o">(</span>334/334<span class="o">)</span>, 96.42 KiB | 0 bytes/s, <span class="k">done</span>.
+Receiving objects: 100% <span class="o">(</span>334/334<span class="o">)</span>, 96.42 KiB | 0 bytes/s, <span class="k">done</span><span class="nb">.</span>
 Resolving deltas: 100% <span class="o">(</span>177/177<span class="o">)</span>, completed with 70 <span class="nb">local </span>objects.
 From https://github.com/jeromechan/project
  <span class="k">*</span> branch            <span class="nb">test</span>       -&gt; FETCH_HEAD
    f5a095a..18b49aa  <span class="nb">test</span>       -&gt; origin/test
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后，我们看下<code class="highlighter-rouge">.git/FETCH_HEAD</code>文件内容：</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>➜ /jeromechan/project git:<span class="o">(</span>project<span class="o">)</span> ✗&gt;vim .git/FETCH_HEAD
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜ /jeromechan/project git:<span class="o">(</span>project<span class="o">)</span> ✗&gt;vim .git/FETCH_HEAD
 
 <span class="c">## 文件内容如下</span>
 18b49aaa008731ff17768d6b18905fc5865b3aa7  branch <span class="s1">'test'</span> of https://github.com/jeromechan/project
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>2. git fetch</strong></p>
 
@@ -852,7 +848,7 @@ From https://github.com/jeromechan/project
 
 <p>commit-id指的是每一次<code class="highlighter-rouge">git commit</code>操作所生成的每一个版本号，是一个能唯一标识一个版本的序列号。在使用git push后，这个序列号还会同步到远程repo。</p>
 
-<h4 id="section-2">三、如何执行合并操作</h4>
+<h4 id="三如何执行合并操作">三、如何执行合并操作</h4>
 
 <p>这里举例两个常见的场景对合并操作进行解释。</p>
 

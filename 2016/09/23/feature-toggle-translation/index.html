@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -752,11 +752,10 @@
 
 <p>这其中许多的toggle大多数都会应用在拥有用户界面的应用上，假设你构建一个网站，其中使用了jsp，你可能会使用一些jsp标签包围在需要待发布的特性功能代码前后。</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;toggle</span> <span class="na">name=</span><span class="s">"petSurvey"</span><span class="nt">&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;toggle</span> <span class="na">name=</span><span class="s">"petSurvey"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;p&gt;</span>Take our new <span class="nt">&lt;a</span> <span class="na">href =</span> <span class="s">'petSurvey'</span><span class="nt">&gt;</span>pet survey<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
 <span class="nt">&lt;/toggle&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>类似以上的代码，当你将配置toggle的开关打开之时，features的功能将会随之打开，否则将会继续忽略features功能代码。虽然不一样的UI技术实现上会存在差异，但是基础的原理都是一样的。</p>
 
@@ -788,7 +787,7 @@
 
 <p>还有一点非常重要的，已经正式投产的toggle功能，一定要今早将toggle代码从生产环境中移除，其中不仅仅包括toggle的配置文件，还包括所有相涉及的系统toggle代码。如若不今早移除，会出现一种情况类似于，某些时候无人可以识别出某toggle是何种用途何时添加的细节情况了。一个较为清晰的案例就是，有一个需要二次编译linux内核的特殊场景，以使得可以获得更多的命令行开关的处理能力，恰巧当时就忘了这一场景，这是非常让人揪心的。</p>
 
-<h5 id="toggles">发布型toggles是你最后需要去做的事情</h5>
+<h5 id="发布型toggles是你最后需要去做的事情">发布型toggles是你最后需要去做的事情</h5>
 
 <p>发布型toggles是一个非常有用的技术手段，许多研发团队都在使用它。当你要将特性功能发布到生产之时，它可能是你最后需要去做的事情。</p>
 

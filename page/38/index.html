@@ -11,7 +11,7 @@
 
   <title>
     
-      Jerome Chan &middot; A Web developer, talking about development
+      Jerome Chan &middot; A software designer, talking about codes and design
     
   </title>
 
@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -756,7 +756,7 @@
 
 <p>一、由于默认样式的情况，作者决定在header中新增面包屑的option</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
     <span class="sd">/**
      * Add breadcrumb to header option
      * @author chenjinlong
@@ -769,12 +769,11 @@
                       <span class="c1">// 其他配置项目 …
 </span>             <span class="p">);</span>
     <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>二、新增面包屑实现函数</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
     <span class="sd">/**
      * Deal with breadcrumb for single post | page. 
      * @author chenjinlong
@@ -794,12 +793,11 @@
         <span class="p">}</span>
         <span class="k">return</span> <span class="nv">$home</span> <span class="o">.</span> <span class="nv">$category_parent_top</span> <span class="o">.</span> <span class="nv">$title</span><span class="p">;</span>
     <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>三、增加元素输出逻辑分支</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
     <span class="sd">/**
      * Add page breadcrumb for single post top. 
      * @author chenjinlong
@@ -813,8 +811,7 @@
         <span class="p">}</span>
         <span class="k">echo</span> <span class="s1">'&lt;/li&gt;'</span><span class="p">;</span>
     <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>参照以上的步骤，简单版的面包屑导航就弄好了，如果需要提高视觉美感，再自己增加css样式的支持即可，因为每个人要求不一，这里就不作建议样式了。</p>
 

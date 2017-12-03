@@ -11,7 +11,7 @@
 
   <title>
     
-      Jerome Chan &middot; A Web developer, talking about development
+      Jerome Chan &middot; A software designer, talking about codes and design
     
   </title>
 
@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -750,7 +750,7 @@
 
     <span class="post-date">26 Aug 2016</span>
     
-    <h4 id="xrebel">一、XRebel简介</h4>
+    <h4 id="一xrebel简介">一、XRebel简介</h4>
 
 <p><img src="/images/2016-08-26-xrebel-tutorial/14721890028699.jpg" alt="" />
 XRebel是一款轻量级的性能优化器，可以帮助开发者们主动去发现和修复一些通用性的问题。XRebel提供了即时的方式，使得开发者可以针对每一个独立的请求进行分析、定位一些诸如DB查询、session变更细节等。<br />
@@ -778,7 +778,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 
 <p><img src="/images/2016-08-26-xrebel-tutorial/14721926122030.jpg" alt="" /></p>
 
-<h4 id="xrebel-1">二、XRebel安装使用教程</h4>
+<h4 id="二xrebel安装使用教程">二、XRebel安装使用教程</h4>
 
 <p>前面介绍了关于XRebel的一些背景和特点，以下介绍XRebel的安装步骤及其Tips。</p>
 
@@ -787,7 +787,7 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 该工具值得你去购买，如果这笔款项不会影响你的生活质量。关于破解的方法，这里不做介绍，请自行Google。</p>
 </blockquote>
 
-<h5 id="section">下载与安装</h5>
+<h5 id="下载与安装">下载与安装</h5>
 
 <p>1.从官网上下载XRebel压缩包（.zip）<a href="http://zeroturnaround.com/software/xrebel/download/">http://zeroturnaround.com/software/xrebel/download/</a>。<br />
 如果你提前登陆了zeroturnaround.com，那么你所下载的zip包中就非常便捷地包含了你的帐号信息。</p>
@@ -798,14 +798,13 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 
 <p>3.将<code class="highlighter-rouge">xrebel.jar</code>添加到应用服务容器的JVM参数中，添加时候确认路径是正确无误的。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
+</code></pre></div></div>
 
 <p>4.启动应用服务容器，XRebel就会自动成功启动。<br />
 启动完成之后，打开浏览器，XRebel toolbar就会显示在你服务页面的左下角。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>2016-05-20 16:29:42 XRebel: #####################################################
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2016-05-20 16:29:42 XRebel: #####################################################
 2016-05-20 16:29:42 XRebel:
 2016-05-20 16:29:42 XRebel:  XRebel 3.1.1 (201605131009)
 2016-05-20 16:29:42 XRebel:  (c) Copyright ZeroTurnaround AS, Estonia, Tallinn.
@@ -814,17 +813,16 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 2016-05-20 16:29:42 XRebel:  contact xrebel@zeroturnaround.com
 2016-05-20 16:29:42 XRebel:
 2016-05-20 16:29:42 XRebel: #####################################################
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h5 id="license">License激活</h5>
+<h5 id="license激活">License激活</h5>
 
 <p>使用XRebel必须先激活，毕竟是收费工具。当然，在你购买前，你会拥有15天的评估试用期。<br />
 怎么激活呢？其实很简单，在你安装完XRebel之后，首次打开浏览器，以下窗口便会自动弹跳出来，根据提示进行License注册便是。</p>
 
 <p><img src="/images/2016-08-26-xrebel-tutorial/14721942799287.jpg" alt="" /></p>
 
-<h5 id="xrebelserver">将XRebel集成到你的Server中</h5>
+<h5 id="将xrebel集成到你的server中">将XRebel集成到你的Server中</h5>
 
 <p>这里会有两个方面可以实践。</p>
 
@@ -845,9 +843,8 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 （2）选择Server服务容器，打开Arguments参数设置tab标签；<br />
 （3）将以下参数填写到VM arguments配置项目中；</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
+</code></pre></div></div>
 <p><img src="/images/2016-08-26-xrebel-tutorial/14722183417609.jpg" alt="" /></p>
 
 <p>（4）点击Apply应用并保存到当前的Run Configuration中。</p>
@@ -858,9 +855,8 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 （2）选择Server服务容器；<br />
 （3）将以下参数填写到VM arguments配置项目中；</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
+</code></pre></div></div>
 <p><img src="/images/2016-08-26-xrebel-tutorial/14722184711430.jpg" alt="" /></p>
 
 <p>（4）点击Apply应用并保存到当前的Run Configuration中。</p>
@@ -871,9 +867,8 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 （2）选择Server服务容器，打开Platform参数设置tab标签；<br />
 （3）将以下参数填写到VM arguments配置项目中；</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
+</code></pre></div></div>
 <p><img src="/images/2016-08-26-xrebel-tutorial/14722186661015.jpg" alt="" /></p>
 
 <p>（4）点击Close保存并关闭当前窗口。</p>
@@ -889,19 +884,17 @@ XRebel支持当前众多的Java企业开发平台，只需要耗费一点点的�
 （3）新增一个可执行.bat文件，例如命名为<code class="highlighter-rouge">catalina-xrebel.bat</code>；<br />
 （4）将以下内容增加到第3步所创建好的.bat文件中；</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@echo off
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo off
 set JAVA_OPTS=-javaagent:[path/to/]xrebel.jar %JAVA_OPTS%
 call "%~dp0\catalina.bat" %*
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>（5）执行以上.bat文件，启动Tomcat。</p>
 
 <p>PS: 需要将Tomcat以服务的方式启动着？可以打开tomcat包装器<code class="highlighter-rouge">tomcatXw.exe</code>，在tomcatXw包装器的设置项目Java &gt; Java Options中，新增如下参数：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-javaagent:[path/to/]xrebel.jar
+</code></pre></div></div>
 
 <p><strong>2.Tomcat on Mac OS and Linux</strong></p>
 
@@ -910,19 +903,17 @@ call "%~dp0\catalina.bat" %*
 （3）新增一个可执行.sh文件，例如命名为<code class="highlighter-rouge">catalina-xrebel.sh</code>；<br />
 （4）将以下内容增加到第3步所创建好的.sh文件中；</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="nb">export </span><span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">"-javaagent:[path/to/]xrebel.jar </span><span class="nv">$JAVA_OPTS</span><span class="s2">"</span>
 <span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span>/catalina.sh <span class="nv">$@</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>（5）按照如下命令，执行以上.sh启动脚本，启动Tomcat。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>./catalina-xrebel.sh run
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./catalina-xrebel.sh run
+</code></pre></div></div>
 
-<h4 id="xrebel-2">三、XRebel应用</h4>
+<h4 id="三xrebel应用">三、XRebel应用</h4>
 
 <p>经过前两部分的折腾，你应该已经可以成功启动XRebel了。下面我们来进一步介绍以下，如何去实际使用XRebel？XRebel到底给我们开发者提供了怎样的便捷特性？下面会逐一展开讲道。</p>
 
@@ -983,22 +974,20 @@ call "%~dp0\catalina.bat" %*
 
 <p>将该选项打上勾，便可以查看到操作过程中，开发者们标记了hidden的条目，以及XRebel智能隐藏的其他条目。具体看应用场景的需要。</p>
 
-<h4 id="section-1">四、高级配置选项</h4>
+<h4 id="四高级配置选项">四、高级配置选项</h4>
 
 <p><strong>1.XRebel过滤名单</strong></p>
 
 <p>XRebel允许配置一项黑名单列表，将不需要监测的class路径添加进去，即达到忽略的目的。<br />
 黑名单配置文件在这里：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>~/.xrebel/traces-blacklist.txt
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.xrebel/traces-blacklist.txt
+</code></pre></div></div>
 
 <p>XRebel还允许配置一项黑名单，以过滤<code class="highlighter-rouge">static</code>和<code class="highlighter-rouge">transient</code>属性的大小，使之不影响所在对象Object的大小计算。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>~/.xrebel/session-blacklist.txt
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.xrebel/session-blacklist.txt
+</code></pre></div></div>
 
 <p><strong>2.XRebel启动参数</strong></p>
 
@@ -1053,7 +1042,7 @@ call "%~dp0\catalina.bat" %*
   </li>
 </ul>
 
-<h4 id="section-2">五、参考资料</h4>
+<h4 id="五参考资料">五、参考资料</h4>
 
 <p>本篇文章基于个人在近期实践XRebel过程中，所用到的知识归纳成文。<br />
 XRebel实用性极高，对自己在日常的开发中，方便了发现代码缺陷以及存在的性能隐患，所以作此一文推荐一番。</p>

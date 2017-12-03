@@ -11,7 +11,7 @@
 
   <title>
     
-      Jerome Chan &middot; A Web developer, talking about development
+      Jerome Chan &middot; A software designer, talking about codes and design
     
   </title>
 
@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -837,7 +837,7 @@
 
 <p>以下提供一个简单的sitemap.xml示例供大家参考：</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;url&gt;</span>
       <span class="nt">&lt;loc&gt;</span>http://www.example.com/<span class="nt">&lt;/loc&gt;</span>
       <span class="nt">&lt;lastmod&gt;</span>2005-01-01<span class="nt">&lt;/lastmod&gt;</span>
@@ -845,8 +845,7 @@
       <span class="nt">&lt;priority&gt;</span>0.8<span class="nt">&lt;/priority&gt;</span>
    <span class="nt">&lt;/url&gt;</span>
 <span class="nt">&lt;/urlset&gt;</span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如果需要在同一个站点中维护不同subdomain的sitemap，那么可以参考如下做法：</p>
 
@@ -864,7 +863,7 @@ http://www.sitemaphost.com/sitemap-host3.xml</p>
 
 <p>1.在wp根目录下新增sitemap.php文件，填充以下代码：</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;url&gt;</span>
         <span class="nt">&lt;loc&gt;&lt;/loc&gt;</span>
         <span class="nt">&lt;lastmod&gt;&lt;/lastmod&gt;</span>
@@ -879,12 +878,11 @@ http://www.sitemaphost.com/sitemap-host3.xml</p>
             <span class="nt">&lt;priority&gt;</span>0.8<span class="nt">&lt;/priority&gt;</span>
         <span class="nt">&lt;/url&gt;</span>
 <span class="nt">&lt;/urlset&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>2.新增sitemap_gen.php，填充以下代码，用以生成XML文件：</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>   
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>   
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"http://DOMAIN:PORT/sitemap.php"</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
@@ -892,8 +890,7 @@ http://www.sitemaphost.com/sitemap-host3.xml</p>
 <span class="nv">$output</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
 <span class="nb">file_put_contents</span><span class="p">(</span><span class="s1">'./sitemap.xml'</span><span class="p">,</span> <span class="nv">$output</span><span class="p">);</span>
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
   <li>
@@ -904,11 +901,13 @@ http://www.sitemaphost.com/sitemap-host3.xml</p>
   </li>
 </ol>
 
-<p>参考资料：  <br />
-- Sitemap Protocol：<a href="http://www.sitemaps.org%20">http://www.sitemaps.org</a>  <br />
-- Simply Making Sitemap：<a href="http://www.xml-sitemaps.com">http://www.xml-sitemaps.com</a>  <br />
-- Google Sitemap Generator WP Plugin：<a href="http://wordpress.org/plugins/google-sitemap-generator/">http://wordpress.org/plugins/google-sitemap-generator/</a>  <br />
-- Sitemap Formats And Guidelines：<a href="https://support.google.com/webmasters/answer/183668">https://support.google.com/webmasters/answer/183668</a></p>
+<p>参考资料：</p>
+<ul>
+  <li>Sitemap Protocol：<a href="http://www.sitemaps.org%20">http://www.sitemaps.org</a></li>
+  <li>Simply Making Sitemap：<a href="http://www.xml-sitemaps.com">http://www.xml-sitemaps.com</a></li>
+  <li>Google Sitemap Generator WP Plugin：<a href="http://wordpress.org/plugins/google-sitemap-generator/">http://wordpress.org/plugins/google-sitemap-generator/</a></li>
+  <li>Sitemap Formats And Guidelines：<a href="https://support.google.com/webmasters/answer/183668">https://support.google.com/webmasters/answer/183668</a></li>
+</ul>
 
 
   </div>

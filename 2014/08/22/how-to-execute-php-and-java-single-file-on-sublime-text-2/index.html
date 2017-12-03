@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -759,13 +759,12 @@
 
 <p>文件格式：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[ ]*File \"(...*?)\", line ([0-9]*)"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {
+        "cmd": ["python", "-u", "$file"],
+        "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+        "selector": "source.python"
+    }
+</code></pre></div></div>
 
 <p>cmd：
 包括命令及其参数数组，若非指定绝对路径，优先从系统PATH变量中获得；</p>
@@ -787,25 +786,24 @@
 
 <p>以下是含带variants的构建系统示例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"date"</span><span class="p">],</span><span class="w">
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {
+        "selector": "source.python",
+        "cmd": ["date"],
     
-        </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ls -l *.py"</span><span class="p">],</span><span class="w">
-              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List Python Files"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"shell"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"wc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Word Count (current file)"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+        "variants": [
+            { "cmd": ["ls -l *.py"],
+              "name": "List Python Files",
+              "shell": true
+            },
+            { "cmd": ["wc", "$file"],
+              "name": "Word Count (current file)"
+            },
+            { "cmd": ["python", "-u", "$file"],
+              "name": "Run"
+            }
+        ]
+    }
+</code></pre></div></div>
 
 <p>根据以上的设定，按 Ctrl + B 会运行<em>date</em>命令, 按 Crtl + Shift + B 会运行Python 解释器，并且在构建系统激活时将剩余的备选项显示在Command Palette中</p>
 
@@ -857,13 +855,12 @@
 
 <p>配置详情：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"php"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"php$"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.php"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {
+        "cmd": ["php", "$file"],
+        "file_regex": "php$",
+        "selector": "source.php"
+    }
+</code></pre></div></div>
 
 <p>2、Java</p>
 
@@ -873,19 +870,18 @@
 
 <p>配置详情：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"javac"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-encoding"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^(...*?):([0-9]*):?([0-9]*)"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.java"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"java"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file_base_name"</span><span class="p">],</span><span class="w">
-            </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="w">
-        </span><span class="p">}]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {
+        "cmd": ["javac", "-encoding", "UTF-8", "$file"],
+        "file_regex": "^(...*?):([0-9]*):?([0-9]*)",
+        "selector": "source.java",
+        "encoding": "UTF-8",
+        "variants": [{
+            "name": "Run",
+            "cmd": ["java", "$file_base_name"],
+            "encoding": "UTF-8"
+        }]
+    }
+</code></pre></div></div>
 
 <p>参考资料链接：</p>
 

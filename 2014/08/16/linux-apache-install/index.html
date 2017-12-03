@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -766,14 +766,13 @@
 <p>2.安装APR
 （a）解压下载的tar包</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>tar zxvf apr.tar.gz -C <span class="o">[</span>TARGET_DIR]
-tar zxvf apr-util.tar.gz -C <span class="o">[</span>TARGET_DIR]
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>zxvf apr.tar.gz <span class="nt">-C</span> <span class="o">[</span>TARGET_DIR]
+<span class="nb">tar </span>zxvf apr-util.tar.gz <span class="nt">-C</span> <span class="o">[</span>TARGET_DIR]
+</code></pre></div></div>
 
 <p>（b）安装</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#先安装apr.tar.gz    </span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#先安装apr.tar.gz    </span>
 ./configure —prefix<span class="o">=[</span>INSTALL_DIR]
 make
 make install
@@ -782,8 +781,7 @@ make install
 ./configure —prefix<span class="o">=[</span>INSTALL_DIR] —with-apr<span class="o">=[</span>APR_INSTALL_DIR]
 make
 make install
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>备注：若需要规划安装目录和系统/usr/local目录之间的关系，可以参考软链接（symbolic link）的创建，语法如</p>
 
@@ -792,43 +790,38 @@ make install
 <p>3.安装PERL与PCRE
 PERL的安装参照官方网站教程进行安装即可，关于PCRE的安装简单如下：</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR]
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR]
 make
 make install
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>4.安装Apache HTTP Server
 （a）解压缩httpd.tar.gz
 （b）进入解压后的目录，定制需要开启的httpd模块，类似：</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR] —enable-so —enable-rewrite<span class="o">=</span>shared —with-mpm<span class="o">=</span>prefork —with-apr<span class="o">=[</span>APR_INSTALL_DIR] —with-apr-util<span class="o">=[</span>APR_UTIL_INSTALL_DIR] —with-pcre<span class="o">=[</span>PCRE_INSTALL_DIR] 
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR] —enable-so —enable-rewrite<span class="o">=</span>shared —with-mpm<span class="o">=</span>prefork —with-apr<span class="o">=[</span>APR_INSTALL_DIR] —with-apr-util<span class="o">=[</span>APR_UTIL_INSTALL_DIR] —with-pcre<span class="o">=[</span>PCRE_INSTALL_DIR] 
 make 
 make install
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>5.启动httpd服务</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl -k start 
-ps -ef | grep httpd （或者ps aux | grep httpd）#查看是否启动httpd成功
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl <span class="nt">-k</span> start 
+ps <span class="nt">-ef</span> | <span class="nb">grep </span>httpd （或者ps aux | <span class="nb">grep </span>httpd）#查看是否启动httpd成功
+</code></pre></div></div>
 
 <p>备注：可以拷贝apachectl到服务目录（/etc/init.d）中，作为服务项（service命令）启动，例如</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>cp <span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp <span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
 service https start
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>6.操作快捷Tips</p>
 
 <p>（a）Apache .configure命令范例</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>./configure --prefix<span class="o">=</span>/opt/tuniu/apache2 --with-apr<span class="o">=</span>/usr/local/apr/bin/apr-1-config --with-apr-util<span class="o">=</span>/usr/local/apr/bin/apu-1-config --enable-so --enable-rewrite --enable-ssl --enable-cgi --enable-mods-shared<span class="o">=</span>all --with-ssl<span class="o">=</span>/usr/lib64/openssl --enable-proxy --enable-proxy-http
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure <span class="nt">--prefix</span><span class="o">=</span>/opt/tuniu/apache2 <span class="nt">--with-apr</span><span class="o">=</span>/usr/local/apr/bin/apr-1-config <span class="nt">--with-apr-util</span><span class="o">=</span>/usr/local/apr/bin/apu-1-config <span class="nt">--enable-so</span> <span class="nt">--enable-rewrite</span> <span class="nt">--enable-ssl</span> <span class="nt">--enable-cgi</span> <span class="nt">--enable-mods-shared</span><span class="o">=</span>all <span class="nt">--with-ssl</span><span class="o">=</span>/usr/lib64/openssl <span class="nt">--enable-proxy</span> <span class="nt">--enable-proxy-http</span>
+</code></pre></div></div>
 
 <p>（b）安装mod_ssl依赖</p>
 

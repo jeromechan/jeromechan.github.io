@@ -40,7 +40,7 @@
           Jerome Chan
         </a>
       </h1>
-      <p class="lead">Hello, I&acutem a web developer at Tuniu Corp. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
+      <p class="lead">Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>.</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -742,54 +742,51 @@
       <div class="post">
   <h1 class="post-title">Git软件开发过程</h1>
   <span class="post-date">16 Nov 2015</span>
-  <h4 id="gitsubversion">一、关于Git与Subversion的区别</h4>
+  <h4 id="一关于git与subversion的区别">一、关于Git与Subversion的区别</h4>
 
 <p><a href="/images/2015-11-16-work-in-git/DraggedImage1.png"><img src="/images/2015-11-16-work-in-git/DraggedImage1-1024x1013.png" alt="DraggedImage" /></a></p>
 
-<h4 id="subversion">二、目前我们用Subversion是怎么执行软件过程的</h4>
+<h4 id="二目前我们用subversion是怎么执行软件过程的">二、目前我们用Subversion是怎么执行软件过程的</h4>
 
 <p><a href="/images/2015-11-16-work-in-git/DraggedImage-1.png"><img src="/images/2015-11-16-work-in-git/DraggedImage-1-1024x437.png" alt="DraggedImage-1" /></a></p>
 
-<h4 id="section">三、优势与缺点</h4>
+<h4 id="三优势与缺点">三、优势与缺点</h4>
 
 <ol>
   <li>架构</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* Git：分布式，所有的teammates本地可以clone一份独立完整的仓库，而不仅仅是某一个版本的镜像拷贝；开发者可以在本地clone仓库中完成所有vcs的操作，只有当需要协同工作提交代码到远程仓库的时候，才需要联上网络。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Git：分布式，所有的teammates本地可以clone一份独立完整的仓库，而不仅仅是某一个版本的镜像拷贝；开发者可以在本地clone仓库中完成所有vcs的操作，只有当需要协同工作提交代码到远程仓库的时候，才需要联上网络。
 
 
 * Subversion：中央集中式，所有的teammates都面向同样一个远程仓库工作；checkout出来的本地工作区代码只是远程仓库某一版本的一份镜像拷贝。
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
   <li>仓库结构与URL</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* Git：对于Git而言，仓库会独立于开发者的本地磁盘中，在仓库的根目录中只包含了一个”.git”文件夹，所有的branches、trunk(PS：git中名称为master)、tags均是通过命令操作而生成的，并非通过URL路径。 在Git中，URL类似于ssh://git@example.com/path/to/git-repo.git，仅仅是指向了仓库的一个标识。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Git：对于Git而言，仓库会独立于开发者的本地磁盘中，在仓库的根目录中只包含了一个”.git”文件夹，所有的branches、trunk(PS：git中名称为master)、tags均是通过命令操作而生成的，并非通过URL路径。 在Git中，URL类似于ssh://git@example.com/path/to/git-repo.git，仅仅是指向了仓库的一个标识。
 
 
 * Subversion：分支的url类似于svn+ssh://svn@example.com/svn/trunk，每一个分支独占一个唯一URL，每一个URL都会直接定位到每一个分支在远程仓库中的路径位置。 对于Subversion，会有一个trunk分支作为开发主线分支，会有很多branches分支作为并行分支，tags则是mark上某一特定的发布版本。
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
   <li>分支管理</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* Git：Git分支相对于其他的vcs是非常不一样的设计理念，一个Git分支仅仅指的是指向某一确定版本的简单指针，因此，Git的分支是无拷贝、无新建目录、几乎无开销的。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Git：Git分支相对于其他的vcs是非常不一样的设计理念，一个Git分支仅仅指的是指向某一确定版本的简单指针，因此，Git的分支是无拷贝、无新建目录、几乎无开销的。
 
 
 * Subversion：正如我们所知道的，SVN中的分支仅仅是项目的一份拷贝，是一个具有特殊含义的普通文件夹；多分支则是多文件夹的形式。
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
   <li>提交操作</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* Git：若你使用的是Git，你的提交操作不受网络的影响，你的提交仅仅影响了本地仓库，仅当你需要于远端仓库同步内容之时，才需要使用到网络； 另外的，在你本地仓库还存在一个so-called Staging Area，并非你的所有文件需要在一次提交中全部commit，你可以选择指定的变更放入staging area中，从而在本次提交中仅仅包含你所选定的变更条目； 关于Git的版本号，大家都知道，Git是分布式的vcs，要想和svn、cvs一般生成revision#5，revision#6类似的递增数值作为唯一版本号是不可取的，但是我们也同样需要一个唯一的标识来辨别每一次提交，而Git的做法是使用了”commit hashes”。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Git：若你使用的是Git，你的提交操作不受网络的影响，你的提交仅仅影响了本地仓库，仅当你需要于远端仓库同步内容之时，才需要使用到网络； 另外的，在你本地仓库还存在一个so-called Staging Area，并非你的所有文件需要在一次提交中全部commit，你可以选择指定的变更放入staging area中，从而在本次提交中仅仅包含你所选定的变更条目； 关于Git的版本号，大家都知道，Git是分布式的vcs，要想和svn、cvs一般生成revision#5，revision#6类似的递增数值作为唯一版本号是不可取的，但是我们也同样需要一个唯一的标识来辨别每一次提交，而Git的做法是使用了”commit hashes”。
 
 
 * Subversion：当你使用的是SVN，假设你要提交代码，以下是你的提交过程：
@@ -802,23 +799,21 @@
 
 
   * 远端中央仓库生成递增的版本号，并赋予本地分支。
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
   <li>协同工作</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* Git：若你使用的是Git，你需要决定何时将你的本地仓库的内容同步上传到远端仓库分享出来，而Git不会为你作任何的自动上传的操作； 这样子的分享过程相对于其他的中央仓库式的vcs系统来说是更加安全的，所发生的冲突也只会发生于你的本地（仓库）而非远端服务器的仓库，这将更能帮助你规避打乱teammates工作内容冲突的风险。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Git：若你使用的是Git，你需要决定何时将你的本地仓库的内容同步上传到远端仓库分享出来，而Git不会为你作任何的自动上传的操作； 这样子的分享过程相对于其他的中央仓库式的vcs系统来说是更加安全的，所发生的冲突也只会发生于你的本地（仓库）而非远端服务器的仓库，这将更能帮助你规避打乱teammates工作内容冲突的风险。
 
 
 * Subversion：当你将本地分支内容作commit操作之时，你的内容便会分享到远端中央仓库中，其他teammates也都能同步到你所提交的内容。
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <!-- more -->
 
-<h4 id="section-1">四、集成工具简介</h4>
+<h4 id="四集成工具简介">四、集成工具简介</h4>
 
 <ol>
   <li>
@@ -835,7 +830,7 @@
   </li>
 </ol>
 
-<h4 id="git">五、常用Git基础知识</h4>
+<h4 id="五常用git基础知识">五、常用Git基础知识</h4>
 
 <blockquote>认识Git的几个关键目录</blockquote>
 
@@ -878,29 +873,27 @@
   </li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* pull：fetch + merge，该操作会影响工作区
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* pull：fetch + merge，该操作会影响工作区
 
 
 * fetch：从远端仓库获取并更新到本地仓库中，不影响工作区
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
   <li>merge / rebase：从指定分支(<em>PS:分支名称常跟在命令之后</em>)中获取更新并合并到当前分支</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* merge：
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* merge：
 
 
 * rebase：
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
   <li>stash：备份/唤出当前的现场状态（包含工作区和暂存区）</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* git stash [save -a “msg”] 备份当前的现场状态
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* git stash [save -a “msg”] 备份当前的现场状态
 
 
 * git stash list 显示已保存的现场状态列表
@@ -913,17 +906,16 @@
 
 
 * git drop 删除状态栈中的指定状态
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h4 id="section-2">六、可供参考的高阶应用方案</h4>
+<h4 id="六可供参考的高阶应用方案">六、可供参考的高阶应用方案</h4>
 
 <blockquote>什么是Git-SVN的扩展开发模式，即本地开发应用Git的强大分支特性，当最终push操作的时候，目标仓库设定为SVN远端仓库。
 这里点到为止，只提及一下，以便有既想使用Git又纠结无法脱离Subversion的开发者去使用，这确实是一种很赞的“曲线救国”方案。
 
 什么是Git Stash的开发模式，即一个工程师可以并行开发多项内容，要求用到切换分支的操作，而在没有提交到本地仓库之前，可以使用git stash命令将当前分支的工作区和暂存区的状态镜像下来。当回过头来需要继续开发的时候，使用git stash pop将指定的状态唤出后，可以继续未完成的内容。</blockquote>
 
-<h4 id="git-flow">七、Git-Flow介绍</h4>
+<h4 id="七git-flow介绍">七、Git-Flow介绍</h4>
 
 <blockquote>一图胜过千言万语</blockquote>
 
@@ -976,11 +968,11 @@
   </li>
 </ul>
 
-<h4 id="github-flow">八、GitHub Flow</h4>
+<h4 id="八github-flow">八、GitHub Flow</h4>
 
 <p><a href="/images/2015-11-16-work-in-git/DraggedImage-4.png"><img src="/images/2015-11-16-work-in-git/DraggedImage-4.png" alt="DraggedImage-4" /></a></p>
 
-<h4 id="mike-flow-base-on-git-in-practice">九、Mike Flow (Base on 《Git in Practice》)</h4>
+<h4 id="九mike-flow-base-on-git-in-practice">九、Mike Flow (Base on 《Git in Practice》)</h4>
 
 <blockquote>Single Pattern</blockquote>
 
@@ -990,7 +982,7 @@
 
 <p><a href="/images/2015-11-16-work-in-git/DraggedImage-6.png"><img src="/images/2015-11-16-work-in-git/DraggedImage-6.png" alt="DraggedImage-6" /></a></p>
 
-<h4 id="jerome-flow-i-call-it-this-name">十、Jerome Flow (I call it this name^_^)</h4>
+<h4 id="十jerome-flow-i-call-it-this-name_">十、Jerome Flow (I call it this name^_^)</h4>
 
 <ul>
   <li>Version 1: 该版本适合于团队成员较小，各个泳道分支规范制定严格的项目。</li>
@@ -1004,7 +996,7 @@
 
 <p><img src="/images/2015-11-16-work-in-git/14781398459686.jpg" alt="jerome-git-flow-2" /></p>
 
-<h4 id="section-3"><em>参考资料</em></h4>
+<h4 id="参考资料"><em>参考资料</em></h4>
 
 <ul>
   <li>
