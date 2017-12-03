@@ -17,7 +17,7 @@ paginate_path:    "/page/:num"
 # Setup
 title:            Jerome Chan
 tagline:          "A software designer, talking about codes and design"
-description:      "Hello, I&acutem a Java developer at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>."
+description:      "Hello, I&acutem a backend SDE at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>."
 url:              http://aboutcoder.com
 baseurl:          /
 
