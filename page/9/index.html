@@ -733,7 +733,7 @@
       <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
     </nav>
 
-    <p><small>Copyright &copy; 2013-2017</small></p>
+    <p><small>Copyright &copy; 2013-2018</small></p>
   </div>
 </div>
 
@@ -905,7 +905,7 @@ call "%~dp0\catalina.bat" %*
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="nb">export </span><span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">"-javaagent:[path/to/]xrebel.jar </span><span class="nv">$JAVA_OPTS</span><span class="s2">"</span>
-<span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span>/catalina.sh <span class="nv">$@</span>
+<span class="sb">`</span><span class="nb">dirname</span> <span class="nv">$0</span><span class="sb">`</span>/catalina.sh <span class="nv">$@</span>
 </code></pre></div></div>
 
 <p>（5）按照如下命令，执行以上.sh启动脚本，启动Tomcat。</p>

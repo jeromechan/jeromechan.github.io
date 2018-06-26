@@ -733,7 +733,7 @@
       <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
     </nav>
 
-    <p><small>Copyright &copy; 2013-2017</small></p>
+    <p><small>Copyright &copy; 2013-2018</small></p>
   </div>
 </div>
 
@@ -804,16 +804,16 @@
 
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$caseSensitive</span><span class="p">)</span>
-   <span class="nv">$id</span><span class="o">=</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span> <span class="c1">//若然等于false，则控制器ID转换成小写形式
-</span></code></pre></div></div>
+   <span class="nv">$id</span><span class="o">=</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span> <span class="c1">//若然等于false，则控制器ID转换成小写形式</span>
+</code></pre></div></div>
 
 <p>首先会读取配置信息，其中包含检查了caseSensitive属性，若然等于false，则控制器ID即转换成全小写形式。</p>
 
 <p>继而，每当创建控制器方法被调用的同时，控制器的首字母皆转换成大写形式。</p>
 
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="c1">//每当创建控制器实例，即时将控制器ID首字母转为大写形式
-</span><span class="nv">$className</span><span class="o">=</span><span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span><span class="o">.</span><span class="s1">'Controller'</span><span class="p">;</span>
+<span class="c1">//每当创建控制器实例，即时将控制器ID首字母转为大写形式</span>
+<span class="nv">$className</span><span class="o">=</span><span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span><span class="o">.</span><span class="s1">'Controller'</span><span class="p">;</span>
 </code></pre></div></div>
 
 <p>如此，便造成了以上异常现象。</p>

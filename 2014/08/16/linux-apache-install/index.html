@@ -733,7 +733,7 @@
       <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
     </nav>
 
-    <p><small>Copyright &copy; 2013-2017</small></p>
+    <p><small>Copyright &copy; 2013-2018</small></p>
   </div>
 </div>
 
@@ -775,12 +775,12 @@
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#先安装apr.tar.gz    </span>
 ./configure —prefix<span class="o">=[</span>INSTALL_DIR]
 make
-make install
+make <span class="nb">install</span>
 
 <span class="c">#再安装apr-util.tar.gz</span>
 ./configure —prefix<span class="o">=[</span>INSTALL_DIR] —with-apr<span class="o">=[</span>APR_INSTALL_DIR]
 make
-make install
+make <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>备注：若需要规划安装目录和系统/usr/local目录之间的关系，可以参考软链接（symbolic link）的创建，语法如</p>
@@ -792,7 +792,7 @@ PERL的安装参照官方网站教程进行安装即可，关于PCRE的安装简
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR]
 make
-make install
+make <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>4.安装Apache HTTP Server
@@ -801,7 +801,7 @@ make install
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR] —enable-so —enable-rewrite<span class="o">=</span>shared —with-mpm<span class="o">=</span>prefork —with-apr<span class="o">=[</span>APR_INSTALL_DIR] —with-apr-util<span class="o">=[</span>APR_UTIL_INSTALL_DIR] —with-pcre<span class="o">=[</span>PCRE_INSTALL_DIR] 
 make 
-make install
+make <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>5.启动httpd服务</p>
@@ -812,7 +812,7 @@ ps <span class="nt">-ef</span> | <span class="nb">grep </span>httpd （或者ps 
 
 <p>备注：可以拷贝apachectl到服务目录（/etc/init.d）中，作为服务项（service命令）启动，例如</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp <span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
 service https start
 </code></pre></div></div>
 

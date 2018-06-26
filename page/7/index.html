@@ -733,7 +733,7 @@
       <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
     </nav>
 
-    <p><small>Copyright &copy; 2013-2017</small></p>
+    <p><small>Copyright &copy; 2013-2018</small></p>
   </div>
 </div>
 
@@ -811,8 +811,8 @@ MAMP_Xdebug_MAMP
   <li>php extension(modules)</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// php extension structures
-</span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_module_entry</span> <span class="n">zend_module_entry</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// php extension structures</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_module_entry</span> <span class="n">zend_module_entry</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_module_dep</span> <span class="n">zend_module_dep</span><span class="p">;</span>
  
 <span class="k">struct</span> <span class="n">_zend_module_entry</span> <span class="p">{</span>
@@ -858,8 +858,8 @@ MAMP_Xdebug_MAMP
   <li>zend extension(extensions)</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// zend extension structures
-</span><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">message_handler_func_t</span><span class="p">)(</span><span class="kt">int</span> <span class="n">message</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// zend extension structures</span>
+<span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">message_handler_func_t</span><span class="p">)(</span><span class="kt">int</span> <span class="n">message</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
  
 <span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">op_array_handler_func_t</span><span class="p">)(</span><span class="n">zend_op_array</span> <span class="o">*</span><span class="n">op_array</span><span class="p">);</span>
  

@@ -733,7 +733,7 @@
       <!-- <span class="sidebar-nav-item">Currently v2.1.0-u-jeromechan-01</span> -->
     </nav>
 
-    <p><small>Copyright &copy; 2013-2017</small></p>
+    <p><small>Copyright &copy; 2013-2018</small></p>
   </div>
 </div>
 
@@ -2542,8 +2542,8 @@ MAMP_Xdebug_MAMP
   <li>php extension(modules)</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// php extension structures
-</span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_module_entry</span> <span class="n">zend_module_entry</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// php extension structures</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_module_entry</span> <span class="n">zend_module_entry</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">_zend_module_dep</span> <span class="n">zend_module_dep</span><span class="p">;</span>
  
 <span class="k">struct</span> <span class="n">_zend_module_entry</span> <span class="p">{</span>
@@ -2589,8 +2589,8 @@ MAMP_Xdebug_MAMP
   <li>zend extension(extensions)</li>
 </ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// zend extension structures
-</span><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">message_handler_func_t</span><span class="p">)(</span><span class="kt">int</span> <span class="n">message</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// zend extension structures</span>
+<span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">message_handler_func_t</span><span class="p">)(</span><span class="kt">int</span> <span class="n">message</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
  
 <span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">op_array_handler_func_t</span><span class="p">)(</span><span class="n">zend_op_array</span> <span class="o">*</span><span class="n">op_array</span><span class="p">);</span>
  
@@ -3038,7 +3038,7 @@ call "%~dp0\catalina.bat" %*
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="nb">export </span><span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">"-javaagent:[path/to/]xrebel.jar </span><span class="nv">$JAVA_OPTS</span><span class="s2">"</span>
-<span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span>/catalina.sh <span class="nv">$@</span>
+<span class="sb">`</span><span class="nb">dirname</span> <span class="nv">$0</span><span class="sb">`</span>/catalina.sh <span class="nv">$@</span>
 </code></pre></div></div>
 
 <p>（5）按照如下命令，执行以上.sh启动脚本，启动Tomcat。</p>
@@ -6887,10 +6887,10 @@ Basically, take the same guidance as above: don’t be messy, but if you are, cl
      */</span>
     <span class="k">if</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$pw_default_options</span><span class="p">))</span> <span class="p">{</span>
     	<span class="nv">$pw_default_options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-                      <span class="c1">// 新增breadcrumb选项
-</span>    		<span class="s2">"header_option"</span> <span class="o">=&gt;</span> <span class="s2">"header_logo,nav,breadcrumb"</span>
-                      <span class="c1">// 其他配置项目 …
-</span>             <span class="p">);</span>
+                      <span class="c1">// 新增breadcrumb选项</span>
+    		<span class="s2">"header_option"</span> <span class="o">=&gt;</span> <span class="s2">"header_logo,nav,breadcrumb"</span>
+                      <span class="c1">// 其他配置项目 …</span>
+             <span class="p">);</span>
     <span class="p">}</span>
 </code></pre></div></div>
 
@@ -7384,12 +7384,12 @@ I had problems registering Curl extentions and it was cause by the old dll of li
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#先安装apr.tar.gz    </span>
 ./configure —prefix<span class="o">=[</span>INSTALL_DIR]
 make
-make install
+make <span class="nb">install</span>
 
 <span class="c">#再安装apr-util.tar.gz</span>
 ./configure —prefix<span class="o">=[</span>INSTALL_DIR] —with-apr<span class="o">=[</span>APR_INSTALL_DIR]
 make
-make install
+make <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>备注：若需要规划安装目录和系统/usr/local目录之间的关系，可以参考软链接（symbolic link）的创建，语法如</p>
@@ -7401,7 +7401,7 @@ PERL的安装参照官方网站教程进行安装即可，关于PCRE的安装简
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR]
 make
-make install
+make <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>4.安装Apache HTTP Server
@@ -7410,7 +7410,7 @@ make install
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure —prefix<span class="o">=[</span>INSTALL_DIR] —enable-so —enable-rewrite<span class="o">=</span>shared —with-mpm<span class="o">=</span>prefork —with-apr<span class="o">=[</span>APR_INSTALL_DIR] —with-apr-util<span class="o">=[</span>APR_UTIL_INSTALL_DIR] —with-pcre<span class="o">=[</span>PCRE_INSTALL_DIR] 
 make 
-make install
+make <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>5.启动httpd服务</p>
@@ -7421,7 +7421,7 @@ ps <span class="nt">-ef</span> | <span class="nb">grep </span>httpd （或者ps 
 
 <p>备注：可以拷贝apachectl到服务目录（/etc/init.d）中，作为服务项（service命令）启动，例如</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp <span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="o">[</span>HTTPD_INSTALL_DIR]/bin/apachectl /etc/init.d/httpd
 service https start
 </code></pre></div></div>
 
@@ -9192,16 +9192,16 @@ Thank you very much!</p>
 
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$caseSensitive</span><span class="p">)</span>
-   <span class="nv">$id</span><span class="o">=</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span> <span class="c1">//若然等于false，则控制器ID转换成小写形式
-</span></code></pre></div></div>
+   <span class="nv">$id</span><span class="o">=</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span> <span class="c1">//若然等于false，则控制器ID转换成小写形式</span>
+</code></pre></div></div>
 
 <p>首先会读取配置信息，其中包含检查了caseSensitive属性，若然等于false，则控制器ID即转换成全小写形式。</p>
 
 <p>继而，每当创建控制器方法被调用的同时，控制器的首字母皆转换成大写形式。</p>
 
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="c1">//每当创建控制器实例，即时将控制器ID首字母转为大写形式
-</span><span class="nv">$className</span><span class="o">=</span><span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span><span class="o">.</span><span class="s1">'Controller'</span><span class="p">;</span>
+<span class="c1">//每当创建控制器实例，即时将控制器ID首字母转为大写形式</span>
+<span class="nv">$className</span><span class="o">=</span><span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span><span class="o">.</span><span class="s1">'Controller'</span><span class="p">;</span>
 </code></pre></div></div>
 
 <p>如此，便造成了以上异常现象。</p>
