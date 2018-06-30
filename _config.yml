@@ -17,7 +17,7 @@ paginate_path:    "/page/:num"
 # Setup
 title:            闲亭野径
 tagline:          "一个设计者对生活趣事的闲谈"
-description:      "闲谈生活趣事，辨识理想未来"
+description:      "闲谈生活趣事，辨识理想现实"
 url:              http://jeromedaily.com
 baseurl:          /
 
