@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Jerome Chan</title>
- <link href="http://aboutcoder.com/atom.xml" rel="self"/>
- <link href="http://aboutcoder.com/"/>
- <updated>2018-06-27T04:02:57+08:00</updated>
- <id>http://aboutcoder.com</id>
+ <title>闲亭野径</title>
+ <link href="http://jeromedaily.com/atom.xml" rel="self"/>
+ <link href="http://jeromedaily.com/"/>
+ <updated>2018-06-30T19:35:00+08:00</updated>
+ <id>http://jeromedaily.com</id>
  <author>
    <name>Jerome Chan</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Programming Principles(编程准则)</title>
-   <link href="http://aboutcoder.com/2017/05/16/programming-principles/"/>
+   <link href="http://jeromedaily.com/2017/05/16/programming-principles/"/>
    <updated>2017-05-16T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2017/05/16/programming-principles</id>
+   <id>http://jeromedaily.com/2017/05/16/programming-principles</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;本文已开源发布在这里&lt;a href=&quot;https://github.com/jeromechan/programming-principles-cn&quot;&gt;“Programming Priciples-中文版”&lt;/a&gt;&lt;br /&gt;
 如果觉得还不错，可以在&lt;a href=&quot;https://github.com/jeromechan/programming-principles-cn&quot;&gt;GitHub&lt;/a&gt;给本文章标星☆鼓励&lt;/p&gt;
@@ -915,9 +915,9 @@
  
  <entry>
    <title>并发场景实践方案优劣评析</title>
-   <link href="http://aboutcoder.com/2016/12/19/parallel-of-buying-scenario/"/>
+   <link href="http://jeromedaily.com/2016/12/19/parallel-of-buying-scenario/"/>
    <updated>2016-12-19T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/12/19/parallel-of-buying-scenario</id>
+   <id>http://jeromedaily.com/2016/12/19/parallel-of-buying-scenario</id>
    <content type="html">&lt;p&gt;近期实践了高并发场景下，如何去实现抢购系统的研究。虽然方案并不算成功，但是本次能将以往只在资料中学习过的知识付诸于现实，也让自己畅快淋漓了一番。本篇文章所阐述的内容都比较基础，重在于将实践过程中所得到的经验和教训分享出来给大家。&lt;/p&gt;
 
 &lt;p&gt;以下将分为五个方面来回顾下本次高并发的实践经历。&lt;/p&gt;
@@ -1206,9 +1206,9 @@
  
  <entry>
    <title>Git协作之合并代码</title>
-   <link href="http://aboutcoder.com/2016/12/06/git-fetch-among-branch/"/>
+   <link href="http://jeromedaily.com/2016/12/06/git-fetch-among-branch/"/>
    <updated>2016-12-06T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/12/06/git-fetch-among-branch</id>
+   <id>http://jeromedaily.com/2016/12/06/git-fetch-among-branch</id>
    <content type="html">&lt;p&gt;继上一次撰写GIT相关文章已经数月有余，半年来在团队内实践GIT的过程中，遇到了很多个人项目所不会接触到的疑问和问题，最为典型的无异于分支、代码之间的合并操作。本篇我们来讲一讲如何在本地仓库中做好多人协作过程中的分支代码合并。&lt;/p&gt;
 
 &lt;h4 id=&quot;一前言&quot;&gt;一、前言&lt;/h4&gt;
@@ -1358,9 +1358,9 @@ From https://github.com/jeromechan/project
  
  <entry>
    <title>几种方法调用思路的比较</title>
-   <link href="http://aboutcoder.com/2016/12/02/funny-function-invoking-logic/"/>
+   <link href="http://jeromedaily.com/2016/12/02/funny-function-invoking-logic/"/>
    <updated>2016-12-02T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/12/02/funny-function-invoking-logic</id>
+   <id>http://jeromedaily.com/2016/12/02/funny-function-invoking-logic</id>
    <content type="html">&lt;p&gt;编码过程中，每天都在实现的事情，不是对象就是方法。那么如何去封装一个方法的入参呢？如果入参很多，是否有比较不一样的思路可以提高代码的复用性和可读性呢？下面谈谈在这一方面，近期学习到的一点知识。&lt;/p&gt;
 
 &lt;h4 id=&quot;一参数逐个罗列&quot;&gt;一、参数逐个罗列&lt;/h4&gt;
@@ -1593,9 +1593,9 @@ From https://github.com/jeromechan/project
  
  <entry>
    <title>[译]Feature Toggle - Martin Fowler</title>
-   <link href="http://aboutcoder.com/2016/09/23/feature-toggle-translation/"/>
+   <link href="http://jeromedaily.com/2016/09/23/feature-toggle-translation/"/>
    <updated>2016-09-23T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/09/23/feature-toggle-translation</id>
+   <id>http://jeromedaily.com/2016/09/23/feature-toggle-translation</id>
    <content type="html">&lt;p&gt;关于&lt;a href=&quot;http://martinfowler.com/bliki/FeatureBranch.html&quot;&gt;FeatureBranch&lt;/a&gt;的一个较为争论的问题是，特性分支（Feature Branch）因为待发布功能（pending features）的原因，拉长了单一发布周期（single release cycle）。可以想象一下，你每两个周发布一次生产版本，但是同时又需要去维护一个例如说三个月才能进行发布的特性分支。那么你该如何去保障团队成员们在开发主线（mainline）上的工作不受到衍生出来的、未完全实现的特性分支的影响呢？这是一个非常常见的问题，这个时候，feature toggle就是这么一个应对这种场景的便捷工具。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2016-09-23-feature-toggle-translation/14731341981641.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -1670,9 +1670,9 @@ From https://github.com/jeromechan/project
  
  <entry>
    <title>读写分离的原则</title>
-   <link href="http://aboutcoder.com/2016/09/06/db-master-slave-pattern-rules/"/>
+   <link href="http://jeromedaily.com/2016/09/06/db-master-slave-pattern-rules/"/>
    <updated>2016-09-20T09:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/09/06/db-master-slave-pattern-rules</id>
+   <id>http://jeromedaily.com/2016/09/06/db-master-slave-pattern-rules</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2016-09-20-db-master-slave-pattern-rules/14743556033765.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;一读写分离是什么&quot;&gt;一、读写分离是什么？&lt;/h4&gt;
@@ -1721,9 +1721,9 @@ From https://github.com/jeromechan/project
  
  <entry>
    <title>关于PhpStorm+MAMP+xdebug集成失败的处理办法</title>
-   <link href="http://aboutcoder.com/2016/09/01/integrate-phpstorm-mamp-xdebug/"/>
+   <link href="http://jeromedaily.com/2016/09/01/integrate-phpstorm-mamp-xdebug/"/>
    <updated>2016-09-01T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/09/01/integrate-phpstorm-mamp-xdebug</id>
+   <id>http://jeromedaily.com/2016/09/01/integrate-phpstorm-mamp-xdebug</id>
    <content type="html">&lt;p&gt;首先，阐述一下我的开发环境配置：&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1951,9 +1951,9 @@ MAMP_Xdebug_MAMP
  
  <entry>
    <title>Git使用规范</title>
-   <link href="http://aboutcoder.com/2016/08/27/git-protocol/"/>
+   <link href="http://jeromedaily.com/2016/08/27/git-protocol/"/>
    <updated>2016-08-27T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/08/27/git-protocol</id>
+   <id>http://jeromedaily.com/2016/08/27/git-protocol</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;以下是关于源代码版本控制的一些共通的约定、协议。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2115,9 +2115,9 @@ git branch --delete &amp;lt;branch-name&amp;gt;
  
  <entry>
    <title>XRebel入门与实践</title>
-   <link href="http://aboutcoder.com/2016/08/26/xrebel-tutorial/"/>
+   <link href="http://jeromedaily.com/2016/08/26/xrebel-tutorial/"/>
    <updated>2016-08-26T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/08/26/xrebel-tutorial</id>
+   <id>http://jeromedaily.com/2016/08/26/xrebel-tutorial</id>
    <content type="html">&lt;h4 id=&quot;一xrebel简介&quot;&gt;一、XRebel简介&lt;/h4&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2016-08-26-xrebel-tutorial/14721890028699.jpg&quot; alt=&quot;&quot; /&gt;
@@ -2422,9 +2422,9 @@ XRebel实用性极高，对自己在日常的开发中，方便了发现代码�
  
  <entry>
    <title>如何快速选择开源软件协议</title>
-   <link href="http://aboutcoder.com/2016/07/22/easy-chosing-opensource-license/"/>
+   <link href="http://jeromedaily.com/2016/07/22/easy-chosing-opensource-license/"/>
    <updated>2016-07-22T18:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/07/22/easy-chosing-opensource-license</id>
+   <id>http://jeromedaily.com/2016/07/22/easy-chosing-opensource-license</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2016-07-22-easy-chosing-opensource-license/14691964599348.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;一背景介绍&quot;&gt;一、背景介绍&lt;/h3&gt;
@@ -2507,9 +2507,9 @@ under certain conditions; type `show c' for details.
  
  <entry>
    <title>解决fastjson反序列化日期0000-00-00失败的方案</title>
-   <link href="http://aboutcoder.com/2016/07/22/resolve-the-fastjson-problems-about-date/"/>
+   <link href="http://jeromedaily.com/2016/07/22/resolve-the-fastjson-problems-about-date/"/>
    <updated>2016-07-22T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/07/22/resolve-the-fastjson-problems-about-date</id>
+   <id>http://jeromedaily.com/2016/07/22/resolve-the-fastjson-problems-about-date</id>
    <content type="html">&lt;h4 id=&quot;一案例场景复原&quot;&gt;一、案例场景复原&lt;/h4&gt;
 &lt;p&gt;示例场景里涉及两个class：&lt;code class=&quot;highlighter-rouge&quot;&gt;TestDemo.java&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;DateBeanDemo.java&lt;/code&gt;。&lt;/p&gt;
 
@@ -2702,9 +2702,9 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
  
  <entry>
    <title>什么是架构</title>
-   <link href="http://aboutcoder.com/2016/07/06/what-is-architecture/"/>
+   <link href="http://jeromedaily.com/2016/07/06/what-is-architecture/"/>
    <updated>2016-07-06T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/07/06/what-is-architecture</id>
+   <id>http://jeromedaily.com/2016/07/06/what-is-architecture</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2016-07-06-what-is-architecture/14678247250239.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;先来看看老外们对于架构是如何诠释的。&lt;/p&gt;
@@ -2761,9 +2761,9 @@ Architecture is the &lt;strong&gt;art&lt;/strong&gt;,science, and profession of 
  
  <entry>
    <title>说说使用middleman的那些事情</title>
-   <link href="http://aboutcoder.com/2016/07/02/talk-about-middleman/"/>
+   <link href="http://jeromedaily.com/2016/07/02/talk-about-middleman/"/>
    <updated>2016-07-02T17:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/07/02/talk-about-middleman</id>
+   <id>http://jeromedaily.com/2016/07/02/talk-about-middleman</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2016-07-02-talk-about-middleman/DraggedImage.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;一什么是静态网站&quot;&gt;一、什么是静态网站&lt;/h4&gt;
@@ -2969,9 +2969,9 @@ liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得�
  
  <entry>
    <title>学习笔记：项目管理之规划项目</title>
-   <link href="http://aboutcoder.com/2016/07/01/how-to-make-a-project-plan/"/>
+   <link href="http://jeromedaily.com/2016/07/01/how-to-make-a-project-plan/"/>
    <updated>2016-06-30T08:00:00+08:00</updated>
-   <id>http://aboutcoder.com/2016/07/01/how-to-make-a-project-plan</id>
+   <id>http://jeromedaily.com/2016/07/01/how-to-make-a-project-plan</id>
    <content type="html">&lt;h3 id=&quot;一回顾基础知识&quot;&gt;一、回顾基础知识&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;项目经理：把控“完成”的含义，并带领团队完成项目的人；&lt;/li&gt;
@@ -3101,9 +3101,9 @@ liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得�
  
  <entry>
    <title>Git软件开发过程</title>
-   <link href="http://aboutcoder.com/2015/11/16/work-in-git/"/>
+   <link href="http://jeromedaily.com/2015/11/16/work-in-git/"/>
    <updated>2015-11-16T17:51:05+08:00</updated>
-   <id>http://aboutcoder.com/2015/11/16/work-in-git</id>
+   <id>http://jeromedaily.com/2015/11/16/work-in-git</id>
    <content type="html">&lt;h4 id=&quot;一关于git与subversion的区别&quot;&gt;一、关于Git与Subversion的区别&lt;/h4&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2015-11-16-work-in-git/DraggedImage1.png&quot;&gt;&lt;img src=&quot;/images/2015-11-16-work-in-git/DraggedImage1-1024x1013.png&quot; alt=&quot;DraggedImage&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -3413,9 +3413,9 @@ liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得�
  
  <entry>
    <title>研发人看互联网营销</title>
-   <link href="http://aboutcoder.com/2015/06/18/internet-marketing-views-of-developers/"/>
+   <link href="http://jeromedaily.com/2015/06/18/internet-marketing-views-of-developers/"/>
    <updated>2015-06-18T00:24:40+08:00</updated>
-   <id>http://aboutcoder.com/2015/06/18/internet-marketing-views-of-developers</id>
+   <id>http://jeromedaily.com/2015/06/18/internet-marketing-views-of-developers</id>
    <content type="html">&lt;p&gt;很荣幸地，昨天参加了公司市场VP（以下简称FW）面向全公司作的关于互联网营销的公开演讲。这些年来，公司的市场营销方面从一个局外人的角度上看来确实发生了非常大的变化、进步和飞跃，加以是FW在公司层面公开分享的为数不多的干货讲座之一，满怀期待，同时感触良多，希望写下来以作为后面需要时作参考。&lt;/p&gt;
 
 &lt;p&gt;文章内容准备分为两部分进行记录，第一部分阐述一下的讲座的具体内容，从中挑选出一些自己觉得非常干货的关键点详细撰写一下。第二部分将从讲座中的关键点出发，映射到研发的日常工作上来，分析如何将其中的策略应用到研发工作上来，帮助提高程序员以致于团队层面上的工作效率（注：后续将补发第二部分的博文作扩展分析，请期待~）。&lt;/p&gt;
@@ -3499,9 +3499,9 @@ liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得�
  
  <entry>
    <title>走进社会生活，在实践中成长</title>
-   <link href="http://aboutcoder.com/2015/06/16/practice-in-senior-school-period/"/>
+   <link href="http://jeromedaily.com/2015/06/16/practice-in-senior-school-period/"/>
    <updated>2015-06-16T20:11:24+08:00</updated>
-   <id>http://aboutcoder.com/2015/06/16/practice-in-senior-school-period</id>
+   <id>http://jeromedaily.com/2015/06/16/practice-in-senior-school-period</id>
    <content type="html">&lt;blockquote&gt;接下去的文字是自己高中时期跟随社会实践导师们和一个team的同学们一起完成的旱情调查报告原文。由于时间已经过去多年了，在互联网上已经几乎找不到了。这里发出来分享给大家，顺带也怀念/纪念一下已经逝去的中学年华。&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;儋州市旱情调查研究性学习活动工作小结&quot;&gt;――“儋州市旱情调查”研究性学习活动工作小结&lt;/h4&gt;
@@ -4285,9 +4285,9 @@ liquid有很多晦涩不易入门的语法结构，而slim相对而言就显得�
  
  <entry>
    <title>PHP正则表达式</title>
-   <link href="http://aboutcoder.com/2015/06/11/php-regular-expression/"/>
+   <link href="http://jeromedaily.com/2015/06/11/php-regular-expression/"/>
    <updated>2015-06-11T17:32:00+08:00</updated>
-   <id>http://aboutcoder.com/2015/06/11/php-regular-expression</id>
+   <id>http://jeromedaily.com/2015/06/11/php-regular-expression</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;一、介绍&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;正则表达式，大家在开发中应该是经常用到，现在很多开发语言都有正则表达式的应用，比如javascript，java，.net,php等等，我今天就把我对正则表达式的理解跟大家唠唠，不当之处，请多多指教！&lt;/p&gt;
@@ -4639,9 +4639,9 @@ echo &quot;\n&quot;;
  
  <entry>
    <title>Openfire Plugin开发指南（一）</title>
-   <link href="http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01/"/>
+   <link href="http://jeromedaily.com/2015/05/17/openfire-plugin-developer-guide-01/"/>
    <updated>2015-05-17T23:26:42+08:00</updated>
-   <id>http://aboutcoder.com/2015/05/17/openfire-plugin-developer-guide-01</id>
+   <id>http://jeromedaily.com/2015/05/17/openfire-plugin-developer-guide-01</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;一、简介&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Openfire plugin使得Openfire自身的功能得到了很好的扩展和增强。这篇文档旨在引导开发者如何进行Openfire plugin的开发。&lt;/p&gt;
@@ -4795,9 +4795,9 @@ echo &quot;\n&quot;;
  
  <entry>
    <title>2012的第一批文字</title>
-   <link href="http://aboutcoder.com/2015/04/12/words-in-2012-the-first-time/"/>
+   <link href="http://jeromedaily.com/2015/04/12/words-in-2012-the-first-time/"/>
    <updated>2015-04-12T13:02:23+08:00</updated>
-   <id>http://aboutcoder.com/2015/04/12/words-in-2012-the-first-time</id>
+   <id>http://jeromedaily.com/2015/04/12/words-in-2012-the-first-time</id>
    <content type="html">&lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;今年回村子过年的年轻人多了，不过小孩子们的鞭炮声少了。
@@ -4846,9 +4846,9 @@ echo &quot;\n&quot;;
  
  <entry>
    <title>感动，只因为一个女孩</title>
-   <link href="http://aboutcoder.com/2015/04/12/suck-because-a-girl/"/>
+   <link href="http://jeromedaily.com/2015/04/12/suck-because-a-girl/"/>
    <updated>2015-04-12T12:50:20+08:00</updated>
-   <id>http://aboutcoder.com/2015/04/12/suck-because-a-girl</id>
+   <id>http://jeromedaily.com/2015/04/12/suck-because-a-girl</id>
    <content type="html">&lt;p&gt;上海的冬天并不冷，就是风刮的，很大。&lt;/p&gt;
 
 &lt;p&gt;难得四年的大学生活，难得的人生见与遇，更难得的便是感动。&lt;/p&gt;
@@ -4872,9 +4872,9 @@ echo &quot;\n&quot;;
  
  <entry>
    <title>大学音乐系合唱之我的感想</title>
-   <link href="http://aboutcoder.com/2015/04/12/my-music-lift-in-ecnu/"/>
+   <link href="http://jeromedaily.com/2015/04/12/my-music-lift-in-ecnu/"/>
    <updated>2015-04-12T12:45:10+08:00</updated>
-   <id>http://aboutcoder.com/2015/04/12/my-music-lift-in-ecnu</id>
+   <id>http://jeromedaily.com/2015/04/12/my-music-lift-in-ecnu</id>
    <content type="html">&lt;p&gt;合唱之我的感想&lt;/p&gt;
 
 &lt;p&gt;——–陈金龙（10072510352）&lt;/p&gt;
@@ -4900,9 +4900,9 @@ echo &quot;\n&quot;;
  
  <entry>
    <title>盎然间，出发旗舰</title>
-   <link href="http://aboutcoder.com/2015/04/12/start-up-with-suddenly/"/>
+   <link href="http://jeromedaily.com/2015/04/12/start-up-with-suddenly/"/>
    <updated>2015-04-12T12:39:51+08:00</updated>
-   <id>http://aboutcoder.com/2015/04/12/start-up-with-suddenly</id>
+   <id>http://jeromedaily.com/2015/04/12/start-up-with-suddenly</id>
    <content type="html">&lt;p&gt;盎然间，出发旗舰&lt;/p&gt;
 
 &lt;p&gt;无意中,一片丛林，鸟声鸣绝，绿叶飘尽，盎然的林间小路，冒然间，一束昏昏幽幽的，无形四向的光线，撒在自己的已颇有些许苍老的脸颊，感觉并非自然的温和。大自然，有属于它自己的生活方式。它，万物芥蓝，暝其一线也抵现实中的依言一句。&lt;/p&gt;
@@ -4920,9 +4920,9 @@ echo &quot;\n&quot;;
  
  <entry>
    <title>对自己的生命负责，也许就是如此Simple</title>
-   <link href="http://aboutcoder.com/2015/04/12/simple-lift-only-for-yourself/"/>
+   <link href="http://jeromedaily.com/2015/04/12/simple-lift-only-for-yourself/"/>
    <updated>2015-04-12T12:35:33+08:00</updated>
-   <id>http://aboutcoder.com/2015/04/12/simple-lift-only-for-yourself</id>
+   <id>http://jeromedaily.com/2015/04/12/simple-lift-only-for-yourself</id>
    <content type="html">&lt;p&gt;其实，很久以前，自己的心中就有一种很强烈的冲动，希望暑假军训的到来，那久违的军营式训练的感觉，实在是让人留恋往返。&lt;/p&gt;
 
 &lt;p&gt;军训，可以让你改变喜欢拖延时间的坏习惯，可以让你行走的姿势更加正规化，更可以训练你的毅力恒力。我们大学的军训，在我们看来，也许是我们人生中最后一次亲身体验军营生活的最后一次机会了。&lt;/p&gt;
@@ -4944,9 +4944,9 @@ echo &quot;\n&quot;;
  
  <entry>
    <title>This is Randy，世界的骄傲</title>
-   <link href="http://aboutcoder.com/2015/04/12/this-is-randy-proud-of-the-world/"/>
+   <link href="http://jeromedaily.com/2015/04/12/this-is-randy-proud-of-the-world/"/>
    <updated>2015-04-12T12:33:14+08:00</updated>
-   <id>http://aboutcoder.com/2015/04/12/this-is-randy-proud-of-the-world</id>
+   <id>http://jeromedaily.com/2015/04/12/this-is-randy-proud-of-the-world</id>
    <content type="html">&lt;p&gt;美国卡耐基梅隆大学，一个著名的教授名字，Randy Pausch，是我见过的，最为深刻的一位学者。我们都生活在同一个世界中，感受着同样的世界气息。但是，正如Randy说的，我们无法改变世界，或是周围的任何事物，但是我们的生活属于我们自己，就犹如自己手中握着一副牌，我们已经无法改变牌的好坏，但是，我们可以改变我们出牌的方式方法。同样，我们可以选择我们的生活方式。&lt;/p&gt;
 
 &lt;p&gt;生活，并没有世界表面上演示的如此复杂，我们只要找到了属于自己的生活方式以后，也许，我们就会觉得，我们的生活是多姿多彩的。Randy曾经有过很多儿时的天真梦想，但是，他都一一实现了，虽然没有当时的一致吻合，但是，他从之中体会和学到的比真实去竞争实现list出来的梦想要多得多。他演讲中把人生中的一次次困难险阻比喻成一道道砖墙，我们只要有了梦想，有了追求梦想的实力，顽强拼搏的精神，我们就一定能够实现它。他在业界，也就是VR业界所做的贡献是巨大的。身兼美国艺电顾问，卡耐基梅隆大学终身教授，迪斯尼designer等多职的它，并没有因为忙禄而让自己只是活在工作室与寝室之间，而是当他们取得一定喜人成绩的时候，有一次还将小组里的全部人都邀请到了迪斯尼乐园里痛痛快快玩了一周。&lt;/p&gt;
@@ -4968,9 +4968,9 @@ echo &quot;\n&quot;;
  
  <entry>
    <title>我身边的改革开放</title>
-   <link href="http://aboutcoder.com/2015/04/12/the-revolution-around-since-1978/"/>
+   <link href="http://jeromedaily.com/2015/04/12/the-revolution-around-since-1978/"/>
    <updated>2015-04-12T12:31:56+08:00</updated>
-   <id>http://aboutcoder.com/2015/04/12/the-revolution-around-since-1978</id>
+   <id>http://jeromedaily.com/2015/04/12/the-revolution-around-since-1978</id>
    <content type="html">&lt;p&gt;我身边的改革开放&lt;/p&gt;
 
 &lt;p&gt;———陈金龙（10072510352）&lt;/p&gt;
@@ -5003,9 +5003,9 @@ echo &quot;\n&quot;;
  
  <entry>
    <title>《做最好的自己》——李开复 读书笔记</title>
-   <link href="http://aboutcoder.com/2015/04/12/read-by-your-personal-best/"/>
+   <link href="http://jeromedaily.com/2015/04/12/read-by-your-personal-best/"/>
    <updated>2015-04-12T12:28:49+08:00</updated>
-   <id>http://aboutcoder.com/2015/04/12/read-by-your-personal-best</id>
+   <id>http://jeromedaily.com/2015/04/12/read-by-your-personal-best</id>
    <content type="html">&lt;p&gt;《做最好的自己》——李开复 读书笔记 be your personal best
 事业进步是成功，给家人快乐是成功，广交朋友是成功，能对他人有所帮助是成功。成功并不遥远，不虚度此生，就是我的成功。
 “做最好的自己”是通向多元化成功的必经途径。
@@ -5044,9 +5044,9 @@ Google公司的核心价值观是：坚决不做邪恶的事情，无论有多�
  
  <entry>
    <title>24连，我们永远的骄傲</title>
-   <link href="http://aboutcoder.com/2015/04/12/proud-of-24-lian/"/>
+   <link href="http://jeromedaily.com/2015/04/12/proud-of-24-lian/"/>
    <updated>2015-04-12T12:25:52+08:00</updated>
-   <id>http://aboutcoder.com/2015/04/12/proud-of-24-lian</id>
+   <id>http://jeromedaily.com/2015/04/12/proud-of-24-lian</id>
    <content type="html">&lt;p&gt;今天，一大清早的，寝室里，不到6：30，异常热闹。并非无故起喧，而是今天上午我们将迎来我们军训的最后一天，最后的冲刺——军训汇演。大家心情并不是很好，记得昨天我们的队伍被连长点名拉了出去，不是奖励，不是骄傲，而是惩罚的一种终极方式。之后，我们的同学都非常的难过，每个人都尽力找出自己的缺点，自己做得不好的地方，还有就是给给自己身边的，走步走得不是很好的，提提建议，纠正纠正，为的都是今天的终极过场汇演。&lt;/p&gt;
 
 &lt;p&gt;自己呢，起得很晚，但总好是没有错过我们的汇演，匆匆忙忙的往楼下奔跑，只是想看看自己的队伍，肯定会出色发挥，让我们骄傲的一面。&lt;/p&gt;
@@ -5086,9 +5086,9 @@ Google公司的核心价值观是：坚决不做邪恶的事情，无论有多�
  
  <entry>
    <title>Testin.CN平台调研总结</title>
-   <link href="http://aboutcoder.com/2015/02/13/testin-cn-survey-report/"/>
+   <link href="http://jeromedaily.com/2015/02/13/testin-cn-survey-report/"/>
    <updated>2015-02-13T11:48:09+08:00</updated>
-   <id>http://aboutcoder.com/2015/02/13/testin-cn-survey-report</id>
+   <id>http://jeromedaily.com/2015/02/13/testin-cn-survey-report</id>
    <content type="html">&lt;h5 id=&quot;1认证要求&quot;&gt;1.认证要求&lt;/h5&gt;
 
 &lt;p&gt;（1）注册Testin.CN，成为普通开发者身份。若需要更多的功能，更多的机型支持，请申请更高级别的认证，例如个人开发者、企业开发者。如果你是土豪，可以支持使用VIP支持服务。&lt;/p&gt;
@@ -5164,9 +5164,9 @@ Google公司的核心价值观是：坚决不做邪恶的事情，无论有多�
  
  <entry>
    <title>我的2014年度总结</title>
-   <link href="http://aboutcoder.com/2015/01/01/my-summary-2014/"/>
+   <link href="http://jeromedaily.com/2015/01/01/my-summary-2014/"/>
    <updated>2015-01-01T00:34:20+08:00</updated>
-   <id>http://aboutcoder.com/2015/01/01/my-summary-2014</id>
+   <id>http://jeromedaily.com/2015/01/01/my-summary-2014</id>
    <content type="html">&lt;p&gt;        许久没有写文字了，这一次终于抽出空来写一些文字，纪念自己即将过去的2014年。 相对于2013年的情况，2014年依然是收获颇丰的一年。回顾刚踏出校园，进入社会的当年的自己，凭借着无由的缘分，进入了软件领域，一板一眼书写代码的岁月却是最令人回味的，很庆幸遇到了当年的一大伙导师同伴。 还是回到今天，说说2014年的经历。&lt;/p&gt;
 
 &lt;p&gt;（1）一项新方向的尝试&lt;/p&gt;
@@ -5206,9 +5206,9 @@ Google公司的核心价值观是：坚决不做邪恶的事情，无论有多�
  
  <entry>
    <title>上海 · 华东师大 · 陆家嘴</title>
-   <link href="http://aboutcoder.com/2014/10/07/ecnu-campus/"/>
+   <link href="http://jeromedaily.com/2014/10/07/ecnu-campus/"/>
    <updated>2014-10-07T16:45:24+08:00</updated>
-   <id>http://aboutcoder.com/2014/10/07/ecnu-campus</id>
+   <id>http://jeromedaily.com/2014/10/07/ecnu-campus</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2014-10-07-ecnu-campus/psb-3.jpeg&quot;&gt;&lt;img src=&quot;/images/2014-10-07-ecnu-campus/psb-3.jpeg&quot; alt=&quot;上海 · 华东师大 · 中北校区&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;（上海 · 华东师大 · 中北校区 · 双子楼）&lt;/p&gt;
@@ -5226,9 +5226,9 @@ Google公司的核心价值观是：坚决不做邪恶的事情，无论有多�
  
  <entry>
    <title>钟山风景 · 灵谷寺</title>
-   <link href="http://aboutcoder.com/2014/10/07/nanjing-linggusi/"/>
+   <link href="http://jeromedaily.com/2014/10/07/nanjing-linggusi/"/>
    <updated>2014-10-07T16:40:18+08:00</updated>
-   <id>http://aboutcoder.com/2014/10/07/nanjing-linggusi</id>
+   <id>http://jeromedaily.com/2014/10/07/nanjing-linggusi</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2014-10-07-nanjing-linggusi/psb-2.jpeg&quot;&gt;&lt;img src=&quot;/images/2014-10-07-nanjing-linggusi/psb-2.jpeg&quot; alt=&quot;钟山风景区·灵谷寺&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;（钟山风景区 · 灵谷寺 · 大仁大义）&lt;/p&gt;
@@ -5246,9 +5246,9 @@ Google公司的核心价值观是：坚决不做邪恶的事情，无论有多�
  
  <entry>
    <title>南京 · 总统府</title>
-   <link href="http://aboutcoder.com/2014/10/07/nanjing-zongtongfu/"/>
+   <link href="http://jeromedaily.com/2014/10/07/nanjing-zongtongfu/"/>
    <updated>2014-10-07T16:16:01+08:00</updated>
-   <id>http://aboutcoder.com/2014/10/07/nanjing-zongtongfu</id>
+   <id>http://jeromedaily.com/2014/10/07/nanjing-zongtongfu</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2014-10-07-nanjing-zongtongfu/DSC_0858.jpg&quot;&gt;&lt;img src=&quot;/images/2014-10-07-nanjing-zongtongfu/DSC_0858-1024x678.jpg&quot; alt=&quot;南京总统府&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
@@ -5263,9 +5263,9 @@ Google公司的核心价值观是：坚决不做邪恶的事情，无论有多�
  
  <entry>
    <title>软件版本发布之旅</title>
-   <link href="http://aboutcoder.com/2014/09/15/release-software-roadmap/"/>
+   <link href="http://jeromedaily.com/2014/09/15/release-software-roadmap/"/>
    <updated>2014-09-15T17:25:43+08:00</updated>
-   <id>http://aboutcoder.com/2014/09/15/release-software-roadmap</id>
+   <id>http://jeromedaily.com/2014/09/15/release-software-roadmap</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;一、版本变更轨迹图&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2014-09-15-release-software-roadmap/软件版本轨迹图1-1024x328.png&quot; alt=&quot;软件版本轨迹图&quot; /&gt;&lt;/p&gt;
@@ -5330,9 +5330,9 @@ Google公司的核心价值观是：坚决不做邪恶的事情，无论有多�
  
  <entry>
    <title>缺省ServerName的Apache Http Server主机解析流程</title>
-   <link href="http://aboutcoder.com/2014/09/09/httpd-serves-without-servername/"/>
+   <link href="http://jeromedaily.com/2014/09/09/httpd-serves-without-servername/"/>
    <updated>2014-09-09T18:29:41+08:00</updated>
-   <id>http://aboutcoder.com/2014/09/09/httpd-serves-without-servername</id>
+   <id>http://jeromedaily.com/2014/09/09/httpd-serves-without-servername</id>
    <content type="html">&lt;h5 id=&quot;第一部分了解servernameserveralias区别&quot;&gt;第一部分：了解ServerName、ServerAlias区别&lt;/h5&gt;
 
 &lt;p&gt;ServerName：主机域名的解析入口，每一个虚拟主机在配置之时是必须的；  &lt;br /&gt;
@@ -5419,9 +5419,9 @@ ServerAlias：域名别名，在配置了ServerName的基础上，想要集成�
  
  <entry>
    <title>详解Switch语句的使用</title>
-   <link href="http://aboutcoder.com/2014/09/01/java-switch-explanation/"/>
+   <link href="http://jeromedaily.com/2014/09/01/java-switch-explanation/"/>
    <updated>2014-09-01T17:55:49+08:00</updated>
-   <id>http://aboutcoder.com/2014/09/01/java-switch-explaination</id>
+   <id>http://jeromedaily.com/2014/09/01/java-switch-explaination</id>
    <content type="html">&lt;p&gt;与 if-then和if-then-else语句不同，switch语句可以有许多可以执行的分支。一个switch可以使用的类型包括如下类型：&lt;/p&gt;
 
 &lt;blockquote&gt;基本数据类型：byte, short, char, int
@@ -5743,9 +5743,9 @@ Switch语句将验证它的表达式，验证通过后，将执行验证通过�
  
  <entry>
    <title>Markdown之旅</title>
-   <link href="http://aboutcoder.com/2014/08/30/markdown-tutorial/"/>
+   <link href="http://jeromedaily.com/2014/08/30/markdown-tutorial/"/>
    <updated>2014-08-30T14:15:49+08:00</updated>
-   <id>http://aboutcoder.com/2014/08/30/markdown-tutorial</id>
+   <id>http://jeromedaily.com/2014/08/30/markdown-tutorial</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2014-08-30-markdown-tutorial/markdown-logo.png&quot;&gt;&lt;img src=&quot;/images/2014-08-30-markdown-tutorial/markdown-logo.png&quot; alt=&quot;markdown-logo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Part 1&lt;/strong&gt;&lt;/p&gt;
@@ -5989,9 +5989,9 @@ Basically, take the same guidance as above: don’t be messy, but if you are, cl
  
  <entry>
    <title>关于PressWork增加导航面包屑的实现</title>
-   <link href="http://aboutcoder.com/2014/08/25/how-to-add-breadcrumb-to-presswork/"/>
+   <link href="http://jeromedaily.com/2014/08/25/how-to-add-breadcrumb-to-presswork/"/>
    <updated>2014-08-25T11:42:43+08:00</updated>
-   <id>http://aboutcoder.com/2014/08/25/how-to-add-breadcrumb-to-presswork</id>
+   <id>http://jeromedaily.com/2014/08/25/how-to-add-breadcrumb-to-presswork</id>
    <content type="html">&lt;p&gt;很开心，周末为自己的博客更换了新装，没错，就是PressWork。它是一个自定义很强的开源wp模板项目，但是还是缺少很多实用的模块，这一部分还是需要童鞋们自己根据自己的需求去定制。&lt;/p&gt;
 
 &lt;p&gt;这次我先来介绍对于PressWork的导航面包屑（Breadcrumb）的定制实现。&lt;/p&gt;
@@ -6062,9 +6062,9 @@ Basically, take the same guidance as above: don’t be messy, but if you are, cl
  
  <entry>
    <title>Nanjing 2014 Youth Olympic Games</title>
-   <link href="http://aboutcoder.com/2014/08/24/nanjing-2014-youth-olympic-games/"/>
+   <link href="http://jeromedaily.com/2014/08/24/nanjing-2014-youth-olympic-games/"/>
    <updated>2014-08-24T22:17:45+08:00</updated>
-   <id>http://aboutcoder.com/2014/08/24/nanjing-2014-youth-olympic-games</id>
+   <id>http://jeromedaily.com/2014/08/24/nanjing-2014-youth-olympic-games</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2014-08-24-nanjing-2014-youth-olympic-games/DSC_0618.jpg&quot;&gt;&lt;img src=&quot;/images/2014-08-24-nanjing-2014-youth-olympic-games/DSC_0618-1024x678.jpg&quot; alt=&quot;南京 · 奥体中心 · 2014青奥会&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;（南京 · 奥体中心 · 2014年青奥会）&lt;/p&gt;
@@ -6095,9 +6095,9 @@ Basically, take the same guidance as above: don’t be messy, but if you are, cl
  
  <entry>
    <title>Linux下的PHP安装</title>
-   <link href="http://aboutcoder.com/2014/08/22/linux-php-install/"/>
+   <link href="http://jeromedaily.com/2014/08/22/linux-php-install/"/>
    <updated>2014-08-22T14:43:11+08:00</updated>
-   <id>http://aboutcoder.com/2014/08/22/linux-php-install</id>
+   <id>http://jeromedaily.com/2014/08/22/linux-php-install</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;Tips：在安装php之前，请确认服务环境的httpd服务已经安装成功。若还没有安装apache http serer，参考这里：&lt;a href=&quot;http://aboutcoder.com/2014/08/16/linux%e4%b8%8b%e7%9a%84apache%e5%ae%89%e8%a3%85/&quot;&gt;Linux下的Apache安装&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -6210,9 +6210,9 @@ make install
  
  <entry>
    <title>关于Sublime Text 2 支持执行PHP、JAVA单文件的配置说明</title>
-   <link href="http://aboutcoder.com/2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2/"/>
+   <link href="http://jeromedaily.com/2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2/"/>
    <updated>2014-08-22T12:02:46+08:00</updated>
-   <id>http://aboutcoder.com/2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2</id>
+   <id>http://jeromedaily.com/2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2</id>
    <content type="html">&lt;p&gt;Sublime Text目前非常流行，其功能强大到许多的web开发者爱不释手无法自拔，哈哈。最近自己也由原来的BBEdit转战为Sublime Text，由于自己常常会使用到单文件调试代码片段的执行情况，所以让Sublime Text支持单文件调试php、java文件的需求迫在眉睫。&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -6363,9 +6363,9 @@ make install
  
  <entry>
    <title>windows下的PHP与Apache安装</title>
-   <link href="http://aboutcoder.com/2014/08/21/how-to-install-php-apache-on-windows/"/>
+   <link href="http://jeromedaily.com/2014/08/21/how-to-install-php-apache-on-windows/"/>
    <updated>2014-08-21T10:56:51+08:00</updated>
-   <id>http://aboutcoder.com/2014/08/21/how-to-install-php-apache-on-windows</id>
+   <id>http://jeromedaily.com/2014/08/21/how-to-install-php-apache-on-windows</id>
    <content type="html">&lt;p&gt;站内的关联的其他几篇文章讲述了&lt;a href=&quot;http://aboutcoder.com/2014/08/16/linux%e4%b8%8b%e7%9a%84apache%e5%ae%89%e8%a3%85/&quot;&gt;LAMP环境搭建&lt;/a&gt;的过程与建议Tips。今天要来讲讲的是关于WAMP，毕竟环境是Windows的童鞋们还是居多的。&lt;/p&gt;
 
 &lt;p&gt;1.安装Apache HTTP SERVER + PHP&lt;/p&gt;
@@ -6447,9 +6447,9 @@ I had problems registering Curl extentions and it was cause by the old dll of li
  
  <entry>
    <title>Linux下的Apache安装</title>
-   <link href="http://aboutcoder.com/2014/08/16/linux-apache-install/"/>
+   <link href="http://jeromedaily.com/2014/08/16/linux-apache-install/"/>
    <updated>2014-08-16T15:39:54+08:00</updated>
-   <id>http://aboutcoder.com/2014/08/16/linux-apache-install</id>
+   <id>http://jeromedaily.com/2014/08/16/linux-apache-install</id>
    <content type="html">&lt;p&gt;说到LAMP/WAMP服务器环境的搭建，相信PHPer都无一不会，但是对于Freshman来说，这一块的内容还是需要认真学习，从中可以学习到许多环境配置上的基础常识，自己动手捣腾过的东西才印象深刻，犹如“好记性不如烂笔头”的说法一般。&lt;/p&gt;
 
 &lt;p&gt;关于LAMP/WAMP环境的搭建，准备细分为几篇文章进行讲解，希望能为更多需要该项知识的人提供更为全面的配置流程规范。&lt;/p&gt;
@@ -6542,9 +6542,9 @@ service https start
  
  <entry>
    <title>谈谈Linux用户管理</title>
-   <link href="http://aboutcoder.com/2014/08/16/talking-about-linux-user-management/"/>
+   <link href="http://jeromedaily.com/2014/08/16/talking-about-linux-user-management/"/>
    <updated>2014-08-16T12:05:39+08:00</updated>
-   <id>http://aboutcoder.com/2014/08/16/talking-about-linux-user-management</id>
+   <id>http://jeromedaily.com/2014/08/16/talking-about-linux-user-management</id>
    <content type="html">&lt;p&gt;谈起Linux，没有接触过的童鞋们可能会望而却步，其实不然。今天恰好遇到好些童鞋询问相关于Linux的一些终端命令操作的问题，自己正好有一想法，接下来会陆续写一些关于Linux的日常应用的博客文章。使用Linux系统，首先你一定要是Linux的用户。今天咱们就先来谈谈Linux关于用户的一些事情。&lt;/p&gt;
 
 &lt;p&gt;Linux的用户管理有两个很重要的概念，一个是用户，一个是组。用户与组是一对多的关系。当你创建用户之时，会自然产生一个与你用户名相同的一个组，是新增用户所建立的默认组关系。&lt;/p&gt;
@@ -6663,9 +6663,9 @@ visudo
  
  <entry>
    <title>浅谈sitemap协议及其应用</title>
-   <link href="http://aboutcoder.com/2014/07/29/talking-about-sitemap/"/>
+   <link href="http://jeromedaily.com/2014/07/29/talking-about-sitemap/"/>
    <updated>2014-07-29T00:26:56+08:00</updated>
-   <id>http://aboutcoder.com/2014/07/29/talking-about-sitemap</id>
+   <id>http://jeromedaily.com/2014/07/29/talking-about-sitemap</id>
    <content type="html">&lt;p&gt;很多人都知道，一个站点建立起来之后，不仅内容要丰富，还有另外一点非常重要，那就是搜索引擎的爬取与收录。&lt;/p&gt;
 
 &lt;p&gt;众所周知的著名搜索引擎，国际上有Google，Yahoo!，Bing，国内通用的有百度，搜狗，360搜索等。当前国情决定，国际上著名的在国内发展地都不怎么样，要么发展路线左倾，与方针精神不相符合然后各种关键词词库过滤，要么特例独行直接放弃陪你们这么玩。这其中著名的产物应该当属伟大的墙无疑。不知道伟大的墙是什么？&lt;a href=&quot;http://baike.baidu.com/link?url=K8sYMHBU2GewuCXIkD6YbhymvsQCMWKb-BNs5iZoiYAbpOV4LWR64iwKC_K_Ed7PYBF-G3Vp34j60USGwduISOOnFzFhxVNQ619NE_4GLAS&quot;&gt;点击这里&lt;/a&gt; 进一步了解。&lt;/p&gt;
@@ -6830,9 +6830,9 @@ http://www.sitemaphost.com/sitemap-host3.xml&lt;/p&gt;
  
  <entry>
    <title>GIT基础知识讲解（二）</title>
-   <link href="http://aboutcoder.com/2014/06/29/git-basic-knowledge-2/"/>
+   <link href="http://jeromedaily.com/2014/06/29/git-basic-knowledge-2/"/>
    <updated>2014-06-29T20:47:41+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/git-basic-knowledge-2</id>
+   <id>http://jeromedaily.com/2014/06/29/git-basic-knowledge-2</id>
    <content type="html">&lt;p&gt;七、Git分支级别的基本操作&lt;/p&gt;
 
 &lt;ul&gt;
@@ -6995,9 +6995,9 @@ $ git rebase master
  
  <entry>
    <title>和吉他谈一场恋爱</title>
-   <link href="http://aboutcoder.com/2014/06/29/love-with-guitar/"/>
+   <link href="http://jeromedaily.com/2014/06/29/love-with-guitar/"/>
    <updated>2014-06-29T09:00:20+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/love-with-guitar</id>
+   <id>http://jeromedaily.com/2014/06/29/love-with-guitar</id>
    <content type="html">&lt;p&gt;它，可能是吸引暗恋对象注意最快的捷径；&lt;/p&gt;
 
 &lt;p&gt;它，可能是成为下一个 陈绮贞 / 押尾光太郎 / Jimmy Hendrix 的第一步；&lt;/p&gt;
@@ -7195,9 +7195,9 @@ Skylar Grey 创作过不少令人惊艳的好歌”&lt;/p&gt;
  
  <entry>
    <title>关于文档的版本号理解</title>
-   <link href="http://aboutcoder.com/2014/06/29/how-to-write-version-number/"/>
+   <link href="http://jeromedaily.com/2014/06/29/how-to-write-version-number/"/>
    <updated>2014-06-29T08:59:42+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/how-to-write-version-number</id>
+   <id>http://jeromedaily.com/2014/06/29/how-to-write-version-number</id>
    <content type="html">&lt;p&gt;版本号在生活中，研发工作中经常会遇到，但是是否有深入了解过为什么文档的版本号的后面一长串数字的代表含义吗？&lt;/p&gt;
 
 &lt;p&gt;下面来详细讲讲关于文档版本号的那些事儿。&lt;/p&gt;
@@ -7224,9 +7224,9 @@ D：变更日期，例如&quot;911&quot;(9月11日),&quot;1109&quot;(11月09日)
  
  <entry>
    <title>Windows环境下使用命令行管理服务</title>
-   <link href="http://aboutcoder.com/2014/06/29/using-command-to-control-service-on-windows/"/>
+   <link href="http://jeromedaily.com/2014/06/29/using-command-to-control-service-on-windows/"/>
    <updated>2014-06-29T08:58:27+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/using-command-to-control-service-on-windows</id>
+   <id>http://jeromedaily.com/2014/06/29/using-command-to-control-service-on-windows</id>
    <content type="html">&lt;p&gt;一、创建服务&lt;/p&gt;
 
 &lt;p&gt;1.1 命令”sc create”官方说明&lt;/p&gt;
@@ -7293,9 +7293,9 @@ password= &amp;lt;密码&amp;gt;
  
  <entry>
    <title>Git基础知识讲解（一）</title>
-   <link href="http://aboutcoder.com/2014/06/29/git-basic-knowledge-1/"/>
+   <link href="http://jeromedaily.com/2014/06/29/git-basic-knowledge-1/"/>
    <updated>2014-06-29T08:57:55+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/git-basic-knowledge-1</id>
+   <id>http://jeromedaily.com/2014/06/29/git-basic-knowledge-1</id>
    <content type="html">&lt;p&gt;&lt;em&gt;备注：本文内容来源于作者分享的PPT之“Finding Mr.Git”&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;一、 一览众山，随便看看&lt;/p&gt;
@@ -7469,9 +7469,9 @@ $git pull origin master
  
  <entry>
    <title>Clean Code: A Handbook of Agile Software Craftsmanship (b)</title>
-   <link href="http://aboutcoder.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-b/"/>
+   <link href="http://jeromedaily.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-b/"/>
    <updated>2014-06-29T08:57:25+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-b</id>
+   <id>http://jeromedaily.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-b</id>
    <content type="html">&lt;h4 id=&quot;1the-grand-redesign-in-the-sky&quot;&gt;(1)The grand redesign in the sky&lt;/h4&gt;
 
 &lt;ul&gt;
@@ -7628,9 +7628,9 @@ $git pull origin master
  
  <entry>
    <title>Clean Code: A Handbook of Agile Software Craftsmanship (a)</title>
-   <link href="http://aboutcoder.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-a/"/>
+   <link href="http://jeromedaily.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-a/"/>
    <updated>2014-06-29T08:56:51+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-a</id>
+   <id>http://jeromedaily.com/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-a</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;Wrote by Robert C. Martin&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -7701,9 +7701,9 @@ $git pull origin master
  
  <entry>
    <title>入门JAVA，你需要知道的一些简单的不能再简单了的知识点</title>
-   <link href="http://aboutcoder.com/2014/06/29/head-first-java-basic/"/>
+   <link href="http://jeromedaily.com/2014/06/29/head-first-java-basic/"/>
    <updated>2014-06-29T08:55:29+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/head-first-java-basic</id>
+   <id>http://jeromedaily.com/2014/06/29/head-first-java-basic</id>
    <content type="html">&lt;h4 id=&quot;编程离不开参考物java的强大正在于它的海纳百川&quot;&gt;编程离不开参考物，Java的强大正在于它的海纳百川&lt;/h4&gt;
 
 &lt;h4 id=&quot;一java的参考文档形式&quot;&gt;一、Java的参考文档形式：&lt;/h4&gt;
@@ -7833,9 +7833,9 @@ $git pull origin master
  
  <entry>
    <title>UML基础建模知识小结（三）</title>
-   <link href="http://aboutcoder.com/2014/06/29/uml-modeling-3/"/>
+   <link href="http://jeromedaily.com/2014/06/29/uml-modeling-3/"/>
    <updated>2014-06-29T08:54:46+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/uml-modeling-3</id>
+   <id>http://jeromedaily.com/2014/06/29/uml-modeling-3</id>
    <content type="html">&lt;h4 id=&quot;3-uml行为建模图&quot;&gt;3. UML行为建模图&lt;/h4&gt;
 
 &lt;h5 id=&quot;31-用例图use-case-diagram&quot;&gt;3.1 用例图(Use Case Diagram)&lt;/h5&gt;
@@ -7950,9 +7950,9 @@ Thank you very much!&lt;/p&gt;
  
  <entry>
    <title>UML基础建模知识小结（二）</title>
-   <link href="http://aboutcoder.com/2014/06/29/uml-modeling-2/"/>
+   <link href="http://jeromedaily.com/2014/06/29/uml-modeling-2/"/>
    <updated>2014-06-29T08:53:52+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/uml-modeling-2</id>
+   <id>http://jeromedaily.com/2014/06/29/uml-modeling-2</id>
    <content type="html">&lt;h4 id=&quot;二uml结构建模图&quot;&gt;二、UML结构建模图&lt;/h4&gt;
 &lt;p&gt;结构图定义了一个模型的静态架构，例如类，对象，接口和物理组件。另，结构图也被用作对元素间关联和依赖关系进行建模。&lt;/p&gt;
 
@@ -8030,9 +8030,9 @@ Thank you very much!&lt;/p&gt;
  
  <entry>
    <title>UML基础建模知识小结（一）</title>
-   <link href="http://aboutcoder.com/2014/06/29/uml-modeling-1/"/>
+   <link href="http://jeromedaily.com/2014/06/29/uml-modeling-1/"/>
    <updated>2014-06-29T08:52:07+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/uml-modeling-1</id>
+   <id>http://jeromedaily.com/2014/06/29/uml-modeling-1</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;问：&lt;/strong&gt;为什么我们需要使用UML建模？     &lt;br /&gt;
 &lt;strong&gt;答：&lt;/strong&gt;UML英文全称“Unified Modeling Language”，即统一建模语言。&lt;/p&gt;
 
@@ -8053,9 +8053,9 @@ Thank you very much!&lt;/p&gt;
  
  <entry>
    <title>代码规范之驼峰vs下划线风格转换方案</title>
-   <link href="http://aboutcoder.com/2014/06/29/how-to-translate-var-name-between-camel-and-underline/"/>
+   <link href="http://jeromedaily.com/2014/06/29/how-to-translate-var-name-between-camel-and-underline/"/>
    <updated>2014-06-29T08:51:36+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/how-to-translate-var-name-between-camel-and-underline</id>
+   <id>http://jeromedaily.com/2014/06/29/how-to-translate-var-name-between-camel-and-underline</id>
    <content type="html">&lt;p&gt;转换书写风格的方案均基于递归深度遍历，对key值重新建构，将value值重新赋值。&lt;/p&gt;
 
 &lt;p&gt;让我们一起来看看以下详细代码实现。&lt;/p&gt;
@@ -8174,9 +8174,9 @@ Thank you very much!&lt;/p&gt;
  
  <entry>
    <title>关于Yii路由大小写敏感的解决方案</title>
-   <link href="http://aboutcoder.com/2014/06/29/deal-with-route-path-sensitive-in-yii/"/>
+   <link href="http://jeromedaily.com/2014/06/29/deal-with-route-path-sensitive-in-yii/"/>
    <updated>2014-06-29T08:50:28+08:00</updated>
-   <id>http://aboutcoder.com/2014/06/29/deal-with-route-path-sensitive-in-yii</id>
+   <id>http://jeromedaily.com/2014/06/29/deal-with-route-path-sensitive-in-yii</id>
    <content type="html">&lt;p&gt;示例：默认情况下，以下路由&lt;/p&gt;
 
 &lt;p&gt;URI-1: &lt;a href=&quot;http://www.w3c.com/StoreHouse/show&quot;&gt;http://www.w3c.com/StoreHouse/show&lt;/a&gt;&lt;/p&gt;

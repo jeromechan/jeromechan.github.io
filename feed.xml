@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Jerome Chan</title>
-		<link>http://aboutcoder.com</link>
-		<atom:link href="http://aboutcoder.com/feed.xml" rel="self" type="application/rss+xml" />
+		<title>闲亭野径</title>
+		<link>http://jeromedaily.com</link>
+		<atom:link href="http://jeromedaily.com/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Programming Principles(编程准则)</title>
@@ -902,8 +902,8 @@
 
 </description>
 				<pubDate>Tue, 16 May 2017 17:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2017/05/16/programming-principles/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2017/05/16/programming-principles/</guid>
+				<link>http://jeromedaily.com/2017/05/16/programming-principles/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2017/05/16/programming-principles/</guid>
 			</item>
 		
 			<item>
@@ -1193,8 +1193,8 @@
 
 </description>
 				<pubDate>Mon, 19 Dec 2016 17:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/12/19/parallel-of-buying-scenario/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/12/19/parallel-of-buying-scenario/</guid>
+				<link>http://jeromedaily.com/2016/12/19/parallel-of-buying-scenario/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2016/12/19/parallel-of-buying-scenario/</guid>
 			</item>
 		
 			<item>
@@ -1345,8 +1345,8 @@ From https://github.com/jeromechan/project
 
 </description>
 				<pubDate>Tue, 06 Dec 2016 17:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/12/06/git-fetch-among-branch/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/12/06/git-fetch-among-branch/</guid>
+				<link>http://jeromedaily.com/2016/12/06/git-fetch-among-branch/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2016/12/06/git-fetch-among-branch/</guid>
 			</item>
 		
 			<item>
@@ -1580,8 +1580,8 @@ From https://github.com/jeromechan/project
 
 </description>
 				<pubDate>Fri, 02 Dec 2016 17:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/12/02/funny-function-invoking-logic/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/12/02/funny-function-invoking-logic/</guid>
+				<link>http://jeromedaily.com/2016/12/02/funny-function-invoking-logic/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2016/12/02/funny-function-invoking-logic/</guid>
 			</item>
 		
 			<item>
@@ -1657,8 +1657,8 @@ From https://github.com/jeromechan/project
 
 </description>
 				<pubDate>Fri, 23 Sep 2016 17:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/09/23/feature-toggle-translation/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/09/23/feature-toggle-translation/</guid>
+				<link>http://jeromedaily.com/2016/09/23/feature-toggle-translation/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2016/09/23/feature-toggle-translation/</guid>
 			</item>
 		
 			<item>
@@ -1708,8 +1708,8 @@ From https://github.com/jeromechan/project
 
 </description>
 				<pubDate>Tue, 20 Sep 2016 09:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/09/06/db-master-slave-pattern-rules/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/09/06/db-master-slave-pattern-rules/</guid>
+				<link>http://jeromedaily.com/2016/09/06/db-master-slave-pattern-rules/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2016/09/06/db-master-slave-pattern-rules/</guid>
 			</item>
 		
 			<item>
@@ -1938,8 +1938,8 @@ MAMP_Xdebug_MAMP
 
 </description>
 				<pubDate>Thu, 01 Sep 2016 17:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/09/01/integrate-phpstorm-mamp-xdebug/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/09/01/integrate-phpstorm-mamp-xdebug/</guid>
+				<link>http://jeromedaily.com/2016/09/01/integrate-phpstorm-mamp-xdebug/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2016/09/01/integrate-phpstorm-mamp-xdebug/</guid>
 			</item>
 		
 			<item>
@@ -2102,8 +2102,8 @@ git branch --delete &amp;lt;branch-name&amp;gt;
 
 </description>
 				<pubDate>Sat, 27 Aug 2016 17:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/08/27/git-protocol/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/08/27/git-protocol/</guid>
+				<link>http://jeromedaily.com/2016/08/27/git-protocol/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2016/08/27/git-protocol/</guid>
 			</item>
 		
 			<item>
@@ -2409,8 +2409,8 @@ XRebel实用性极高，对自己在日常的开发中，方便了发现代码�
 
 </description>
 				<pubDate>Fri, 26 Aug 2016 17:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/08/26/xrebel-tutorial/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/08/26/xrebel-tutorial/</guid>
+				<link>http://jeromedaily.com/2016/08/26/xrebel-tutorial/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2016/08/26/xrebel-tutorial/</guid>
 			</item>
 		
 			<item>
@@ -2494,8 +2494,8 @@ under certain conditions; type `show c' for details.
 
 </description>
 				<pubDate>Fri, 22 Jul 2016 18:00:00 +0800</pubDate>
-				<link>http://aboutcoder.com/2016/07/22/easy-chosing-opensource-license/</link>
-				<guid isPermaLink="true">http://aboutcoder.com/2016/07/22/easy-chosing-opensource-license/</guid>
+				<link>http://jeromedaily.com/2016/07/22/easy-chosing-opensource-license/</link>
+				<guid isPermaLink="true">http://jeromedaily.com/2016/07/22/easy-chosing-opensource-license/</guid>
 			</item>
 		
 	</channel>
