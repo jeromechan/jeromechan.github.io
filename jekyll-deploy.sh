@@ -98,12 +98,12 @@ fi
 git checkout $SOURCE > /dev/null 2>&1
 
 # Push the SOURCE to the server
-git push -u origin $SOURCE > /dev/null 2>&1
-if [ $? = 0 ]; then
-  echo "Push $SOURCE successful"
-else
-  echo "Push $SOURCE failed"
-fi
+# git push -u origin $SOURCE > /dev/null 2>&1
+# if [ $? = 0 ]; then
+#   echo "Push $SOURCE successful"
+# else
+#   echo "Push $SOURCE failed"
+# fi
 
 # If anything is stashed, let's get it back
 if [ $stashed = 1 ]; then
