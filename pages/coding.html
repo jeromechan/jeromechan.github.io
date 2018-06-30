@@ -1,0 +1,29 @@
+---
+layout: page
+permalink: coding/
+title: 技术编程
+---
+
+{% for category in site.categories %}
+    {% if category[0] == "CODING" or category[0] == "PHP" or category[0] == "DESIGN"
+        or category[0] == "JAVA" category[0] == "VCS" or category[0] == "TRANSLATION"
+        or category[0] == "OPERATION" or category[0] == "WEB" or category[0] == "TOOLS" %}
+        {% for post in category[1] %}
+        <ul>
+            <li><a href="{{ post.url }}" target="_blank">{{ post.title }}</a>&nbsp;
+                {% if post.categories != empty %}
+                [
+                {% for postCat in post.categories %}
+                <a href="/category/{{ postCat }}/">{{ postCat }}</a>
+                {% if forloop.rindex != 1 %}
+                ,
+                {% endif %}
+                {% endfor %}
+                ]
+                {% endif %}
+                &nbsp;<small>{{ post.date | date_to_string}}</small>
+            </li>
+        </ul>
+        {% endfor %}
+    {% endif %}
+{% endfor %}

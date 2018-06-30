@@ -10,7 +10,7 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+      <!--<a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">首页</a>-->
 <!-- 
       {% comment %}
         The code below dynamically generates a sidebar nav of pages with
@@ -26,14 +26,19 @@
         {% endif %}
       {% endfor %} -->
 
-      <a class="sidebar-nav-item" href="/about/">About Me</a>
-      <a class="sidebar-nav-item" href="/bibliography/" target="_blank">Bibliography</a>
-      <a class="sidebar-nav-item" href="/slides/">Slides</a>
-      <a class="sidebar-nav-item" href="/tags/">Tags</a>
-      <a class="sidebar-nav-item" href="/categories/">Category</a>
-      <a class="sidebar-nav-item" href="/timeline/">Timeline</a>
+      <!--<a class="sidebar-nav-item" href="/bibliography/" target="_blank">Bibliography</a>-->
+      <!--<a class="sidebar-nav-item" href="/slides/">演讲稿</a>-->
+      <!--<a class="sidebar-nav-item" href="/tags/">标签</a>-->
+      <!--<a class="sidebar-nav-item" href="/categories/">文章分类</a>-->
+      <a class="sidebar-nav-item" href="/coding">技术编程</a>
+      <a class="sidebar-nav-item" href="/photography">摄影映画</a>
+      <a class="sidebar-nav-item" href="/analysis">行业分析</a>
+      <a class="sidebar-nav-item" href="/essay">散文闲谈</a>
+      <!--<a class="sidebar-nav-item" href="/timeline/">时间线</a>-->
       <!-- <a class="sidebar-nav-item" href="{{ site.social.github }}">GitHub</a> -->
       <!-- <span class="sidebar-nav-item">Currently v{{ site.version }}</span> -->
+      <hr />
+      <a class="sidebar-nav-item" href="/about">关于我</a>
     </nav>
 
     <p><small>Copyright &copy; 2013-{{ site.time | date: '%Y' }}</small></p>

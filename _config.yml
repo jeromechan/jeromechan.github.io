@@ -6,7 +6,7 @@ kramdown:
   syntax_highlighter: rouge
 
 # Paginate
-plugins:             [jekyll-paginate]
+plugins:          [jekyll-paginate]
 paginate:         1
 paginate_path:    "/page/:num"
 
@@ -15,10 +15,10 @@ paginate_path:    "/page/:num"
 # relative_permalinks: true
 
 # Setup
-title:            Jerome Chan
-tagline:          "A software designer, talking about codes and design"
-description:      "Hello, I&acutem a backend SDE at Alibaba. Follow my <a href='https://github.com/jeromechan' target='_blank'>GitHub</a>."
-url:              http://aboutcoder.com
+title:            闲亭野径
+tagline:          "一个设计者对生活趣事的闲谈"
+description:      "闲谈生活趣事，辨识理想未来"
+url:              http://jeromedaily.com
 baseurl:          /
 
 # Collections
@@ -38,6 +38,7 @@ social:
 
 track:
   cnzz:           1252898702
+  baidu:          d8980c7390e74b30a59b00f31e279590
 
 comment:
-  disqus:         aboutcoder
+  disqus:         jeromedaily
