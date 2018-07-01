@@ -4,11 +4,22 @@ permalink: photography/
 title: 摄影映画
 ---
 
-{% for category in site.categories %}
-{% if category[0] == "PHOTOGRAPHY" %}
-{% for post in category[1] %}
+{% assign year = '' %}
+{% for post in site.posts %}
+
+{% if post.categories != empty %}
+{% for postCat in post.categories %}
+{% if postCat == "PHOTOGRAPHY" %}
+
+{% capture nyear %}{{ post.date | date: '%Y' }}{% endcapture %}
+{% if year != nyear %}<h3>{{ post.date | date: '%Y' }}</h3>
+{% assign year = nyear %}
+{% endif %}
+
 <ul>
-    <li><a href="{{ post.url }}" target="_blank">{{ post.title }}</a>&nbsp;
+
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>&nbsp;
         {% if post.categories != empty %}
         [
         {% for postCat in post.categories %}
@@ -19,9 +30,12 @@ title: 摄影映画
         {% endfor %}
         ]
         {% endif %}
-        &nbsp;<small>{{ post.date | date_to_string}}</small>
+        &nbsp;<small>{{ post.date | date: "%m/%d"}}</small>
     </li>
 </ul>
+
+{% endif %}
 {% endfor %}
 {% endif %}
+
 {% endfor %}
