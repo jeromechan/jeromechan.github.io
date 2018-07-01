@@ -34,6 +34,7 @@ else
   # The working directory is NOT clean
   # We're gonna need to stash some shit
   # Then we can move on
+  git stash clear
   git stash
 
   # Something is stashed here
