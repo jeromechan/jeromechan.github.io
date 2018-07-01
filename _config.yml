@@ -15,7 +15,7 @@ paginate_path:    "/page/:num"
 # relative_permalinks: true
 
 # Setup
-title:            闲亭野径
+title:            闲亭居
 tagline:          "一个设计者对生活趣事的闲谈"
 description:      "闲谈生活趣事，辨识理想现实"
 url:              http://jeromedaily.com
