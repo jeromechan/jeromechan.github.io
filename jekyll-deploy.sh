@@ -25,7 +25,7 @@ git checkout $SOURCE > /dev/null 2>&1
 # If the working directory is NOT clean, will stash the changes
 # Look for uncommitted work
 status=$(git status)
-echo $status | grep -qF 'working directory clean'
+echo $status | grep -qF 'working tree clean'
 if [ $? = 0 ]; then
   # The working directory is clean
   # We can move on
@@ -34,6 +34,7 @@ else
   # The working directory is NOT clean
   # We're gonna need to stash some shit
   # Then we can move on
+  git stash clear
   git stash
 
   # Something is stashed here
