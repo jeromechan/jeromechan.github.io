@@ -177,7 +177,7 @@ postConfig:
 # Plugins
 plugins:
   google_analytics: G-9NB2ZGL7KY # enter the tracking ID for your Google Analytics
-  google_site_verification: kZrGtaFTqUHZa4IuNquFEQJfhRiwpvCRwiFXLFpiOI8 # enter Google site verification code
+  google_site_verification: google-site-verification=kZrGtaFTqUHZa4IuNquFEQJfhRiwpvCRwiFXLFpiOI8 # enter Google site verification code
   baidu_analytics: # enter Baidu Analytics hash key
   tencent_analytics:
   
