@@ -103,16 +103,20 @@ deploy:
 # hexo-neat
 neat_enable: true
 neat_html:
-  enable: true
-  exclude:  
+  enable: false
+  logger: true
+#  exclude:
 neat_css:
   enable: true
+  logger: true
   exclude:
     - '*.min.css'
 neat_js:
   enable: true
   mangle: true
+  logger: true
   output:
   compress:
   exclude:
     - '*.min.js' 
+
