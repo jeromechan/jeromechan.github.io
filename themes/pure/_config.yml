@@ -197,7 +197,7 @@ profile:
   author_title: to be a fantastic programmer
   author_description: 个人简介。
   location: Hainan, China
-  follow: http://jinlongchen.com
+  follow: /
   # Social Links
   social:
     links:
