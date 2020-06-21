@@ -10,6 +10,12 @@ BRANCH_SOURCE="source-hexo"
 BRANCH_MASTER="master"
 CURRENT_DIR=${PWD}
 
+# 0. 完善当前构建环境的依赖
+echo "###########################################################"
+echo "0. 完善当前构建环境的依赖，执行yarn install"
+echo "###########################################################"
+yarn install
+
 # 1. 切换至source-hexo分支下，执行hexo clean & hexo generate
 echo "###########################################################"
 echo "1. 切换至source-hexo分支下，执行hexo clean & hexo generate"
