@@ -1,0 +1,9 @@
+<script>
+    if (<%- theme.config.force_https -%> && (("<%- theme.config.force_https_exclude -%>").indexOf(window.location.host) === -1)) {
+        if (window.location.protocol !== "https:") {
+            alert("target");
+            window.location.protocol = "https";
+        }
+    }
+</script>
+

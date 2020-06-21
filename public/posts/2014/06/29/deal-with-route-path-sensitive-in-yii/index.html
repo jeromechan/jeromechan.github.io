@@ -23,7 +23,7 @@
   <meta name="description" content="示例：默认情况下，以下路由 URI-1: http:&#x2F;&#x2F;www.w3c.com&#x2F;StoreHouse&#x2F;show URI-2: http:&#x2F;&#x2F;www.w3c.com&#x2F;storehouse&#x2F;show 在windows开发环境下没有区别，而源码部署到linux&#x2F;unix服务器环境下之时，倘若该控制器的路径是root&#x2F;project&#x2F;StoreHouseController.php中的actionShow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Yii路由大小写敏感的解决方案">
-<meta property="og:url" content="http://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/index.html">
+<meta property="og:url" content="https://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="示例：默认情况下，以下路由 URI-1: http:&#x2F;&#x2F;www.w3c.com&#x2F;StoreHouse&#x2F;show URI-2: http:&#x2F;&#x2F;www.w3c.com&#x2F;storehouse&#x2F;show 在windows开发环境下没有区别，而源码部署到linux&#x2F;unix服务器环境下之时，倘若该控制器的路径是root&#x2F;project&#x2F;StoreHouseController.php中的actionShow">
 <meta property="og:locale" content="zh_CN">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/index.html">
+  <link rel="canonical" href="https://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -457,7 +457,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/" title="关于Yii路由大小写敏感的解决方案" target="_blank" rel="external">http://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/</a>
+      <a href="https://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/" title="关于Yii路由大小写敏感的解决方案" target="_blank" rel="external">https://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -538,6 +538,16 @@
 <script>
 window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
+
+<script>
+    if (true && (("localhost:4000").indexOf(window.location.host) === -1)) {
+        if (window.location.protocol !== "https:") {
+            window.location.protocol = "https";
+        }
+    }
+</script>
+
+
 
 <script src="/js/plugin.min.js"></script>
 

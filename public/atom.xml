@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://jinlongchen.com/"/>
+  <link href="https://jinlongchen.com/"/>
   <updated>2020-06-21T19:31:18.135Z</updated>
-  <id>http://jinlongchen.com/</id>
+  <id>https://jinlongchen.com/</id>
   
   <author>
     <name>Jerome Chan</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://jinlongchen.com/posts/hello-world/"/>
-    <id>http://jinlongchen.com/posts/hello-world/</id>
+    <link href="https://jinlongchen.com/posts/hello-world/"/>
+    <id>https://jinlongchen.com/posts/hello-world/</id>
     <published>2020-06-21T19:31:18.135Z</published>
     <updated>2020-06-21T19:31:18.135Z</updated>
     
@@ -32,17 +32,17 @@
     </summary>
     
     
-      <category term="分类1" scheme="http://jinlongchen.com/categories/%E5%88%86%E7%B1%BB1/"/>
+      <category term="分类1" scheme="https://jinlongchen.com/categories/%E5%88%86%E7%B1%BB1/"/>
     
     
-      <category term="标签1" scheme="http://jinlongchen.com/tags/%E6%A0%87%E7%AD%BE1/"/>
+      <category term="标签1" scheme="https://jinlongchen.com/tags/%E6%A0%87%E7%AD%BE1/"/>
     
   </entry>
   
   <entry>
     <title>Programming Principles(编程准则)</title>
-    <link href="http://jinlongchen.com/posts/2017/05/16/programming-principles/"/>
-    <id>http://jinlongchen.com/posts/2017/05/16/programming-principles/</id>
+    <link href="https://jinlongchen.com/posts/2017/05/16/programming-principles/"/>
+    <id>https://jinlongchen.com/posts/2017/05/16/programming-principles/</id>
     <published>2017-05-16T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.135Z</updated>
     
@@ -55,19 +55,19 @@
     </summary>
     
     
-      <category term="架构设计" scheme="http://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+      <category term="架构设计" scheme="https://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
     
-      <category term="编程准则" scheme="http://jinlongchen.com/tags/%E7%BC%96%E7%A8%8B%E5%87%86%E5%88%99/"/>
+      <category term="编程准则" scheme="https://jinlongchen.com/tags/%E7%BC%96%E7%A8%8B%E5%87%86%E5%88%99/"/>
     
-      <category term="principles" scheme="http://jinlongchen.com/tags/principles/"/>
+      <category term="principles" scheme="https://jinlongchen.com/tags/principles/"/>
     
   </entry>
   
   <entry>
     <title>并发场景实践方案优劣评析</title>
-    <link href="http://jinlongchen.com/posts/2016/12/19/parallel-of-buying-scenario/"/>
-    <id>http://jinlongchen.com/posts/2016/12/19/parallel-of-buying-scenario/</id>
+    <link href="https://jinlongchen.com/posts/2016/12/19/parallel-of-buying-scenario/"/>
+    <id>https://jinlongchen.com/posts/2016/12/19/parallel-of-buying-scenario/</id>
     <published>2016-12-19T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.134Z</updated>
     
@@ -80,19 +80,19 @@
     </summary>
     
     
-      <category term="架构设计" scheme="http://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+      <category term="架构设计" scheme="https://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
     
-      <category term="parallel computing" scheme="http://jinlongchen.com/tags/parallel-computing/"/>
+      <category term="parallel computing" scheme="https://jinlongchen.com/tags/parallel-computing/"/>
     
-      <category term="concurrency" scheme="http://jinlongchen.com/tags/concurrency/"/>
+      <category term="concurrency" scheme="https://jinlongchen.com/tags/concurrency/"/>
     
   </entry>
   
   <entry>
     <title>Git协作之合并代码</title>
-    <link href="http://jinlongchen.com/posts/2016/12/06/git-fetch-among-branch/"/>
-    <id>http://jinlongchen.com/posts/2016/12/06/git-fetch-among-branch/</id>
+    <link href="https://jinlongchen.com/posts/2016/12/06/git-fetch-among-branch/"/>
+    <id>https://jinlongchen.com/posts/2016/12/06/git-fetch-among-branch/</id>
     <published>2016-12-06T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.133Z</updated>
     
@@ -105,17 +105,17 @@
     </summary>
     
     
-      <category term="工具环境" scheme="http://jinlongchen.com/categories/%E5%B7%A5%E5%85%B7%E7%8E%AF%E5%A2%83/"/>
+      <category term="工具环境" scheme="https://jinlongchen.com/categories/%E5%B7%A5%E5%85%B7%E7%8E%AF%E5%A2%83/"/>
     
     
-      <category term="Git分支合并" scheme="http://jinlongchen.com/tags/Git%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/"/>
+      <category term="Git分支合并" scheme="https://jinlongchen.com/tags/Git%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/"/>
     
   </entry>
   
   <entry>
     <title>几种方法调用思路的比较</title>
-    <link href="http://jinlongchen.com/posts/2016/12/02/funny-function-invoking-logic/"/>
-    <id>http://jinlongchen.com/posts/2016/12/02/funny-function-invoking-logic/</id>
+    <link href="https://jinlongchen.com/posts/2016/12/02/funny-function-invoking-logic/"/>
+    <id>https://jinlongchen.com/posts/2016/12/02/funny-function-invoking-logic/</id>
     <published>2016-12-02T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.133Z</updated>
     
@@ -128,21 +128,21 @@
     </summary>
     
     
-      <category term="编程语言" scheme="http://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="编程语言" scheme="https://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-      <category term="方法调用" scheme="http://jinlongchen.com/tags/%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8/"/>
+      <category term="方法调用" scheme="https://jinlongchen.com/tags/%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8/"/>
     
-      <category term="按位与" scheme="http://jinlongchen.com/tags/%E6%8C%89%E4%BD%8D%E4%B8%8E/"/>
+      <category term="按位与" scheme="https://jinlongchen.com/tags/%E6%8C%89%E4%BD%8D%E4%B8%8E/"/>
     
-      <category term="按位或" scheme="http://jinlongchen.com/tags/%E6%8C%89%E4%BD%8D%E6%88%96/"/>
+      <category term="按位或" scheme="https://jinlongchen.com/tags/%E6%8C%89%E4%BD%8D%E6%88%96/"/>
     
   </entry>
   
   <entry>
     <title>[译]Feature Toggle - Martin Fowler</title>
-    <link href="http://jinlongchen.com/posts/2016/09/23/feature-toggle-translation/"/>
-    <id>http://jinlongchen.com/posts/2016/09/23/feature-toggle-translation/</id>
+    <link href="https://jinlongchen.com/posts/2016/09/23/feature-toggle-translation/"/>
+    <id>https://jinlongchen.com/posts/2016/09/23/feature-toggle-translation/</id>
     <published>2016-09-23T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.133Z</updated>
     
@@ -155,17 +155,17 @@
     </summary>
     
     
-      <category term="架构设计" scheme="http://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+      <category term="架构设计" scheme="https://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
     
-      <category term="feature toggle" scheme="http://jinlongchen.com/tags/feature-toggle/"/>
+      <category term="feature toggle" scheme="https://jinlongchen.com/tags/feature-toggle/"/>
     
   </entry>
   
   <entry>
     <title>读写分离的原则</title>
-    <link href="http://jinlongchen.com/posts/2016/09/06/db-master-slave-pattern-rules/"/>
-    <id>http://jinlongchen.com/posts/2016/09/06/db-master-slave-pattern-rules/</id>
+    <link href="https://jinlongchen.com/posts/2016/09/06/db-master-slave-pattern-rules/"/>
+    <id>https://jinlongchen.com/posts/2016/09/06/db-master-slave-pattern-rules/</id>
     <published>2016-09-19T17:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.133Z</updated>
     
@@ -178,17 +178,17 @@
     </summary>
     
     
-      <category term="编程语言" scheme="http://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="编程语言" scheme="https://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-      <category term="Database" scheme="http://jinlongchen.com/tags/Database/"/>
+      <category term="Database" scheme="https://jinlongchen.com/tags/Database/"/>
     
   </entry>
   
   <entry>
     <title>关于PhpStorm+MAMP+xdebug集成失败的处理办法</title>
-    <link href="http://jinlongchen.com/posts/2016/09/01/integrate-phpstorm-mamp-xdebug/"/>
-    <id>http://jinlongchen.com/posts/2016/09/01/integrate-phpstorm-mamp-xdebug/</id>
+    <link href="https://jinlongchen.com/posts/2016/09/01/integrate-phpstorm-mamp-xdebug/"/>
+    <id>https://jinlongchen.com/posts/2016/09/01/integrate-phpstorm-mamp-xdebug/</id>
     <published>2016-09-01T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.133Z</updated>
     
@@ -201,19 +201,19 @@
     </summary>
     
     
-      <category term="编程语言" scheme="http://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="编程语言" scheme="https://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-      <category term="php" scheme="http://jinlongchen.com/tags/php/"/>
+      <category term="php" scheme="https://jinlongchen.com/tags/php/"/>
     
-      <category term="xdebug" scheme="http://jinlongchen.com/tags/xdebug/"/>
+      <category term="xdebug" scheme="https://jinlongchen.com/tags/xdebug/"/>
     
   </entry>
   
   <entry>
     <title>Git使用规范</title>
-    <link href="http://jinlongchen.com/posts/2016/08/27/git-protocol/"/>
-    <id>http://jinlongchen.com/posts/2016/08/27/git-protocol/</id>
+    <link href="https://jinlongchen.com/posts/2016/08/27/git-protocol/"/>
+    <id>https://jinlongchen.com/posts/2016/08/27/git-protocol/</id>
     <published>2016-08-27T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.133Z</updated>
     
@@ -226,19 +226,19 @@
     </summary>
     
     
-      <category term="工具环境" scheme="http://jinlongchen.com/categories/%E5%B7%A5%E5%85%B7%E7%8E%AF%E5%A2%83/"/>
+      <category term="工具环境" scheme="https://jinlongchen.com/categories/%E5%B7%A5%E5%85%B7%E7%8E%AF%E5%A2%83/"/>
     
     
-      <category term="protocol" scheme="http://jinlongchen.com/tags/protocol/"/>
+      <category term="protocol" scheme="https://jinlongchen.com/tags/protocol/"/>
     
-      <category term="specification" scheme="http://jinlongchen.com/tags/specification/"/>
+      <category term="specification" scheme="https://jinlongchen.com/tags/specification/"/>
     
   </entry>
   
   <entry>
     <title>XRebel入门与实践</title>
-    <link href="http://jinlongchen.com/posts/2016/08/26/xrebel-tutorial/"/>
-    <id>http://jinlongchen.com/posts/2016/08/26/xrebel-tutorial/</id>
+    <link href="https://jinlongchen.com/posts/2016/08/26/xrebel-tutorial/"/>
+    <id>https://jinlongchen.com/posts/2016/08/26/xrebel-tutorial/</id>
     <published>2016-08-26T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.133Z</updated>
     
@@ -251,19 +251,19 @@
     </summary>
     
     
-      <category term="编程语言" scheme="http://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="编程语言" scheme="https://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-      <category term="xrebel" scheme="http://jinlongchen.com/tags/xrebel/"/>
+      <category term="xrebel" scheme="https://jinlongchen.com/tags/xrebel/"/>
     
-      <category term="performance monitor" scheme="http://jinlongchen.com/tags/performance-monitor/"/>
+      <category term="performance monitor" scheme="https://jinlongchen.com/tags/performance-monitor/"/>
     
   </entry>
   
   <entry>
     <title>如何快速选择开源软件协议</title>
-    <link href="http://jinlongchen.com/posts/2016/07/22/easy-chosing-opensource-license/"/>
-    <id>http://jinlongchen.com/posts/2016/07/22/easy-chosing-opensource-license/</id>
+    <link href="https://jinlongchen.com/posts/2016/07/22/easy-chosing-opensource-license/"/>
+    <id>https://jinlongchen.com/posts/2016/07/22/easy-chosing-opensource-license/</id>
     <published>2016-07-22T02:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.132Z</updated>
     
@@ -276,19 +276,19 @@
     </summary>
     
     
-      <category term="架构设计" scheme="http://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+      <category term="架构设计" scheme="https://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
     
-      <category term="opensource" scheme="http://jinlongchen.com/tags/opensource/"/>
+      <category term="opensource" scheme="https://jinlongchen.com/tags/opensource/"/>
     
-      <category term="license" scheme="http://jinlongchen.com/tags/license/"/>
+      <category term="license" scheme="https://jinlongchen.com/tags/license/"/>
     
   </entry>
   
   <entry>
     <title>解决fastjson反序列化日期0000-00-00失败的方案</title>
-    <link href="http://jinlongchen.com/posts/2016/07/22/resolve-the-fastjson-problems-about-date/"/>
-    <id>http://jinlongchen.com/posts/2016/07/22/resolve-the-fastjson-problems-about-date/</id>
+    <link href="https://jinlongchen.com/posts/2016/07/22/resolve-the-fastjson-problems-about-date/"/>
+    <id>https://jinlongchen.com/posts/2016/07/22/resolve-the-fastjson-problems-about-date/</id>
     <published>2016-07-22T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.132Z</updated>
     
@@ -301,17 +301,17 @@
     </summary>
     
     
-      <category term="编程语言" scheme="http://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="编程语言" scheme="https://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-      <category term="fastjson" scheme="http://jinlongchen.com/tags/fastjson/"/>
+      <category term="fastjson" scheme="https://jinlongchen.com/tags/fastjson/"/>
     
   </entry>
   
   <entry>
     <title>什么是架构</title>
-    <link href="http://jinlongchen.com/posts/2016/07/06/what-is-architecture/"/>
-    <id>http://jinlongchen.com/posts/2016/07/06/what-is-architecture/</id>
+    <link href="https://jinlongchen.com/posts/2016/07/06/what-is-architecture/"/>
+    <id>https://jinlongchen.com/posts/2016/07/06/what-is-architecture/</id>
     <published>2016-07-06T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.132Z</updated>
     
@@ -324,17 +324,17 @@
     </summary>
     
     
-      <category term="架构设计" scheme="http://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+      <category term="架构设计" scheme="https://jinlongchen.com/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
     
-      <category term="architecture" scheme="http://jinlongchen.com/tags/architecture/"/>
+      <category term="architecture" scheme="https://jinlongchen.com/tags/architecture/"/>
     
   </entry>
   
   <entry>
     <title>说说使用middleman的那些事情</title>
-    <link href="http://jinlongchen.com/posts/2016/07/02/talk-about-middleman/"/>
-    <id>http://jinlongchen.com/posts/2016/07/02/talk-about-middleman/</id>
+    <link href="https://jinlongchen.com/posts/2016/07/02/talk-about-middleman/"/>
+    <id>https://jinlongchen.com/posts/2016/07/02/talk-about-middleman/</id>
     <published>2016-07-02T01:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.132Z</updated>
     
@@ -347,19 +347,19 @@
     </summary>
     
     
-      <category term="编程语言" scheme="http://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="编程语言" scheme="https://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-      <category term="middleman" scheme="http://jinlongchen.com/tags/middleman/"/>
+      <category term="middleman" scheme="https://jinlongchen.com/tags/middleman/"/>
     
-      <category term="jekyll" scheme="http://jinlongchen.com/tags/jekyll/"/>
+      <category term="jekyll" scheme="https://jinlongchen.com/tags/jekyll/"/>
     
   </entry>
   
   <entry>
     <title>学习笔记：项目管理之规划项目</title>
-    <link href="http://jinlongchen.com/posts/2016/07/01/how-to-make-a-project-plan/"/>
-    <id>http://jinlongchen.com/posts/2016/07/01/how-to-make-a-project-plan/</id>
+    <link href="https://jinlongchen.com/posts/2016/07/01/how-to-make-a-project-plan/"/>
+    <id>https://jinlongchen.com/posts/2016/07/01/how-to-make-a-project-plan/</id>
     <published>2016-06-29T16:00:00.000Z</published>
     <updated>2020-06-21T19:31:18.132Z</updated>
     
@@ -377,21 +377,21 @@
     </summary>
     
     
-      <category term="管理哲学" scheme="http://jinlongchen.com/categories/%E7%AE%A1%E7%90%86%E5%93%B2%E5%AD%A6/"/>
+      <category term="管理哲学" scheme="https://jinlongchen.com/categories/%E7%AE%A1%E7%90%86%E5%93%B2%E5%AD%A6/"/>
     
     
-      <category term="项目管理" scheme="http://jinlongchen.com/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+      <category term="项目管理" scheme="https://jinlongchen.com/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
     
-      <category term="project manage" scheme="http://jinlongchen.com/tags/project-manage/"/>
+      <category term="project manage" scheme="https://jinlongchen.com/tags/project-manage/"/>
     
-      <category term="规划项目日程" scheme="http://jinlongchen.com/tags/%E8%A7%84%E5%88%92%E9%A1%B9%E7%9B%AE%E6%97%A5%E7%A8%8B/"/>
+      <category term="规划项目日程" scheme="https://jinlongchen.com/tags/%E8%A7%84%E5%88%92%E9%A1%B9%E7%9B%AE%E6%97%A5%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Git软件开发过程</title>
-    <link href="http://jinlongchen.com/posts/2015/11/16/work-in-git/"/>
-    <id>http://jinlongchen.com/posts/2015/11/16/work-in-git/</id>
+    <link href="https://jinlongchen.com/posts/2015/11/16/work-in-git/"/>
+    <id>https://jinlongchen.com/posts/2015/11/16/work-in-git/</id>
     <published>2015-11-16T01:51:05.000Z</published>
     <updated>2020-06-21T19:31:18.132Z</updated>
     
@@ -407,27 +407,27 @@
     </summary>
     
     
-      <category term="工具环境" scheme="http://jinlongchen.com/categories/%E5%B7%A5%E5%85%B7%E7%8E%AF%E5%A2%83/"/>
+      <category term="工具环境" scheme="https://jinlongchen.com/categories/%E5%B7%A5%E5%85%B7%E7%8E%AF%E5%A2%83/"/>
     
     
-      <category term="Git" scheme="http://jinlongchen.com/tags/Git/"/>
+      <category term="Git" scheme="https://jinlongchen.com/tags/Git/"/>
     
-      <category term="git flow" scheme="http://jinlongchen.com/tags/git-flow/"/>
+      <category term="git flow" scheme="https://jinlongchen.com/tags/git-flow/"/>
     
-      <category term="github flow" scheme="http://jinlongchen.com/tags/github-flow/"/>
+      <category term="github flow" scheme="https://jinlongchen.com/tags/github-flow/"/>
     
-      <category term="git流程" scheme="http://jinlongchen.com/tags/git%E6%B5%81%E7%A8%8B/"/>
+      <category term="git流程" scheme="https://jinlongchen.com/tags/git%E6%B5%81%E7%A8%8B/"/>
     
-      <category term="git软件开发过程" scheme="http://jinlongchen.com/tags/git%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/"/>
+      <category term="git软件开发过程" scheme="https://jinlongchen.com/tags/git%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/"/>
     
-      <category term="mike flow" scheme="http://jinlongchen.com/tags/mike-flow/"/>
+      <category term="mike flow" scheme="https://jinlongchen.com/tags/mike-flow/"/>
     
   </entry>
   
   <entry>
     <title>研发人看互联网营销</title>
-    <link href="http://jinlongchen.com/posts/2015/06/18/internet-marketing-views-of-developers/"/>
-    <id>http://jinlongchen.com/posts/2015/06/18/internet-marketing-views-of-developers/</id>
+    <link href="https://jinlongchen.com/posts/2015/06/18/internet-marketing-views-of-developers/"/>
+    <id>https://jinlongchen.com/posts/2015/06/18/internet-marketing-views-of-developers/</id>
     <published>2015-06-17T08:24:40.000Z</published>
     <updated>2020-06-21T19:31:18.132Z</updated>
     
@@ -443,23 +443,23 @@
     </summary>
     
     
-      <category term="管理哲学" scheme="http://jinlongchen.com/categories/%E7%AE%A1%E7%90%86%E5%93%B2%E5%AD%A6/"/>
+      <category term="管理哲学" scheme="https://jinlongchen.com/categories/%E7%AE%A1%E7%90%86%E5%93%B2%E5%AD%A6/"/>
     
     
-      <category term="互联网市场" scheme="http://jinlongchen.com/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%B8%82%E5%9C%BA/"/>
+      <category term="互联网市场" scheme="https://jinlongchen.com/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%B8%82%E5%9C%BA/"/>
     
-      <category term="互联网营销" scheme="http://jinlongchen.com/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%90%A5%E9%94%80/"/>
+      <category term="互联网营销" scheme="https://jinlongchen.com/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%90%A5%E9%94%80/"/>
     
-      <category term="推广" scheme="http://jinlongchen.com/tags/%E6%8E%A8%E5%B9%BF/"/>
+      <category term="推广" scheme="https://jinlongchen.com/tags/%E6%8E%A8%E5%B9%BF/"/>
     
-      <category term="研发人观点" scheme="http://jinlongchen.com/tags/%E7%A0%94%E5%8F%91%E4%BA%BA%E8%A7%82%E7%82%B9/"/>
+      <category term="研发人观点" scheme="https://jinlongchen.com/tags/%E7%A0%94%E5%8F%91%E4%BA%BA%E8%A7%82%E7%82%B9/"/>
     
   </entry>
   
   <entry>
     <title>走进社会生活，在实践中成长</title>
-    <link href="http://jinlongchen.com/posts/2015/06/16/practice-in-senior-school-period/"/>
-    <id>http://jinlongchen.com/posts/2015/06/16/practice-in-senior-school-period/</id>
+    <link href="https://jinlongchen.com/posts/2015/06/16/practice-in-senior-school-period/"/>
+    <id>https://jinlongchen.com/posts/2015/06/16/practice-in-senior-school-period/</id>
     <published>2015-06-16T04:11:24.000Z</published>
     <updated>2020-06-21T19:31:18.131Z</updated>
     
@@ -480,21 +480,21 @@
     </summary>
     
     
-      <category term="生活感悟" scheme="http://jinlongchen.com/categories/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/"/>
+      <category term="生活感悟" scheme="https://jinlongchen.com/categories/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/"/>
     
     
-      <category term="2004儋州旱情" scheme="http://jinlongchen.com/tags/2004%E5%84%8B%E5%B7%9E%E6%97%B1%E6%83%85/"/>
+      <category term="2004儋州旱情" scheme="https://jinlongchen.com/tags/2004%E5%84%8B%E5%B7%9E%E6%97%B1%E6%83%85/"/>
     
-      <category term="中学社会实践" scheme="http://jinlongchen.com/tags/%E4%B8%AD%E5%AD%A6%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/"/>
+      <category term="中学社会实践" scheme="https://jinlongchen.com/tags/%E4%B8%AD%E5%AD%A6%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/"/>
     
-      <category term="社会实情调查" scheme="http://jinlongchen.com/tags/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E6%83%85%E8%B0%83%E6%9F%A5/"/>
+      <category term="社会实情调查" scheme="https://jinlongchen.com/tags/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E6%83%85%E8%B0%83%E6%9F%A5/"/>
     
   </entry>
   
   <entry>
     <title>PHP正则表达式</title>
-    <link href="http://jinlongchen.com/posts/2015/06/11/php-regular-expression/"/>
-    <id>http://jinlongchen.com/posts/2015/06/11/php-regular-expression/</id>
+    <link href="https://jinlongchen.com/posts/2015/06/11/php-regular-expression/"/>
+    <id>https://jinlongchen.com/posts/2015/06/11/php-regular-expression/</id>
     <published>2015-06-11T01:32:00.000Z</published>
     <updated>2020-06-21T19:31:18.131Z</updated>
     
@@ -512,17 +512,17 @@
     </summary>
     
     
-      <category term="编程语言" scheme="http://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="编程语言" scheme="https://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-      <category term="正则表达式" scheme="http://jinlongchen.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="正则表达式" scheme="https://jinlongchen.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>Openfire Plugin开发指南（一）</title>
-    <link href="http://jinlongchen.com/posts/2015/05/17/openfire-plugin-developer-guide-01/"/>
-    <id>http://jinlongchen.com/posts/2015/05/17/openfire-plugin-developer-guide-01/</id>
+    <link href="https://jinlongchen.com/posts/2015/05/17/openfire-plugin-developer-guide-01/"/>
+    <id>https://jinlongchen.com/posts/2015/05/17/openfire-plugin-developer-guide-01/</id>
     <published>2015-05-17T07:26:42.000Z</published>
     <updated>2020-06-21T19:31:18.131Z</updated>
     
@@ -540,12 +540,12 @@
     </summary>
     
     
-      <category term="编程语言" scheme="http://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="编程语言" scheme="https://jinlongchen.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-      <category term="openfire" scheme="http://jinlongchen.com/tags/openfire/"/>
+      <category term="openfire" scheme="https://jinlongchen.com/tags/openfire/"/>
     
-      <category term="openfire plugin" scheme="http://jinlongchen.com/tags/openfire-plugin/"/>
+      <category term="openfire plugin" scheme="https://jinlongchen.com/tags/openfire-plugin/"/>
     
   </entry>
   
