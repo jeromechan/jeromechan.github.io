@@ -176,8 +176,8 @@ postConfig:
 
 # Plugins
 plugins:
-  google_analytics: # enter the tracking ID for your Google Analytics
-  google_site_verification: # enter Google site verification code
+  google_analytics: G-9NB2ZGL7KY # enter the tracking ID for your Google Analytics
+  google_site_verification: kZrGtaFTqUHZa4IuNquFEQJfhRiwpvCRwiFXLFpiOI8 # enter Google site verification code
   baidu_analytics: # enter Baidu Analytics hash key
   tencent_analytics:
   
@@ -210,32 +210,32 @@ profile:
       # behance: https://www.behance.net/
     link_tooltip: true # enable the social link tooltip, options: true, false
   # My Skills 
-  skills:
-    Git: ★★★☆☆
-    Gulp: ★★★☆☆
-    Javascript: ★★★☆☆
-    HTML+CSS: ★★★☆☆
-    Bootstrap: ★★★☆☆
-    ThinkPHP: ★★★☆☆
-    平面设计: ★★★☆☆
+#  skills:
+#    Git: ★★★☆☆
+#    Gulp: ★★★☆☆
+#    Javascript: ★★★☆☆
+#    HTML+CSS: ★★★☆☆
+#    Bootstrap: ★★★☆☆
+#    ThinkPHP: ★★★☆☆
+#    平面设计: ★★★☆☆
   # My Personal Links
-  links:
-    Github: https://github.com/jeromechan
+#  links:
+#    Github: https://github.com/jeromechan
   # My Personal Labels
-  labels:
-    - 前端
-    - 前端开发
-    - 前端重构
-    - Web前端
-    - 网页重构
+#  labels:
+#    - 前端
+#    - 前端开发
+#    - 前端重构
+#    - Web前端
+#    - 网页重构
   # My Personal Works
-  works:
-    name:
-      link: http://www.example.com
-      date: 2016
+#  works:
+#    name:
+#      link: http://www.example.com
+#      date: 2016
   # My Personal Projects
-  projects:
-    cofess/gulp-startpro: https://github.com/cofess/gulp-startpro
-    cofess/hexo-theme-pure: https://github.com/cofess/hexo-theme-pure
+#  projects:
+#    cofess/gulp-startpro: https://github.com/cofess/gulp-startpro
+#    cofess/hexo-theme-pure: https://github.com/cofess/hexo-theme-pure
 
     
