@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
-    
-    <lastmod>2020-06-21T06:45:28.784Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/repository/index.html</loc>
     
     <lastmod>2020-06-21T06:45:28.784Z</lastmod>
@@ -23,14 +16,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2020-06-21T06:45:28.784Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/books/index.html</loc>
     
     <lastmod>2020-06-21T06:45:28.681Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/books/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2020-06-21T06:45:28.681Z</lastmod>
     
@@ -44,14 +44,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/about/index2.html</loc>
+    <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2020-06-21T06:45:28.680Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/about/index.html</loc>
+    <loc>http://yoursite.com/about/index2.html</loc>
     
     <lastmod>2020-06-21T06:45:28.680Z</lastmod>
     
@@ -107,14 +107,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/2016/09/06/db-master-slave-pattern-rules/</loc>
+    <loc>http://yoursite.com/posts/2016/09/01/integrate-phpstorm-mamp-xdebug/</loc>
     
     <lastmod>2020-06-21T06:45:28.677Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/2016/09/01/integrate-phpstorm-mamp-xdebug/</loc>
+    <loc>http://yoursite.com/posts/2016/09/06/db-master-slave-pattern-rules/</loc>
     
     <lastmod>2020-06-21T06:45:28.677Z</lastmod>
     
@@ -142,14 +142,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/2016/07/02/talk-about-middleman/</loc>
+    <loc>http://yoursite.com/posts/2016/07/01/how-to-make-a-project-plan/</loc>
     
     <lastmod>2020-06-21T06:45:28.675Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/2016/07/01/how-to-make-a-project-plan/</loc>
+    <loc>http://yoursite.com/posts/2016/07/02/talk-about-middleman/</loc>
     
     <lastmod>2020-06-21T06:45:28.675Z</lastmod>
     
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/2015/06/18/internet-marketing-views-of-developers/</loc>
+    <loc>http://yoursite.com/posts/2015/06/16/practice-in-senior-school-period/</loc>
     
     <lastmod>2020-06-21T06:45:28.674Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/2015/06/16/practice-in-senior-school-period/</loc>
+    <loc>http://yoursite.com/posts/2015/06/18/internet-marketing-views-of-developers/</loc>
     
     <lastmod>2020-06-21T06:45:28.674Z</lastmod>
     
@@ -317,13 +317,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/2014/08/22/linux-php-install/</loc>
-    
-    <lastmod>2020-06-21T06:45:28.668Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/posts/2014/08/24/nanjing-2014-youth-olympic-games/</loc>
     
     <lastmod>2020-06-21T06:45:28.668Z</lastmod>
@@ -352,21 +345,14 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/posts/2014/08/22/linux-php-install/</loc>
+    
+    <lastmod>2020-06-21T06:45:28.668Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/2014/06/29/using-command-to-control-service-on-windows/</loc>
-    
-    <lastmod>2020-06-21T06:45:28.667Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/2014/08/16/linux-apache-install/</loc>
-    
-    <lastmod>2020-06-21T06:45:28.667Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/2014/07/29/talking-about-sitemap/</loc>
     
     <lastmod>2020-06-21T06:45:28.667Z</lastmod>
     
@@ -387,6 +373,20 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/posts/2014/07/29/talking-about-sitemap/</loc>
+    
+    <lastmod>2020-06-21T06:45:28.667Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/2014/08/16/linux-apache-install/</loc>
+    
+    <lastmod>2020-06-21T06:45:28.667Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/2014/06/29/how-to-write-version-number/</loc>
     
     <lastmod>2020-06-21T06:45:28.666Z</lastmod>
@@ -394,14 +394,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/2014/06/29/uml-modeling-1/</loc>
+    <loc>http://yoursite.com/posts/2014/06/29/love-with-guitar/</loc>
     
     <lastmod>2020-06-21T06:45:28.666Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/2014/06/29/love-with-guitar/</loc>
+    <loc>http://yoursite.com/posts/2014/06/29/uml-modeling-1/</loc>
     
     <lastmod>2020-06-21T06:45:28.666Z</lastmod>
     
@@ -423,13 +423,6 @@
   
   <url>
     <loc>http://yoursite.com/posts/2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-b/</loc>
-    
-    <lastmod>2020-06-21T06:45:28.665Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/</loc>
     
     <lastmod>2020-06-21T06:45:28.665Z</lastmod>
     
@@ -458,6 +451,13 @@
   
   <url>
     <loc>http://yoursite.com/posts/2014/06/29/how-to-translate-var-name-between-camel-and-underline/</loc>
+    
+    <lastmod>2020-06-21T06:45:28.665Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/</loc>
     
     <lastmod>2020-06-21T06:45:28.665Z</lastmod>
     

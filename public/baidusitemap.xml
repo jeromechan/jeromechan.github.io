@@ -22,10 +22,10 @@
     <loc>http://yoursite.com/posts//2016/08/27/git-protocol//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts//2016/09/06/db-master-slave-pattern-rules//</loc>
+    <loc>http://yoursite.com/posts//2016/09/01/integrate-phpstorm-mamp-xdebug//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts//2016/09/01/integrate-phpstorm-mamp-xdebug//</loc>
+    <loc>http://yoursite.com/posts//2016/09/06/db-master-slave-pattern-rules//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts//2016/07/22/easy-chosing-opensource-license//</loc>
@@ -37,19 +37,19 @@
     <loc>http://yoursite.com/posts//2016/08/26/xrebel-tutorial//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts//2016/07/02/talk-about-middleman//</loc>
+    <loc>http://yoursite.com/posts//2016/07/01/how-to-make-a-project-plan//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts//2016/07/01/how-to-make-a-project-plan//</loc>
+    <loc>http://yoursite.com/posts//2016/07/02/talk-about-middleman//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts/2016/07/06/what-is-architecture//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts//2015/06/18/internet-marketing-views-of-developers//</loc>
+    <loc>http://yoursite.com/posts//2015/06/16/practice-in-senior-school-period//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts//2015/06/16/practice-in-senior-school-period//</loc>
+    <loc>http://yoursite.com/posts//2015/06/18/internet-marketing-views-of-developers//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts//2015/11/16/work-in-git//</loc>
@@ -112,9 +112,6 @@
     <loc>http://yoursite.com/posts//2014/10/07/nanjing-linggusi//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts//2014/08/22/linux-php-install//</loc>
-    <lastmod>2020-06-21</lastmod>
-  </url>  <url>
     <loc>http://yoursite.com/posts//2014/08/24/nanjing-2014-youth-olympic-games//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
@@ -127,13 +124,10 @@
     <loc>http://yoursite.com/posts//2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
+    <loc>http://yoursite.com/posts//2014/08/22/linux-php-install//</loc>
+    <lastmod>2020-06-21</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/posts//2014/06/29/using-command-to-control-service-on-windows//</loc>
-    <lastmod>2020-06-21</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/posts//2014/08/16/linux-apache-install//</loc>
-    <lastmod>2020-06-21</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/posts//2014/07/29/talking-about-sitemap//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts//2014/08/16/talking-about-linux-user-management//</loc>
@@ -142,13 +136,19 @@
     <loc>http://yoursite.com/posts//2014/08/21/how-to-install-php-apache-on-windows//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
+    <loc>http://yoursite.com/posts//2014/07/29/talking-about-sitemap//</loc>
+    <lastmod>2020-06-21</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts//2014/08/16/linux-apache-install//</loc>
+    <lastmod>2020-06-21</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/posts//2014/06/29/how-to-write-version-number//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts//2014/06/29/uml-modeling-1//</loc>
+    <loc>http://yoursite.com/posts//2014/06/29/love-with-guitar//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts//2014/06/29/love-with-guitar//</loc>
+    <loc>http://yoursite.com/posts//2014/06/29/uml-modeling-1//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts//2014/06/29/uml-modeling-2//</loc>
@@ -158,9 +158,6 @@
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts//2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-b//</loc>
-    <lastmod>2020-06-21</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/posts//2014/06/29/deal-with-route-path-sensitive-in-yii//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts//2014/06/29/git-basic-knowledge-1//</loc>
@@ -173,6 +170,9 @@
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts//2014/06/29/how-to-translate-var-name-between-camel-and-underline//</loc>
+    <lastmod>2020-06-21</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts//2014/06/29/deal-with-route-path-sensitive-in-yii//</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts//2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-a//</loc>
