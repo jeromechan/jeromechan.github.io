@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jinlongchen.com/links/index.html</loc>
+    <loc>https://jinlongchen.com/repository/index.html</loc>
     
     <lastmod>2020-06-21T22:53:44.421Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/repository/index.html</loc>
+    <loc>https://jinlongchen.com/links/index.html</loc>
     
     <lastmod>2020-06-21T22:53:44.421Z</lastmod>
     
@@ -23,14 +23,14 @@
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/books/bibliography.html</loc>
+    <loc>https://jinlongchen.com/books/index.html</loc>
     
     <lastmod>2020-06-21T22:53:44.345Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/books/index.html</loc>
+    <loc>https://jinlongchen.com/books/bibliography.html</loc>
     
     <lastmod>2020-06-21T22:53:44.345Z</lastmod>
     
@@ -58,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/about/index2.html</loc>
+    <loc>https://jinlongchen.com/about/index.html</loc>
     
     <lastmod>2020-06-21T22:53:44.344Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/about/index.html</loc>
+    <loc>https://jinlongchen.com/about/index2.html</loc>
     
     <lastmod>2020-06-21T22:53:44.344Z</lastmod>
     
@@ -79,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2016/12/02/funny-function-invoking-logic/</loc>
+    <loc>https://jinlongchen.com/posts/2016/12/06/git-fetch-among-branch/</loc>
     
     <lastmod>2020-06-21T22:53:44.343Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2016/12/06/git-fetch-among-branch/</loc>
+    <loc>https://jinlongchen.com/posts/2016/12/02/funny-function-invoking-logic/</loc>
     
     <lastmod>2020-06-21T22:53:44.343Z</lastmod>
     
@@ -114,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2016/08/26/xrebel-tutorial/</loc>
+    <loc>https://jinlongchen.com/posts/2016/08/27/git-protocol/</loc>
     
     <lastmod>2020-06-21T22:53:44.342Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2016/08/27/git-protocol/</loc>
+    <loc>https://jinlongchen.com/posts/2016/08/26/xrebel-tutorial/</loc>
     
     <lastmod>2020-06-21T22:53:44.342Z</lastmod>
     
@@ -156,14 +156,14 @@
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2016/07/01/how-to-make-a-project-plan/</loc>
+    <loc>https://jinlongchen.com/posts/2015/11/16/work-in-git/</loc>
     
     <lastmod>2020-06-21T22:53:44.341Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2015/11/16/work-in-git/</loc>
+    <loc>https://jinlongchen.com/posts/2016/07/01/how-to-make-a-project-plan/</loc>
     
     <lastmod>2020-06-21T22:53:44.341Z</lastmod>
     
@@ -352,14 +352,14 @@
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2014/08/22/linux-php-install/</loc>
+    <loc>https://jinlongchen.com/posts/2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2/</loc>
     
     <lastmod>2020-06-21T22:53:44.336Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2/</loc>
+    <loc>https://jinlongchen.com/posts/2014/08/22/linux-php-install/</loc>
     
     <lastmod>2020-06-21T22:53:44.336Z</lastmod>
     
@@ -380,14 +380,14 @@
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2014/06/29/how-to-translate-var-name-between-camel-and-underline/</loc>
+    <loc>https://jinlongchen.com/posts/2014/06/29/head-first-java-basic/</loc>
     
     <lastmod>2020-06-21T22:53:44.335Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2014/06/29/head-first-java-basic/</loc>
+    <loc>https://jinlongchen.com/posts/2014/06/29/how-to-translate-var-name-between-camel-and-underline/</loc>
     
     <lastmod>2020-06-21T22:53:44.335Z</lastmod>
     
@@ -450,14 +450,14 @@
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2014/06/29/git-basic-knowledge-1/</loc>
+    <loc>https://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/</loc>
     
     <lastmod>2020-06-21T22:53:44.334Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jinlongchen.com/posts/2014/06/29/deal-with-route-path-sensitive-in-yii/</loc>
+    <loc>https://jinlongchen.com/posts/2014/06/29/git-basic-knowledge-1/</loc>
     
     <lastmod>2020-06-21T22:53:44.334Z</lastmod>
     
