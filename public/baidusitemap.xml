@@ -40,9 +40,6 @@
     <loc>http://jinlongchen.com/posts//2015/06/18/internet-marketing-views-of-developers//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
-    <loc>http://jinlongchen.com/posts/2016/07/06/what-is-architecture//</loc>
-    <lastmod>2020-06-23</lastmod>
-  </url>  <url>
     <loc>http://jinlongchen.com/posts//2016/07/01/how-to-make-a-project-plan//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
@@ -52,13 +49,10 @@
     <loc>http://jinlongchen.com/posts//2015/06/16/practice-in-senior-school-period//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
+    <loc>http://jinlongchen.com/posts/2016/07/06/what-is-architecture//</loc>
+    <lastmod>2020-06-23</lastmod>
+  </url>  <url>
     <loc>http://jinlongchen.com/posts//2016/07/02/talk-about-middleman//</loc>
-    <lastmod>2020-06-23</lastmod>
-  </url>  <url>
-    <loc>http://jinlongchen.com/posts//2015/04/12/the-revolution-around-since-1978//</loc>
-    <lastmod>2020-06-23</lastmod>
-  </url>  <url>
-    <loc>http://jinlongchen.com/posts//2015/04/12/this-is-randy-proud-of-the-world//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
     <loc>http://jinlongchen.com/posts//2015/04/12/words-in-2012-the-first-time//</loc>
@@ -67,7 +61,13 @@
     <loc>http://jinlongchen.com/posts//2015/05/17/openfire-plugin-developer-guide-01//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
+    <loc>http://jinlongchen.com/posts//2015/04/12/this-is-randy-proud-of-the-world//</loc>
+    <lastmod>2020-06-23</lastmod>
+  </url>  <url>
     <loc>http://jinlongchen.com/posts//2015/06/11/php-regular-expression//</loc>
+    <lastmod>2020-06-23</lastmod>
+  </url>  <url>
+    <loc>http://jinlongchen.com/posts//2015/04/12/the-revolution-around-since-1978//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
     <loc>http://jinlongchen.com/posts//2015/02/13/testin-cn-survey-report//</loc>
@@ -118,10 +118,10 @@
     <loc>http://jinlongchen.com/posts//2014/08/21/how-to-install-php-apache-on-windows//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
-    <loc>http://jinlongchen.com/posts//2014/08/22/linux-php-install//</loc>
+    <loc>http://jinlongchen.com/posts//2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
-    <loc>http://jinlongchen.com/posts//2014/08/22/how-to-execute-php-and-java-single-file-on-sublime-text-2//</loc>
+    <loc>http://jinlongchen.com/posts//2014/08/22/linux-php-install//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
     <loc>http://jinlongchen.com/posts//2014/08/24/nanjing-2014-youth-olympic-games//</loc>
@@ -142,13 +142,13 @@
     <loc>http://jinlongchen.com/posts//2014/06/29/uml-modeling-3//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
-    <loc>http://jinlongchen.com/posts//2014/06/29/using-command-to-control-service-on-windows//</loc>
+    <loc>http://jinlongchen.com/posts//2014/08/16/linux-apache-install//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
     <loc>http://jinlongchen.com/posts//2014/07/29/talking-about-sitemap//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
-    <loc>http://jinlongchen.com/posts//2014/08/16/linux-apache-install//</loc>
+    <loc>http://jinlongchen.com/posts//2014/06/29/using-command-to-control-service-on-windows//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
     <loc>http://jinlongchen.com/posts//2014/06/29/deal-with-route-path-sensitive-in-yii//</loc>
@@ -166,10 +166,10 @@
     <loc>http://jinlongchen.com/posts//2014/06/29/how-to-translate-var-name-between-camel-and-underline//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
-    <loc>http://jinlongchen.com/posts//2014/06/29/how-to-write-version-number//</loc>
+    <loc>http://jinlongchen.com/posts//2014/06/29/love-with-guitar//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
-    <loc>http://jinlongchen.com/posts//2014/06/29/love-with-guitar//</loc>
+    <loc>http://jinlongchen.com/posts//2014/06/29/how-to-write-version-number//</loc>
     <lastmod>2020-06-23</lastmod>
   </url>  <url>
     <loc>http://jinlongchen.com/posts//2014/06/29/clean-code-a-handbook-of-agile-software-craftsmanship-a//</loc>
