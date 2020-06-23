@@ -44,12 +44,12 @@ config:
   menu_highlight: false # 是否开启当前菜单高亮显示
   thumbnail: false # enable posts thumbnail, options: true, false
   excerpt_link: Read More
-  force_https: true
+  force_https: false
   force_https_exclude: 'localhost:4000'
 
 # Pagination
 pagination:
-  number: false
+  number: true
   prev: 
     alwayShow: true
   next:
