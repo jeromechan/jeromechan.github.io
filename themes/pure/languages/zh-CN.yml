@@ -38,7 +38,7 @@ pagination:
   pageof: Page %d of %s
 widget:
   search: 搜索
-  board: 公告
+  board: 简介
   archive: 归档
   tags: 标签
   categories: 分类
