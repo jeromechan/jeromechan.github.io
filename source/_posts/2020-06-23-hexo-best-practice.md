@@ -1,5 +1,5 @@
 ---
-title: 透过Hexo静态站点探讨Serverless架构
+title: 透过Hexo静态站点探讨Serverless架构(一)
 date: 2020-06-23
 permalink: /2020/06/23/hexo-best-practice
 categories:
