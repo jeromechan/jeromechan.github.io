@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  <meta name="google-site-verification" content="kZrGtaFTqUHZa4IuNquFEQJfhRiwpvCRwiFXLFpiOI8" />
+  
+  
+  <title>透过Hexo静态站点探讨Serverless架构(一) | Jerome.明允的个人博客，一个理想主义者的日常</title>
+  <meta name="description" content="分享Hexo静态站点的构建步骤以及主题定制之旅，同时延伸探讨当前盛行的Serverless架构。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="透过Hexo静态站点探讨Serverless架构(一)">
+<meta property="og:url" content="https://jinlongchen.com/posts/2020/06/23/hexo-best-practice/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="分享Hexo静态站点的构建步骤以及主题定制之旅，同时延伸探讨当前盛行的Serverless架构。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937078276185.jpg">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937097798901.jpg">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937102869214.jpg">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937109150632.jpg">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937112195049.jpg">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937115176825.jpg">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937120365118.jpg">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937121567220.jpg">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937118312500.jpg">
+<meta property="og:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937136700715.jpg">
+<meta property="article:published_time" content="2020-06-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-07-02T18:41:50.037Z">
+<meta property="article:author" content="Jerome Chan">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Serverless">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jinlongchen.com/images/2020-06-23-hexo-best-practice/15937078276185.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://jinlongchen.com/posts/2020/06/23/hexo-best-practice/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="/" target="_self">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Jerome.明允</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hainan, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          
+            <a href="/.">
+          
+              
+                <i class="icon icon-home-fill"></i>
+              
+              <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          
+            <a href="/archives">
+          
+              
+                <i class="icon icon-archives-fill"></i>
+              
+              <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          
+            <a href="/categories">
+          
+              
+                <i class="icon icon-folder"></i>
+              
+              <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          
+            <a href="/tags">
+          
+              
+                <i class="icon icon-tags"></i>
+              
+              <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          
+            <a href="/repository">
+          
+              
+                <i class="icon icon-project"></i>
+              
+              <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          
+            <a href="/books">
+          
+              
+                <i class="icon icon-book-fill"></i>
+              
+              <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          
+            <a href="/links">
+          
+              
+                <i class="icon icon-friendship"></i>
+              
+              <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          
+            <a href="https://www.linkedin.com/in/chenjinlong/" target="_blank" rel="noopener">
+          
+              
+                <i class="icon icon-cup-fill"></i>
+              
+              <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jeromechan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/chenjinlong/" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+        <li><a href="https://twitter.com/jeromechan369" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="http://weibo.com/5812529126" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">简介</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一个理想主义者的日常</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E7%B1%BB1/">分类1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%8E%AF%E5%A2%83/">工具环境</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E8%A1%8C%E6%91%84%E5%BD%B1/">旅行摄影</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">架构设计</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/">生活感悟</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%A1%E7%90%86%E5%93%B2%E5%AD%A6/">管理哲学</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><span class="category-list-count">15</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2004%E5%84%8B%E5%B7%9E%E6%97%B1%E6%83%85/" rel="tag">2004儋州旱情</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2014%E5%B9%B4%E5%8D%97%E4%BA%AC%E9%9D%92%E5%A5%A5%E4%BC%9A/" rel="tag">2014年南京青奥会</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache%E5%AE%89%E8%A3%85/" rel="tag">Apache安装</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Build-System/" rel="tag">Build System</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/" rel="tag">Git分支合并</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-Switch/" rel="tag">JAVA Switch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LAMP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag">LAMP环境搭建</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%94%A8%E6%88%B7/" rel="tag">Linux用户</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ServerAlias/" rel="tag">ServerAlias</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ServerName/" rel="tag">ServerName</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Serverless/" rel="tag">Serverless</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sitemap-Protocol/" rel="tag">Sitemap Protocol</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Switch%E8%AF%AD%E5%8F%A5/" rel="tag">Switch语句</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WAMP/" rel="tag">WAMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache-linux-%E5%AE%89%E8%A3%85/" rel="tag">apache linux 安装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/architecture/" rel="tag">architecture</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concurrency/" rel="tag">concurrency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastjson/" rel="tag">fastjson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/feature-toggle/" rel="tag">feature toggle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-flow/" rel="tag">git flow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-flow/" rel="tag">github flow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git%E6%B5%81%E7%A8%8B/" rel="tag">git流程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/" rel="tag">git软件开发过程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/" rel="tag">jekyll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/" rel="tag">license</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">markdown基础知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleman/" rel="tag">middleman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mike-flow/" rel="tag">mike flow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openfire/" rel="tag">openfire</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openfire-plugin/" rel="tag">openfire plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opensource/" rel="tag">opensource</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/parallel-computing/" rel="tag">parallel computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/performance-monitor/" rel="tag">performance monitor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-linux-%E5%AE%89%E8%A3%85/" rel="tag">php linux 安装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php%E5%AE%89%E8%A3%85/" rel="tag">php安装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/presswork%E9%9D%A2%E5%8C%85%E5%B1%91/" rel="tag">presswork面包屑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/principles/" rel="tag">principles</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project-manage/" rel="tag">project manage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/protocol/" rel="tag">protocol</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/specification/" rel="tag">specification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text/" rel="tag">sublime text</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress-%E4%B8%BB%E9%A2%98/" rel="tag">wordpress 主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xdebug/" rel="tag">xdebug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xrebel/" rel="tag">xrebel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E6%B5%B7/" rel="tag">上海</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E6%B5%B7%E5%8D%8E%E4%B8%9C%E5%B8%88%E5%A4%A7/" rel="tag">上海华东师大</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E5%AD%A6%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/" rel="tag">中学社会实践</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%B8%82%E5%9C%BA/" rel="tag">互联网市场</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%90%A5%E9%94%80/" rel="tag">互联网营销</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%97%E4%BA%AC%E5%A5%A5%E4%BD%93%E4%B8%AD%E5%BF%83/" rel="tag">南京奥体中心</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%97%E4%BA%AC%E6%80%BB%E7%BB%9F%E5%BA%9C/" rel="tag">南京总统府</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%97%E4%BA%AC%E6%97%85%E6%B8%B8%E6%99%AF%E7%82%B9/" rel="tag">南京旅游景点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6%E5%86%9B%E8%AE%AD/" rel="tag">大学军训</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B4%BB/" rel="tag">大学生活</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" rel="tag">年度总结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%89%E4%BD%8D%E4%B8%8E/" rel="tag">按位与</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%89%E4%BD%8D%E6%88%96/" rel="tag">按位或</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%B9%BF/" rel="tag">推广</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%B9%E9%9D%A9%E5%BC%80%E6%94%BE/" rel="tag">改革开放</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8/" rel="tag">方法调用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE1/" rel="tag">标签1</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%9C%E6%A0%B7/" rel="tag">榜样</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%81%B5%E8%B0%B7%E5%AF%BA/" rel="tag">灵谷寺</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" rel="tag">版本发布</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A0%94%E5%8F%91%E4%BA%BA%E8%A7%82%E7%82%B9/" rel="tag">研发人观点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E6%83%85%E8%B0%83%E6%9F%A5/" rel="tag">社会实情调查</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/" rel="tag">系统运维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%87%86%E5%88%99/" rel="tag">编程准则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%84%E5%88%92%E9%A1%B9%E7%9B%AE%E6%97%A5%E7%A8%8B/" rel="tag">规划项目日程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC/" rel="tag">软件版本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%92%9F%E5%B1%B1%E9%A3%8E%E6%99%AF%E5%8C%BA/" rel="tag">钟山风景区</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%86%E5%AE%B6%E5%98%B4/" rel="tag">陆家嘴</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%92%E6%98%A5%E8%AE%B0%E5%BF%86/" rel="tag">青春记忆</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1/" rel="tag">面向对象设计</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90%E4%B9%8B%E6%97%85/" rel="tag">音乐之旅</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/2004%E5%84%8B%E5%B7%9E%E6%97%B1%E6%83%85/" style="font-size: 13px;">2004儋州旱情</a> <a href="/tags/2014%E5%B9%B4%E5%8D%97%E4%BA%AC%E9%9D%92%E5%A5%A5%E4%BC%9A/" style="font-size: 13px;">2014年南京青奥会</a> <a href="/tags/Apache%E5%AE%89%E8%A3%85/" style="font-size: 13.25px;">Apache安装</a> <a href="/tags/Build-System/" style="font-size: 13px;">Build System</a> <a href="/tags/Database/" style="font-size: 13px;">Database</a> <a href="/tags/Git/" style="font-size: 13.5px;">Git</a> <a href="/tags/Git%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/" style="font-size: 13px;">Git分支合并</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/JAVA-Switch/" style="font-size: 13px;">JAVA Switch</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/LAMP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 13.25px;">LAMP环境搭建</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Linux%E7%94%A8%E6%88%B7/" style="font-size: 13px;">Linux用户</a> <a href="/tags/PHP/" style="font-size: 13.25px;">PHP</a> <a href="/tags/ServerAlias/" style="font-size: 13px;">ServerAlias</a> <a href="/tags/ServerName/" style="font-size: 13px;">ServerName</a> <a href="/tags/Serverless/" style="font-size: 13px;">Serverless</a> <a href="/tags/Sitemap-Protocol/" style="font-size: 13px;">Sitemap Protocol</a> <a href="/tags/Switch%E8%AF%AD%E5%8F%A5/" style="font-size: 13px;">Switch语句</a> <a href="/tags/WAMP/" style="font-size: 13px;">WAMP</a> <a href="/tags/apache-linux-%E5%AE%89%E8%A3%85/" style="font-size: 13px;">apache linux 安装</a> <a href="/tags/architecture/" style="font-size: 13px;">architecture</a> <a href="/tags/concurrency/" style="font-size: 13px;">concurrency</a> <a href="/tags/fastjson/" style="font-size: 13px;">fastjson</a> <a href="/tags/feature-toggle/" style="font-size: 13px;">feature toggle</a> <a href="/tags/git-flow/" style="font-size: 13px;">git flow</a> <a href="/tags/github-flow/" style="font-size: 13px;">github flow</a> <a href="/tags/git%E6%B5%81%E7%A8%8B/" style="font-size: 13px;">git流程</a> <a href="/tags/git%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B/" style="font-size: 13px;">git软件开发过程</a> <a href="/tags/jekyll/" style="font-size: 13px;">jekyll</a> <a href="/tags/license/" style="font-size: 13px;">license</a> <a href="/tags/markdown/" style="font-size: 13px;">markdown</a> <a href="/tags/markdown%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 13px;">markdown基础知识</a> <a href="/tags/middleman/" style="font-size: 13px;">middleman</a> <a href="/tags/mike-flow/" style="font-size: 13px;">mike flow</a> <a href="/tags/openfire/" style="font-size: 13px;">openfire</a> <a href="/tags/openfire-plugin/" style="font-size: 13px;">openfire plugin</a> <a href="/tags/opensource/" style="font-size: 13px;">opensource</a> <a href="/tags/parallel-computing/" style="font-size: 13px;">parallel computing</a> <a href="/tags/performance-monitor/" style="font-size: 13px;">performance monitor</a> <a href="/tags/php/" style="font-size: 13px;">php</a> <a href="/tags/php-linux-%E5%AE%89%E8%A3%85/" style="font-size: 13px;">php linux 安装</a> <a href="/tags/php%E5%AE%89%E8%A3%85/" style="font-size: 13px;">php安装</a> <a href="/tags/presswork%E9%9D%A2%E5%8C%85%E5%B1%91/" style="font-size: 13px;">presswork面包屑</a> <a href="/tags/principles/" style="font-size: 13px;">principles</a> <a href="/tags/project-manage/" style="font-size: 13px;">project manage</a> <a href="/tags/protocol/" style="font-size: 13px;">protocol</a> <a href="/tags/specification/" style="font-size: 13px;">specification</a> <a href="/tags/sublime-text/" style="font-size: 13px;">sublime text</a> <a href="/tags/wordpress/" style="font-size: 13px;">wordpress</a> <a href="/tags/wordpress-%E4%B8%BB%E9%A2%98/" style="font-size: 13px;">wordpress 主题</a> <a href="/tags/xdebug/" style="font-size: 13px;">xdebug</a> <a href="/tags/xrebel/" style="font-size: 13px;">xrebel</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 13px;">上海</a> <a href="/tags/%E4%B8%8A%E6%B5%B7%E5%8D%8E%E4%B8%9C%E5%B8%88%E5%A4%A7/" style="font-size: 13px;">上海华东师大</a> <a href="/tags/%E4%B8%AD%E5%AD%A6%E7%A4%BE%E4%BC%9A%E5%AE%9E%E8%B7%B5/" style="font-size: 13px;">中学社会实践</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%B8%82%E5%9C%BA/" style="font-size: 13px;">互联网市场</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%90%A5%E9%94%80/" style="font-size: 13px;">互联网营销</a> <a href="/tags/%E5%8D%97%E4%BA%AC%E5%A5%A5%E4%BD%93%E4%B8%AD%E5%BF%83/" style="font-size: 13px;">南京奥体中心</a> <a href="/tags/%E5%8D%97%E4%BA%AC%E6%80%BB%E7%BB%9F%E5%BA%9C/" style="font-size: 13px;">南京总统府</a> <a href="/tags/%E5%8D%97%E4%BA%AC%E6%97%85%E6%B8%B8%E6%99%AF%E7%82%B9/" style="font-size: 13px;">南京旅游景点</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 13px;">大学</a> <a href="/tags/%E5%A4%A7%E5%AD%A6%E5%86%9B%E8%AE%AD/" style="font-size: 13.25px;">大学军训</a> <a href="/tags/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B4%BB/" style="font-size: 13.5px;">大学生活</a> <a href="/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" style="font-size: 13px;">年度总结</a> <a href="/tags/%E6%8C%89%E4%BD%8D%E4%B8%8E/" style="font-size: 13px;">按位与</a> <a href="/tags/%E6%8C%89%E4%BD%8D%E6%88%96/" style="font-size: 13px;">按位或</a> <a href="/tags/%E6%8E%A8%E5%B9%BF/" style="font-size: 13px;">推广</a> <a href="/tags/%E6%94%B9%E9%9D%A9%E5%BC%80%E6%94%BE/" style="font-size: 13px;">改革开放</a> <a href="/tags/%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8/" style="font-size: 13px;">方法调用</a> <a href="/tags/%E6%A0%87%E7%AD%BE1/" style="font-size: 13px;">标签1</a> <a href="/tags/%E6%A6%9C%E6%A0%B7/" style="font-size: 13px;">榜样</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13px;">正则表达式</a> <a href="/tags/%E7%81%B5%E8%B0%B7%E5%AF%BA/" style="font-size: 13px;">灵谷寺</a> <a href="/tags/%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" style="font-size: 13px;">版本发布</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 13px;">生活</a> <a href="/tags/%E7%A0%94%E5%8F%91%E4%BA%BA%E8%A7%82%E7%82%B9/" style="font-size: 13px;">研发人观点</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AE%9E%E6%83%85%E8%B0%83%E6%9F%A5/" style="font-size: 13px;">社会实情调查</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/" style="font-size: 13px;">系统运维</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%87%86%E5%88%99/" style="font-size: 13px;">编程准则</a> <a href="/tags/%E8%A7%84%E5%88%92%E9%A1%B9%E7%9B%AE%E6%97%A5%E7%A8%8B/" style="font-size: 13px;">规划项目日程</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">读书笔记</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC/" style="font-size: 13px;">软件版本</a> <a href="/tags/%E9%92%9F%E5%B1%B1%E9%A3%8E%E6%99%AF%E5%8C%BA/" style="font-size: 13px;">钟山风景区</a> <a href="/tags/%E9%99%86%E5%AE%B6%E5%98%B4/" style="font-size: 13px;">陆家嘴</a> <a href="/tags/%E9%9D%92%E6%98%A5%E8%AE%B0%E5%BF%86/" style="font-size: 14px;">青春记忆</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1/" style="font-size: 13.75px;">面向对象设计</a> <a href="/tags/%E9%9F%B3%E4%B9%90%E4%B9%8B%E6%97%85/" style="font-size: 13px;">音乐之旅</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 13.25px;">项目管理</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">六月 2014</a><span class="archive-list-count">13</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%88%86%E7%B1%BB1/">分类1</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-02T18:41:50.037Z" itemprop="datePublished">2020-07-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">架构设计</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/2020/06/23/hexo-best-practice/" class="title">透过Hexo静态站点探讨Serverless架构(一)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-22T16:00:00.000Z" itemprop="datePublished">2020-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">架构设计</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/2017/05/16/programming-principles/" class="title">Programming Principles(编程准则)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-05-16T01:00:00.000Z" itemprop="datePublished">2017-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">架构设计</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/2016/12/19/parallel-of-buying-scenario/" class="title">并发场景实践方案优劣评析</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-12-19T01:00:00.000Z" itemprop="datePublished">2016-12-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%8E%AF%E5%A2%83/">工具环境</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/2016/12/06/git-fetch-among-branch/" class="title">Git协作之合并代码</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-12-06T01:00:00.000Z" itemprop="datePublished">2016-12-06</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-/2020/06/23/hexo-best-practice" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      透过Hexo静态站点探讨Serverless架构(一)
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/2020/06/23/hexo-best-practice/" class="article-date">
+	  <time datetime="2020-06-22T16:00:00.000Z" itemprop="datePublished">2020-06-23</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">架构设计</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="article-tag-link" href="/tags/Serverless/" rel="tag">Serverless</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/2020/06/23/hexo-best-practice/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h4 id="一、静态站点的概念与使用场景"><a href="#一、静态站点的概念与使用场景" class="headerlink" title="一、静态站点的概念与使用场景"></a>一、静态站点的概念与使用场景</h4><p>在开始介绍静态站点之前，我们来先聊一聊动态站点，而动态站点中最为经典的莫过于CS架构。<br>关于CS架构的站点及其用途，其覆盖面毋庸置疑，日常技术开发工作也已经司空见惯，各类电商网站，移动App，微信平台小程序等应用均离不开客户端与服务端，客户端负责提供统一用户体验，而服务端则负责处理交互的数据流转与处理。<br>尽管CS架构的应用如此广泛，但并不代表着CO架构的站点没有立足之地。</p>
+<p>静态站点，即该站点是纯静态的，不具备Server端数据请求与用户交互特性，本篇文章对于该类站点称之为CO(Client Only)架构的站点。<br>个人博客、企业简介官网等展示类的站点，其主要功能与站点目的只是将信息po到网络上，使其公开、可视与共享，而不涉及负责的产品、订单、留言等交互功能。针对这类场景应用，纯静态站点具有其天生的优势：</p>
+<ul>
+<li>内容编辑与维护便捷，所见即所得；</li>
+<li>省去了Client到Server端的网络流转，站点内容加载速度快；</li>
+</ul>
+<p>在开源的世界里，关于静态站点的技术框架应用较为广泛的属Jekyll与Hexo，二者均可直接托管于GitHub容器内，为用户省去了服务器租用费用的开销。<br>Jekyll是一款Ruby生态圈衍生出来的静态站点生成框架，Hexo则是Node.js生态圈的产物，二者要求的底层技术知识有所区别。在选用的时候，请选择自己熟悉的擅长的就好，二者在生产出的静态站点成品上对于普通用户而言，并无太大区别。<br>Jekyll与Hexo在主题定制方面都拥有着不错的社区，用的时候可以自己去对应的社区挑选自己喜爱的主题作为二次定制开发的基础。</p>
+<p>本篇文章主要Focus在Hexo的应用上，而在过去的日子里，对于Jekyll已经有了一定成品研究，如果感兴趣可以前往本人GitHub上的项目进行观摩、留言与交流：<br>GitHub项目：<a href="https://github.com/jeromechan/hyde-for-jekyll-v3" target="_blank" rel="noopener">hyde-for-jekyll-v3</a><br>这是一个不错的，可定制性很强的一个主题。在原项目poole/hyde的基础上，本人作了版本升级与功能定制开发，更符合国内用户的使用习惯。</p>
+<h4 id="二、准备Hexo开发环境与工具"><a href="#二、准备Hexo开发环境与工具" class="headerlink" title="二、准备Hexo开发环境与工具"></a>二、准备Hexo开发环境与工具</h4><p>正所谓工欲善其事，必先利其器。我们先来说说折腾Hexo静态站点生成器所需要准备的各类资源，其中包含环境配置、工具安装、资料阅读等方面。本篇文章主要基于macOS环境开展讲解，同样也适用于Windows平台上的运用。</p>
+<ul>
+<li>Hexo官方网站：<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a><br>学习如何安装Hexo、执行Hexo站点部署与调试的基本操作。</li>
+<li>Hexo官方主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>很多很赞的官方主题供你随意挑选。</li>
+<li>Node.js官方网站：<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/</a><br>这是Hexo框架的底层依赖，必须先安装好才便于更好地使用Hexo。</li>
+<li>EJS模板引擎：<a href="https://ejs.co/" target="_blank" rel="noopener">https://ejs.co/</a><br>这是示例中pure主题所使用到的JS模板引擎，基础的标签和模板语言需要简要学习一番。</li>
+<li>TAWK.to插件：<a href="https://www.tawk.to/" target="_blank" rel="noopener">https://www.tawk.to/</a><br>tawk.to是一个在线聊天插件，可以运用于静态站点，场景可以是提供用户文章留言、意见反馈、在线聊天等。</li>
+<li>cofess/hexo-theme-pure主题（案例）：<a href="https://github.com/cofess/hexo-theme-pure" target="_blank" rel="noopener">https://github.com/cofess/hexo-theme-pure</a><br>适用于最新版本Hexo的hexo-theme-pure主题，本篇文章的讲述基于该主题逐步开展。该主题也是我个人博客的基础主题。</li>
+</ul>
+<h4 id="三、Hexo静态站点搭建步骤"><a href="#三、Hexo静态站点搭建步骤" class="headerlink" title="三、Hexo静态站点搭建步骤"></a>三、Hexo静态站点搭建步骤</h4><ol>
+<li><p>安装node.js<br>如下图，下载安装文件并进行安装。建议下载LTS版本的进行安装，LTS即Long-term support长期维护版本，相较其它版本的稳定性更佳。<br><img src="/images/2020-06-23-hexo-best-practice/15937078276185.jpg" alt="-w811"></p>
+</li>
+<li><p>安装Hexo框架<br>打开terminal，敲入命令进行安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化一个Hexo静态站点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载并安装cofess/hexo-theme-pure主题<br>在<code>blog</code>目录下，执行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/cofess/hexo-theme-pure.git themes/pure</span><br></pre></td></tr></table></figure>
+<p>然后，修改hexo根目录<code>/blog</code>下的<code>blog/_config.yml</code>文件，修改配置为<code>theme: pure</code>。<br>额外地，如果需要完全使用pure主题所具备的特性，如下插件建议安装，如下命令：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hexo-wordcount</span></span><br><span class="line">npm install hexo-wordcount --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo-generator-json-content</span></span><br><span class="line">npm install hexo-generator-json-content --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo-generator-feed</span></span><br><span class="line">npm install hexo-generator-feed --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo-generator-sitemap</span></span><br><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo-generator-baidu-sitemap</span></span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p>关于pure主题更多的优化点，请参考：<a href="https://github.com/cofess/hexo-theme-pure#blog-optimization" target="_blank" rel="noopener">https://github.com/cofess/hexo-theme-pure#blog-optimization</a></p>
+<ol start="5">
+<li>启动Hexo静态站点<code>blog</code><br>在<code>blog</code>目录下执行命令，启动静态站点本地调试环境。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server --debug</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="四、cofess-hexo-theme-pure改造思路与定制性开发"><a href="#四、cofess-hexo-theme-pure改造思路与定制性开发" class="headerlink" title="四、cofess/hexo-theme-pure改造思路与定制性开发"></a>四、cofess/hexo-theme-pure改造思路与定制性开发</h4><ol>
+<li><p>修复分页功能显示源代码问题<br>原因系<code>paginator()</code>方法内对传入的html源代码作了转义，而在页面渲染之时却未恢复为原样，导致页面渲染出现了html源代码。<br><img src="/images/2020-06-23-hexo-best-practice/15937097798901.jpg" alt="-w913"></p>
+</li>
+<li><p>移除冗余的篇章末签名功能块<br>（1）增加_config.yml配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># post page configurations</span></span><br><span class="line"><span class="attr">postConfig:</span></span><br><span class="line">  <span class="attr">signature:</span> <span class="literal">false</span> <span class="comment">#是否在post底部展示站点作者签名</span></span><br></pre></td></tr></table></figure>
+<p>（2）修改copyright.ejs，实现篇章末的前面功能块被隐藏<br>if判断条件新增条件<code>&amp;&amp; theme.postConfig.signature</code>。<br><img src="/images/2020-06-23-hexo-best-practice/15937102869214.jpg" alt="-w946"></p>
+</li>
+<li><p>新增与配置gitalk评论模块<br>（1）注册GitHub OAuth application<br><a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a><br><img src="/images/2020-06-23-hexo-best-practice/15937109150632.jpg" alt="-w742"></p>
+</li>
+</ol>
+<p>（2）配置pure主题的_config.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">gitalk:</span> <span class="comment"># gitalk. https://gitalk.github.io/</span></span><br><span class="line">    <span class="attr">owner:</span>  <span class="string">jeromechan</span> <span class="comment">#必须. GitHub repository 所有者，可以是个人或者组织。</span></span><br><span class="line">    <span class="attr">admin:</span>  <span class="string">jeromechan</span> <span class="comment">#必须. GitHub repository 的所有者和合作者 (对这个 repository 有写权限的用户)。</span></span><br><span class="line">    <span class="attr">repo:</span> <span class="string">jeromechan.github.io</span> <span class="comment">#必须. GitHub repository.</span></span><br><span class="line">    <span class="attr">ClientID:</span> <span class="string">ecf46d673fc8c48a8f6f</span> <span class="comment">#必须. GitHub Application Client ID.</span></span><br><span class="line">    <span class="attr">ClientSecret:</span> <span class="string">268a6dcde075fd5cc3e2f3e676c93cbde3868c3e</span> <span class="comment">#必须. GitHub Application Client Secret.</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>修复豆瓣书单openAPI过期失效问题<br>（1）原豆瓣openAPI已失效，改到新的接口调用上<br><img src="/images/2020-06-23-hexo-best-practice/15937112195049.jpg" alt="-w839"><br>（2）更换pure主题_config.yml配置中的豆瓣openAPI请求秘钥</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">douban:</span></span><br><span class="line">  <span class="attr">user:</span> <span class="number">205387900</span> <span class="comment"># 豆瓣用户名</span></span><br><span class="line">  <span class="attr">start:</span> <span class="number">0</span> <span class="comment"># 从哪一条记录开始</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">100</span> <span class="comment"># 获取豆瓣书单数据条数</span></span><br><span class="line">  <span class="attr">apikey:</span> <span class="string">0df993c66c0c636e29ecbb5344252a4a</span> <span class="comment"># 网络流传 ApiKey 0df993c66c0c636e29ecbb5344252a4a 0b2bdeda43b5688921839c8ecb20399b</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增tawk.to插件的支持<br>（1）新增tawk-to.ejs文件<br><img src="/images/2020-06-23-hexo-best-practice/15937115176825.jpg" alt="-w836"></p>
+</li>
+</ol>
+<p>（2）将tawk-to.ejs内容进行动态加载<br>修改<code>themes/pure/layout/_common/script.ejs</code>，新增加载<code>tawk-to.ejs</code>文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(&#39;_script&#x2F;tawk-to&#39;) %&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><p>更改菜单“关于”的超链接至LinkedIn<br>（1）修改pure主题下的_config.yml配置如下<br><img src="/images/2020-06-23-hexo-best-practice/15937120365118.jpg" alt="-w811"><br>（2）更改header.ejs，完善内容的呈现逻辑<br>判断若文本内容为https或http开头，则以超链接形式进行<code>&lt;a&gt;</code>标签渲染，否则直接渲染文本。<br><img src="/images/2020-06-23-hexo-best-practice/15937121567220.jpg" alt="-w870"></p>
+</li>
+<li><p>更改博文url pattern配置<br>修改项目<code>blog</code>目录下的<code>_config.yml</code>配置。<br><img src="/images/2020-06-23-hexo-best-practice/15937118312500.jpg" alt="-w794"></p>
+</li>
+</ol>
+<h4 id="五、在Hexo静态站点DevOps自动化方面做的一些改善"><a href="#五、在Hexo静态站点DevOps自动化方面做的一些改善" class="headerlink" title="五、在Hexo静态站点DevOps自动化方面做的一些改善"></a>五、在Hexo静态站点DevOps自动化方面做的一些改善</h4><p>关于如何将Hexo静态站点托管到GitHub Pages上的操作流程，以及如何使用GitHub Pages实现Https加密配置，使用搜索引擎Google可以得到非常多的Tips和博文，这里就不再赘述。这里会额外讲述一下Hexo静态站点项目在DevOps自动化部署上的一些新的尝试。</p>
+<p>GitHub原生支持Jekyll站点项目，无需额外生成全部静态站点文件即可部署使用。与Jekyll不同，Hexo需完全编译并生成全部静态站点文件才可部署到GitHub Pages上使用。故而Hexo项目的部署流程略复杂于Jekyll。<br><img src="/images/2020-06-23-hexo-best-practice/15937136700715.jpg" alt="-w525"></p>
+<p>针对<code>Core Operations: gen&amp;sync</code>，通过shell脚本完成其自动化部署流程数最为便捷的实践方案。其实现细节与流程步骤如下源码所示：<br>源代码：<a href="https://github.com/jeromechan/jeromechan.github.io/blob/source-hexo/deploy.sh" target="_blank" rel="noopener">https://github.com/jeromechan/jeromechan.github.io/blob/source-hexo/deploy.sh</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"执行开始"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A script to build a Hexo site</span></span><br><span class="line">REPO_NAME=<span class="string">"jeromechan.github.io"</span></span><br><span class="line">BRANCH_SOURCE=<span class="string">"source-hexo"</span></span><br><span class="line">BRANCH_MASTER=<span class="string">"master"</span></span><br><span class="line">CURRENT_DIR=<span class="variable">$&#123;PWD&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 0. 完善当前构建环境的依赖</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"0. 完善当前构建环境的依赖，执行yarn install"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line">yarn install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 切换至source-hexo分支下，执行hexo clean &amp; hexo generate</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"1. 切换至source-hexo分支下，执行hexo clean &amp; hexo generate"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line">git checkout <span class="variable">$BRANCH_SOURCE</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 执行git add * &amp; git commit -am 'Auto update file using hexo-deploy.sh script.' &amp; git push</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"2. 执行git add * &amp; git commit -am 'Auto update file using hexo-deploy.sh script.' &amp; git push"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line">git add *</span><br><span class="line">git commit -am <span class="string">'Auto update file using hexo-deploy.sh script.'</span></span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 将public文件夹内容拷贝至/tmp/jeromechan.github.io，额外包含项目目录下的"CNAME"文件</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"3. 将public文件夹内容拷贝至/tmp/jeromechan.github.io，额外包含项目目录下的'CNAME'文件"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line">rm -rf /tmp/<span class="variable">$REPO_NAME</span></span><br><span class="line">cp -r ./public/ /tmp/<span class="variable">$REPO_NAME</span></span><br><span class="line">cp ./CNAME /tmp/<span class="variable">$REPO_NAME</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 切换至master分支下，删除所有非隐藏的项目文件，然后执行git commit -am 'Auto reset master files using hexo-deploy.sh script.'</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"4. 切换至master分支下，删除所有非隐藏的项目文件，然后执行git commit -am 'Auto reset master files using hexo-deploy.sh script.'"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line">git checkout <span class="variable">$BRANCH_MASTER</span></span><br><span class="line">rm -r <span class="variable">$CURRENT_DIR</span>/*</span><br><span class="line">git commit -am <span class="string">'Auto reset master files using hexo-deploy.sh script.'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 将/tmp/jeromechan.github.io文件内容全部拷贝至master分支下</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"5. 将/tmp/jeromechan.github.io文件内容全部拷贝至master分支下"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line">cp -r /tmp/<span class="variable">$REPO_NAME</span>/* ./</span><br><span class="line">rm -rf /tmp/<span class="variable">$REPO_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 执行git add * &amp; git commit -am 'Refresh and add master files using hexo-deploy.sh script.' &amp; git push</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"6. 执行git add * &amp; git commit -am 'Refresh and add master files using hexo-deploy.sh script.' &amp; git push"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line">git add *</span><br><span class="line">git commit -am <span class="string">'Refresh and add master files using hexo-deploy.sh script.'</span></span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 切换至source-hexo分支下</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"7. 切换至source-hexo分支下"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line">git checkout <span class="variable">$BRANCH_SOURCE</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"执行完成"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"###########################################################"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="六、篇末总结"><a href="#六、篇末总结" class="headerlink" title="六、篇末总结"></a>六、篇末总结</h4><p>以上实现细节均可参考项目源码实现：<br>GitHub项目地址：<a href="https://github.com/jeromechan/jeromechan.github.io/tree/source-hexo" target="_blank" rel="noopener">https://github.com/jeromechan/jeromechan.github.io/tree/source-hexo</a></p>
+<p>透过以上Hexo静态站点的实践，我们可以了解到静态站点的优缺点，如何快速运用Hexo静态站点来构建自己的个人博客站点。同时通过在Hexo主题部分的定制化优化与改造，快速上手与提高Hexo开发技能。相信通过这篇文章，大家都可以学习到自己需要的知识点。后续还将撰写续篇，通过Hexo架构深入探讨当前业界盛行的Serverless架构设计。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://jinlongchen.com/posts/2020/06/23/hexo-best-practice/" title="透过Hexo静态站点探讨Serverless架构(一)" target="_blank" rel="external">https://jinlongchen.com/posts/2020/06/23/hexo-best-practice/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/hello-world/" title="Hello World"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/2017/05/16/programming-principles/" title="Programming Principles(编程准则)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,wechat"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jeromechan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/chenjinlong/" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+        <li><a href="https://twitter.com/jeromechan369" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="http://weibo.com/5812529126" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2013-2020 Jerome Chan
+        
+<!--        <div class="publishby">-->
+<!--        	< %= __('copyright.theme_by') % > <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.-->
+<!--        </div>-->
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'ecf46d673fc8c48a8f6f',
+    clientSecret: '268a6dcde075fd5cc3e2f3e676c93cbde3868c3e',
+    repo: 'jeromechan.github.io',
+    owner: 'jeromechan',
+    admin: ['jeromechan'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+    <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-170203595-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NB2ZGL7KY"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9NB2ZGL7KY');
+</script>
+
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5ef0c49e9e5f694422911434/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+
+</body>
+</html>
