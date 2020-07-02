@@ -116,6 +116,7 @@ menu:
   Links: links # 友链
   About: about # 关于
 
+
 # 导航菜单图标（font awesome）
 menu_icons:
   enable: true # 是否启用菜单图标
